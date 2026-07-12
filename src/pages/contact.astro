@@ -1,0 +1,119 @@
+---
+// /contact — form → /api/contact → Resend → jon@alwaysbequitting.com
+import Base from '../layouts/Base.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import '../styles/home.css';
+---
+
+<Base
+  title="Contact | Always Be Quitting"
+  description="Get in touch with Jon at Always Be Quitting."
+>
+  <SiteHeader />
+
+  <main class="band band--mist" style="padding-block: clamp(3.5rem, 7vw, 5.5rem)">
+    <div class="wrap" style="max-width:720px">
+      <p class="kicker">Contact</p>
+      <h1 class="display-lg" style="margin-top:1rem">Ask me anything about <em>quitting.</em></h1>
+      <p style="color:var(--soft); margin:1.2rem 0 2rem; font-size:1.1rem">
+        Not sure whether the community or 1:1 coaching is right for you? Say so — I'll give you a straight answer,
+        including "neither, yet." I typically reply within 1–2 business days.
+      </p>
+
+      <div id="sent-banner" class="banner banner--ok" hidden>
+        <strong>Message sent.</strong> Thanks — I'll get back to you soon. — Jon
+      </div>
+      <div id="error-banner" class="banner banner--err" hidden>
+        <strong>Something went wrong.</strong> Your message didn't send — please try again, or email me directly
+        at <a href="mailto:jon@alwaysbequitting.com">jon@alwaysbequitting.com</a>.
+      </div>
+
+      <form class="contact-form" method="post" action="/api/contact">
+        <label>
+          Your name
+          <input type="text" name="name" required maxlength="200" autocomplete="name" />
+        </label>
+        <label>
+          Your email
+          <input type="email" name="email" required maxlength="200" autocomplete="email" />
+        </label>
+        <label>
+          Your message
+          <textarea name="message" rows="7" required maxlength="5000"></textarea>
+        </label>
+        <!-- honeypot -->
+        <label class="hp" aria-hidden="true">Company<input type="text" name="company" tabindex="-1" autocomplete="off" /></label>
+        <button class="btn btn--cta" type="submit">Send message</button>
+      </form>
+
+      <p style="color:var(--soft); font-size:0.9rem; margin-top:1.6rem">
+        Prefer email? <a href="mailto:jon@alwaysbequitting.com">jon@alwaysbequitting.com</a> · Please don't send
+        private health information — email isn't a secure medium (see our <a href="/privacy">Privacy Policy</a>).
+      </p>
+    </div>
+  </main>
+
+  <SiteFooter />
+</Base>
+
+<style>
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    background: var(--white);
+    border: 2px solid var(--ink);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 12px 12px 0 color-mix(in srgb, var(--teal) 30%, transparent);
+  }
+  .contact-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    font: 700 0.92rem/1 var(--font-body);
+    color: var(--ink);
+  }
+  .contact-form input,
+  .contact-form textarea {
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 0.85rem 1rem;
+    font: 500 1rem/1.5 var(--font-body);
+    background: var(--white);
+  }
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    outline: 3px solid color-mix(in srgb, var(--blue) 40%, transparent);
+  }
+  .contact-form .btn {
+    align-self: flex-start;
+  }
+  .hp {
+    position: absolute !important;
+    left: -9999px;
+  }
+  .banner {
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 1.4rem;
+    font-size: 0.98rem;
+  }
+  .banner--ok {
+    background: color-mix(in srgb, var(--teal) 12%, var(--white));
+    border: 2px solid var(--teal);
+    color: var(--ink);
+  }
+  .banner--err {
+    background: color-mix(in srgb, var(--cta) 12%, var(--white));
+    border: 2px solid var(--cta-shadow);
+    color: var(--ink);
+  }
+</style>
+
+<script>
+  const params = new URLSearchParams(location.search);
+  if (params.get('sent')) document.getElementById('sent-banner')?.removeAttribute('hidden');
+  if (params.get('error')) document.getElementById('error-banner')?.removeAttribute('hidden');
+</script>

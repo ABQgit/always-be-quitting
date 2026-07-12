@@ -1,12 +1,99 @@
 <footer class="footer">
-  <div class="wrap">
-    <p>
-      Medical disclaimer: the content, programs, and services offered by ABQ are for education only. This is not
-      medical or mental health treatment. [full existing copy in copy phase]
-    </p>
-    <p>
-      <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/contact">Contact</a> ·
-      <a href="/podcast">Podcast</a> · © 2026 Motivation and Mindset Studios, LLC
-    </p>
+  <div class="wrap footer__grid">
+    <div class="footer__brand">
+      <p class="footer__logo">ALWAYS BE QUITTING</p>
+      <p class="footer__tagline">Always be quitting… until you've quit for the last time.</p>
+      <p class="footer__disclaimer">
+        <strong>Medical Disclaimer:</strong> The content, programs, and services offered by ABQ are for education
+        only. This is not medical or mental health treatment. You assume all risks if you choose to apply it to
+        yourself or others. Consult with your health care provider regarding the appropriateness of it to your
+        situation. See our <a href="/terms">Terms and Conditions</a> for complete details.
+      </p>
+    </div>
+    <nav class="footer__col" aria-label="Work with Jon">
+      <p class="footer__heading">Work With Jon</p>
+      <a href="/community">The ABQ Community</a>
+      <a href="/coaching">1:1 Coaching</a>
+      <a href="/free-guide">Free Quick-Start Guide</a>
+    </nav>
+    <nav class="footer__col" aria-label="More">
+      <p class="footer__heading">More</p>
+      <a href="/about">About Jon</a>
+      <a href="/contact">Contact</a>
+      <a href="/podcast">Podcast</a>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms and Conditions</a>
+    </nav>
+  </div>
+  <div class="footer__bottom">
+    <div class="wrap">© 2026 Motivation and Mindset Studios, LLC · Blacksburg, VA</div>
   </div>
 </footer>
+
+<style>
+  .footer {
+    background: var(--teal-deep);
+    color: color-mix(in srgb, var(--white) 80%, var(--teal-deep));
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+  .footer__grid {
+    display: grid;
+    gap: 2.4rem;
+    padding-block: 3.2rem 2.4rem;
+  }
+  @media (min-width: 860px) {
+    .footer__grid {
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 4rem;
+    }
+  }
+  .footer__logo {
+    font: 800 1rem/1 var(--font-body);
+    letter-spacing: 0.08em;
+    color: var(--white);
+    margin: 0 0 0.7rem;
+  }
+  .footer__tagline {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--gold);
+    margin: 0 0 1.1rem;
+  }
+  .footer__disclaimer {
+    font-size: 0.8rem;
+    color: color-mix(in srgb, var(--white) 62%, var(--teal-deep));
+    margin: 0;
+  }
+  .footer__disclaimer a {
+    color: color-mix(in srgb, var(--white) 85%, var(--teal-deep));
+  }
+  .footer__heading {
+    font: 800 0.72rem/1 var(--font-body);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 0 0 0.9rem;
+  }
+  .footer__col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+  .footer__col a {
+    color: color-mix(in srgb, var(--white) 82%, var(--teal-deep));
+    text-decoration: none;
+  }
+  .footer__col a:hover {
+    color: var(--white);
+    text-decoration: underline;
+  }
+  .footer__bottom {
+    border-top: 1px solid color-mix(in srgb, var(--white) 16%, transparent);
+    padding-block: 1.1rem;
+    font-size: 0.8rem;
+    text-align: center;
+    color: color-mix(in srgb, var(--white) 55%, var(--teal-deep));
+  }
+</style>

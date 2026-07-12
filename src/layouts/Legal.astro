@@ -1,0 +1,65 @@
+---
+// Shared layout for legal pages. Content ported VERBATIM from the live site
+// (Jon's requirement, 2026-07-11) — do not edit legal wording without Jon.
+import Base from './Base.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import '../styles/home.css';
+
+interface Props {
+  title: string;
+  description: string;
+  heading: string;
+}
+const { title, description, heading } = Astro.props;
+---
+
+<Base title={title} description={description}>
+  <SiteHeader />
+  <main class="band band--white">
+    <div class="wrap legal">
+      <h1 class="display-lg">{heading}</h1>
+      <slot />
+    </div>
+  </main>
+  <SiteFooter />
+</Base>
+
+<style is:global>
+  .legal {
+    max-width: 780px;
+    padding-block: clamp(3rem, 6vw, 5rem);
+  }
+  .legal h1 {
+    margin-bottom: 2rem;
+  }
+  .legal h2 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    margin: 2.4rem 0 0.8rem;
+  }
+  .legal h3 {
+    font-family: var(--font-body);
+    font-size: 1.08rem;
+    font-weight: 700;
+    margin: 1.6rem 0 0.5rem;
+  }
+  .legal p,
+  .legal li {
+    color: var(--soft);
+    line-height: 1.7;
+    font-size: 1rem;
+  }
+  .legal ul {
+    padding-left: 1.4rem;
+    margin: 0.6rem 0 1rem;
+  }
+  .legal strong {
+    color: var(--ink);
+  }
+  .legal .legal-meta {
+    color: var(--soft);
+    font-size: 0.9rem;
+    font-style: italic;
+  }
+</style>
