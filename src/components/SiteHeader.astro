@@ -1,0 +1,18 @@
+---
+interface Props {
+  announce?: string;
+}
+const { announce = 'Now booking 1:1 sessions · 25 years helping people quit smoking & vaping' } = Astro.props;
+---
+
+<div class="announce">{announce}</div>
+<nav class="nav">
+  <div class="wrap">
+    <a class="nav__logo" href="/">ALWAYS BE QUITTING</a>
+    <a href="/community">Community</a>
+    <a href="/coaching">1:1 Coaching</a>
+    <a href="/free-guide">Free Guide</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+  </div>
+</nav>

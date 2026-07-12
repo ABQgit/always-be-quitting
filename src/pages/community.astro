@@ -1,0 +1,578 @@
+---
+// /community — near-verbatim port of community-8-25 (Jon: "I like almost everything
+// about this page"). ONLY the offer/pricing model changes (community-page-spec.md):
+// 3-month commitment ($97/mo ×3 or $250 one-pay) then $47/mo auto-continue; codes and
+// $147-regular apparatus removed; subscription FAQ rewritten. [DIFF] marks changes.
+// Design: varied treatments per critique — split rows w/ icons, numbered journey,
+// ticket pricing. No back-to-back card grids.
+import Base from '../layouts/Base.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import '../styles/home.css';
+
+const MN_URL = 'https://always-be-quitting.mn.co/plans/1948481?bundle_token=1ab9a0ca40305f9de6f30b88412658ad&utm_source=manual';
+---
+
+<Base
+  title="Join the AlwaysBeQuitting Community"
+  description="Weekly expert coaching and ongoing community support for your entire quit smoking or vaping journey. $97/month with a 3-month commitment, then $47/month."
+>
+  <SiteHeader />
+
+  <!-- hero: video + pricing ticket -->
+  <header class="band band--teal" style="padding-block: clamp(3.5rem, 7vw, 5.5rem)">
+    <div class="wrap">
+      <h1 class="display-xl" style="text-align:center; color:var(--white)">Join the AlwaysBeQuitting Community</h1>
+      <p style="text-align:center; font-size:1.2rem; margin:1.2rem auto 2.6rem; max-width:46rem; color: color-mix(in srgb, var(--white) 85%, transparent)">
+        Weekly Expert Coaching + Ongoing Community Support For Your Entire Quit Smoking or Vaping Journey
+      </p>
+      <div class="hero-split">
+        <div class="video reveal">[ Jon's community video — same one as current page ]</div>
+        <aside class="ticket reveal">
+          <p class="ticket__kicker">Full ABQ Community Membership</p>
+          <p class="ticket__price">$97<span>/month</span></p>
+          <p class="ticket__terms">3-month commitment — because that's how long transformation actually takes.</p>
+          <p class="ticket__then">Then just <strong>$47/month</strong> for as long as you want.</p>
+          <p class="ticket__alt">Or $250 up front for all 3 months <em>(save $41)</em></p>
+          <a class="btn btn--cta" href={MN_URL}>Join the Community</a>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <!-- what you get: each feature is its own full-width alternating band -->
+  <section class="band band--white" style="padding-block: clamp(3.5rem, 6vw, 5rem) 0">
+    <div class="wrap">
+      <h2 class="display-lg" style="text-align:center">What You Get</h2>
+    </div>
+  </section>
+
+  <section class="band band--white feature-band">
+    <div class="wrap">
+      <div class="row-split reveal">
+        <div class="row-split__icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="4" y="10" width="28" height="24" rx="4"></rect>
+            <path d="M32 20l12-7v22l-12-7"></path>
+            <circle cx="18" cy="20" r="4"></circle>
+            <path d="M11 30c1.5-3 4-4.5 7-4.5s5.5 1.5 7 4.5"></path>
+          </svg>
+        </div>
+        <div>
+          <h3>Weekly Community Support Calls</h3>
+          <p>
+            Every Tuesday at 8 PM ET, join Jon for live group coaching. Ask questions, get guidance on whatever
+            you're dealing with that week, and hear from others on the same journey.
+          </p>
+          <p><strong>Can't make it live?</strong> All calls are recorded and accessible in the community.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--alt feature-band">
+    <div class="wrap">
+      <div class="row-split row-split--flip reveal">
+        <div class="row-split__icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M8 8h24a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4H20l-8 7v-7H8a4 4 0 0 1-4-4V12a4 4 0 0 1 4-4z"></path>
+            <path d="M40 18h.5a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H38v6l-7-6h-7"></path>
+            <path d="M12 16h16M12 22h10"></path>
+          </svg>
+        </div>
+        <div>
+          <h3>24/7 Community Access</h3>
+          <p>
+            Connect with others who understand what you're going through. Share wins, get support during struggles,
+            and <strong>never feel alone in your quitting journey.</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--white feature-band">
+    <div class="wrap">
+      <div class="row-split reveal">
+        <div class="row-split__icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M10 44V6"></path>
+            <path d="M10 8h26l-6 8 6 8H10"></path>
+            <path d="M6 44h8"></path>
+          </svg>
+        </div>
+        <div>
+          <h3>Real Accountability Throughout Your Journey</h3>
+          <p>
+            <strong>Stay motivated and accelerate your commitment to quit.</strong> Post your progress, share
+            challenges, get encouragement when you need it most. Jon is active in the community providing guidance
+            between calls.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--alt feature-band">
+    <div class="wrap">
+      <div class="row-split row-split--flip reveal">
+        <div class="row-split__icon">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="24" cy="24" r="20"></circle>
+            <path d="M31 17l-4.5 9.5L17 31l4.5-9.5z"></path>
+            <circle cx="24" cy="24" r="1.6" fill="currentColor"></circle>
+          </svg>
+        </div>
+        <div>
+          <h3>Build Your Own Plan — Quit at Your Pace</h3>
+          <p>You don't follow a one-size-fits-all program (they rarely work). And you don't figure it out alone.</p>
+          <p>
+            <strong>You create YOUR plan</strong> — when to start, what pace works for your life, whether you take
+            big steps, baby steps, or both. <strong>Jon guides you through it</strong> — helping you shape a plan
+            that actually works, avoiding the common pitfalls, and supporting you through the countless ways you
+            can get derailed.
+          </p>
+          <p>
+            There are millions of ways to fail at quitting. <strong>There are proven ways to succeed.</strong> Our
+            unique quitting community can help you find your path through it all.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- four stages: numbered journey -->
+  <section class="band band--mist" style="padding-block: clamp(4rem, 8vw, 6.5rem)">
+    <div class="wrap" style="max-width:880px">
+      <p class="kicker" style="text-align:center">Q: How do I know if the ABQ community is right for me?</p>
+      <h2 class="display-lg" style="text-align:center; margin-top:1rem">
+        A: Which of these best describes where you are with your smoking or vaping?
+      </h2>
+      <div class="options">
+        <div class="option reveal">
+          <span class="option__badge">A</span>
+          <h3>You want to quit someday, you just keep putting it off.</h3>
+          <p>You feel stuck (like 99.9% of the smokers and vapers on the planet). You're scared to even try to quit. But you have this nagging feeling inside.</p>
+          <p class="option__verdict"><strong>That's okay.</strong> Join now. Use the community and weekly calls to build your confidence and readiness. There's no pressure to quit on day one. Just show up. You'll move forward.</p>
+        </div>
+        <div class="option reveal">
+          <span class="option__badge">B</span>
+          <h3>You're finally "ready to quit" and want to set a quit date</h3>
+          <p>You've decided — this is it. You want support through the first days, weeks, and months. You may have no idea how to proceed, or you may be crafting a plan.</p>
+          <p class="option__verdict"><strong>Perfect.</strong> You're in charge and we can help get some quitting time under your belt. The community gives you accountability and expert guidance exactly when you need it most.</p>
+        </div>
+        <div class="option reveal">
+          <span class="option__badge">C</span>
+          <h3>You've already quit but want to make sure it lasts this time</h3>
+          <p>You stopped smoking or vaping, but you're worried about going back. You need accountability to stay quit.</p>
+          <p class="option__verdict"><strong>You're in the right place.</strong> The transformation from temporary abstinence to permanent non-smoker / non-vaper is where most people need the most support. Real transformation takes months. We will be here for you.</p>
+        </div>
+        <div class="option reveal">
+          <span class="option__badge">D</span>
+          <h3>You relapsed and want to get back on track</h3>
+          <p>You had some smoke-free or vape-free time, but you went back to it. You are on the "quit-relapse" treadmill and you want to get off it.</p>
+          <p class="option__verdict"><strong>Don't let shame keep you out.</strong> This is exactly why ongoing support matters. Come back, get motivation from being in the community, fix the things that tripped you up, and start moving forward again.</p>
+        </div>
+      </div>
+      <p style="text-align:center; margin-top:2rem; font-size:1.1rem"><strong>Whichever you picked — the answer is the same. This community was built for exactly where you are.</strong></p>
+    </div>
+  </section>
+
+  <!-- simple truth band -->
+  <section class="band band--teal transform">
+    <div class="wrap reveal">
+      <p class="kicker">The simple truth</p>
+      <h2 class="display-lg" style="margin-top:1rem">
+        If you're struggling to quit smoking or vaping on your own, joining the ABQ community is the right decision.
+      </h2>
+    </div>
+  </section>
+
+  <!-- pricing: ticket, full detail [DIFF: new model, codes removed] -->
+  <section class="band band--white" style="padding-block: clamp(4rem, 8vw, 6.5rem)">
+    <div class="wrap" style="max-width:820px">
+      <div class="ticket ticket--big reveal">
+        <p class="ticket__kicker">Full ABQ Community Membership</p>
+        <p class="ticket__price">$97<span>/month</span></p>
+        <p class="ticket__terms">
+          <strong>3-month commitment.</strong> We ask for 3 months because that's how long transformation actually
+          takes — your first 30 days are a start, not a finish.
+        </p>
+        <p class="ticket__then">
+          After your 3 months: <strong>$47/month, for as long as you want.</strong> The longer you stay, the
+          cheaper it gets — the opposite of every program that's burned you.
+        </p>
+        <p class="ticket__alt">Prefer one payment? <strong>$250 for all 3 months</strong> <em>(save $41)</em>.</p>
+        <ul class="checks checks--ink">
+          <li>24/7 access to community support</li>
+          <li>Weekly Community Support Calls — Tuesdays at 8 PM ET</li>
+          <li>Access to call recordings + ability to ask questions beforehand</li>
+          <li>Accountability check-ins (voluntary and without shock collars 🙂)</li>
+          <li>Expert guidance on withdrawal, mindset, and behavior change</li>
+          <li>Quit at your pace — no rigid timeline to follow</li>
+          <li>Positive, committed community (no lurkers or trial members)</li>
+        </ul>
+        <a class="btn btn--cta" href={MN_URL} style="align-self:center">Join the Community</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- just start / antidote close -->
+  <section class="band band--paper" style="padding-block: clamp(4rem, 8vw, 6rem); text-align:center">
+    <div class="wrap" style="max-width:820px">
+      <h2 class="display-lg">Just Start.</h2>
+      <p style="font-size:1.15rem; margin-top:1.4rem; color:var(--soft)">
+        The ABQ community is an insane value. Most people spend hundreds a month on smoking or vaping —
+        <strong style="color:var(--ink)">you'll save hundreds of thousands over your lifetime by quitting.</strong>
+      </p>
+      <p class="display-lg hl reveal" style="margin-top:2rem; font-size:clamp(1.5rem, 3vw, 2.2rem)">
+        You're already spending the money. You're just giving it to companies that make you sick. We don't compare
+        ourselves to those companies; <em>we are the antidote to those companies.</em>
+      </p>
+    </div>
+  </section>
+
+  <!-- testimonials -->
+  <section class="band band--white proof">
+    <div class="wrap">
+      <p class="kicker">Real people, done smoking or vaping</p>
+      <div class="grid grid--3" style="margin-top:2rem">
+        <figure class="card quote reveal">
+          <blockquote>It took me nearly six years to build the courage to find a specialist and I am unbelievably grateful it was Jon. If you have reservations about investing in a coach, I cannot recommend Jon enough. The impact he has had on my life is transformative.</blockquote>
+          <figcaption><b>Katherine</b> · One Year Vape Free</figcaption>
+        </figure>
+        <figure class="card quote reveal">
+          <blockquote>Jon's non-assuming approach and meeting me where I was at was really helpful. Having the support and the accountability — it's kind of two sides of the same coin. That was probably one of the pieces that I was missing.</blockquote>
+          <figcaption><b>Kait</b> · 9 Years Sober, Now Smoke-Free</figcaption>
+        </figure>
+        <figure class="card quote reveal">
+          <blockquote>I've invited Jon to teach about tobacco treatment to my "Health Counseling" university class for 9 straight semesters. His presentations are informative, entertaining and inspiring.</blockquote>
+          <figcaption><b>Ashley Foster</b> · MPH, RD, CHES · University Professor</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ — verbatim except subscription item [DIFF] -->
+  <section class="band band--mist">
+    <div class="wrap faq">
+      <h2 class="display-lg">Common Questions</h2>
+      <details class="reveal">
+        <summary>Who can join ABQ programs and community?</summary>
+        <p>
+          This community is for people who smoke or vape and want to quit — or who recently quit and need support
+          to stay quit. You're welcome to join if you currently use tobacco, nicotine, or vaping products and want
+          to quit; recently quit but are struggling to maintain it; or relapsed and need support to get back on
+          track. To maintain a focused, supportive environment, we don't allow: healthcare professionals (unless
+          you're personally seeking help for your own tobacco/nicotine use, and inform us of it); anyone affiliated
+          with the tobacco, nicotine, or vaping industry; people looking to learn our methods for their own
+          coaching, training, or business purposes; or anyone misrepresenting their tobacco/nicotine use status.
+          <strong>Why?</strong> Our community thrives when everyone is genuinely focused on their own quitting
+          journey. Violating these requirements results in immediate removal with no refund, as outlined in our
+          <a href="/terms">Terms and Conditions</a>.
+        </p>
+      </details>
+      <details class="reveal">
+        <summary>When do the Community Support Calls happen? What if I miss one?</summary>
+        <p>
+          <strong>Current schedule:</strong> every Tuesday at 8 PM ET. The schedule may change as the community
+          grows — we may add different time slots for international members, always with advance notice.
+          <strong>Can't make it live?</strong> All calls are recorded and available to watch later. You can also
+          submit questions ahead of time, and Jon will answer them during the call even if you can't attend. Plus,
+          you have 24/7 access to the community.
+        </p>
+      </details>
+      <details class="reveal">
+        <summary>How long should I stay in the community?</summary>
+        <p>
+          <strong>The short answer:</strong> as long as you need. <strong>The realistic answer:</strong> real
+          transformation typically takes 3–6 months, especially for longer-term smokers and vapers — that's exactly
+          why membership starts with a 3-month commitment. Let's face it: things are going to come up. If you want
+          the best shot at quitting for life, don't focus on quitting the community.
+          <strong>FOCUS ON QUITTING smoking or vaping for life. That is the end game.</strong> After your first
+          3 months, staying is just $47/month — and how long you stay is entirely up to you.
+        </p>
+      </details>
+      <details class="reveal">
+        <summary>What's your subscription, cancellation, and refund policy?</summary>
+        <p>
+          <strong>Your membership:</strong> ABQ Community membership begins with a 3-month commitment — either
+          3 monthly payments of $97, or one payment of $250. All 3 months are yours and all 3 payments stand; we
+          don't offer refunds for any reason. This isn't because we don't stand behind what we do — it's because
+          transformation requires commitment, and an "easy out" encourages giving up exactly when things get
+          challenging. <strong>After 3 months:</strong> your membership automatically continues at $47/month so
+          your support doesn't disappear the moment the commitment ends. You can cancel anytime from month 4
+          onward — just cancel at least 1 day before your renewal date. <strong>What we guarantee:</strong> the
+          delivery of weekly Community Support Calls, ongoing community access, and Jon's guidance.
+          <strong>What we can't guarantee:</strong> that you'll quit. Your success depends on factors under your
+          control — your mindset, decisions, commitment, and how you navigate the challenges. We provide guidance,
+          accountability, and support, but we can't execute the process for you. We think you can do this!
+          <em>[DIFF — rewritten for the new pricing model; Jon to approve]</em>
+        </p>
+      </details>
+      <details class="reveal">
+        <summary>Is this community confidential?</summary>
+        <p>
+          <strong>No, this community is NOT confidential like a doctor's office or therapist's office.</strong>
+          Other members will see what you post and hear what you say on calls, and we can't control what others
+          remember or discuss outside the community. This is peer support and coaching — not medical or therapeutic
+          care with confidentiality protections. <strong>Only share what you're comfortable with others
+          knowing.</strong> If you need care with full confidentiality protections, please seek those services from
+          licensed healthcare professionals.
+        </p>
+      </details>
+      <details class="reveal">
+        <summary>Medical disclaimer</summary>
+        <p>
+          All of our services — coaching, community support, and educational materials — are for information and
+          education only. They are NOT medical, mental health, or addiction treatment, and we cannot replace
+          professional healthcare. It's your responsibility to verify with your doctor, healthcare provider, or
+          therapist that our information and guidance are appropriate for your situation. If you're experiencing
+          thoughts of self-harm, severe depression, serious physical symptoms, or any mental health crisis, please
+          seek immediate professional medical attention — call 911 in any emergency. For complete details, see our
+          <a href="/terms">Terms and Conditions</a>.
+        </p>
+      </details>
+    </div>
+  </section>
+
+  <!-- final cta -->
+  <section class="band band--teal final">
+    <div class="wrap">
+      <h2 class="display-xl hl">Finally become the non-smoker or non-vaper <em>you dreamed about.</em></h2>
+      <p style="margin-top:1.4rem; font-size:1.15rem; color: color-mix(in srgb, var(--white) 85%, transparent)">
+        Imagine waking up breathing freely. Not thinking about when you can smoke or vape next. Not hiding it or
+        making excuses. Not spending hundreds every month on something that's hurting you.
+        <strong style="color:var(--white)">That's what transformation looks like. You can do this.</strong>
+      </p>
+      <div class="final__actions reveal">
+        <a class="btn btn--cta" href={MN_URL}>Join the Community</a>
+      </div>
+    </div>
+  </section>
+
+  <SiteFooter />
+</Base>
+
+<style>
+  .hero-split {
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+  }
+  @media (min-width: 900px) {
+    .hero-split {
+      grid-template-columns: 3fr 2fr;
+    }
+  }
+  .video {
+    aspect-ratio: 16/9;
+    border: 2px solid var(--ink);
+    border-radius: 14px;
+    background: repeating-linear-gradient(45deg, var(--alt), var(--alt) 10px, var(--white) 10px, var(--white) 20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--soft);
+    font-size: 0.95rem;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 12px 12px 0 color-mix(in srgb, var(--white) 22%, transparent);
+  }
+  .ticket {
+    background: var(--white);
+    color: var(--ink);
+    border: 2px solid var(--ink);
+    border-radius: 16px;
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    box-shadow: 12px 12px 0 var(--gold);
+  }
+  .ticket--big {
+    padding: 2.4rem;
+    gap: 0.8rem;
+  }
+  .ticket__kicker {
+    font: 700 0.75rem/1 var(--font-body);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin: 0;
+  }
+  .ticket__price {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(2.8rem, 5vw, 3.6rem);
+    line-height: 1;
+    margin: 0;
+  }
+  .ticket__price span {
+    font-size: 0.4em;
+    font-weight: 500;
+    color: var(--soft);
+  }
+  .ticket__terms,
+  .ticket__then,
+  .ticket__alt {
+    margin: 0;
+    font-size: 0.98rem;
+    line-height: 1.5;
+    color: var(--soft);
+  }
+  .ticket__then strong,
+  .ticket__terms strong,
+  .ticket__alt strong {
+    color: var(--ink);
+  }
+  .ticket .btn {
+    margin-top: 0.9rem;
+    align-self: flex-start;
+  }
+
+  .row-split {
+    display: grid;
+    gap: 1.8rem;
+    align-items: center;
+    padding: clamp(2rem, 4vw, 3.2rem) 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .row-split:last-child {
+    border-bottom: none;
+  }
+  @media (min-width: 820px) {
+    .row-split {
+      grid-template-columns: 200px 1fr;
+    }
+    .row-split--flip {
+      grid-template-columns: 1fr 200px;
+    }
+    .row-split--flip .row-split__icon {
+      order: 2;
+    }
+  }
+  .row-split__icon {
+    width: 132px;
+    height: 132px;
+    margin-inline: auto;
+    border-radius: 50%;
+    background: var(--mist);
+    color: var(--teal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--ink);
+    box-shadow: 8px 8px 0 color-mix(in srgb, var(--teal) 25%, transparent);
+  }
+  .row-split__icon svg {
+    width: 64px;
+    height: 64px;
+  }
+  .row-split h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    margin: 0 0 0.7rem;
+  }
+  .row-split p {
+    color: var(--soft);
+    line-height: 1.6;
+    margin: 0.5rem 0;
+  }
+  .row-split p strong {
+    color: var(--ink);
+  }
+
+  .band--alt {
+    background: var(--alt);
+    color: var(--ink);
+  }
+  .feature-band {
+    padding-block: clamp(2.2rem, 4.5vw, 3.6rem);
+  }
+  .feature-band .row-split {
+    border-bottom: none;
+    padding: 0;
+  }
+
+  /* multiple-choice answer layout: these are STATUSES, not a sequence */
+  .options {
+    display: grid;
+    gap: 1.4rem;
+    margin-top: 2.6rem;
+  }
+  @media (min-width: 860px) {
+    .options {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .option {
+    position: relative;
+    background: var(--white);
+    border: 2px solid var(--ink);
+    border-radius: 14px;
+    padding: 2rem 1.6rem 1.6rem 4.4rem;
+    transition:
+      transform 0.16s ease,
+      box-shadow 0.16s ease;
+    box-shadow: 6px 6px 0 color-mix(in srgb, var(--teal) 25%, transparent);
+  }
+  .option:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 10px 10px 0 var(--teal);
+  }
+  .option__badge {
+    position: absolute;
+    left: 1.2rem;
+    top: 1.6rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--teal);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.3rem;
+  }
+  .option h3 {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    margin: 0 0 0.6rem;
+  }
+  .option p {
+    color: var(--soft);
+    line-height: 1.55;
+    margin: 0.45rem 0;
+    font-size: 0.98rem;
+  }
+  .option__verdict {
+    border-top: 1.5px dashed var(--line);
+    padding-top: 0.7rem;
+    margin-top: 0.8rem !important;
+  }
+  .option p strong {
+    color: var(--teal);
+  }
+
+  .checks {
+    list-style: none;
+    padding: 0;
+    margin: 0.6rem 0 0;
+  }
+  .checks li {
+    padding-left: 1.9rem;
+    position: relative;
+    margin: 0.5rem 0;
+    font-size: 1.02rem;
+  }
+  .checks li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--teal);
+    font-weight: 800;
+  }
+</style>

@@ -1,0 +1,64 @@
+/*
+  ABQ Design Tokens — v1 palette from Claude Design round (2026-07-11)
+  ====================================================================
+  Single source of truth for the site's look. Swapping the palette =
+  editing this file only. Branding remains PROVISIONAL — Jon may
+  re-skin later; that's the point of this file.
+
+  Two tiers:
+  1. Design vars (short names) — referenced by the design markup.
+  2. Semantic aliases — used by layouts/utility components.
+*/
+
+@theme {
+  /* ---- v1 palette (Claude Design output) ---- */
+  --color-white: #ffffff;
+  --color-alt: #f0f4f3; /* alternate section background */
+  --color-mist: #dcebee; /* light teal-tinted band (hero) */
+  --color-ink: #0d1e24; /* primary text */
+  --color-soft: #4a5e66; /* secondary text */
+  --color-line: #e2e8ea; /* borders, dividers */
+  --color-teal: #097286; /* brand base */
+  --color-teal-deep: #06525f;
+  --color-navy: #1a5276;
+  --color-blue: #1e88e5; /* links / interactive */
+  --color-pale: #80adb3;
+  --color-gold: #ffd130; /* highlighter emphasis device */
+  --color-cta: #f98938; /* primary action orange */
+  --color-cta-shadow: #c05f14;
+
+  /* ---- Typography (v1: Source Serif 4 display / Public Sans body) ---- */
+  --font-display: 'Source Serif 4', Georgia, serif;
+  --font-body: 'Public Sans', system-ui, sans-serif;
+
+  /* ---- Base sizes: generous for a 30-65 audience ---- */
+  --text-base: 1.125rem;
+  --radius-card: 0.75rem;
+}
+
+/* Plain :root copies with the design's short names, so the design
+   markup's var(--teal) etc. resolve. Keep in sync with @theme above. */
+:root {
+  --white: #ffffff;
+  --alt: #f0f4f3;
+  --mist: #dcebee;
+  --ink: #0d1e24;
+  --soft: #4a5e66;
+  --line: #e2e8ea;
+  --teal: #097286;
+  --teal-deep: #06525f;
+  --navy: #1a5276;
+  --blue: #1e88e5;
+  --pale: #80adb3;
+  --gold: #ffd130;
+  --cta: #f98938;
+  --cta-shadow: #c05f14;
+
+  /* legacy aliases used by early scaffold pages (wireframe, placeholder) */
+  --color-ink-soft: #4a5e66;
+  --color-paper: #f8f9fa;
+  --color-paper-raised: #ffffff;
+  --color-accent: #097286;
+  --color-accent-ink: #ffffff;
+  --color-highlight: #f0ece2;
+}

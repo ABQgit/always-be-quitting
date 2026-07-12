@@ -1,0 +1,195 @@
+---
+// HOMEPAGE WIREFRAME — structure + canon copy only. Deliberately grayscale.
+// Source of truth: context/homepage-spec.md + copy policy (PRD rule 6).
+// This page is the base Claude Design styles. Structure and copy are FIXED.
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="ABQ Homepage Wireframe — structure only"
+  description="Internal wireframe. Not for indexing."
+>
+  <style>
+    /* Wireframe-only styles: grayscale blueprint, no branding */
+    .wf { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; font-family: system-ui, sans-serif; color: #222; }
+    .wf section { border: 2px dashed #bbb; margin: 1.25rem 0; padding: 1.5rem; background: #fff; }
+    .wf .tag { display: inline-block; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; background: #eee; border: 1px solid #ccc; padding: 0.15rem 0.5rem; margin-bottom: 1rem; color: #555; }
+    .wf h1 { font-size: 2.25rem; line-height: 1.15; margin: 0.5rem 0; font-weight: 700; }
+    .wf h2 { font-size: 1.6rem; line-height: 1.2; margin: 0.5rem 0 1rem; font-weight: 700; }
+    .wf h3 { font-size: 1.1rem; margin: 0.25rem 0; font-weight: 700; }
+    .wf p { margin: 0.5rem 0; line-height: 1.55; }
+    .wf .muted { color: #666; }
+    .wf .row { display: grid; gap: 1rem; }
+    @media (min-width: 800px) { .wf .row.c2 { grid-template-columns: 1fr 1fr; } .wf .row.c3 { grid-template-columns: 1fr 1fr 1fr; } .wf .row.c4 { grid-template-columns: 1fr 1fr 1fr 1fr; } }
+    .wf .card { border: 1.5px solid #999; padding: 1rem; background: #fafafa; }
+    .wf .btn { display: inline-block; border: 2px solid #333; background: #333; color: #fff; padding: 0.6rem 1.2rem; font-weight: 600; margin-top: 0.5rem; }
+    .wf .btn.ghost { background: #fff; color: #333; }
+    .wf .ph { background: repeating-linear-gradient(45deg, #eee, #eee 8px, #f7f7f7 8px, #f7f7f7 16px); border: 1px solid #ccc; display: flex; align-items: center; justify-content: center; color: #888; font-size: 0.8rem; }
+    .wf input { border: 1.5px solid #999; padding: 0.6rem; width: 100%; max-width: 22rem; }
+    .wf .trust { font-size: 0.8rem; color: #666; border-top: 1px solid #ddd; padding-top: 0.5rem; margin-top: 1rem; }
+    .wf .price { font-size: 1.5rem; font-weight: 700; }
+    .wf details { border: 1px solid #ccc; padding: 0.6rem 1rem; margin: 0.4rem 0; background: #fafafa; }
+    .wf .nav { display: flex; gap: 1.25rem; align-items: center; flex-wrap: wrap; font-size: 0.9rem; }
+    .wf .nav b { margin-right: auto; font-size: 1rem; }
+  </style>
+
+  <main class="wf">
+    <p class="muted" style="margin-top:1rem">
+      <strong>WIREFRAME</strong> — structure and copy are decided (see /context). Grayscale on purpose.
+      Design phase styles this exact structure; it does not change sections, order, or words.
+    </p>
+
+    <section>
+      <span class="tag">0 · Announcement bar</span>
+      <p style="text-align:center; border:1px solid #ccc; padding:0.5rem; background:#f2f2f2">
+        [Status / sale-window message — e.g. "Now booking 1:1 sessions" — never stale pricing]
+      </p>
+      <div class="nav" style="margin-top:1rem">
+        <b>ALWAYS BE QUITTING</b>
+        <span>Community</span><span>1:1 Coaching</span><span>Free Guide</span><span>About</span><span>Contact</span>
+      </div>
+    </section>
+
+    <section>
+      <span class="tag">1 · Hero — job: capture email (free guide) + orient. TYPE-LED, CENTERED, no imagery (decided: customer is the hero — no Jon portrait here; portrait lives in the guide section)</span>
+      <div style="max-width:46rem; margin:0 auto; text-align:center">
+        <h1>Make This Your Last Attempt to Quit Smoking or Vaping, <em>Not Just Your Next One</em></h1>
+        <p>You've tried before. It didn't last.</p>
+        <div class="card" style="margin-top:1rem">
+          <h3>Get Your Free Always Be Quitting "QUICK-START GUIDE"</h3>
+          <p class="muted"><em>Start breaking your smoking or vaping addiction in 20 minutes — even if you're not ready to quit yet.</em></p>
+          <input type="email" placeholder="Your email" />
+          <br /><span class="btn">Send me the free guide</span>
+        </div>
+        <p class="trust">CTTS &amp; NCNTT certified · 25 years helping people quit · No one-size-fits-all programs</p>
+      </div>
+    </section>
+
+    <section>
+      <span class="tag">2 · Recognition — job: visitor sees themselves; routes to both doors</span>
+      <h2>You try to quit. It doesn't last. Months later you try again — <em>and the cycle repeats.</em></h2>
+      <div class="row c4">
+        <div class="card">
+          <h3>You can't seem to start.</h3>
+          <p class="muted">You know you want to quit. You've thought about it for months, maybe years. But the moment to actually do it never quite arrives.</p>
+        </div>
+        <div class="card">
+          <h3>You're struggling to stay quit.</h3>
+          <p class="muted">You made it a few days, weeks, or longer. But the cravings, the stress, the routines keep pulling you back, and you can feel yourself slipping.</p>
+        </div>
+        <div class="card">
+          <h3>You've already quit and want it to last.</h3>
+          <p class="muted">You stopped smoking or vaping, but you're worried about going back. You want to make sure it sticks this time.</p>
+        </div>
+        <div class="card">
+          <h3>You've relapsed and want to try again.</h3>
+          <p class="muted">It already happened. You're frustrated, maybe ashamed, definitely tired of the cycle. You want to try again, but smarter this time.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <span class="tag">3 · Transformation — job: the core idea; breaks up the card rows; bridge to what-you-need</span>
+      <h2>Temporary abstinence isn't quitting — <em>transformation is.</em></h2>
+      <p>Stopping can happen fast. Staying quit is a months-long transformation — and everyone's pace is different. That's why nothing here promises you'll quit in X days: everybody quits at their own pace.</p>
+      <p class="muted">[Bridge line: transformation takes months → that's why the community asks for 3 months and the 1:1 program runs 12 weeks.]</p>
+    </section>
+
+    <section>
+      <span class="tag">4 · What Makes The Difference — job: bridge problem → guide ("what people like you actually need")</span>
+      <h2>Here's What Makes <em>The Difference</em></h2>
+      <div class="row c4">
+        <div class="card"><h3>Expert Guidance</h3><p class="muted">from someone who knows the many paths to quitting</p></div>
+        <div class="card"><h3>Real Accountability</h3><p class="muted">when cravings hit and you want to give in</p></div>
+        <div class="card"><h3>Ongoing Motivation</h3><p class="muted">to keep you moving forward</p></div>
+        <div class="card"><h3>Mindset Transformation</h3><p class="muted">that helps you stay quit for life</p></div>
+      </div>
+    </section>
+
+    <section>
+      <span class="tag">5 · Guide — job: answer "why would this time be different?" (callback to 4: "that kind of support")</span>
+      <div class="row c2">
+        <div><div class="ph" style="width:200px; height:220px">[ Jon photo — modest size, not oversized ]</div></div>
+        <div>
+          <h2>I'm Jon, and I provide exactly that kind of support.</h2>
+          <p>I know how discouraging your struggle is. I've spent 25 years helping people who thought they could never quit smoking or vaping — quit for life. And <em>I can help you, too.</em></p>
+          <p class="muted">Get help from someone who has been successfully guiding people through quitting for decades</p>
+          <div class="row c3" style="margin-top:1rem">
+            <div class="card"><h3>25 Years</h3><p class="muted">helping people quit smoking and vaping as a CTTS and NCNTT certified specialist</p></div>
+            <div class="card"><h3>3 Decades</h3><p class="muted">teaching informative, effective, and engaging health workshops</p></div>
+            <div class="card"><h3>35 Years</h3><p class="muted">creating programs that help people change their behavior</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <span class="tag">6 · The Two Doors — job: THE conversion moment; pick your level of support</span>
+      <h2>Start for $97. <em>Pick your path.</em></h2>
+      <div class="row c2">
+        <div class="card">
+          <h3>The ABQ Community</h3>
+          <p class="muted">Quit with a group and weekly live guidance from Jon.</p>
+          <p class="price">$97/month</p>
+          <p class="muted">3-month commitment — because that's how long transformation actually takes. Then just $47/month for as long as you want. Or $250 up front for all 3 months (save $41).</p>
+          <p>Weekly live calls with Jon (recorded) · 24/7 community · quit at your pace</p>
+          <span class="btn">Learn about the Community</span>
+        </div>
+        <div class="card">
+          <h3>A 1:1 Intro Session with Jon</h3>
+          <p class="muted">Private, direct, one time. The simplest way to work with Jon.</p>
+          <p class="price">$97 one-time</p>
+          <p class="muted">50 minutes · video or phone · once per person, ever · always credited toward the full program if you continue.</p>
+          <p>Leads to: <strong>Quit for the Last Time — The 1:1 Program</strong> (6 sessions over 12 weeks, $1,200)</p>
+          <span class="btn">Learn about 1:1 Coaching</span>
+        </div>
+      </div>
+      <p class="trust">Not ready for either? The free Quick-Start Guide is the place to begin. ↑</p>
+    </section>
+
+    <section>
+      <span class="tag">7 · Proof — three testimonials (real photos later)</span>
+      <div class="row c3">
+        <div class="card">
+          <div class="ph" style="height:60px; width:60px; border-radius:50%">[ ]</div>
+          <h3>Katherine R. — "One Year Vape Free"</h3>
+          <p class="muted">"Jon became my outlet, a safe person who helped me negotiate that struggle. The impact he has had on my life is transformative."</p>
+        </div>
+        <div class="card">
+          <div class="ph" style="height:60px; width:60px; border-radius:50%">[ ]</div>
+          <h3>Kait — "9 Years Sober, Now Smoke-Free"</h3>
+          <p class="muted">"He broke the all-or-nothing thinking for me. He came in with curiosity, just getting to understand where I was at, so that he could help me."</p>
+        </div>
+        <div class="card">
+          <div class="ph" style="height:60px; width:60px; border-radius:50%">[ ]</div>
+          <h3>Ashley Foster, MPH, RD, CHES — University Professor</h3>
+          <p class="muted">"I've invited Jon to teach about tobacco treatment to my university class for 9 straight semesters… informative, entertaining and inspiring."</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <span class="tag">8 · Short FAQ — job: path-choice objections</span>
+      <details><summary><strong>Community or 1:1 — how do I pick?</strong></summary><p class="muted">[Assembled from Jon's language during copy phase]</p></details>
+      <details><summary><strong>I'm not ready to quit yet. Is this still for me?</strong></summary><p class="muted">Yes. Not being ready is a great reason to start, not a reason to wait. [landing-page FAQ copy]</p></details>
+      <details><summary><strong>I've relapsed (again). Is this still worth it?</strong></summary><p class="muted">Especially then. Most permanent quitters relapsed multiple times before it stuck. That isn't failure, it's the path. [landing-page FAQ copy]</p></details>
+      <details><summary><strong>Why can I only book the $97 session once?</strong></summary><p class="muted">It's a starting point, not a product you re-buy. [copy phase]</p></details>
+    </section>
+
+    <section>
+      <span class="tag">9 · Final CTA + tagline</span>
+      <h2 style="text-align:center">Always be quitting, <em>until you've quit for the last time.</em></h2>
+      <p style="text-align:center">
+        <span class="btn">Join the Community</span>&nbsp;
+        <span class="btn ghost">Book a $97 Session</span>
+      </p>
+    </section>
+
+    <section>
+      <span class="tag">10 · Footer</span>
+      <p class="muted" style="font-size:0.85rem">
+        Medical disclaimer (existing copy) · Privacy · Terms · Contact · Podcast · © 2026 Motivation and Mindset Studios, LLC
+      </p>
+    </section>
+  </main>
+</Base>

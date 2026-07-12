@@ -1,0 +1,212 @@
+---
+// Homepage — v2 "editorial depth" skin on the approved wireframe structure.
+// Copy is canon (PRD rule 6). Styles: src/styles/home.css, tokens only.
+// v1 design export archived at design-briefs/styled-homepage-v1.html.
+import Base from '../layouts/Base.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import '../styles/home.css';
+---
+
+<Base
+  title="Quit Smoking or Vaping With Always Be Quitting"
+  description="Coaching and community from a certified tobacco treatment specialist with 25 years of experience. Everybody quits at their own pace."
+>
+  <!-- 0 · announcement + nav -->
+  <SiteHeader />
+
+  <!-- 1 · hero -->
+  <header class="band band--mist hero">
+    <div class="wrap">
+      <p class="kicker">You've tried before. It didn't last.</p>
+      <h1 class="display-xl hl" style="margin-top:1.2rem">
+        Make This Your Last Attempt to Quit Smoking or Vaping, <em>Not Just Your Next One</em>
+      </h1>
+      <p class="hero__sub">Everybody quits at their own pace. Nobody has to do it alone.</p>
+      <div class="optin reveal">
+        <h3>Get Your Free Always Be Quitting "Quick-Start Guide"</h3>
+        <p><em>Start breaking your smoking or vaping addiction in 20 minutes — even if you're not ready to quit yet.</em></p>
+        <form action="/api/subscribe" method="post">
+          <input type="email" name="email" placeholder="Your email" required />
+          <button class="btn btn--cta" type="submit">Send me the free guide</button>
+        </form>
+      </div>
+      <p class="trust">CTTS &amp; NCNTT certified · 25 years helping people quit · No one-size-fits-all programs</p>
+    </div>
+  </header>
+
+  <!-- 2 · recognition -->
+  <section class="band band--paper recognition">
+    <div class="wrap">
+      <div class="lead reveal">
+        <p class="kicker">The cycle</p>
+        <h2 class="display-lg hl">You try to quit. It doesn't last. Months later you try again — <em>and the cycle repeats.</em></h2>
+      </div>
+      <div class="grid grid--4">
+        <div class="card reveal">
+          <h3>You can't seem to start.</h3>
+          <p>You know you want to quit. You've thought about it for months, maybe years. But the moment to actually do it never quite arrives.</p>
+        </div>
+        <div class="card reveal">
+          <h3>You're struggling to stay quit.</h3>
+          <p>You made it a few days, weeks, or longer. But the cravings, the stress, the routines keep pulling you back, and you can feel yourself slipping.</p>
+        </div>
+        <div class="card reveal">
+          <h3>You've already quit and want it to last.</h3>
+          <p>You stopped smoking or vaping, but you're worried about going back. You want to make sure it sticks this time.</p>
+        </div>
+        <div class="card reveal">
+          <h3>You've relapsed and want to try again.</h3>
+          <p>It already happened. You're frustrated, maybe ashamed, definitely tired of the cycle. You want to try again, but smarter this time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 · transformation -->
+  <section class="band band--teal transform">
+    <div class="wrap reveal">
+      <p class="kicker">The core idea</p>
+      <h2 class="display-xl" style="margin-top:1.2rem">
+        Temporary abstinence isn't quitting — <span class="sweep"><em>transformation is.</em></span>
+      </h2>
+      <p>
+        Stopping can happen fast. Staying quit is a months-long transformation — and everyone's pace is different.
+        That's why nothing here promises you'll quit in X days: everybody quits at their own pace.
+      </p>
+    </div>
+  </section>
+
+  <!-- 4 · what makes the difference -->
+  <section class="band band--white recognition" style="margin-top:0">
+    <div class="wrap" style="padding-block: clamp(4.5rem, 9vw, 7rem) 0">
+      <p class="kicker">What people like you actually need</p>
+      <h2 class="display-lg hl" style="margin-top:1rem">Here's What Makes <em>The Difference</em></h2>
+      <div class="grid grid--4" style="margin-block: 2.4rem 5rem">
+        <div class="card card--pop reveal">
+          <h3>Expert Guidance</h3>
+          <p>from someone who knows the many paths to quitting</p>
+        </div>
+        <div class="card card--pop reveal">
+          <h3>Real Accountability</h3>
+          <p>when cravings hit and you want to give in</p>
+        </div>
+        <div class="card card--pop reveal">
+          <h3>Ongoing Motivation</h3>
+          <p>to keep you moving forward</p>
+        </div>
+        <div class="card card--pop reveal">
+          <h3>Mindset Transformation</h3>
+          <p>that helps you stay quit for life</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · guide -->
+  <section class="band band--white guide" style="padding-top:0">
+    <div class="wrap">
+      <div class="guide__row reveal">
+        <div class="guide__photo">[ Jon — real photo coming ]</div>
+        <div>
+          <h2 class="display-lg">I'm Jon, and I provide exactly that kind of support.</h2>
+          <p style="margin-top:1.2rem; color:var(--soft)">
+            I know how discouraging your struggle is. I've spent 25 years helping people who thought they could
+            never quit smoking or vaping — quit for life. And <em>I can help you, too.</em>
+          </p>
+          <p style="color:var(--soft); font-size:0.95rem">Get help from someone who has been successfully guiding people through quitting for decades.</p>
+        </div>
+      </div>
+      <div class="stats">
+        <div class="stat reveal"><b>25 yrs</b><span>helping people quit smoking and vaping as a CTTS and NCNTT certified specialist</span></div>
+        <div class="stat reveal"><b>3 decades</b><span>teaching informative, effective, and engaging health workshops</span></div>
+        <div class="stat reveal"><b>35 yrs</b><span>creating programs that help people change their behavior</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 · two doors -->
+  <section class="band band--paper band--dots doors">
+    <div class="wrap">
+      <div class="doors__mega reveal" aria-hidden="true">$97</div>
+      <h2 class="display-lg hl">Start for $97. <em>Pick your path.</em></h2>
+      <div class="grid grid--2">
+        <div class="door door--community reveal">
+          <h3>The ABQ Community</h3>
+          <p>Quit with a group and weekly live guidance from Jon.</p>
+          <div class="price">$97/month</div>
+          <p>3-month commitment — because that's how long transformation actually takes. Then just $47/month for as long as you want. Or $250 up front for all 3 months (save $41).</p>
+          <p>Weekly live calls with Jon (recorded) · 24/7 community · quit at your pace</p>
+          <a class="btn btn--cta" href="/community">Learn about the Community</a>
+        </div>
+        <div class="door door--session reveal">
+          <h3>A 1:1 Intro Session with Jon</h3>
+          <p>Private, direct, one time. The simplest way to work with Jon.</p>
+          <div class="price">$97 one-time</div>
+          <p>50 minutes · video or phone · once per person, ever · always credited toward the full program if you continue.</p>
+          <p>Leads to: <strong>Quit for the Last Time — The 1:1 Program</strong> (6 sessions over 12 weeks, $1,200).</p>
+          <a class="btn btn--cta" href="/coaching">Learn about 1:1 Coaching</a>
+        </div>
+      </div>
+      <p class="doors__foot">Not ready for either? The free Quick-Start Guide is the place to begin. ↑</p>
+    </div>
+  </section>
+
+  <!-- 7 · proof -->
+  <section class="band band--white proof">
+    <div class="wrap">
+      <p class="kicker">Real people, done smoking or vaping</p>
+      <div class="grid grid--3" style="margin-top:2rem">
+        <figure class="card quote reveal">
+          <blockquote>Jon became my outlet, a safe person who helped me negotiate that struggle. The impact he has had on my life is transformative.</blockquote>
+          <figcaption><b>Katherine R.</b> · One Year Vape Free</figcaption>
+        </figure>
+        <figure class="card quote reveal">
+          <blockquote>He broke the all-or-nothing thinking for me. He came in with curiosity, just getting to understand where I was at, so that he could help me.</blockquote>
+          <figcaption><b>Kait</b> · 9 Years Sober, Now Smoke-Free</figcaption>
+        </figure>
+        <figure class="card quote reveal">
+          <blockquote>I've invited Jon to teach about tobacco treatment to my university class for 9 straight semesters… informative, entertaining and inspiring.</blockquote>
+          <figcaption><b>Ashley Foster, MPH, RD, CHES</b> · University Professor</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 · faq -->
+  <section class="band band--paper">
+    <div class="wrap faq">
+      <h2 class="display-lg">A few things people usually ask.</h2>
+      <details class="reveal">
+        <summary>Community or 1:1 — how do I pick?</summary>
+        <p>[Copy phase — assembled from Jon's language]</p>
+      </details>
+      <details class="reveal">
+        <summary>I'm not ready to quit yet. Is this still for me?</summary>
+        <p>Yes. Not being ready is a great reason to start, not a reason to wait.</p>
+      </details>
+      <details class="reveal">
+        <summary>I've relapsed (again). Is this still worth it?</summary>
+        <p>Especially then. Most permanent quitters relapsed multiple times before it stuck. That isn't failure, it's the path.</p>
+      </details>
+      <details class="reveal">
+        <summary>Why can I only book the $97 session once?</summary>
+        <p>It's a starting point, not a product you re-buy. [copy phase]</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- 9 · final cta -->
+  <section class="band band--navy final">
+    <div class="wrap">
+      <h2 class="display-xl hl">Always be quitting, <em>until you've quit for the last time.</em></h2>
+      <div class="final__actions reveal">
+        <a class="btn btn--cta" href="/community">Join the Community</a>
+        <a class="btn btn--ghost" href="/coaching">Book a $97 Session</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 · footer -->
+  <SiteFooter />
+</Base>
