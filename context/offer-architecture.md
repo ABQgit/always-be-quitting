@@ -44,7 +44,23 @@
 
 1. **Official sale windows + sale depth** (which holidays, which price level).
 2. **Add-on session rate confirmation** at the new $200 standard ($150 as set, or $175?).
-3. ~~$97 collision~~ **RESOLVED: accepted, and potentially an asset.** Jon is fine with both being $97. Can be leveraged as a deliberate framing: "Start for $97" — your first month of community OR a one-time 1:1 session; pick your path. Two doors, one entry price.
+3. ~~$97 collision~~ **RESOLVED: accepted, and potentially an asset.** Jon is fine with both being $97. Can be leveraged as a deliberate framing: "Start for $97" — your first month of community OR a one-time 1:1 session; pick your path. Two doors, one entry price. **NOTE (2026-07-12): the two $97s are entirely separate products — the 1:1 session fee is NEVER credited toward community; see "Homepage & $97 Positioning" below.**
 4. **Enforcement of one-$97-per-person:** policy copy + practical enforcement (Cal.com booking limits are weak for lifetime-per-email; real enforcement likely lands in the rebuild's booking flow / Stripe customer check). Also decide the polite refusal path for someone who wants a second cheap session (answer: community or package).
-5. **Homepage presentation:** likely two panels — Community ($97/mo) and 1:1 Coaching (package, with "not sure? start with a single $97 intro session" as the de-risk option inside that panel). To be wireframed.
+5. ~~**Homepage presentation:** likely two panels — Community ($97/mo) and 1:1 Coaching (package…).~~ **RESOLVED 2026-07-12 — see "Homepage & $97 Positioning" below. Homepage sells the $97 session, not the package.**
 6. **Strikethrough/launch pricing policy** across all offers — what's real, what expires, what codes (ABC26/NOW97) survive.
+
+---
+
+## Homepage & $97 Positioning (decided 2026-07-12, Jon)
+
+Four decisions, superseding conflicting homepage/landing-page language above and in the PRD:
+
+1. **The homepage does NOT advertise the $1,200 program.** No package name, no package price, no "leads to the Program" line anywhere on `/`. The package is not a cold-visitor offer.
+
+2. **The $97 session is marketed as "just meet with Jon"** — the abq-landing-v2 framing: "schedule a personal conversation and get yourself moving forward… the simplest way to work with me directly." It's a low-commitment invitation to meet, nothing more. Jon assesses fit *in the session* and sells the Program in person if it's a match. If it isn't, the $97 session stands alone as a complete, valuable thing. The homepage never pre-sells the package to get someone into the session.
+
+3. **The $97 session sells via the standalone landing page, not `/coaching`.** The homepage's 1:1 door links OUT to the $97 sales page (abq-landing-v2.vercel.app for now). Rationale (Jon): the page is a closing sales page whose only job is booking the $97 meeting — it pushes momentum *forward*. This is the opposite of the ScoreApp quiz, which pushes people *backward* (a low "are you ready?" score can convince someone not to come back). So the $97 door closes; the quiz is not the entry. The landing page stays live at its Vercel URL; **later it gets ported ON-domain as an identical-looking page at a clean slug (e.g. `/session`)** so Jon can drop a direct link into YouTube descriptions (viewer lands on the sales page, never the homepage/nav). Keeping it live now costs nothing to rewire; the port is a follow-up, not a blocker. This is a deliberate, recorded exception to PRD site-rule 2 ("no off-domain links except checkout") — the $97 sales page is treated as an extension of the site.
+
+4. **`/coaching` stays the Program's sales page** — it does NOT become a $97 page. It exists for people ready to consider the package and must sell/market it properly. Reached via nav, not pushed at cold homepage traffic.
+
+5. **The $97 session fee is credited toward the Program ONLY — never toward community.** If someone does a $97 session and then joins the community instead of buying the Program, the $97 does not transfer. Two separate products. Homepage copy must not imply otherwise (and, per #1, shouldn't mention the credit at all — credit language lives on the landing page and `/coaching`).

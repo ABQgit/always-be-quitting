@@ -22,7 +22,7 @@ Rebuild alwaysbequitting.com from systeme.io's site builder onto a custom Astro 
 ## 2. Site Rules (apply to every page)
 
 1. **Every page converts to one of two outcomes: email list join or purchase.** No page exists for any other reason.
-2. **No off-domain links except checkout** (Mighty Networks, Cal.com/Stripe). The ScoreApp quiz is removed from nav and de-emphasized until rebuilt on-domain someday.
+2. **No off-domain links except checkout** (Mighty Networks, Cal.com/Stripe) **and the $97 session sales page** (abq-landing-v2.vercel.app — a recorded exception; it's a closing sales page treated as an extension of the site, to be ported on-domain later; see offer-architecture.md "Homepage & $97 Positioning"). The ScoreApp quiz is removed from nav and de-emphasized until rebuilt on-domain someday.
 3. **No timeline promises.** Quitting is quitting an addiction; everybody quits at their own pace. Process honesty replaces outcome claims. (Resolved: open-questions #10.)
 4. **Voice compliance:** all copy obeys `/context/voice.md` — empathy first, no shame spirals, no hype, handle-with-care language swaps, customer is the hero, Jon is the guide (never a former smoker).
 5. **Concrete deliverables, not abstract nouns.** Price transparency at first glance. Compressed trust lines at every CTA.
@@ -46,7 +46,8 @@ Sale windows run on the real cessation calendar (New Year, World No Tobacco Day 
 |---|---|---|
 | `/` | Homepage | current homepage |
 | `/community` | Community sales page | `/community-8-25` (301) |
-| `/coaching` | 1:1 page (session-first + Program) | `/premium-coaching` AND abq-landing-v2.vercel.app (301s) |
+| `/coaching` | 1:1 **Program** sales page (for ready buyers; reached via nav, not pushed at cold homepage traffic) | `/premium-coaching` (301) |
+| `/session` (later) | On-domain port of the $97 session sales page — identical look; direct-linkable from YouTube. Until then, abq-landing-v2.vercel.app stays live and is linked from the homepage (NOT 301'd into /coaching) | abq-landing-v2.vercel.app |
 | `/free-guide` | Opt-in destination for ads/social | `/abq_tips` (301) |
 | `/about` | NEW — guide/trust page | — |
 | `/contact` | Contact | `/contact` |
@@ -60,7 +61,7 @@ Sale windows run on the real cessation calendar (New Year, World No Tobacco Day 
 
 Full section-by-section specs: `/context/homepage-spec.md`, `/context/one-on-one-page-spec.md`, `/context/community-page-spec.md`, `/context/supporting-pages-spec.md`. Summary of the load-bearing decisions:
 
-- **Homepage:** hero (keep "Make This Your Last Attempt…" + guide opt-in above fold) → recognition section (2-line cycle lead-in + FOUR stage cards) → guide/qualifications → transformation-not-abstinence section → **the Two Doors ("Start for $97": community vs 1:1 session)** → proof → short FAQ → final CTA/tagline.
+- **Homepage:** hero (keep "Make This Your Last Attempt…" + guide opt-in above fold) → recognition section (2-line cycle lead-in + FOUR stage cards) → guide/qualifications → transformation-not-abstinence section → **the Two Doors ("Start for $97": community vs a $97 session with Jon)** → proof → short FAQ → final CTA/tagline. **(2026-07-12) The homepage does NOT advertise the $1,200 Program.** The 1:1 door sells only the $97 "just meet with Jon" session and links OUT to the standalone $97 sales page (Jon assesses fit and sells the Program in-session); the $97 fee credits toward the Program only, never community. See offer-architecture.md "Homepage & $97 Positioning."
 - **/coaching:** $97 intro session is the center of gravity (Jon's decision); landing-v2 structure and copy carried over; new "What comes after" Program section; FAQ updated for one-per-person rule, permanent credit, honest no-automatic-upsells framing.
 - **/community:** bones stay (four-stage qualifier, FAQ, antidote close); pricing model replaced with 3-month commitment framing ("we ask for 3 months because that's how long transformation takes"); $47 tail sold as benefit; codes/regular-price apparatus deleted; cancel policy: no refunds, stop future billing, month-4 auto-continue disclosed plainly.
 - **Testimonial rule:** current trio (Katherine, Kait, Ashley) OK at launch; community-member testimonials progressively replace 1:1 testimonials on /community.

@@ -6,6 +6,10 @@ import Base from '../layouts/Base.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import '../styles/home.css';
+
+// $97 session sells via the standalone landing page (decided 2026-07-12).
+// Off-domain for now; swap to the on-domain "/session" port here when it ships.
+const SESSION_URL = 'https://abq-landing-v2.vercel.app';
 ---
 
 <Base
@@ -140,12 +144,11 @@ import '../styles/home.css';
           <a class="btn btn--cta" href="/community">Learn about the Community</a>
         </div>
         <div class="door door--session reveal">
-          <h3>A 1:1 Intro Session with Jon</h3>
-          <p>Private, direct, one time. The simplest way to work with Jon.</p>
+          <h3>A Personal Session with Jon</h3>
+          <p>Schedule a conversation with Jon and get yourself moving forward — the simplest way to work with him directly.</p>
           <div class="price">$97 one-time</div>
-          <p>50 minutes · video or phone · once per person, ever · always credited toward the full program if you continue.</p>
-          <p>Leads to: <strong>Quit for the Last Time — The 1:1 Program</strong> (6 sessions over 12 weeks, $1,200).</p>
-          <a class="btn btn--cta" href="/coaching">Learn about 1:1 Coaching</a>
+          <p>50 minutes, video or phone, plus a personalized written quit plan in your inbox within 24 hours. One session, complete on its own.</p>
+          <a class="btn btn--cta" href={SESSION_URL}>Book your $97 session</a>
         </div>
       </div>
       <p class="doors__foot">Not ready for either? The free Quick-Start Guide is the place to begin. ↑</p>
@@ -202,7 +205,7 @@ import '../styles/home.css';
       <h2 class="display-xl hl">Always be quitting, <em>until you've quit for the last time.</em></h2>
       <div class="final__actions reveal">
         <a class="btn btn--cta" href="/community">Join the Community</a>
-        <a class="btn btn--ghost" href="/coaching">Book a $97 Session</a>
+        <a class="btn btn--ghost" href={SESSION_URL}>Book a $97 Session</a>
       </div>
     </div>
   </section>
