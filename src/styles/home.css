@@ -223,6 +223,85 @@
 .nav a:not(.nav__logo):hover {
   color: var(--blue);
 }
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+}
+/* hamburger button — hidden on desktop */
+.nav__toggle {
+  display: none;
+  width: 46px;
+  height: 46px;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 2px solid var(--ink);
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 0;
+}
+.nav__bars,
+.nav__bars::before,
+.nav__bars::after {
+  content: '';
+  display: block;
+  width: 22px;
+  height: 2.5px;
+  background: var(--ink);
+  border-radius: 2px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.nav__bars {
+  position: relative;
+}
+.nav__bars::before {
+  position: absolute;
+  top: -7px;
+  left: 0;
+}
+.nav__bars::after {
+  position: absolute;
+  top: 7px;
+  left: 0;
+}
+/* open state → X */
+.nav__toggle[aria-expanded='true'] .nav__bars {
+  background: transparent;
+}
+.nav__toggle[aria-expanded='true'] .nav__bars::before {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav__toggle[aria-expanded='true'] .nav__bars::after {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+@media (max-width: 760px) {
+  .nav__toggle {
+    display: inline-flex;
+  }
+  .nav__links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: var(--white);
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 14px 22px color-mix(in srgb, var(--ink) 10%, transparent);
+  }
+  .nav__links.is-open {
+    display: flex;
+  }
+  .nav__links a:not(.nav__logo) {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--line);
+    font-size: 1.05rem;
+  }
+}
 
 /* ---------- 1 · hero: dark, deep, centered ---------- */
 .hero {
