@@ -1,0 +1,181 @@
+---
+// /about — NEW conversion-focused guide/trust page (supporting-pages-spec.md).
+// NOT a resume. Reader-first: "why would this time be different?" Copy assembled
+// from Jon's own language (voice.md verbatim phrases). Jon is the expert GUIDE,
+// never a personal recovery story; never imply he smoked. Customer is the hero.
+import Base from '../layouts/Base.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import '../styles/home.css';
+
+// $97 session sells via the standalone landing page (decided 2026-07-12).
+const SESSION_URL = 'https://abq-landing-v2.vercel.app';
+---
+
+<Base
+  title="About Jon Fritsch — Always Be Quitting"
+  description="You don't lack willpower — you lack the right support. Meet Jon, a certified tobacco treatment specialist who has spent 25 years helping people quit smoking and vaping for the last time."
+>
+  <SiteHeader />
+
+  <!-- 1 · reader-first hero -->
+  <header class="band band--mist hero">
+    <div class="wrap">
+      <p class="kicker">About Always Be Quitting</p>
+      <h1 class="display-xl hl" style="margin-top:1.2rem">
+        You're not weak, and you're not out of chances. You just haven't had the <em>right guide.</em>
+      </h1>
+      <p class="hero__sub">
+        If you've tried to quit smoking or vaping before and it didn't stick, that isn't the end of your story.
+        It's the reason to try again — this time with someone in your corner who does this all day, every day.
+      </p>
+      <p class="trust">CTTS &amp; NCNTT certified · 25 years helping people quit · Customer is the hero — I'm just the guide</p>
+    </div>
+  </header>
+
+  <!-- 2 · the guide (empathy → expertise → origin insight) -->
+  <section class="band band--white guide">
+    <div class="wrap">
+      <div class="guide__row reveal">
+        <div class="guide__photo">[ Jon — real photo coming ]</div>
+        <div>
+          <h2 class="display-lg">I'm Jon, and I've helped people who were sure they'd never quit — quit for life.</h2>
+          <p style="margin-top:1.2rem; color:var(--soft)">
+            I understand how discouraging this struggle is. For 25 years I've helped all kinds of people stop
+            smoking and vaping, and <em>I can help you, too.</em>
+          </p>
+          <p style="color:var(--soft)">
+            For decades I taught health workshops and trained future doctors and nurses about tobacco treatment.
+            Somewhere along the way I learned the thing that changed how I work: none of the science matters if the
+            person in front of you never actually does anything to change. The hardest part of quitting isn't the
+            nicotine. <strong style="color:var(--ink)">It's starting.</strong> So that's where I put my energy now —
+            helping real people take the first action, and every action after it.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 · why this time can be different (the philosophy, in Jon's words) -->
+  <section class="band band--paper recognition">
+    <div class="wrap">
+      <div class="lead reveal">
+        <p class="kicker">Why this time can be different</p>
+        <h2 class="display-lg hl">It was never about willpower. It was about <em>the right support.</em></h2>
+      </div>
+      <div class="grid grid--2">
+        <div class="card reveal">
+          <h3>You don't have to be ready.</h3>
+          <p>
+            The most important question in quitting isn't <em>how</em> — it's <em>when</em>. My answer is always the
+            same: now. You don't need all the answers. You just have to take action, and I'll help you take it.
+          </p>
+        </div>
+        <div class="card reveal">
+          <h3>Temporary abstinence isn't quitting.</h3>
+          <p>
+            Stopping for a few weeks and quitting for life are two different things — and the second one is the whole
+            game. Transformation is the real work, and it's exactly the part most people are never supported through.
+          </p>
+        </div>
+        <div class="card reveal">
+          <h3>If you've relapsed, you're the norm.</h3>
+          <p>
+            You're not broken and you didn't fail. Most people who quit for good went back several times first.
+            Welcome to the 97% club — it's where permanent quitters come from, not the people who don't make it.
+          </p>
+        </div>
+        <div class="card reveal">
+          <h3>No gimmicks. No willpower mythology.</h3>
+          <p>
+            No crystals, no mushrooms, no white-knuckle lectures. Just proven, evidence-based approaches shaped
+            around your life — from someone who genuinely likes helping people through this.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 · anti-brag credentials -->
+  <section class="band band--teal transform">
+    <div class="wrap reveal">
+      <p class="kicker">The part where I'd normally brag</p>
+      <h2 class="display-lg" style="margin-top:1rem">
+        I could spend this whole page listing credentials. <span class="sweep"><em>I won't.</em></span>
+      </h2>
+      <p>
+        You should know I'm qualified, so here it is once: I'm a Certified Tobacco Treatment Specialist, NCNTT
+        certified, I've taught tobacco treatment to university health classes since 2011, and I've spent decades
+        building programs that actually change behavior. That's the last you'll hear about it — you're not here for
+        my résumé. You're here to quit.
+      </p>
+    </div>
+  </section>
+
+  <!-- 5 · proof -->
+  <section class="band band--white proof">
+    <div class="wrap">
+      <p class="kicker">Real people, done smoking or vaping</p>
+      <div class="grid grid--3" style="margin-top:2rem">
+        <figure class="card quote reveal">
+          <blockquote>Jon became my outlet, a safe person who helped me negotiate that struggle. The impact he has had on my life is transformative.</blockquote>
+          <figcaption><b>Katherine R.</b> · One Year Vape Free</figcaption>
+        </figure>
+        <figure class="card quote reveal">
+          <blockquote>He broke the all-or-nothing thinking for me. He came in with curiosity, just getting to understand where I was at, so that he could help me.</blockquote>
+          <figcaption><b>Kait</b> · 9 Years Sober, Now Smoke-Free</figcaption>
+        </figure>
+        <figure class="card quote reveal">
+          <blockquote>I've invited Jon to teach about tobacco treatment to my university class for 9 straight semesters… informative, entertaining and inspiring.</blockquote>
+          <figcaption><b>Ashley Foster, MPH, RD, CHES</b> · University Professor</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 · CTA: two doors -->
+  <section class="band band--paper band--dots doors">
+    <div class="wrap">
+      <h2 class="display-lg hl">Ready when you are. <em>Pick your path.</em></h2>
+      <div class="grid grid--2">
+        <div class="door door--community reveal">
+          <h3>The ABQ Community</h3>
+          <p>Weekly live Q&amp;A calls with Jon and 24/7 access to a community of people quitting alongside you. Move forward at your own pace, with support and accountability the whole way. You don't even have to be ready to quit to start.</p>
+          <div class="price">$97/month</div>
+          <p class="door__terms">3-month commitment, then just $47/month.</p>
+          <a class="btn btn--cta" href="/community">Join the Community</a>
+        </div>
+        <div class="door door--session reveal">
+          <h3>1:1 Coaching: A Special Session</h3>
+          <p>Schedule a personal conversation and get yourself moving forward. Whether you can't seem to start, you're slipping, or you've relapsed and want to try again — this is where we begin. A focused 50-minute session with a specialist who's spent 25 years helping people quit for the last time.</p>
+          <div class="price">$97 one-time</div>
+          <a class="btn btn--cta" href={SESSION_URL}>Book your $97 session</a>
+        </div>
+      </div>
+      <p class="doors__mitigate reveal">$97 is less than most people spend in a single month on smoking or vaping.</p>
+    </div>
+  </section>
+
+  <!-- 7 · soft on-ramp: free guide opt-in -->
+  <section class="band band--white" style="padding-block: clamp(3.5rem, 7vw, 5.5rem)">
+    <div class="wrap" style="max-width:640px">
+      <div class="optin reveal">
+        <h3>Want to start in the next 20 minutes?</h3>
+        <p><em>Grab the free Always Be Quitting "Quick-Start Guide" and begin breaking the addiction today — you don't have to be ready to quit to start.</em></p>
+        <form action="/api/subscribe" method="post">
+          <input type="email" name="email" placeholder="Your email" required />
+          <button class="btn btn--cta" type="submit">Send me the free guide</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8 · tagline close -->
+  <section class="band band--navy final">
+    <div class="wrap">
+      <h2 class="display-xl hl">Always be quitting, <em>until you've quit for the last time.</em></h2>
+    </div>
+  </section>
+
+  <SiteFooter />
+</Base>
