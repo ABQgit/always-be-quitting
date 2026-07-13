@@ -49,13 +49,13 @@ Sale windows run on the real cessation calendar (New Year, World No Tobacco Day 
 | `/coaching` | 1:1 **Program** sales page (for ready buyers; reached via nav, not pushed at cold homepage traffic) | `/premium-coaching` (301) |
 | `/session` (later) | On-domain port of the $97 session sales page — identical look; direct-linkable from YouTube. Until then, abq-landing-v2.vercel.app stays live and is linked from the homepage (NOT 301'd into /coaching) | abq-landing-v2.vercel.app |
 | `/free-guide` | Opt-in destination for ads/social | `/abq_tips` (301) |
-| `/about` | NEW — guide/trust page | — |
+| ~~`/about`~~ | **CUT 2026-07-12 (Jon): no About page.** The whole site already carries Jon's story, qualifications, and videos — a separate About page was redundant. Removed from nav. | — |
 | `/contact` | Contact | `/contact` |
 | `/podcast` | Simple hub (footer link only) | `/podcasts/always-be-quitting` (301) |
 | `/privacy`, `/terms` | Legal (terms rewritten for new offer rules) | current legal pages |
 
 `/hsdzywqq`, `/tqbeytfj` (old checkouts) retire → 301 to `/coaching`.
-**Nav:** Community · 1:1 Coaching · Free Guide · About · Contact. Podcast and legal in footer.
+**Nav:** Community · 1:1 Coaching · Free Guide · Contact. (About page cut 2026-07-12.) Podcast and legal in footer.
 
 ## 5. Page Requirements
 

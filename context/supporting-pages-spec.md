@@ -13,12 +13,9 @@
 - A single simple **/free-guide** page (or similar) exists as the linkable opt-in destination for ads/social/YouTube — replaces the orphaned /abq_tips page and fixes its mismatched button copy.
 - **Quiz (ScoreApp): REMOVED from nav and de-emphasized site-wide** — it bounces people off-domain by design, which violates the site rule. Dormant until rebuilt on-domain (later milestone: stage-routed, feeds ABQ Tips). Existing quiz keeps working for old links; no new traffic sent to it.
 
-## About Page (new)
+## About Page — CUT (2026-07-12, Jon)
 
-Job: answer "who is this guy and why would this time be different?" for mid-funnel trust-building.
-Structure: story (25 yrs clinical, university teaching since 2011, retired to help quitters directly) → origin insight ("none of it matters if your client never does anything to change" — the first hurdle is starting) → approach ("no crystals, no mushrooms, no willpower mythology"; evidence-based, warm) → credentials (exact string TBD: open-questions #12, MS inclusion) → both doors as CTAs + guide opt-in as the soft outcome.
-Rules: Jon is the expert guide, NEVER a personal recovery story; never imply he smoked. Customer stays the hero.
-Open: anything Jon wants emphasized/excluded (awaiting input).
+**Decision: no About page on the site.** The whole site already carries Jon's story, qualifications, and videos, so a standalone About page was redundant — and a first draft that recycled homepage sections proved the point. Removed from nav. Jon's story/credibility is distributed across the homepage and /coaching (where the video and expert pitch live) rather than concentrated in one page.
 
 ## Contact Page
 
