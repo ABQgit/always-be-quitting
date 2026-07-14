@@ -8,6 +8,9 @@ import Base from '../layouts/Base.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import '../styles/home.css';
+
+// $97 session sells via its own standalone landing page (decided 2026-07-12).
+const SESSION_URL = 'https://abq-landing-v2.vercel.app';
 ---
 
 <Base
@@ -112,30 +115,32 @@ import '../styles/home.css';
     </div>
   </section>
 
-  <!-- THE OFFER: $97 session first, Program beneath -->
+  <!-- THE OFFER: Program (gold standard) leads; $97 meeting = the no-commitment option -->
   <section class="band band--paper doors">
     <div class="wrap">
-      <div class="doors__mega reveal" aria-hidden="true">$97</div>
-      <h2 class="display-lg hl">Start with one session. <em>See for yourself.</em></h2>
+      <h2 class="display-lg hl" style="text-align:center">The gold standard in quitting. <em>Quit for the last time.</em></h2>
       <div class="grid grid--2" style="margin-top:3rem">
-        <div class="door door--session reveal">
-          <h3>The $97 Intro Session</h3>
-          <p>The simplest way to work with Jon — private, direct, one time.</p>
-          <div class="price">$97 one-time</div>
-          <p>50 minutes · video or phone · <strong>once per person, ever</strong> — it's a starting point, not a product you re-buy.</p>
-          <p>Your $97 is always credited toward the Program if you continue. No deadline.</p>
-          <a class="btn btn--cta" href="#book">Book your session</a>
-        </div>
         <div class="door door--community reveal">
-          <h3>Quit for the Last Time: The 1:1 Program</h3>
-          <p>The full transformation, with Jon in your corner the whole way.</p>
+          <h3>The 1:1 Program — Quit for the Last Time</h3>
+          <p>Six private, premium 1:1 coaching sessions with Jon. The most complete, most effective way to quit.</p>
           <div class="price">$1,200</div>
-          <p>6 × 50-minute private sessions over 12 weeks — a roomy window, because life happens. Email access to Jon between sessions. Personalized quit strategy, behavior change and withdrawal management, progress tracking.</p>
-          <p>Ready now? You can start with the full Program directly. Alumni can add sessions at $150 whenever more support helps.</p>
-          <a class="btn btn--cta" href="#book">Start the Program</a>
+          <p>Six 50-minute sessions with Jon, one-on-one — a roomy window over 12 weeks, because life happens. Direct email access to Jon between every session. A quit strategy built around your life, expert withdrawal and behavior-change coaching, and progress tracking the whole way.</p>
+          <p>Want more time when you're done? Additional sessions are available to purchase whenever more support helps.</p>
+          <a class="btn btn--cta" href="#book">GET STARTED NOW!</a>
+        </div>
+        <div class="door door--session reveal">
+          <h3>The $97 Special 1:1 Meeting</h3>
+          <p>Ready to quit? Get the Program. Still have hesitations? Talk them through with Jon first.</p>
+          <div class="price">$97 one-time</div>
+          <p>A private 50-minute meeting, one-on-one with Jon. Bring your doubts, your questions, whatever's holding you back — and talk about whatever you want. No pressure. No commitment.</p>
+          <p>It's the no-risk way to meet Jon and decide for yourself.</p>
+          <a class="btn btn--cta" href={SESSION_URL}>Book your $97 meeting</a>
         </div>
       </div>
-      <p class="doors__foot">Prefer group support? <a href="/community">The ABQ Community</a> is $97/month with a 3-month commitment.</p>
+      <p class="pay-for-itself reveal">
+        Most people spend <strong>$2k, $3k, $4k</strong> on smoking and vaping <em>EVERY YEAR.</em>
+        Spend that money on quitting instead. Every ABQ program pays for itself in money saved.
+      </p>
     </div>
   </section>
 
@@ -269,5 +274,23 @@ import '../styles/home.css';
     left: 0;
     color: var(--gold);
     font-weight: 800;
+  }
+  .pay-for-itself {
+    text-align: center;
+    max-width: 26ch;
+    margin: clamp(3rem, 6vw, 4.5rem) auto 0;
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.22;
+    font-size: clamp(1.5rem, 3.6vw, 2.5rem);
+    text-wrap: balance;
+  }
+  .pay-for-itself strong {
+    color: var(--teal);
+  }
+  .pay-for-itself em {
+    font-style: normal;
+    color: var(--cta);
+    white-space: nowrap;
   }
 </style>
