@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ABQ — v3 direction test (hero + two doors)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Karla:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ---------------------------------------------------------------
+     v3 DIRECTION TEST — not production code.
+     Purpose: check the *direction* Jon responded to (Parsley +
+     abq-landing-v2), not to ship. Everything here is throwaway.
+
+     The direction in one line:
+     warm ground · one committed deep colour · coloured-italic
+     emphasis (NOT highlighter) · mono labels · asymmetric splits
+     with real photography · pill CTAs in a warm accent
+     --------------------------------------------------------------- */
+
+  :root {
+    /* Committed palette — 5 colours, not 13 */
+    --sand:   #f7f1e8;   /* warm ground. the big change from staging's cold mist */
+    --sand-2: #efe6d9;   /* second warm surface */
+    --navy:   #123b52;   /* THE brand colour. one dominant, fully committed */
+    --navy-2: #0e2f42;
+    --ember:  #c8453c;   /* warm accent — actions only */
+    --ink:    #23303a;   /* softened dark. never near-black */
+    --soft:   #5f6f7a;
+    --rule:   #d9cbb8;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--sand);
+    color: var(--ink);
+    font-family: 'Karla', system-ui, sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---- shared type devices ---- */
+
+  .label {                       /* the mono label — character, cheap to apply */
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--soft);
+  }
+
+  .display {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    font-variation-settings: 'opsz' 100;
+  }
+
+  /* THE signature device: coloured italic, not a yellow slab */
+  .display em {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--navy);
+  }
+
+  .btn {
+    display: inline-block;
+    font-family: 'Karla', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.95rem 1.9rem;
+    border-radius: 999px;          /* pill, per the two references */
+    text-decoration: none;
+    transition: transform .15s ease, background .15s ease;
+  }
+  .btn--ember { background: var(--ember); color: #fff; }
+  .btn--ember:hover { background: #b13a32; transform: translateY(-1px); }
+  .btn--outline {
+    border: 1.5px solid var(--navy); color: var(--navy); background: transparent;
+  }
+  .btn--outline:hover { background: var(--navy); color: var(--sand); }
+
+  /* =====================================================
+     1 · HERO — asymmetric split, face bleeding to the edge
+     ===================================================== */
+
+  .hero {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: center;
+    gap: 4rem;
+    min-height: 88vh;
+    padding: 4rem 0 4rem 6vw;
+  }
+
+  .hero__text { max-width: 34rem; }
+
+  .hero h1 {
+    font-size: clamp(2.6rem, 5.4vw, 4.4rem);
+    margin: 1.4rem 0 1.6rem;
+  }
+
+  .hero__sub {
+    font-size: 1.2rem;
+    color: var(--soft);
+    max-width: 30rem;
+  }
+
+  /* spec chips — lifted from your landing page, they read as
+     "transparent practice", not "marketing funnel" */
+  .chips { display: flex; gap: 0.6rem; flex-wrap: wrap; margin: 2rem 0; }
+  .chip {
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 0.55rem 0.9rem;
+    background: rgba(255,255,255,0.45);
+    font-size: 0.9rem;
+    color: var(--soft);
+  }
+  .chip b {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--ink);
+    margin-right: 0.3rem;
+  }
+
+  .hero__actions { display: flex; align-items: center; gap: 1.6rem; flex-wrap: wrap; }
+  .hero__actions a.text {
+    color: var(--navy); font-weight: 600; text-decoration: none;
+    border-bottom: 1.5px solid var(--rule); padding-bottom: 2px;
+  }
+
+  .hero__trust { margin-top: 2rem; }
+
+  /* photo slot — sized for a real portrait, bleeding right.
+     NOT a grey box: warm duotone so the composition can be judged. */
+  .hero__photo {
+    align-self: stretch;
+    min-height: 32rem;
+    border-radius: 4px 0 0 4px;
+    background:
+      radial-gradient(120% 90% at 70% 25%, #d8c3a8 0%, #b99f83 45%, #6e7f7e 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero__photo span {
+    position: absolute; inset: auto 0 1.5rem 0; text-align: center;
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+  }
+
+  /* =====================================================
+     2 · TWO DOORS — a full-bleed split field, NOT two cards
+     ===================================================== */
+
+  .doors-intro {
+    text-align: center;
+    padding: 7rem 6vw 3.5rem;
+    background: var(--sand-2);
+  }
+  .doors-intro h2 {
+    font-size: clamp(2.1rem, 4vw, 3.2rem);
+    margin-top: 1.1rem;
+  }
+  .doors-intro .price-mega {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: clamp(4rem, 11vw, 9rem);
+    line-height: 0.85;
+    color: var(--navy);
+    opacity: 0.14;
+    margin-bottom: -2.2rem;
+    user-select: none;
+  }
+
+  .doors {
+    display: grid;
+    grid-template-columns: 1fr 1fr;   /* edge to edge, no cards, no shadows */
+  }
+  .door { padding: 5rem clamp(2rem, 5vw, 5rem); }
+
+  .door--a { background: var(--navy); color: #f2ece3; }
+  .door--a .label { color: #9dbdd0; }
+  .door--b { background: var(--sand-2); }
+
+  .door h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.9rem;
+    margin: 1rem 0 1.1rem;
+    line-height: 1.15;
+  }
+  .door p { max-width: 30rem; }
+  .door--a p { color: #cfdde6; }
+  .door--b p { color: var(--soft); }
+
+  .door .price {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 3.1rem;
+    line-height: 1;
+    margin: 2rem 0 0.4rem;
+  }
+  .door--a .price { color: #fff; }
+  .door--b .price { color: var(--navy); }
+
+  .door .terms { font-size: 0.92rem; margin-bottom: 2rem; }
+  .door--a .terms { color: #9dbdd0; }
+  .door--b .terms { color: var(--soft); }
+
+  .door--a .btn--outline { border-color: #f2ece3; color: #f2ece3; }
+  .door--a .btn--outline:hover { background: #f2ece3; color: var(--navy); }
+
+  .mitigate {
+    background: var(--sand-2);
+    text-align: center;
+    padding: 3rem 6vw 7rem;
+    font-family: 'Fraunces', serif;
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    color: var(--soft);
+  }
+
+  /* ---- responsive ---- */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; padding: 3rem 6vw; gap: 2.5rem; min-height: 0; }
+    .hero__photo { min-height: 22rem; border-radius: 4px; order: -1; }
+    .doors { grid-template-columns: 1fr; }
+  }
+
+  /* annotation strip, so this file explains itself */
+  .note {
+    background: var(--navy-2); color: #b9cedb; padding: 1.6rem 6vw;
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem; line-height: 1.8;
+  }
+  .note b { color: #fff; }
+</style>
+</head>
+<body>
+
+  <!-- 1 · HERO -->
+  <section class="hero">
+    <div class="hero__text">
+      <p class="label">You've tried before. It didn't last.</p>
+      <h1 class="display">
+        Make This Your Last Attempt to Quit Smoking or Vaping, <em>Not Just Your Next One</em>
+      </h1>
+      <p class="hero__sub">Everybody quits at their own pace. Nobody has to do it alone.</p>
+
+      <div class="chips">
+        <div class="chip"><b>25</b> years helping people quit</div>
+        <div class="chip"><b>CTTS</b> &amp; NCNTT certified</div>
+        <div class="chip"><b>1:1</b> or community</div>
+      </div>
+
+      <div class="hero__actions">
+        <a class="btn btn--ember" href="#">Get the free Quick-Start Guide</a>
+        <a class="text" href="#">Or pick your path ↓</a>
+      </div>
+
+      <p class="label hero__trust">No one-size-fits-all programs</p>
+    </div>
+
+    <div class="hero__photo">
+      <span>Jon — portrait, cropped close, warm natural light</span>
+    </div>
+  </section>
+
+  <!-- 2 · TWO DOORS -->
+  <div class="doors-intro">
+    <div class="price-mega" aria-hidden="true">$97</div>
+    <p class="label">Two ways in</p>
+    <h2 class="display">Start for $97. <em>Pick your path.</em></h2>
+  </div>
+
+  <div class="doors">
+    <div class="door door--a">
+      <p class="label">Together</p>
+      <h3>The ABQ Community</h3>
+      <p>Weekly live Q&amp;A calls with Jon and 24/7 access to a community of people quitting alongside you. Move forward at your own pace, with support and accountability the whole way. You don't even have to be ready to quit to start.</p>
+      <div class="price">$97<span style="font-size:1.1rem;font-family:Karla,sans-serif;font-weight:400">/month</span></div>
+      <p class="terms">3-month commitment, then just $47/month.</p>
+      <a class="btn btn--outline" href="#">Join the Community</a>
+    </div>
+
+    <div class="door door--b">
+      <p class="label">One to one</p>
+      <h3>1:1 Coaching: A Special Session</h3>
+      <p>Schedule a personal conversation and get yourself moving forward. Whether you can't seem to start, you're slipping, or you've relapsed and want to try again — this is where we begin. A focused 50-minute session with a specialist who's spent 25 years helping people quit for the last time.</p>
+      <div class="price">$97<span style="font-size:1.1rem;font-family:Karla,sans-serif;font-weight:400"> one-time</span></div>
+      <p class="terms">No upsells. No subscriptions.</p>
+      <a class="btn btn--ember" href="#">Book your $97 session</a>
+    </div>
+  </div>
+
+  <p class="mitigate">$97 is less than most people spend in a single month on smoking or vaping.</p>
+
+  <div class="note">
+    <b>WHAT'S BEING TESTED HERE — v3 direction</b><br>
+    1 · Warm sand ground replaces staging's cold mist — the biggest felt change.<br>
+    2 · Asymmetric hero: text left, portrait bleeding off the right edge. Not centred.<br>
+    3 · Emphasis is <b>coloured italic</b>, not a yellow highlighter slab.<br>
+    4 · Mono labels (IBM Plex Mono) carried over from your landing page.<br>
+    5 · Five committed colours, not thirteen. Navy dominates; ember is actions only.<br>
+    6 · Two doors are a <b>full-bleed split field</b> — no cards, no offset shadows.<br>
+    7 · Pill CTAs in a warm accent, per Parsley and your landing page.<br>
+    <br>
+    <b>STILL FAKE:</b> the portrait. This direction lives or dies on real photography —
+    that gradient is standing in for a close-cropped, warm-lit photo of you.
+  </div>
+
+</body>
+</html>

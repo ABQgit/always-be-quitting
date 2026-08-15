@@ -14,19 +14,29 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
 
 <Base
   title="Quit Smoking or Vaping With Always Be Quitting"
-  description="Coaching and community from a certified tobacco treatment specialist with 25 years of experience. Everybody quits at their own pace."
+  description="Coaching and community from a certified tobacco treatment specialist with 25 years of experience."
 >
   <!-- 0 · announcement + nav -->
   <SiteHeader />
 
-  <!-- 1 · hero -->
+  <!-- 1 · hero — HEADLINE + ONE LINE, NOTHING ELSE (Jon, 2026-08-14).
+       Matches the live site exactly: no sub-headline, no trust line, no opt-in.
+       Design phase: full-bleed environmental photograph, both lines on a scrim.
+       "You've tried before" needs statement weight, not kicker size. -->
   <header class="band band--mist hero">
     <div class="wrap">
-      <p class="kicker">You've tried before. It didn't last.</p>
-      <h1 class="display-xl hl" style="margin-top:1.2rem">
+      <h1 class="display-xl hl">
         Make This Your Last Attempt to Quit Smoking or Vaping, <em>Not Just Your Next One</em>
       </h1>
-      <p class="hero__sub">Everybody quits at their own pace. Nobody has to do it alone.</p>
+      <p class="kicker kicker--under">You've tried before. It didn't last.</p>
+    </div>
+  </header>
+
+  <!-- 1b · Quick-Start Guide opt-in — its own section directly below the hero,
+       per the live site. Moved out of the hero 2026-08-14. Band treatment TBD
+       in the design phase (live site uses a sage field here). -->
+  <section class="band band--paper optin-band">
+    <div class="wrap">
       <div class="optin reveal">
         <h3>Get Your Free Always Be Quitting "Quick-Start Guide"</h3>
         <p><em>Start breaking your smoking or vaping addiction in 20 minutes — even if you're not ready to quit yet.</em></p>
@@ -35,15 +45,13 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
           <button class="btn btn--cta" type="submit">Send me the free guide</button>
         </form>
       </div>
-      <p class="trust">CTTS &amp; NCNTT certified · 25 years helping people quit · No one-size-fits-all programs</p>
     </div>
-  </header>
+  </section>
 
   <!-- 2 · recognition -->
   <section class="band band--paper recognition">
     <div class="wrap">
       <div class="lead reveal">
-        <p class="kicker">The cycle</p>
         <h2 class="display-lg hl">You try to quit. It doesn't last. Months later you try again — <em>and the cycle repeats.</em></h2>
       </div>
       <div class="grid grid--4">
@@ -70,7 +78,6 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
   <!-- 3 · transformation -->
   <section class="band band--teal transform">
     <div class="wrap reveal">
-      <p class="kicker">The core idea</p>
       <h2 class="display-xl" style="margin-top:1.2rem">
         Temporary abstinence isn't quitting — <span class="sweep"><em>transformation is.</em></span>
       </h2>
@@ -84,7 +91,6 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
   <!-- 4 · what makes the difference -->
   <section class="band band--white recognition" style="margin-top:0">
     <div class="wrap" style="padding-block: clamp(4.5rem, 9vw, 7rem) 0">
-      <p class="kicker">What people like you actually need</p>
       <h2 class="display-lg hl" style="margin-top:1rem">Here's What Makes <em>The Difference</em></h2>
       <div class="grid grid--4" style="margin-block: 2.4rem 5rem">
         <div class="card card--pop reveal">
@@ -156,7 +162,6 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
   <!-- 7 · proof -->
   <section class="band band--white proof">
     <div class="wrap">
-      <p class="kicker">Real people, done smoking or vaping</p>
       <div class="grid grid--3" style="margin-top:2rem">
         <figure class="card quote reveal">
           <blockquote>Jon became my outlet, a safe person who helped me negotiate that struggle. The impact he has had on my life is transformative.</blockquote>

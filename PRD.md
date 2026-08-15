@@ -72,6 +72,10 @@ Full UI design, not just wireframes: palette, typography scale, spacing, compone
 
 Seed: landing-v2's visual language (serif display + italic-emphasis device, cards, whitespace, price badges, portrait photography). Inputs still needed: `brand/colors-v1.md` + `design-brain/abq-tokens.md` from the Obsidian vault; photo assets collected off systeme.io CDN.
 
+**DESIGN RESET (Jon, 2026-08-14).** The built v2 skin was reviewed and rejected as generic. Root cause: the structure was locked at the wireframe stage (a card grid), and the styling brief then restricted the designer to color/type/spacing. Full diagnosis, new hard rules (NO CREAM; yellow-highlighter device rejected), the solved hero device (full-bleed environmental photography), and the site-wide imagery system are recorded in `context/design-direction.md` → "Design Reset (Jon, 2026-08-14)". **That section supersedes conflicting design guidance in this PRD and in the earlier parts of design-direction.md.**
+
+**Amendment to site rule 6 — copy is canon, STRUCTURE IS NOT.** Rule 6 governs wording and stands unchanged. It does not lock section count, order, grouping, or proportion; those belong to the design and may change. Handing a designer a fixed skeleton is what produced the rejected result.
+
 **Anti-template mandate:** no default fonts (no Inter), no stock component kits, no shadcn look, custom everything. Performance is part of the brand (instant loads, Lighthouse ≥ 95 all categories).
 
 ## 7. Tech (decided — `/context/tech-stack.md`)
@@ -84,9 +88,11 @@ Each milestone ends with review/approval by Jon plus the listed agent test. **A 
 
 **M0 — Foundations.** Repo, Astro scaffold, Tailwind token pipeline, Vercel project + staging URL, CI (build + link check). *Test: clean build/deploy; agent verifies scaffold conventions documented in CLAUDE.md.*
 
-**M1 — Design system.** Tokens (color, type, spacing), core components, homepage hi-fi design first for approval, then remaining pages. *Test: design-review agent audits against design-direction.md (anti-template mandate, accessibility, brand seed) before Jon sees it.*
+**SEQUENCE CHANGE (Jon, 2026-08-14): copy now comes BEFORE design.** M1 and M2 swap order. Rationale: design is a response to content — you cannot decide that one section is a full-bleed sentence and another a split with a photograph until you know what they say and how long they run. Designing against unknown content is what produced equal-sized boxes. Homepage FAQ copy is still literally placeholdered (`[Copy phase — assembled from Jon's language]`), so the previous order was designing around unknowns. **Photography selection/commissioning runs in parallel with copy** — it has lead time, and design must not begin against gray placeholders again.
 
-**M2 — Pages built.** All pages implemented per the copy policy (site rule 6): existing copy transferred as canon, surgical changes shown to Jon as old-vs-proposed diffs, new sections assembled from Jon's own language. Coaching + community revisions discussed live during this milestone. *Tests: copy-audit agent checks every page against voice.md rules + no-timeline-promises rule + handle-with-care list; layout QA agent checks responsive breakpoints.*
+**M1 (was M2) — Copy revision, all pages.** Copy revised and approved per the copy policy (site rule 6): existing copy is canon, surgical changes shown to Jon as old-vs-proposed diffs, new sections assembled from Jon's own language, remaining placeholders written. Output is *content*, explicitly NOT a section skeleton — no fixed section count or order (see the rule-6 amendment in §6). Coaching + community revisions discussed live. *Tests: copy-audit agent checks every page against voice.md rules + no-timeline-promises rule + handle-with-care list.*
+
+**M2 (was M1) — Design system.** Built against finished copy and real photography. Tokens (color, type, spacing), core components, homepage hi-fi design first for approval, then remaining pages. **Layout must be tokenized this time** — the v2 build left layout hardcoded in `home.css` plus inline `style=` attributes, so token swaps could only re-skin, never redesign. *Test: design-review agent audits against design-direction.md — including the 2026-08-14 Design Reset — before Jon sees it.* Then pages implemented; layout QA agent checks responsive breakpoints.
 
 **M3 — Integrations.** Subscribe endpoint → systeme.io (verified with real tag/automation), Stripe checkout for Program, Cal.com booking on /coaching, Stripe webhook, analytics events (opt-in, book-session, program-purchase, community-clickthrough), contact form. *Test: funnel-QA agent walks every CTA on every page to its terminal outcome (list join or payment page) and verifies analytics fire; integration tests with Stripe/systeme.io test modes.*
 

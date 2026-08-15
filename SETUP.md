@@ -2,6 +2,8 @@
 
 Practical, non-code steps to make the site's live features work. Code is already built; this is the configuration that turns it on.
 
+**Live staging URL:** https://always-be-quitting.vercel.app/ — the current build of the rebuild, auto-deployed from GitHub (`ABQgit/always-be-quitting`) via Vercel. This is where you preview the new site. The production domain (alwaysbequitting.com) stays on systeme.io until launch (M5).
+
 ---
 
 ## Contact form → your inbox (Resend)
