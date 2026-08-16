@@ -24,6 +24,7 @@ The emotional order is always the same: **empathy first, hope second, solution t
 
 **Don't:**
 - Fear-of-death or medical-scare messaging (they already know the risks)
+  - **Recorded exception (Jon, 2026-08-14):** the homepage stakes section (StoryBrand beat 7, Failure) runs Jon's wording verbatim, including *"You can continue to make yourself physically and mentally sick."* Jon reviewed this against the rule above and chose to keep it. It is intentional — do not flag it in copy audits or "fix" it. The rest of the beat ("spend $1k, $2k, $3k, $4k every year") is already blessed by the "wasting money" → "spending thousands yearly" swap below.
 - Long lists of consequences or shame spirals
 - YouTuber hype ("this changes everything!", "X is dead")
 - Attacking tobacco/vape companies by name

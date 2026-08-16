@@ -1,31 +1,50 @@
+<!--
+  Site footer — restructured 2026-08-14 (Jon) to match the live site's layout:
+  1. brand + links
+  2. MEDICAL DISCLAIMER in its own clearly-labelled full-width section
+  3. bottom bar: copyright + Privacy Policy / Terms and Conditions / Contact
+
+  Removed: the "Always be quitting… until you've quit for the last time" tagline,
+  which was crammed against the disclaimer and repeats the final CTA section.
+  Legal links now live in the bottom bar ONLY — they were previously duplicated
+  in the "More" column.
+-->
 <footer class="footer">
   <div class="wrap footer__grid">
     <div class="footer__brand">
       <p class="footer__logo">ALWAYS BE QUITTING</p>
-      <p class="footer__tagline">Always be quitting… until you've quit for the last time.</p>
-      <p class="footer__disclaimer">
-        <strong>Medical Disclaimer:</strong> The content, programs, and services offered by ABQ are for education
-        only. This is not medical or mental health treatment. You assume all risks if you choose to apply it to
-        yourself or others. Consult with your health care provider regarding the appropriateness of it to your
-        situation. See our <a href="/terms">Terms and Conditions</a> for complete details.
-      </p>
     </div>
     <nav class="footer__col" aria-label="Work with Jon">
       <p class="footer__heading">Work With Jon</p>
       <a href="/community">The ABQ Community</a>
       <a href="/coaching">1:1 Coaching</a>
       <a href="/free-guide">Free Quick-Start Guide</a>
-    </nav>
-    <nav class="footer__col" aria-label="More">
-      <p class="footer__heading">More</p>
-      <a href="/contact">Contact</a>
       <a href="/podcast">Podcast</a>
-      <a href="/privacy">Privacy Policy</a>
-      <a href="/terms">Terms and Conditions</a>
     </nav>
   </div>
+
+  <!-- Medical disclaimer — its own section, clearly stated. -->
+  <section class="footer__legal" aria-label="Medical disclaimer">
+    <div class="wrap">
+      <p class="footer__legal-heading">Medical Disclaimer</p>
+      <p class="footer__legal-body">
+        The content, programs, and services offered by ABQ are for education only. This is not medical or
+        mental health treatment. You assume all risks if you choose to apply it to yourself or others.
+        Consult with your health care provider regarding the appropriateness of it to your situation.
+        See our <a href="/terms">Terms and Conditions</a> for complete details.
+      </p>
+    </div>
+  </section>
+
   <div class="footer__bottom">
-    <div class="wrap">© 2026 Motivation and Mindset Studios, LLC · Blacksburg, VA</div>
+    <div class="wrap footer__bottom-row">
+      <p class="footer__copy">© 2026 Motivation and Mindset Studios, LLC · Blacksburg, VA</p>
+      <nav class="footer__legal-links" aria-label="Legal">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms and Conditions</a>
+        <a href="/contact">Contact</a>
+      </nav>
+    </div>
   </div>
 </footer>
 
@@ -43,7 +62,7 @@
   }
   @media (min-width: 860px) {
     .footer__grid {
-      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-columns: 2fr 1fr;
       gap: 4rem;
     }
   }
@@ -51,22 +70,7 @@
     font: 800 1rem/1 var(--font-body);
     letter-spacing: 0.08em;
     color: var(--white);
-    margin: 0 0 0.7rem;
-  }
-  .footer__tagline {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-size: 1.05rem;
-    color: var(--gold);
-    margin: 0 0 1.1rem;
-  }
-  .footer__disclaimer {
-    font-size: 0.8rem;
-    color: color-mix(in srgb, var(--white) 62%, var(--teal-deep));
     margin: 0;
-  }
-  .footer__disclaimer a {
-    color: color-mix(in srgb, var(--white) 85%, var(--teal-deep));
   }
   .footer__heading {
     font: 800 0.72rem/1 var(--font-body);
@@ -88,11 +92,61 @@
     color: var(--white);
     text-decoration: underline;
   }
+
+  /* ---- medical disclaimer: its own section ---- */
+  .footer__legal {
+    border-top: 1px solid color-mix(in srgb, var(--white) 16%, transparent);
+    padding-block: 2rem;
+  }
+  .footer__legal-heading {
+    font: 800 0.72rem/1 var(--font-body);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 0 0 0.7rem;
+  }
+  .footer__legal-body {
+    margin: 0;
+    max-width: 70ch;
+    font-size: 0.85rem;
+    color: color-mix(in srgb, var(--white) 68%, var(--teal-deep));
+  }
+  .footer__legal-body a {
+    color: color-mix(in srgb, var(--white) 88%, var(--teal-deep));
+  }
+
+  /* ---- bottom bar: copyright + legal links ---- */
   .footer__bottom {
     border-top: 1px solid color-mix(in srgb, var(--white) 16%, transparent);
     padding-block: 1.1rem;
     font-size: 0.8rem;
-    text-align: center;
     color: color-mix(in srgb, var(--white) 55%, var(--teal-deep));
+  }
+  .footer__bottom-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem 2rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer__copy {
+    margin: 0;
+  }
+  .footer__legal-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.6rem;
+  }
+  .footer__legal-links a {
+    color: color-mix(in srgb, var(--white) 72%, var(--teal-deep));
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    font-weight: 700;
+  }
+  .footer__legal-links a:hover {
+    color: var(--white);
+    text-decoration: underline;
   }
 </style>

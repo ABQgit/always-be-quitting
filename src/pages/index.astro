@@ -40,7 +40,13 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
       <div class="optin reveal">
         <h3>Get Your Free Always Be Quitting "Quick-Start Guide"</h3>
         <p><em>Start breaking your smoking or vaping addiction in 20 minutes — even if you're not ready to quit yet.</em></p>
+        <!-- Second line restored from the live site (typo "this this" fixed).
+             It's the only copy that says what they actually receive: a video. -->
+        <p><em>I use this simple technique with my clients and it works. You will receive a video about how and when to use it.</em></p>
+        <!-- first_name added for email personalization. NOTE: /api/subscribe is an
+             M3 task and must pass this through to systeme.io when it's built. -->
         <form action="/api/subscribe" method="post">
+          <input type="text" name="first_name" placeholder="First name" required />
           <input type="email" name="email" placeholder="Your email" required />
           <button class="btn btn--cta" type="submit">Send me the free guide</button>
         </form>
@@ -69,7 +75,7 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
         </div>
         <div class="card reveal">
           <h3>You've relapsed and want to try again.</h3>
-          <p>It already happened. You're frustrated, maybe ashamed, definitely tired of the cycle. You want to try again, but smarter this time.</p>
+          <p>It already happened. You're frustrated, tired of the cycle, and ready for something different. You want to try again, but smarter this time.</p>
         </div>
       </div>
     </div>
@@ -82,8 +88,8 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
         Temporary abstinence isn't quitting — <span class="sweep"><em>transformation is.</em></span>
       </h2>
       <p>
-        Stopping can happen fast. Staying quit is a months-long transformation — and everyone's pace is different.
-        That's why nothing here promises you'll quit in X days: everybody quits at their own pace.
+        Stopping can happen fast. Staying quit is a months-long transformation.
+        That's why nothing here promises you'll quit in X days.
       </p>
     </div>
   </section>
@@ -135,23 +141,51 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
     </div>
   </section>
 
-  <!-- 6 · two doors -->
+  <!-- 6a · WHAT JON OFFERS — the two levels of service, named plainly, no prices.
+       Added 2026-08-14 (Jon). The old single "Start for $97" section was doing two
+       jobs at once — announcing the offerings AND the entry price — so neither
+       service registered and the page read as one product with two buttons.
+       Offer-architecture rule 1: visitors self-select their level of service. -->
+  <section class="band band--white offers">
+    <div class="wrap">
+      <h2 class="display-lg hl">Two ways to <em>work with me.</em></h2>
+      <div class="grid grid--2">
+        <div class="offer reveal">
+          <h3>The ABQ Community</h3>
+          <p>Weekly live Q&amp;A calls with Jon and 24/7 access to a community of people quitting alongside you. Move forward at your own pace, with support and accountability the whole way. You don't even have to be ready to quit to start.</p>
+          <a class="btn btn--ghost" href="/community">See how the community works</a>
+        </div>
+        <div class="offer reveal">
+          <h3>1:1 Coaching</h3>
+          <!-- Names that ongoing 1:1 work exists WITHOUT naming or pricing the
+               $1,200 Program — keeps the 2026-07-12 PRD decision intact.
+               Assembled from Jon's language: "Jon in your corner" (offer-architecture),
+               "no one-size-fits-all programs" (trust line), relapse-as-path (FAQ voice). -->
+          <p>Working with me directly, one to one, over the months a real transformation takes. Not a one-size-fits-all program — a plan built around your life, with me in your corner between sessions, for the slips as much as the wins.</p>
+          <a class="btn btn--ghost" href="/coaching">See how 1:1 coaching works</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6b · HOW YOU START — the $97 entry into either one. Price lives here only.
+       Both being $97 is deliberate and reads as generous once 6a has done the
+       distinguishing. -->
   <section class="band band--paper band--dots doors">
     <div class="wrap">
       <div class="doors__mega reveal" aria-hidden="true">$97</div>
-      <h2 class="display-lg hl">Start for $97. <em>Pick your path.</em></h2>
+      <h2 class="display-lg hl">Either way, <em>you start for $97.</em></h2>
       <div class="grid grid--2">
         <div class="door door--community reveal">
           <h3>The ABQ Community</h3>
-          <p>Weekly live Q&amp;A calls with Jon and 24/7 access to a community of people quitting alongside you. Move forward at your own pace, with support and accountability the whole way. You don't even have to be ready to quit to start.</p>
           <div class="price">$97/month</div>
           <p class="door__terms">3-month commitment, then just $47/month.</p>
           <a class="btn btn--cta" href="/community">Join the Community</a>
         </div>
         <div class="door door--session reveal">
-          <h3>1:1 Coaching: A Special Session</h3>
-          <p>Schedule a personal conversation and get yourself moving forward. Whether you can't seem to start, you're slipping, or you've relapsed and want to try again — this is where we begin. A focused 50-minute session with a specialist who's spent 25 years helping people quit for the last time.</p>
+          <h3>A 1:1 Session</h3>
           <div class="price">$97 one-time</div>
+          <p class="door__terms">A focused 50-minute conversation, and where working together begins.</p>
           <a class="btn btn--cta" href={SESSION_URL}>Book your $97 session</a>
         </div>
       </div>
@@ -179,26 +213,24 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
     </div>
   </section>
 
-  <!-- 8 · faq -->
-  <section class="band band--paper">
-    <div class="wrap faq">
-      <h2 class="display-lg">A few things people usually ask.</h2>
-      <details class="reveal">
-        <summary>Community or 1:1 — how do I pick?</summary>
-        <p>[Copy phase — assembled from Jon's language]</p>
-      </details>
-      <details class="reveal">
-        <summary>I'm not ready to quit yet. Is this still for me?</summary>
-        <p>Yes. Not being ready is a great reason to start, not a reason to wait.</p>
-      </details>
-      <details class="reveal">
-        <summary>I've relapsed (again). Is this still worth it?</summary>
-        <p>Especially then. Most permanent quitters relapsed multiple times before it stuck. That isn't failure, it's the path.</p>
-      </details>
-      <details class="reveal">
-        <summary>Why can I only book the $97 session once?</summary>
-        <p>It's a starting point, not a product you re-buy. [copy phase]</p>
-      </details>
+  <!-- FAQ section removed entirely (Jon, 2026-08-14). Objection-handling belongs
+       on /community and /coaching, where the decision is actually made; the
+       homepage had enough text. Nothing from it was relocated. -->
+
+
+  <!-- 8b · STAKES — StoryBrand beat 7 (Failure), placed immediately before the
+       final ask so the stakes land while the CTA is in view. Copy is Jon's,
+       verbatim, approved 2026-08-14.
+       NOTE: the "physically and mentally sick" sentence is a deliberate,
+       Jon-approved exception to the voice.md DON'T "fear-of-death or
+       medical-scare messaging." Recorded in voice.md — do not "fix" it. -->
+  <section class="band band--white stakes">
+    <div class="wrap reveal">
+      <p class="display-lg stakes__body">
+        You can continue to spend $1k, $2k, $3k, $4k every year on cigarettes and vapes.
+        You can continue to make yourself physically and mentally sick.
+        And next year at this time, you'll wish you had started today.
+      </p>
     </div>
   </section>
 
