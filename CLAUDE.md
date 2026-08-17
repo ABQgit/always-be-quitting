@@ -20,6 +20,19 @@ This repo is the rebuild of alwaysbequitting.com (Jon Fritsch's smoking/vaping c
 - `npm run dev` to preview locally; `npm run build` must pass before any commit.
 - Sandbox note: `npm install` on the mounted folder is slow — build/install in a sandbox-local copy (e.g. `~/abq-build`), sync `package.json`/`package-lock.json` back. Long commands must finish within one bash call (background processes lose network when the call ends). Use `--prefer-offline` and chunked installs.
 
+## Verify before you assert (added 2026-08-14, after repeated failures)
+
+**The most common failure mode on this project is confidently describing a file that wasn't read.** Real examples from a single session: the Claude Design brief was characterized as "almost all negatives" having read only the QA checklist; a hero portrait was recommended when `homepage-spec.md` banned it in writing; "What Makes The Difference" was called weak build-generated filler when it is Jon's verbatim copy, deliberately restored; and the `/community` medical disclaimer was recommended for deletion as a "duplicate" when it uniquely contains a self-harm and mental-health-crisis clause that the footer version lacks.
+
+Rules that follow:
+
+1. **Read in full before proposing removal or change to ANY copy, spec, or legal text.** Never propose a deletion based on a grep hit, a summary, a filename, or a memory of having seen it. Read the actual thing, all of it.
+2. **Quote or don't claim.** Any assertion about what a document says must come with the quoted line. If it can't be quoted, it hasn't been read — say "let me check" instead of asserting.
+3. **Read the page spec before editing that page.** `homepage-spec.md`, `community-page-spec.md`, `one-on-one-page-spec.md`, `supporting-pages-spec.md`. Most bad calls here were things already decided and written down.
+4. **Assume existing copy is Jon's and deliberate until proven otherwise.** It usually is. "This looks like filler" is a hypothesis to check against `/context`, not a finding.
+5. **Legal, medical, and disclaimer text is never touched on a judgment call.** Compare versions word by word, surface the differences to Jon, and let him decide. Terms and privacy pages were ported verbatim on purpose.
+6. **Don't report an action as done without confirming it succeeded** — check the command's exit state, especially for git operations, which fail silently on this repo when lock files are present.
+
 ## Non-negotiable rules
 
 - Every page converts to email list join or purchase; no off-domain links except checkout

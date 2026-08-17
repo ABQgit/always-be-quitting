@@ -1,9 +1,9 @@
 ---
-// /community — near-verbatim port of community-8-25 (Jon: "I like almost everything
+// /community - near-verbatim port of community-8-25 (Jon: "I like almost everything
 // about this page"). ONLY the offer/pricing model changes (community-page-spec.md):
 // 3-month commitment ($97/mo ×3 or $250 one-pay) then $47/mo auto-continue; codes and
 // $147-regular apparatus removed; subscription FAQ rewritten. [DIFF] marks changes.
-// Design: varied treatments per critique — split rows w/ icons, numbered journey,
+// Design: varied treatments per critique - split rows w/ icons, numbered journey,
 // ticket pricing. No back-to-back card grids.
 import Base from '../layouts/Base.astro';
 import SiteHeader from '../components/SiteHeader.astro';
@@ -27,11 +27,11 @@ const MN_URL = 'https://always-be-quitting.mn.co/plans/1948481?bundle_token=1ab9
         Weekly Expert Coaching + Ongoing Community Support For Your Entire Quit Smoking or Vaping Journey
       </p>
       <div class="hero-split">
-        <div class="video reveal">[ Jon's community video — same one as current page ]</div>
+        <div class="video reveal">[ Jon's community video - same one as current page ]</div>
         <aside class="ticket reveal">
           <p class="ticket__kicker">Full ABQ Community Membership</p>
           <p class="ticket__price">$97<span>/month</span></p>
-          <p class="ticket__terms">3-month commitment — because that's how long transformation actually takes.</p>
+          <p class="ticket__terms">3-month commitment - because that's how long transformation actually takes.</p>
           <p class="ticket__then">Then just <strong>$47/month</strong> for as long as you want.</p>
           <p class="ticket__alt">Or $250 up front for all 3 months <em>(save $41)</em></p>
           <a class="btn btn--cta" href={MN_URL}>Join the Community</a>
@@ -61,8 +61,8 @@ const MN_URL = 'https://always-be-quitting.mn.co/plans/1948481?bundle_token=1ab9
         <div>
           <h3>Weekly Community Support Calls</h3>
           <p>
-            Every Tuesday at 8 PM ET, join Jon for live group coaching. Ask questions, get guidance on whatever
-            you're dealing with that week, and hear from others on the same journey.
+            Join Jon for live group coaching - usually one call a week, sometimes more. Ask questions, get guidance
+            on whatever you're dealing with that week, and hear from others on the same journey.
           </p>
           <p><strong>Can't make it live?</strong> All calls are recorded and accessible in the community.</p>
         </div>
@@ -124,11 +124,11 @@ const MN_URL = 'https://always-be-quitting.mn.co/plans/1948481?bundle_token=1ab9
           </svg>
         </div>
         <div>
-          <h3>Build Your Own Plan — Quit at Your Pace</h3>
+          <h3>Build Your Own Plan - Quit at Your Pace</h3>
           <p>You don't follow a one-size-fits-all program (they rarely work). And you don't figure it out alone.</p>
           <p>
-            <strong>You create YOUR plan</strong> — when to start, what pace works for your life, whether you take
-            big steps, baby steps, or both. <strong>Jon guides you through it</strong> — helping you shape a plan
+            <strong>You create YOUR plan</strong> - when to start, what pace works for your life, whether you take
+            big steps, baby steps, or both. <strong>Jon guides you through it</strong> - helping you shape a plan
             that actually works, avoiding the common pitfalls, and supporting you through the countless ways you
             can get derailed.
           </p>
@@ -144,8 +144,13 @@ const MN_URL = 'https://always-be-quitting.mn.co/plans/1948481?bundle_token=1ab9
   <!-- four stages: numbered journey -->
   <section class="band band--mist" style="padding-block: clamp(4rem, 8vw, 6.5rem)">
     <div class="wrap" style="max-width:880px">
-      <p class="kicker" style="text-align:center">Q: How do I know if the ABQ community is right for me?</p>
-      <h2 class="display-lg" style="text-align:center; margin-top:1rem">
+      <!-- Q and A are a matched pair at the SAME size, as on the live site
+           (Jon, 2026-08-14). The Q was previously .kicker - tiny tracked-out
+           label type - which buried the teaser under its own answer. -->
+      <p class="display-lg" style="text-align:center; font-style:italic; margin:0">
+        Q: How do I know if the ABQ community is right for me?
+      </p>
+      <h2 class="display-lg" style="text-align:center; margin-top:1.4rem">
         A: Which of these best describes where you are with your smoking or vaping?
       </h2>
       <div class="options">
@@ -158,7 +163,7 @@ const MN_URL = 'https://always-be-quitting.mn.co/plans/1948481?bundle_token=1ab9
         <div class="option reveal">
           <span class="option__badge">B</span>
           <h3>You're finally "ready to quit" and want to set a quit date</h3>
-          <p>You've decided — this is it. You want support through the first days, weeks, and months. You may have no idea how to proceed, or you may be crafting a plan.</p>
+          <p>You've decided - this is it. You want support through the first days, weeks, and months. You may have no idea how to proceed, or you may be crafting a plan.</p>
           <p class="option__verdict"><strong>Perfect.</strong> You're in charge and we can help get some quitting time under your belt. The community gives you accountability and expert guidance exactly when you need it most.</p>
         </div>
         <div class="option reveal">
@@ -174,7 +179,7 @@ const MN_URL = 'https://always-be-quitting.mn.co/plans/1948481?bundle_token=1ab9
           <p class="option__verdict"><strong>Don't let shame keep you out.</strong> This is exactly why ongoing support matters. Come back, get motivation from being in the community, fix the things that tripped you up, and start moving forward again.</p>
         </div>
       </div>
-      <p style="text-align:center; margin-top:2rem; font-size:1.1rem"><strong>Whichever you picked — the answer is the same. This community was built for exactly where you are.</strong></p>
+      <p style="text-align:center; margin-top:2rem; font-size:1.1rem"><strong>Whichever you picked - the answer is the same. This community was built for exactly where you are.</strong></p>
     </div>
   </section>
 
@@ -195,20 +200,20 @@ const MN_URL = 'https://always-be-quitting.mn.co/plans/1948481?bundle_token=1ab9
         <p class="ticket__price">$97<span>/month</span></p>
         <p class="ticket__terms">
           <strong>3-month commitment.</strong> We ask for 3 months because that's how long transformation actually
-          takes — your first 30 days are a start, not a finish.
+          takes - your first 30 days are a start, not a finish.
         </p>
         <p class="ticket__then">
           After your 3 months: <strong>$47/month, for as long as you want.</strong> The longer you stay, the
-          cheaper it gets — the opposite of every program that's burned you.
+          cheaper it gets - the opposite of every program that's burned you.
         </p>
         <p class="ticket__alt">Prefer one payment? <strong>$250 for all 3 months</strong> <em>(save $41)</em>.</p>
         <ul class="checks checks--ink">
           <li>24/7 access to community support</li>
-          <li>Weekly Community Support Calls — Tuesdays at 8 PM ET</li>
+          <li>Community Support Calls - usually one a week, schedule published at the start of each month</li>
           <li>Access to call recordings + ability to ask questions beforehand</li>
           <li>Accountability check-ins (voluntary and without shock collars 🙂)</li>
           <li>Expert guidance on withdrawal, mindset, and behavior change</li>
-          <li>Quit at your pace — no rigid timeline to follow</li>
+          <li>Quit at your pace - no rigid timeline to follow</li>
           <li>Positive, committed community (no lurkers or trial members)</li>
         </ul>
         <a class="btn btn--cta" href={MN_URL} style="align-self:center">Join the Community</a>
@@ -221,7 +226,7 @@ const MN_URL = 'https://always-be-quitting.mn.co/plans/1948481?bundle_token=1ab9
     <div class="wrap" style="max-width:820px">
       <h2 class="display-lg">Just Start.</h2>
       <p style="font-size:1.15rem; margin-top:1.4rem; color:var(--soft)">
-        The ABQ community is an insane value. Most people spend hundreds a month on smoking or vaping —
+        The ABQ community is an insane value. Most people spend hundreds a month on smoking or vaping -
         <strong style="color:var(--ink)">you'll save hundreds of thousands over your lifetime by quitting.</strong>
       </p>
       <p class="display-lg hl reveal" style="margin-top:2rem; font-size:clamp(1.5rem, 3vw, 2.2rem)">
@@ -240,7 +245,7 @@ const MN_URL = 'https://always-be-quitting.mn.co/plans/1948481?bundle_token=1ab9
           <figcaption><b>Katherine</b> · One Year Vape Free</figcaption>
         </figure>
         <figure class="card quote reveal">
-          <blockquote>Jon's non-assuming approach and meeting me where I was at was really helpful. Having the support and the accountability — it's kind of two sides of the same coin. That was probably one of the pieces that I was missing.</blockquote>
+          <blockquote>Jon's non-assuming approach and meeting me where I was at was really helpful. Having the support and the accountability - it's kind of two sides of the same coin. That was probably one of the pieces that I was missing.</blockquote>
           <figcaption><b>Kait</b> · 9 Years Sober, Now Smoke-Free</figcaption>
         </figure>
         <figure class="card quote reveal">
@@ -251,84 +256,166 @@ const MN_URL = 'https://always-be-quitting.mn.co/plans/1948481?bundle_token=1ab9
     </div>
   </section>
 
-  <!-- FAQ — verbatim except subscription item [DIFF] -->
+  <!-- FAQ - verbatim except subscription item [DIFF] -->
   <section class="band band--mist">
     <div class="wrap faq">
       <h2 class="display-lg">Common Questions</h2>
+      <!-- VERBATIM from the live site (Jon, 2026-08-14). A previous rewrite
+           flattened both bulleted lists into run-on sentences and dropped the
+           judgment-free line and the consulting/training note. Keep the lists. -->
       <details class="reveal">
         <summary>Who can join ABQ programs and community?</summary>
         <p>
-          This community is for people who smoke or vape and want to quit — or who recently quit and need support
-          to stay quit. You're welcome to join if you currently use tobacco, nicotine, or vaping products and want
-          to quit; recently quit but are struggling to maintain it; or relapsed and need support to get back on
-          track. To maintain a focused, supportive environment, we don't allow: healthcare professionals (unless
-          you're personally seeking help for your own tobacco/nicotine use, and inform us of it); anyone affiliated
-          with the tobacco, nicotine, or vaping industry; people looking to learn our methods for their own
-          coaching, training, or business purposes; or anyone misrepresenting their tobacco/nicotine use status.
+          This community is for people who smoke or vape and want to quit - or who recently quit and need support
+          to stay quit.
+        </p>
+        <p><strong>You're welcome to join if you are:</strong></p>
+        <ul>
+          <li>Currently use tobacco, nicotine, or vaping products and want to quit</li>
+          <li>Recently quit but are struggling to maintain it</li>
+          <li>Relapsed and need support to get back on track</li>
+        </ul>
+        <p><strong>To maintain a focused, supportive environment, we don't allow:</strong></p>
+        <ul>
+          <li>Healthcare professionals (unless you're personally seeking help for your own tobacco/nicotine use, and inform us of it)</li>
+          <li>Anyone affiliated with the tobacco, nicotine, or vaping industry</li>
+          <li>People looking to learn our methods for their own coaching, training, or business purposes</li>
+          <li>Anyone misrepresenting their tobacco/nicotine use status</li>
+        </ul>
+        <p>
           <strong>Why?</strong> Our community thrives when everyone is genuinely focused on their own quitting
-          journey. Violating these requirements results in immediate removal with no refund, as outlined in our
+          journey. This creates the judgment-free environment that helps people succeed.
+        </p>
+        <p>
+          Violating these requirements results in immediate removal with no refund, as outlined in our complete
           <a href="/terms">Terms and Conditions</a>.
+        </p>
+        <p>
+          <strong>Note:</strong> If you're interested in our training methods for professional purposes, we offer
+          separate consulting and training services. Feel free to contact us directly to discuss those options.
         </p>
       </details>
       <details class="reveal">
         <summary>When do the Community Support Calls happen? What if I miss one?</summary>
         <p>
-          <strong>Current schedule:</strong> every Tuesday at 8 PM ET. The schedule may change as the community
-          grows — we may add different time slots for international members, always with advance notice.
+          <strong>Current Schedule:</strong> Community Support Calls are scheduled at the beginning of the month.
+          There is usually one per week, sometimes more.
+        </p>
+        <p>
+          <strong>Please note:</strong> We try to choose different times of the day so that both US and
+          international members have a chance to attend. We publish the schedule at the beginning of each month.
+        </p>
+        <p>
           <strong>Can't make it live?</strong> All calls are recorded and available to watch later. You can also
-          submit questions ahead of time, and Jon will answer them during the call even if you can't attend. Plus,
-          you have 24/7 access to the community.
+          submit questions ahead of time, and Jon will answer them during the call even if you can't attend live.
+        </p>
+        <p>
+          Plus, you have 24/7 access to the community where you can get support, ask questions, and connect with
+          others any time.
         </p>
       </details>
       <details class="reveal">
         <summary>How long should I stay in the community?</summary>
         <p>
           <strong>The short answer:</strong> as long as you need. <strong>The realistic answer:</strong> real
-          transformation typically takes 3–6 months, especially for longer-term smokers and vapers — that's exactly
+          transformation typically takes 3–6 months, especially for longer-term smokers and vapers - that's exactly
           why membership starts with a 3-month commitment. Let's face it: things are going to come up. If you want
           the best shot at quitting for life, don't focus on quitting the community.
           <strong>FOCUS ON QUITTING smoking or vaping for life. That is the end game.</strong> After your first
-          3 months, staying is just $47/month — and how long you stay is entirely up to you.
+          3 months, staying is just $47/month - and how long you stay is entirely up to you.
         </p>
       </details>
       <details class="reveal">
         <summary>What's your subscription, cancellation, and refund policy?</summary>
         <p>
-          <strong>Your membership:</strong> ABQ Community membership begins with a 3-month commitment — either
+          <strong>Your membership:</strong> ABQ Community membership begins with a 3-month commitment - either
           3 monthly payments of $97, or one payment of $250. All 3 months are yours and all 3 payments stand; we
-          don't offer refunds for any reason. This isn't because we don't stand behind what we do — it's because
+          don't offer refunds for any reason. This isn't because we don't stand behind what we do - it's because
           transformation requires commitment, and an "easy out" encourages giving up exactly when things get
           challenging. <strong>After 3 months:</strong> your membership automatically continues at $47/month so
           your support doesn't disappear the moment the commitment ends. You can cancel anytime from month 4
-          onward — just cancel at least 1 day before your renewal date. <strong>What we guarantee:</strong> the
+          onward - just cancel at least 1 day before your renewal date. <strong>What we guarantee:</strong> the
           delivery of weekly Community Support Calls, ongoing community access, and Jon's guidance.
           <strong>What we can't guarantee:</strong> that you'll quit. Your success depends on factors under your
-          control — your mindset, decisions, commitment, and how you navigate the challenges. We provide guidance,
+          control - your mindset, decisions, commitment, and how you navigate the challenges. We provide guidance,
           accountability, and support, but we can't execute the process for you. We think you can do this!
-          <em>[DIFF — rewritten for the new pricing model; Jon to approve]</em>
+          <em>[DIFF - rewritten for the new pricing model; Jon to approve]</em>
         </p>
       </details>
       <details class="reveal">
         <summary>Is this community confidential?</summary>
+        <p><strong>No, this community is NOT confidential like a doctor's office or therapist's office.</strong></p>
+        <p>Here's what that means:</p>
+        <ul>
+          <li>Other members will see what you post in the community</li>
+          <li>Other members will hear what you say on Community Support Calls</li>
+          <li>We can't control what others remember or discuss outside the community</li>
+          <li>This is peer support and coaching - not medical or therapeutic care with confidentiality protections</li>
+        </ul>
+        <p><strong>Only share what you're comfortable with others knowing.</strong></p>
         <p>
-          <strong>No, this community is NOT confidential like a doctor's office or therapist's office.</strong>
-          Other members will see what you post and hear what you say on calls, and we can't control what others
-          remember or discuss outside the community. This is peer support and coaching — not medical or therapeutic
-          care with confidentiality protections. <strong>Only share what you're comfortable with others
-          knowing.</strong> If you need care with full confidentiality protections, please seek those services from
-          licensed healthcare professionals.
+          If you need medical care or therapy with full confidentiality protections, please seek those services
+          from licensed healthcare professionals.
+        </p>
+        <p>
+          For complete medical disclaimers, liability limitations, and additional legal protections, please see our
+          full <a href="/terms">Terms and Conditions</a>.
         </p>
       </details>
+      <!-- MEDICAL DISCLAIMER - VERBATIM from the live site (Jon, 2026-08-14).
+           Restored in full after a condensed rewrite dropped roughly two-thirds
+           of it, including the entire "Medication Discussions" and "Our
+           Commitment to You" sections. DO NOT edit, shorten, or "tidy" this
+           text. Legal/medical wording is never changed on a judgment call. -->
       <details class="reveal">
-        <summary>Medical disclaimer</summary>
+        <summary>Medical Disclaimer</summary>
         <p>
-          All of our services — coaching, community support, and educational materials — are for information and
-          education only. They are NOT medical, mental health, or addiction treatment, and we cannot replace
-          professional healthcare. It's your responsibility to verify with your doctor, healthcare provider, or
-          therapist that our information and guidance are appropriate for your situation. If you're experiencing
-          thoughts of self-harm, severe depression, serious physical symptoms, or any mental health crisis, please
-          seek immediate professional medical attention — call 911 in any emergency. For complete details, see our
-          <a href="/terms">Terms and Conditions</a>.
+          We know this isn't the most exciting thing to read, but we need to be crystal clear about what we offer
+          and what we don't.
+        </p>
+        <p>
+          <strong>What We Provide</strong><br />
+          All of our services—coaching, community support, and educational materials—are for information and
+          education only. We're here to provide guidance, support, accountability, and proven strategies to help
+          you on your quitting journey.
+        </p>
+        <p>
+          <strong>What We Don't Provide</strong><br />
+          Our services are NOT medical, mental health, or addiction treatment. We are not doctors, therapists, or
+          medical professionals. Our coaching and community do not constitute medical care. While we're passionate
+          about helping you quit and have extensive experience in this area, we cannot replace professional
+          healthcare.
+        </p>
+        <p>
+          <strong>Your Responsibility</strong><br />
+          It's your responsibility to verify with your doctor, healthcare provider, or therapist that our
+          information and guidance are appropriate for your specific situation. You assume all responsibility for
+          how you apply what you learn in our programs.
+        </p>
+        <p>
+          <strong>When to Seek Medical Care</strong><br />
+          If you're experiencing thoughts of self-harm, severe depression, serious physical symptoms, or any mental
+          health crisis, please seek immediate professional medical attention. Call 911 in any emergency situation.
+        </p>
+        <p>
+          <strong>Medication Discussions</strong><br />
+          We may discuss various cessation aids, medications, and products as educational information only. Any
+          medication decisions must be made in consultation with qualified healthcare professionals. We are not
+          prescribing or personally recommending specific medications for your individual use.
+        </p>
+        <p>
+          <strong>Our Commitment to You</strong><br />
+          While we can't provide medical treatment, we are absolutely committed to providing you with the best
+          educational resources, coaching support, and community encouragement to help you succeed in your quitting
+          journey. We believe in your ability to quit, and we're here to support you every step of the way!
+        </p>
+        <p>
+          If you want medical care or mental health treatment, we encourage you to pursue that with professional
+          treatment facilities and providers.
+        </p>
+        <p>
+          For complete medical disclaimers, liability limitations, and additional legal protections, please see our
+          full <a href="/terms">Terms and Conditions</a>.
         </p>
       </details>
     </div>

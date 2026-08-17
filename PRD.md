@@ -26,6 +26,13 @@ Rebuild alwaysbequitting.com from systeme.io's site builder onto a custom Astro 
 3. **No timeline promises.** Quitting is quitting an addiction; everybody quits at their own pace. Process honesty replaces outcome claims. (Resolved: open-questions #10.)
 4. **Voice compliance:** all copy obeys `/context/voice.md` — empathy first, no shame spirals, no hype, handle-with-care language swaps, customer is the hero, Jon is the guide (never a former smoker).
 5. **Concrete deliverables, not abstract nouns.** Price transparency at first glance. Compressed trust lines at every CTA.
+
+5b. **EVERY PAGE IS AN ENTRY POINT (Jon, 2026-08-14).** Traffic does not flow homepage → sales page. People are sent directly to `/community` or `/coaching` from ads, YouTube, email, and referrals, and many never see the homepage at all. Consequences:
+   - **Duplication between pages is expected and fine.** "We already said that on the homepage" is NOT a valid reason to cut copy from a sales page. Never trim a page on the assumption the reader arrived from another one.
+   - **Redundancy *within* a single page is still a defect** — that's the test that applies.
+   - **Each page stands alone for its *offer*:** present what it sells, why it works, and how to buy, without depending on another page.
+   - **Jon's qualifications do NOT belong on every page (Jon, 2026-08-14).** Credentials live on the homepage. Anyone who wants Jon's background clicks through to it. **Do not add a guide/credentials section to `/community` or `/coaching`** — considered and rejected.
+   - **Pages may differ structurally** where their jobs differ. Divergence is allowed, but it needs a stated reason recorded in that page's spec — not accident or drift.
 6. **Copy policy — existing copy is canon.** Jon's copy was developed deliberately over a long time and transfers as written by default. NO generated generic coaching copy, ever. Changes are surgical, each traceable to a recorded decision (pricing/offer language, timeline-promise removals, banned-phrase swaps, typos, agreed restructuring). New sections with no existing copy (two doors, transformation section, Program block, About) are ASSEMBLED from Jon's own language (voice.md verbatim excerpts, signature phrases, paradoxes, landing-page FAQ) — not invented. During the build, all copy is presented to Jon as old-vs-proposed diffs, page by page; coaching and community page revisions are discussed live during their build milestone. Jon approves every diff.
 
 ## 3. Offer Architecture (decided — `/context/offer-architecture.md`)
@@ -34,7 +41,7 @@ Rebuild alwaysbequitting.com from systeme.io's site builder onto a custom Astro 
 |---|---|---|
 | Quick-Start Guide → ABQ Tips | Free | THE lead magnet feeding THE list (systeme.io) |
 | ABQ Community | $97/mo × 3-month commitment, or $250 one-pay (save $41); auto-continues at $47/mo | Mighty Networks. No refunds; no codes; commitment framed as clinical feature |
-| $97 Intro Session | $97 one-time, **once per person ever** | Cal.com + Stripe (as today), embedded on /coaching. Always credited toward the Program, no deadline |
+| $97 Intro Session | $97 one-time, **once per person ever** | Cal.com + Stripe (as today), embedded on /coaching. **NOT credited toward the Program (reversed 2026-08-14)** — it stands alone as paid coaching time |
 | **Quit for the Last Time: The 1:1 Program** | $1,200 list ($200/session std; sale floor $150/session) | 6 × 50-min over 12 weeks, email access to Jon between sessions. Stripe |
 | Alumni add-on sessions | ~$150/session | Below package rate on purpose. "More time and support," never "because you didn't quit" |
 
@@ -61,8 +68,8 @@ Sale windows run on the real cessation calendar (New Year, World No Tobacco Day 
 
 Full section-by-section specs: `/context/homepage-spec.md`, `/context/one-on-one-page-spec.md`, `/context/community-page-spec.md`, `/context/supporting-pages-spec.md`. Summary of the load-bearing decisions:
 
-- **Homepage:** hero (keep "Make This Your Last Attempt…" + guide opt-in above fold) → recognition section (2-line cycle lead-in + FOUR stage cards) → guide/qualifications → transformation-not-abstinence section → **the Two Doors ("Start for $97": community vs a $97 session with Jon)** → proof → short FAQ → final CTA/tagline. **(2026-07-12) The homepage does NOT advertise the $1,200 Program.** The 1:1 door sells only the $97 "just meet with Jon" session and links OUT to the standalone $97 sales page (Jon assesses fit and sells the Program in-session); the $97 fee credits toward the Program only, never community. See offer-architecture.md "Homepage & $97 Positioning."
-- **/coaching:** $97 intro session is the center of gravity (Jon's decision); landing-v2 structure and copy carried over; new "What comes after" Program section; FAQ updated for one-per-person rule, permanent credit, honest no-automatic-upsells framing.
+- **Homepage:** hero (keep "Make This Your Last Attempt…" + guide opt-in above fold) → recognition section (2-line cycle lead-in + FOUR stage cards) → guide/qualifications → transformation-not-abstinence section → **the Two Doors ("Start for $97": community vs a $97 session with Jon)** → proof → short FAQ → final CTA/tagline. **(2026-07-12) The homepage does NOT advertise the $1,200 Program.** The 1:1 door sells only the $97 "just meet with Jon" session and links OUT to the standalone $97 sales page (Jon assesses fit and sells the Program in-session); the $97 fee is **NOT credited toward anything (reversed 2026-08-14)**. See offer-architecture.md "Homepage & $97 Positioning."
+- **/coaching:** $97 intro session is the center of gravity (Jon's decision); landing-v2 structure and copy carried over; new "What comes after" Program section; FAQ updated for one-per-person rule, **no credit (reversed 2026-08-14)**, honest no-automatic-upsells framing.
 - **/community:** bones stay (four-stage qualifier, FAQ, antidote close); pricing model replaced with 3-month commitment framing ("we ask for 3 months because that's how long transformation takes"); $47 tail sold as benefit; codes/regular-price apparatus deleted; cancel policy: no refunds, stop future billing, month-4 auto-continue disclosed plainly.
 - **Testimonial rule:** current trio (Katherine, Kait, Ashley) OK at launch; community-member testimonials progressively replace 1:1 testimonials on /community.
 
@@ -120,6 +127,19 @@ Independent subagents (not the builder) run each milestone's audits: design revi
 | 8 | Video on /coaching — keep? which? | Jon | M2 |
 | 9 | Vault design tokens + photo assets transfer | Jon | M1 |
 | 10 | Cal.com event cleanup (`-copy` slug; verify $97 charge + intake form attached) | Jon | M3 |
+| 11 | **$97 landing page (abq-landing-v2.vercel.app) needs a review pass — SEPARATE CODEBASE, not this repo** | Jon | before launch |
+
+### Open decision #11 detail — the $97 landing page (added 2026-08-14)
+
+`abq-landing-v2.vercel.app` is the live sales page for the $97 meeting, treated by site rule 2 as an extension of the site. It lives in its own Vercel project, **not in this repo**, and per `CLAUDE.md` is not to be edited from here. It has drifted from current decisions and needs its own pass:
+
+1. **Timeline promise, twice.** The hero trust line reads "CTTS & NCNTT Certified · 25 yrs specialist · **Most clients quit within 3 weeks**", and it recurs lower down. Violates PRD rule 3 and the site-wide ban recorded in `business.md`. **Highest priority — it's the first line a buyer reads.**
+2. **Check the FAQ for $97 credit language.** The accordions were not opened, so this is unverified. `current-site.md` records the old policy as "late cancel = credit toward a multi-session package." The credit was **reversed 2026-08-14** and must not be promised anywhere. Likely locations: "What if I need to reschedule?" and "Is this the same thing as the community or premium coaching?"
+3. **Scroll-reveal bug.** Testimonials render as invisible ghosts when scrolled past (observed 2026-08-14). Content that never appears is a conversion defect, not an effect.
+4. **Footer links** point at old systeme.io destinations ("Premium 1:1 Coaching", "Free Assessment") and need remapping at launch.
+5. **Offer naming** predates "Quit for the Last Time: The 1:1 Program".
+
+Eventually ports on-domain to `/session` (see §4 site map).
 
 ## 11. Success Metrics
 

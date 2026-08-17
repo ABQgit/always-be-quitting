@@ -27,4 +27,4 @@ Out of nav → footer. Simple hub page (cover, platform links) retained as credi
 
 ## Legal
 
-Privacy + Terms migrate as-is (rewrite pass for new offer terms: 3-month community commitment, no-refund policy, one-intro-session rule, $97 credit).
+Privacy + Terms migrate as-is (rewrite pass for new offer terms: 3-month community commitment, no-refund policy, one-intro-session rule, **$97 credit REMOVED 2026-08-14**).

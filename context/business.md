@@ -79,12 +79,12 @@ Jon's clinical reframes (from voice-profile/paradoxes-and-pain-points.md and the
 |-------|-------|-----------|
 | **ABQ Quick-Start Guide** | Free | Primary lead magnet (video + email sequence). Promise: "start breaking your smoking or vaping addiction in 20 minutes — even if you're not ready to quit yet." Replaced the retired "4 Critical Mistakes" PDF. (homepage.md; context.md) |
 | **ABQ Tips** | Free | Weekly ~3-minute email newsletter. Built as a 10-email automated nurture sequence (Ed Lawrence 4:1 value-to-promo ratio). Nudges subscribers toward the community. (voice-profile/ABQ_Tips_CTA_Guide…) |
-| **ABQ Community** | $97/mo launch (regular $147/mo) | Weekly live group coaching with Jon (Tuesdays 8 PM ET, recorded), 24/7 community access, accountability. Built on Mighty Networks. (website/community-landing.md; homepage.md) |
+| **ABQ Community** | $97/mo launch (regular $147/mo) | Live group coaching with Jon — usually one call per week, sometimes more; schedule published at the start of each month, at varied times of day so US and international members can attend; all calls recorded (updated 2026-08-14). 24/7 community access, accountability. Built on Mighty Networks. (website/community-landing.md; homepage.md) |
 | **Premium 1:1 Coaching** | $97 for a 50-minute session (per landing brief) | Dedicated private 1:1 sessions with Jon. "Limited spots available." (briefs/landing-v2-mobile-readability.md; website/premium-coaching.md) |
 
 > **Pricing conflicts to resolve before rebuild:** brand-voice.md lists Community at **$97 public / $48 email-subscriber**; the homepage and community landing page say **$97 launch / $147 regular**; one ABQ Tips email says **"normally $147/month… $97/month with code NOW97."** The $48 price appears nowhere else. Premium coaching is priced at **$97** in the landing brief but the coaching page itself shows no price. See `open-questions.md`.
 
-**Results claim used on the homepage:** *"Most of my clients stop smoking within 3 weeks and become permanent quitters over 2-4 months."* (homepage.md)
+**~~Results claim used on the homepage~~ — RETIRED, DO NOT REUSE (Jon, 2026-08-14).** The old claim *"Most of my clients stop smoking within 3 weeks and become permanent quitters over 2-4 months"* is **banned site-wide**. It is a timeline promise and violates PRD rule 3 ("No timeline promises"). It is recorded here only so it is recognized and rejected on sight. **Never reinstate it, in any wording, on any page, including shortened forms like "most clients quit within 3 weeks."** Replace with credentials plus pace-honesty. (Original source: homepage.md, old site.)
 
 **Positioning line vs. the industry:** *"We don't compare ourselves to those companies; we are the antidote to those companies."* (website/community-landing.md; brand-voice.md)
 

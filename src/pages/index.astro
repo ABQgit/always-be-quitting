@@ -1,5 +1,5 @@
 ---
-// Homepage — v2 "editorial depth" skin on the approved wireframe structure.
+// Homepage - v2 "editorial depth" skin on the approved wireframe structure.
 // Copy is canon (PRD rule 6). Styles: src/styles/home.css, tokens only.
 // v1 design export archived at design-briefs/styled-homepage-v1.html.
 import Base from '../layouts/Base.astro';
@@ -19,7 +19,7 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
   <!-- 0 · announcement + nav -->
   <SiteHeader />
 
-  <!-- 1 · hero — HEADLINE + ONE LINE, NOTHING ELSE (Jon, 2026-08-14).
+  <!-- 1 · hero - HEADLINE + ONE LINE, NOTHING ELSE (Jon, 2026-08-14).
        Matches the live site exactly: no sub-headline, no trust line, no opt-in.
        Design phase: full-bleed environmental photograph, both lines on a scrim.
        "You've tried before" needs statement weight, not kicker size. -->
@@ -32,14 +32,14 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
     </div>
   </header>
 
-  <!-- 1b · Quick-Start Guide opt-in — its own section directly below the hero,
+  <!-- 1b · Quick-Start Guide opt-in - its own section directly below the hero,
        per the live site. Moved out of the hero 2026-08-14. Band treatment TBD
        in the design phase (live site uses a sage field here). -->
   <section class="band band--paper optin-band">
     <div class="wrap">
       <div class="optin reveal">
         <h3>Get Your Free Always Be Quitting "Quick-Start Guide"</h3>
-        <p><em>Start breaking your smoking or vaping addiction in 20 minutes — even if you're not ready to quit yet.</em></p>
+        <p><em>Start breaking your smoking or vaping addiction in 20 minutes - even if you're not ready to quit yet.</em></p>
         <!-- Second line restored from the live site (typo "this this" fixed).
              It's the only copy that says what they actually receive: a video. -->
         <p><em>I use this simple technique with my clients and it works. You will receive a video about how and when to use it.</em></p>
@@ -58,7 +58,7 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
   <section class="band band--paper recognition">
     <div class="wrap">
       <div class="lead reveal">
-        <h2 class="display-lg hl">You try to quit. It doesn't last. Months later you try again — <em>and the cycle repeats.</em></h2>
+        <h2 class="display-lg hl">You try to quit. It doesn't last. Months later you try again - <em>and the cycle repeats.</em></h2>
       </div>
       <div class="grid grid--4">
         <div class="card reveal">
@@ -85,7 +85,7 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
   <section class="band band--teal transform">
     <div class="wrap reveal">
       <h2 class="display-xl" style="margin-top:1.2rem">
-        Temporary abstinence isn't quitting — <span class="sweep"><em>transformation is.</em></span>
+        Temporary abstinence isn't quitting - <span class="sweep"><em>transformation is.</em></span>
       </h2>
       <p>
         Stopping can happen fast. Staying quit is a months-long transformation.
@@ -123,12 +123,12 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
   <section class="band band--white guide" style="padding-top:0">
     <div class="wrap">
       <div class="guide__row reveal">
-        <div class="guide__photo">[ Jon — real photo coming ]</div>
+        <div class="guide__photo">[ Jon - real photo coming ]</div>
         <div>
           <h2 class="display-lg">I'm Jon, and I provide exactly that kind of support.</h2>
           <p style="margin-top:1.2rem; color:var(--soft)">
             I know how discouraging your struggle is. I've spent 25 years helping people who thought they could
-            never quit smoking or vaping — quit for life. And <em>I can help you, too.</em>
+            never quit smoking or vaping - quit for life. And <em>I can help you, too.</em>
           </p>
           <p style="color:var(--soft); font-size:0.95rem">Get help from someone who has been successfully guiding people through quitting for decades.</p>
         </div>
@@ -141,9 +141,9 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
     </div>
   </section>
 
-  <!-- 6a · WHAT JON OFFERS — the two levels of service, named plainly, no prices.
+  <!-- 6a · WHAT JON OFFERS - the two levels of service, named plainly, no prices.
        Added 2026-08-14 (Jon). The old single "Start for $97" section was doing two
-       jobs at once — announcing the offerings AND the entry price — so neither
+       jobs at once - announcing the offerings AND the entry price - so neither
        service registered and the page read as one product with two buttons.
        Offer-architecture rule 1: visitors self-select their level of service. -->
   <section class="band band--white offers">
@@ -158,17 +158,17 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
         <div class="offer reveal">
           <h3>1:1 Coaching</h3>
           <!-- Names that ongoing 1:1 work exists WITHOUT naming or pricing the
-               $1,200 Program — keeps the 2026-07-12 PRD decision intact.
+               $1,200 Program - keeps the 2026-07-12 PRD decision intact.
                Assembled from Jon's language: "Jon in your corner" (offer-architecture),
                "no one-size-fits-all programs" (trust line), relapse-as-path (FAQ voice). -->
-          <p>Working with me directly, one to one, over the months a real transformation takes. Not a one-size-fits-all program — a plan built around your life, with me in your corner between sessions, for the slips as much as the wins.</p>
+          <p>Working with me directly, one to one, over the months a real transformation takes. Not a one-size-fits-all program - a plan built around your life, with me in your corner between sessions, for the slips as much as the wins.</p>
           <a class="btn btn--ghost" href="/coaching">See how 1:1 coaching works</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 6b · HOW YOU START — the $97 entry into either one. Price lives here only.
+  <!-- 6b · HOW YOU START - the $97 entry into either one. Price lives here only.
        Both being $97 is deliberate and reads as generous once 6a has done the
        distinguishing. -->
   <section class="band band--paper band--dots doors">
@@ -189,7 +189,7 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
           <a class="btn btn--cta" href={SESSION_URL}>Book your $97 session</a>
         </div>
       </div>
-      <p class="doors__mitigate reveal">$97 is less than most people spend in a single month on smoking or vaping.</p>
+      <p class="doors__mitigate reveal">$97 is less than most people spend in a single month (or week) on smoking or vaping.</p>
     </div>
   </section>
 
@@ -218,12 +218,12 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
        homepage had enough text. Nothing from it was relocated. -->
 
 
-  <!-- 8b · STAKES — StoryBrand beat 7 (Failure), placed immediately before the
+  <!-- 8b · STAKES - StoryBrand beat 7 (Failure), placed immediately before the
        final ask so the stakes land while the CTA is in view. Copy is Jon's,
        verbatim, approved 2026-08-14.
        NOTE: the "physically and mentally sick" sentence is a deliberate,
        Jon-approved exception to the voice.md DON'T "fear-of-death or
-       medical-scare messaging." Recorded in voice.md — do not "fix" it. -->
+       medical-scare messaging." Recorded in voice.md - do not "fix" it. -->
   <section class="band band--white stakes">
     <div class="wrap reveal">
       <p class="display-lg stakes__body">

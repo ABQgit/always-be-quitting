@@ -12,12 +12,12 @@
 4. **Mechanics grid** — 50-min sessions, easy scheduling, quit date in first 1–3 weeks, progress tracking; UPDATED: two-packages language → one Program; platform description updated to actual stack (Cal.com scheduling, Zoom sessions, email between sessions).
 5. **"Pays for Itself" ROI section** — verbatim EXCEPT "Stop being a slave to nicotine use" → approved swap ("stop feeling controlled by nicotine").
 6. **THE OFFER (replaces the two-package section):**
-   - **$97 Intro Session first** (entry action): 50 min, once per person ever, credited toward the Program, no deadline. Booking via Cal.com.
+   - **$97 Intro Session first** (entry action): 50 min, once per person ever, **NOT credited toward the Program (reversed 2026-08-14)**. Booking via Cal.com.
    - **Quit for the Last Time: The 1:1 Program:** 6 × 50-min over 12 weeks, email access to Jon, $1,200 list. Direct purchase for ready buyers. Add-on sessions ~$150 for alumni.
    - No strikethrough pricing; sale windows only.
 7. **Katherine long-form testimonial** — verbatim.
 8. **Failure-stakes close** — premium-coaching's StoryBrand failure line, "$1k, $2k, $3k, $4k" formatting fixed, "invested in premium coaching" → updated offer name.
-9. **FAQ** — objection-handling set (one-per-person rule, credit mechanics, session vs Program vs community, reschedule policy, nothing-automatic framing). Source copy to be approved by Jon (drafts assembled from his language).
+9. **FAQ** — objection-handling set (one-per-person rule, **no-credit rule (2026-08-14)**, session vs Program vs community, reschedule policy, nothing-automatic framing). Source copy to be approved by Jon (drafts assembled from his language).
 10. **Final CTA + tagline.**
 
 *Cut from old page: "Both Packages Work for Anyone" (moot with one Program), package-choice guidance, $997/$1,497 checkout links.*

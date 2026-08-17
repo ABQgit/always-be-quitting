@@ -20,7 +20,7 @@
 
    **6b — "Either way, you start for $97."** The entry point. Price lives here only.
    - **Community:** $97/mo × 3-month commitment ($250 one-pay option), then $47/mo.
-   - **1:1 Session:** $97 one-time, once per person ever, credited toward the Program. "A focused 50-minute conversation, and where working together begins."
+   - **1:1 Session:** $97 one-time, once per person ever, **NOT credited toward the Program (reversed 2026-08-14)**. "A focused 50-minute conversation, and where working together begins."
    - Closes with "$97 is less than most people spend in a single month on smoking or vaping."
    - The shared $97 is now deliberate and reads as generous, because 6a already did the distinguishing.
 

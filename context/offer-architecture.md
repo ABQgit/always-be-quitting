@@ -4,6 +4,8 @@
 
 ---
 
+**$97 CREDIT REVERSED (Jon, 2026-08-14): the $97 meeting is NO LONGER credited toward the Program.** Reason: the software cannot track it, and the meeting is real coaching time that gets compensated. All credit language below is superseded and must not be reinstated.
+
 ## The Ladder
 
 | Level | Offer | Price | Role |
@@ -18,14 +20,14 @@
 
 1. **Homepage presents multiple offers** — visitors self-select their level of service (community vs. 1:1). Not a single-offer page.
 2. **Package is buyable directly** — the intro session is optional, not a required gate. Ready buyers go straight to the package.
-3. **$97 is credited toward the package with a deadline** (length TBD — e.g., buy package within 14 days of your session and the $97 comes off). This is the anchor-resolver and the post-session close.
+3. ~~**$97 is credited toward the package**~~ **REVERSED (Jon, 2026-08-14): NO credit.** The software cannot track it and the meeting is paid coaching time. The $97 meeting stands alone.
 4. **One core package, not two.** Add tiers later from real demand. Kills choice paralysis and the Sprint-vs-Complete confusion.
 5. **Community stays separate** from packages. No bundling. (Package grads may be invited to join community as a next step — that's a CTA, not a bundle.)
 6. **One $97 session per person, ever.** It's an onboarding mechanism; repeat cheap sessions would cannibalize the package.
 
 ## What This Fixes
 
-- $97 vs ~$249/session anchoring → reframed as "risk-free first step, credited if you continue."
+- $97 vs ~$249/session anchoring → ~~"credited if you continue"~~ **REVERSED 2026-08-14.** Framed as a standalone paid conversation, no credit.
 - Two-package confusion (unclear choice criterion, "4-week" running 5 weeks, "up to X sessions" anxiety) → one clear offer.
 - Perpetual strikethrough pricing ($1,297→$997 forever) → to be replaced by honest pricing (open item).
 - "No upsells. No subscriptions." absolute claim on landing page → becomes "one session, no automatic anything; if ongoing support fits, Jon will say so and you decide."
@@ -35,7 +37,7 @@
 - **6 × 50-minute sessions over 12 weeks** — deliberately roomy window; life happens, no forced pace.
 - **Standard rate $200/session → list price $1,200.** Set high enough to allow real discounting at defined times of year (cessation calendar: New Year, World No Tobacco Day May 31, Great American Smokeout in November). Sale levels available: $175/session ($1,050) or $150/session ($900).
 - **Between-session support: email access to Jon.** (Simple, sustainable, no platform dependency.)
-- **$97 intro credit: always applies, no deadline.** Anyone who did the intro session gets $97 off the package whenever they buy.
+- ~~**$97 intro credit: always applies**~~ **REVERSED (Jon, 2026-08-14): there is no credit.**
 - **Add-on sessions for package alumni at ~$150** — deliberately BELOW the package rate. Continuing gets rewarded, never penalized. (Copy rule: frame as "more time and support," never "because you didn't quit.")
 - **Program name (decided): "Quit for the Last Time: The 1:1 Program"** — uses the tagline verbatim. Short form for UI/nav where needed: "Quit for the Last Time" or "the 1:1 Program."
 - **Strategic north star:** community is the scale engine (better economics than 1:1); coaching is the depth/proof/cash engine. Long-term goal is a large community. Homepage hierarchy should reflect this.
@@ -63,4 +65,4 @@ Four decisions, superseding conflicting homepage/landing-page language above and
 
 4. **`/coaching` stays the Program's sales page** — it does NOT become a $97 page. It exists for people ready to consider the package and must sell/market it properly. Reached via nav, not pushed at cold homepage traffic.
 
-5. **The $97 session fee is credited toward the Program ONLY — never toward community.** If someone does a $97 session and then joins the community instead of buying the Program, the $97 does not transfer. Two separate products. Homepage copy must not imply otherwise (and, per #1, shouldn't mention the credit at all — credit language lives on the landing page and `/coaching`).
+5. ~~**The $97 session fee is credited toward the Program ONLY**~~ **REVERSED (Jon, 2026-08-14): no credit toward anything.** Original note retained for history: If someone does a $97 session and then joins the community instead of buying the Program, the $97 does not transfer. Two separate products. Homepage copy must not imply otherwise (and, per #1, shouldn't mention the credit at all — credit language lives on the landing page and `/coaching`).

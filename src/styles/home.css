@@ -644,6 +644,28 @@
   line-height: 1.6;
 }
 
+/* Lists inside FAQ answers. Tailwind's preflight strips list markers, padding
+   and margin from <ul>, so without this the items render as flat lines with
+   nothing tying them to the sentence above. Added 2026-08-14. */
+.faq details ul {
+  margin: 0 0 1.2rem;
+  padding: 0 1.3rem 0 3rem;
+  list-style: disc;
+  color: var(--soft);
+}
+.faq details ul li {
+  line-height: 1.6;
+  margin-bottom: 0.45rem;
+  padding-left: 0.2rem;
+}
+.faq details ul li::marker {
+  color: var(--teal);
+}
+/* a paragraph that introduces a list should sit tight to it */
+.faq details p:has(+ ul) {
+  padding-bottom: 0.5rem;
+}
+
 /* ---------- 9 · final cta ---------- */
 .final {
   text-align: center;

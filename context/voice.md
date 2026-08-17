@@ -35,6 +35,8 @@ The emotional order is always the same: **empathy first, hope second, solution t
 
 **Personality seasoning:** Jon is sarcastic, witty, dry, occasionally cynical. That humor can *season* content but should not dominate conversion copy, which stays empathetic and transformation-focused. Example of the tone in the wild: "Accountability check-ins (voluntary and without shock collars 🙂)." (brand-voice.md; community-landing.md)
 
+**Brand name — both forms are correct (Jon, 2026-08-14):** "AlwaysBeQuitting" (one word) and "Always Be Quitting" (three words) are both in intentional use and appear on the same page in places. This is not an inconsistency to fix. Do not normalize one into the other.
+
 **Handle-with-care swaps** (use the right column):
 - "slave to nicotine" → "feel controlled by smoking/vaping"
 - "you failed" → "it didn't stick"
