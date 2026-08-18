@@ -53,7 +53,9 @@ export const POST: APIRoute = async ({ request, redirect }) => {
     return redirect(`${back}?suberror=email`, 303);
   }
 
-  const key = env('SYSTEME_API_KEY');
+  // .trim() matters: values pasted into a dashboard field often carry a
+  // trailing newline, which makes the header invalid and returns 401.
+  const key = env('SYSTEME_API_KEY')?.trim();
   if (!key) {
     console.error('SYSTEME_API_KEY is not set');
     return redirect(`${back}?suberror=config`, 303);
@@ -87,7 +89,9 @@ export const POST: APIRoute = async ({ request, redirect }) => {
       const detail = await create.text().catch(() => '');
       if (create.status !== 422 && create.status !== 400) {
         console.error('systeme.io create failed:', create.status, detail);
-        return redirect(`${back}?suberror=send`, 303);
+        // status in the URL so a failure is diagnosable from the browser
+        // rather than only from Vercel's function logs.
+        return redirect(`${back}?suberror=send&s=${create.status}`, 303);
       }
       const found = await fetch(`${API}/contacts?email=${encodeURIComponent(email)}&limit=10`, {
         headers,
@@ -98,7 +102,7 @@ export const POST: APIRoute = async ({ request, redirect }) => {
       }
       if (!contactId) {
         console.error('systeme.io: contact not created and not found:', create.status, detail);
-        return redirect(`${back}?suberror=send`, 303);
+        return redirect(`${back}?suberror=send&s=${create.status}nf`, 303);
       }
     }
 
@@ -106,7 +110,7 @@ export const POST: APIRoute = async ({ request, redirect }) => {
     // SYSTEME_TAG_ID accepts one id or a comma-separated list, e.g. "1961444,1956363"
     // (Quick-Start Guide + ABQ Tips). Applied one at a time - the API takes a
     // single tagId per call.
-    const tagIds = (env('SYSTEME_TAG_ID') || '')
+    const tagIds = (env('SYSTEME_TAG_ID') || '').trim()
       .split(',')
       .map((s) => s.trim())
       .filter((s) => /^\d+$/.test(s));
