@@ -11,7 +11,7 @@
 | Level | Offer | Price | Role |
 |---|---|---|---|
 | Free | Quick-Start Guide, ABQ Tips, readiness quiz | $0 | Capture + nurture |
-| Group | **ABQ Community** | **3-month commitment: 3 × $97/mo ($291) or $250 one-pay (save $41) → then $47/mo ongoing** | For people who won't buy 1:1 (preference or budget). Weekly calls + 24/7 support. Standalone product — NOT bundled with packages. 3-month structure matches "transformation takes 3–6 months." Replaces $97-launch/$147-regular/discount-code apparatus entirely. |
+| Group | **ABQ Community** | **3-month commitment: 3 × $97/mo ($291) or $250 one-pay (save $41) → then $47/mo ongoing** ⚠️ *The $250 one-pay is CONFIRMED WANTED (Jon, 2026-08-18) but depends on Mighty Networks supporting it. It is a payment option, not a coupon — it stays. If MN can't do a 3-month term with a one-pay alternative, the offer changes, not the intent.* | For people who won't buy 1:1 (preference or budget). Weekly calls + 24/7 support. Standalone product — NOT bundled with packages. 3-month structure matches "transformation takes 3–6 months." Replaces $97-launch/$147-regular/discount-code apparatus entirely. |
 | 1:1 entry | **$97 Intro Session** | $97 one-time | 50-min session. Onboarding vehicle toward the package. **Strictly one per person, lifetime.** |
 | Core | **One core coaching package** | 6 × 50-min sessions at $150–175/session (list ~$1,050; sale floor ~$900) | THE offer. Commitment + accountability + "Jon in your corner." Replaces the current 4-week/$997 and 8-week/$1,497 pair. |
 | Extension | **Add-on sessions** (package alumni only) | ~$150/session (below the $175 package rate) | For clients who want more time/support after the package. Loyalty-priced, not premium-priced. |
@@ -49,7 +49,11 @@
 3. ~~$97 collision~~ **RESOLVED: accepted, and potentially an asset.** Jon is fine with both being $97. Can be leveraged as a deliberate framing: "Start for $97" — your first month of community OR a one-time 1:1 session; pick your path. Two doors, one entry price. **NOTE (2026-07-12): the two $97s are entirely separate products — the 1:1 session fee is NEVER credited toward community; see "Homepage & $97 Positioning" below.**
 4. **Enforcement of one-$97-per-person:** policy copy + practical enforcement (Cal.com booking limits are weak for lifetime-per-email; real enforcement likely lands in the rebuild's booking flow / Stripe customer check). Also decide the polite refusal path for someone who wants a second cheap session (answer: community or package).
 5. ~~**Homepage presentation:** likely two panels — Community ($97/mo) and 1:1 Coaching (package…).~~ **RESOLVED 2026-07-12 — see "Homepage & $97 Positioning" below. Homepage sells the $97 session, not the package.**
-6. **Strikethrough/launch pricing policy** across all offers — what's real, what expires, what codes (ABC26/NOW97) survive.
+6. ~~**Strikethrough/launch pricing policy** across all offers — what's real, what expires, what codes (ABC26/NOW97) survive.~~ **RESOLVED (Jon, 2026-08-18).** Three rulings:
+
+   - **`ABC26` and `NOW97` are dead**, along with the whole "$97 launch / regular $147" apparatus. No permanent discount dressed up as a launch price. Never reinstate them.
+   - **No perpetual strikethrough pricing anywhere.** A price shown with a line through it must correspond to a real, time-boxed sale that actually ends. The old `$1,297 → $997 forever` pattern is banned.
+   - **Real sales still happen** on the cessation calendar (see Package Decisions above) — that's exactly why the Program lists at $1,200. Sales are run as **time-limited Stripe promotion codes with a hard expiry date**, not as standing page copy. Between sales the page shows the list price, full stop. **This functionality still needs building** — see PRD open decision #14.
 
 ---
 
