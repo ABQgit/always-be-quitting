@@ -88,7 +88,11 @@ export const POST: APIRoute = async ({ request, redirect }) => {
   // DELIVERABILITY: until alwaysbequitting.com is verified in Resend, this
   // sends from onboarding@resend.dev and will often land in spam or bounce.
   // See SETUP.md. Set CONFIRMATION_ENABLED=false to switch it off.
-  const confirmationEnabled = env('CONFIRMATION_ENABLED') !== 'false';
+  // OFF unless explicitly switched on. It sends from no-reply@alwaysbequitting.com,
+  // which Resend rejects until the domain is verified, so the safe default is
+  // silence rather than a failed send on every submission. Set
+  // CONFIRMATION_ENABLED=true once the domain is verified.
+  const confirmationEnabled = env('CONFIRMATION_ENABLED') === 'true';
   if (confirmationEnabled) {
     const firstName = name.split(' ')[0] || name;
     const confirmationText = `Hi ${firstName},

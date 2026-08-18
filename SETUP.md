@@ -52,13 +52,15 @@ When someone submits the form they now get an automated confirmation that double
 
 It sends **from `no-reply@alwaysbequitting.com` with no reply-to**, so your personal address is never exposed and nobody can reply to the auto-confirmation chasing an early answer. The email says so explicitly. You still reply normally from your own inbox when you're ready.
 
-🚨 **THIS WILL NOT SEND UNTIL THE DOMAIN IS VERIFIED IN RESEND.** Resend refuses to send from a domain it hasn't verified, so `no-reply@alwaysbequitting.com` will be rejected until you complete verification. Until then, **set `CONFIRMATION_ENABLED=false`** — otherwise every submission logs a failed confirmation. (Your own notification email is unaffected and keeps arriving.)
+🚨 **THIS WILL NOT SEND UNTIL THE DOMAIN IS VERIFIED IN RESEND.** Resend refuses to send from a domain it hasn't verified, so `no-reply@alwaysbequitting.com` is rejected until you complete verification.
+
+**It is OFF by default — you don't need to do anything.** The confirmation only sends when `CONFIRMATION_ENABLED` is set to exactly `true`. Leave it unset and nothing is attempted. (Your own notification email is unaffected and keeps arriving.)
 
 To turn it on:
 
 1. Verify `alwaysbequitting.com` in Resend (Domains → Add Domain). This adds DNS records.
 2. **Your DNS lives with systeme.io and carries your email SPF/DKIM — coordinate this at launch (M5) so you don't break systeme.io deliverability.**
-3. Remove `CONFIRMATION_ENABLED=false`, or set it to `true`.
+3. Set `CONFIRMATION_ENABLED=true` (in Vercel and in `.env`).
 
 Optional override: `CONFIRMATION_FROM` changes the sender if you want something other than `Always Be Quitting <no-reply@alwaysbequitting.com>`.
 
@@ -68,13 +70,28 @@ Note: the on-page copy says *"If you do not get confirmation of your submission,
 
 ### Reason For Contact
 
-The form has a required **Reason For Contact** dropdown: General Comment, Question About Services, Business Inquiry, Speaking or Keynotes, Trainings, Other. The selection is put in the email subject line (`[ABQ Contact] Speaking or Keynotes - Jane Smith`), so you can filter and prioritise straight from your inbox.
+The form has a required **Reason For Contact** dropdown: General Comment, Question About Services, Business Inquiry, Media Inquiry, Speaking or Keynotes, Trainings, Other. The selection is put in the email subject line (`[ABQ Contact] Speaking or Keynotes - Jane Smith`), so you can filter and prioritise straight from your inbox.
 
 ---
 
-## Email list opt-in → systeme.io (M3, not built yet)
+## Email list opt-in → systeme.io ✅ BUILT AND TESTED (2026-08-14)
 
-The Quick-Start Guide opt-in forms post to `/api/subscribe`, which will call the systeme.io API to add the subscriber to the ABQ Tips list. Env var reserved: `SYSTEME_API_KEY`. This endpoint is a Milestone 3 task and isn't wired up yet.
+The Quick-Start Guide forms on the homepage and `/free-guide` post to `/api/subscribe`, which creates the contact in systeme.io and applies the **ABQ Tips** tag. That tag triggers your automation, which subscribes them to the ABQ Tips Newsletter campaign and sends the guide.
+
+Verified end to end: contact created, first name captured, correct tag applied, guide email received.
+
+**To make it work on the deployed site**, add these in **Vercel → Settings → Environment Variables**, then redeploy:
+
+| Name | Value |
+|---|---|
+| `SYSTEME_API_KEY` | your key (systeme.io → avatar → Settings → Public API keys) |
+| `SYSTEME_TAG_ID` | `1956363` (ABQ Tips). Accepts a comma-separated list if you ever need more |
+
+Without them the form returns an error rather than pretending it worked.
+
+**Your tag IDs:** ABQ Tips `1956363` · Quick-Start Guide `1961444` · General List `1961442` · Smoker `1961448` · Vaper `1961451` · Smoker+Vaper `1961449` · RTQ Quiz `1961446` · TTS `1961450` · Non User `1961443` · Friend `1961440`
+
+⚠️ **The automation that matters is "Tag added → ABQ Tips → Subscribe to campaign."** Your original rule triggers on *"Blog form subscribed"* and *adds* the ABQ Tips tag as an action — so applying the tag via the API never reached the campaign. That's why the second rule exists. **At launch, disable the old blog-form rule**, or a single signup fires both.
 
 ---
 
