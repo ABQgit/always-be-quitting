@@ -176,16 +176,21 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
       <div class="doors__mega reveal" aria-hidden="true">$97</div>
       <h2 class="display-lg hl">Either way, <em>you start for $97.</em></h2>
       <div class="grid grid--2">
+        <!-- Both cards say what the $97 ITSELF buys, not what the service is in
+             general - that's 6a's job. Kept symmetrical so neither reads as the
+             lesser option. Revised 2026-08-14. -->
         <div class="door door--community reveal">
           <h3>The ABQ Community</h3>
           <div class="price">$97/month</div>
           <p class="door__terms">3-month commitment, then just $47/month.</p>
+          <p>Your first month of live calls with Jon and 24/7 access to people quitting alongside you. You don't have to be ready to quit to start.</p>
           <a class="btn btn--cta" href="/community">Join the Community</a>
         </div>
         <div class="door door--session reveal">
-          <h3>A 1:1 Session</h3>
+          <h3>A 1:1 Session with Jon</h3>
           <div class="price">$97 one-time</div>
-          <p class="door__terms">A focused 50-minute conversation, and where working together begins.</p>
+          <p class="door__terms">One per person.</p>
+          <p>A private 50-minute conversation, and you can ask me anything. You'll leave with a written plan and a clear next step.</p>
           <a class="btn btn--cta" href={SESSION_URL}>Book your $97 session</a>
         </div>
       </div>

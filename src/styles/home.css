@@ -644,6 +644,18 @@
   line-height: 1.6;
 }
 
+/* Links inside FAQ answers. Without this they inherit the muted body colour and
+   don't read as links at all. Added 2026-08-14. */
+.faq details a {
+  color: var(--teal);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.faq details a:hover {
+  color: var(--blue);
+}
+
 /* Lists inside FAQ answers. Tailwind's preflight strips list markers, padding
    and margin from <ul>, so without this the items render as flat lines with
    nothing tying them to the sentence above. Added 2026-08-14. */

@@ -1,0 +1,204 @@
+---
+/**
+ * VideoEmbed - self-hosted, click-to-load video player.
+ *
+ * NOT YouTube (Jon, 2026-08-14): their player carries their branding, shows
+ * related videos, and puts an exit from the page right next to a buy button.
+ *
+ * NOTHING loads until the visitor clicks. The page ships one small poster
+ * image; no video bytes, no player, no third-party requests. That keeps the
+ * Lighthouse >=95 target intact and means a phone never downloads a video the
+ * visitor didn't ask for.
+ *
+ * Phones get the 480p file, desktops the 720p, chosen by a media query on the
+ * <source> elements.
+ *
+ * Usage:
+ *   <VideoEmbed
+ *     src720="/video/community-720p.mp4"
+ *     src480="/video/community-480p.mp4"
+ *     poster="/video/community-poster.webp"
+ *     posterMobile="/video/community-poster-480.webp"
+ *     posterFallback="/video/community-poster.jpg"
+ *     title="Jon introduces the ABQ community"
+ *   />
+ *
+ * Omit src720 and it renders a labelled placeholder instead.
+ *
+ * TODO (PRD open decision #15): move the mp4s to Cloudflare R2 and point these
+ * paths at that bucket, so they leave git and stop using Vercel bandwidth.
+ */
+interface Props {
+  src720?: string;
+  src480?: string;
+  poster?: string;
+  posterMobile?: string;
+  posterFallback?: string;
+  title: string;
+  placeholder?: string;
+}
+
+const {
+  src720,
+  src480,
+  poster,
+  posterMobile,
+  posterFallback,
+  title,
+  placeholder = 'Video coming',
+} = Astro.props;
+---
+
+{src720 ? (
+  <div
+    class="video-embed"
+    data-src720={src720}
+    data-src480={src480 ?? ''}
+    data-poster={poster ?? ''}
+    data-title={title}
+  >
+    <button class="video-embed__btn" type="button" aria-label={`Play video: ${title}`}>
+      <picture>
+        {posterMobile && <source media="(max-width: 700px)" srcset={posterMobile} type="image/webp" />}
+        {poster && <source srcset={poster} type="image/webp" />}
+        <!-- EAGER, not lazy: this poster sits in a hero and is almost always the
+             Largest Contentful Paint element. Lazy-loading it delays the one
+             image the page is judged on (and Chrome was deferring it even when
+             fully in view). fetchpriority=high moves it up the queue. -->
+        <img
+          class="video-embed__thumb"
+          src={posterFallback ?? poster}
+          alt=""
+          width="1280"
+          height="720"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </picture>
+      <span class="video-embed__play" aria-hidden="true">
+        <svg viewBox="0 0 84 84" width="84" height="84" focusable="false">
+          <circle class="video-embed__play-bg" cx="42" cy="42" r="42"></circle>
+          <path d="M34 26 L60 42 L34 58 Z" fill="#fff"></path>
+        </svg>
+      </span>
+    </button>
+  </div>
+) : (
+  <div class="video-embed video-embed--empty">
+    <span>[ {placeholder} ]</span>
+  </div>
+)}
+
+<style>
+  .video-embed {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 2px solid var(--ink);
+    border-radius: 14px;
+    overflow: hidden;
+    background: var(--ink);
+    box-shadow: 12px 12px 0 color-mix(in srgb, var(--teal) 30%, transparent);
+  }
+  .video-embed__btn {
+    all: unset;
+    display: block;
+    position: absolute;
+    inset: 0;
+    cursor: pointer;
+  }
+  .video-embed__btn:focus-visible {
+    outline: 3px solid var(--blue);
+    outline-offset: -3px;
+  }
+  .video-embed picture,
+  .video-embed__thumb {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .video-embed__play {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    transition: transform 0.15s ease;
+  }
+  .video-embed__play-bg {
+    fill: color-mix(in srgb, var(--ink) 55%, transparent);
+    transition: fill 0.15s ease;
+  }
+  .video-embed__btn:hover .video-embed__play {
+    transform: scale(1.07);
+  }
+  .video-embed__btn:hover .video-embed__play-bg {
+    fill: var(--cta);
+  }
+
+  .video-embed--empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: repeating-linear-gradient(
+      45deg,
+      var(--alt),
+      var(--alt) 10px,
+      var(--white) 10px,
+      var(--white) 20px
+    );
+    color: var(--soft);
+    font-size: 0.95rem;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .video-embed__play,
+    .video-embed__play-bg {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.video-embed[data-src720]').forEach((box) => {
+    box.querySelector('.video-embed__btn')?.addEventListener('click', () => {
+      const { src720, src480, poster, title } = box.dataset;
+      if (!src720) return;
+
+      const video = document.createElement('video');
+      video.controls = true;
+      video.autoplay = true;
+      video.playsInline = true;
+      video.preload = 'auto';
+      if (poster) video.poster = poster;
+      video.title = title ?? 'Video';
+      // Inline, not via the scoped <style> block: Astro attaches its
+      // data-astro-cid attribute at build time, so an element created at
+      // runtime never matches a scoped rule.
+      video.style.cssText =
+        'position:absolute;inset:0;width:100%;height:100%;display:block;background:#000;';
+
+      // Phones take the smaller file. Browsers evaluate these in order and use
+      // the first whose media query matches.
+      if (src480) {
+        const small = document.createElement('source');
+        small.src = src480;
+        small.type = 'video/mp4';
+        small.media = '(max-width: 700px)';
+        video.appendChild(small);
+      }
+      const large = document.createElement('source');
+      large.src = src720;
+      large.type = 'video/mp4';
+      video.appendChild(large);
+
+      box.replaceChildren(video);
+      video.play().catch(() => {
+        /* autoplay blocked - controls are visible, visitor can press play */
+      });
+    });
+  });
+</script>

@@ -4,6 +4,11 @@ import Base from '../layouts/Base.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import '../styles/home.css';
+
+// Google reCAPTCHA v2 checkbox. The widget and the server-side check BOTH stay
+// inert until the keys exist, so the form keeps working before setup.
+// Set PUBLIC_RECAPTCHA_SITE_KEY + RECAPTCHA_SECRET_KEY in Vercel (see SETUP.md).
+const RECAPTCHA_SITE_KEY = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY;
 ---
 
 <Base
@@ -14,46 +19,82 @@ import '../styles/home.css';
 
   <main class="band band--mist" style="padding-block: clamp(3.5rem, 7vw, 5.5rem)">
     <div class="wrap" style="max-width:720px">
-      <h1 class="display-lg" style="margin-top:1rem">Ask me anything about <em>quitting.</em></h1>
-      <p style="color:var(--soft); margin:1.2rem 0 2rem; font-size:1.1rem">
-        Not sure whether the community or 1:1 coaching is right for you? Say so - I'll give you a straight answer,
-        including "neither, yet." I typically reply within 1–2 business days.
+      <h1 class="display-lg" style="margin-top:1rem">Contact <em>Always Be Quitting</em></h1>
+      <p style="color:var(--soft); margin:1.2rem 0 0.9rem; font-size:1.1rem">
+        If you do not get confirmation of your submission, please check your spam/junk mailbox. If you sort your
+        mail into subcategories, it could be anywhere :)
+      </p>
+      <p style="color:var(--soft); margin:0 0 2rem; font-size:1.1rem">
+        Please allow messages from alwaysbequitting.com in your email program so our response reaches you.
       </p>
 
       <div id="sent-banner" class="banner banner--ok" hidden>
         <strong>Message sent.</strong> Thanks - I'll get back to you soon. - Jon
       </div>
       <div id="error-banner" class="banner banner--err" hidden>
-        <strong>Something went wrong.</strong> Your message didn't send - please try again, or email me directly
-        at <a href="mailto:jon@alwaysbequitting.com">jon@alwaysbequitting.com</a>.
+        <strong>Something went wrong.</strong> Your message didn't send - please try again in a moment.
+      </div>
+      <div id="captcha-banner" class="banner banner--err" hidden>
+        <strong>Please confirm you're not a robot.</strong> Tick the reCAPTCHA box and send again.
       </div>
 
       <form class="contact-form" method="post" action="/api/contact">
         <label>
-          Your name
+          <span class="label-row">Name <span class="req" aria-hidden="true">*</span></span>
           <input type="text" name="name" required maxlength="200" autocomplete="name" />
         </label>
         <label>
-          Your email
+          <span class="label-row">Email Address <span class="req" aria-hidden="true">*</span></span>
           <input type="email" name="email" required maxlength="200" autocomplete="email" />
         </label>
         <label>
-          Your message
+          <span class="label-row">Reason For Contact <span class="req" aria-hidden="true">*</span></span>
+          <select name="reason" required>
+            <option value="" disabled selected>Choose one</option>
+            <option>General Comment</option>
+            <option>Question About Services</option>
+            <option>Business Inquiry</option>
+            <option>Media Inquiry</option>
+            <option>Speaking or Keynotes</option>
+            <option>Trainings</option>
+            <option>Other</option>
+          </select>
+        </label>
+        <label>
+          <span class="label-row">Your Message <span class="req" aria-hidden="true">*</span></span>
+          <span class="field-note">
+            Please don't send private health information through this form - it isn't a secure medium (see our <a href="/privacy">Privacy Policy</a>).
+          </span>
           <textarea name="message" rows="7" required maxlength="5000"></textarea>
         </label>
-        <!-- honeypot -->
+
+        <!-- honeypot: real users never fill this -->
         <label class="hp" aria-hidden="true">Company<input type="text" name="company" tabindex="-1" autocomplete="off" /></label>
+
+        {RECAPTCHA_SITE_KEY ? (
+          <div class="g-recaptcha" data-sitekey={RECAPTCHA_SITE_KEY}></div>
+        ) : (
+          <div class="captcha-placeholder">
+            reCAPTCHA appears here once <code>PUBLIC_RECAPTCHA_SITE_KEY</code> is set. Google issues the key;
+            it can't render without one. See SETUP.md.
+          </div>
+        )}
+
+        <p class="required-note"><span class="req" aria-hidden="true">*</span> Required field</p>
+
         <button class="btn btn--cta" type="submit">Send message</button>
       </form>
 
-      <p style="color:var(--soft); font-size:0.9rem; margin-top:1.6rem">
-        Prefer email? <a href="mailto:jon@alwaysbequitting.com">jon@alwaysbequitting.com</a> · Please don't send
-        private health information - email isn't a secure medium (see our <a href="/privacy">Privacy Policy</a>).
-      </p>
+      <!-- No email address is published anywhere on this page: harvesting/spam
+           (Jon, 2026-08-14). The form is the only contact route. -->
     </div>
   </main>
 
   <SiteFooter />
+
+  {RECAPTCHA_SITE_KEY && (
+    <script is:inline src="https://www.google.com/recaptcha/api.js" async defer></script>
+  )}
 </Base>
 
 <style>
@@ -75,19 +116,68 @@ import '../styles/home.css';
     color: var(--ink);
   }
   .contact-form input,
-  .contact-form textarea {
+  .contact-form textarea,
+  .contact-form select {
     border: 2px solid var(--ink);
     border-radius: 10px;
     padding: 0.85rem 1rem;
     font: 500 1rem/1.5 var(--font-body);
     background: var(--white);
+    color: var(--ink);
   }
   .contact-form input:focus,
-  .contact-form textarea:focus {
+  .contact-form textarea:focus,
+  .contact-form select:focus {
     outline: 3px solid color-mix(in srgb, var(--blue) 40%, transparent);
   }
   .contact-form .btn {
     align-self: flex-start;
+  }
+  /* Visible only before the reCAPTCHA keys are set. Disappears automatically
+     once PUBLIC_RECAPTCHA_SITE_KEY exists. */
+  .captcha-placeholder {
+    border: 2px dashed color-mix(in srgb, var(--ink) 35%, transparent);
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--soft);
+    background: color-mix(in srgb, var(--alt) 60%, var(--white));
+  }
+  .captcha-placeholder code {
+    font-size: 0.82rem;
+    background: color-mix(in srgb, var(--ink) 8%, transparent);
+    padding: 0.1rem 0.3rem;
+    border-radius: 4px;
+  }
+  .required-note {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--soft);
+  }
+  /* Required-field asterisk */
+  .label-row {
+    display: block;
+  }
+  .req {
+    color: var(--cta-shadow);
+    font-weight: 800;
+  }
+  /* Note that sits under a field label, above the input */
+  .field-note {
+    font: 400 0.85rem/1.5 var(--font-body);
+    color: var(--soft);
+    margin-bottom: 0.15rem;
+  }
+  .field-note a {
+    color: var(--blue);
+  }
+  /* Validation styling. :user-invalid only applies AFTER the person has
+     interacted with the field, so empty fields don't look like errors on load. */
+  .contact-form input:user-invalid,
+  .contact-form textarea:user-invalid,
+  .contact-form select:user-invalid {
+    border-color: var(--cta-shadow);
   }
   .hp {
     position: absolute !important;
@@ -114,5 +204,7 @@ import '../styles/home.css';
 <script>
   const params = new URLSearchParams(location.search);
   if (params.get('sent')) document.getElementById('sent-banner')?.removeAttribute('hidden');
-  if (params.get('error')) document.getElementById('error-banner')?.removeAttribute('hidden');
+  const err = params.get('error');
+  if (err === 'captcha') document.getElementById('captcha-banner')?.removeAttribute('hidden');
+  else if (err) document.getElementById('error-banner')?.removeAttribute('hidden');
 </script>

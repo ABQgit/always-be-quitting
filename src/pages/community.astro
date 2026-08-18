@@ -8,7 +8,12 @@
 import Base from '../layouts/Base.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import VideoEmbed from '../components/VideoEmbed.astro';
 import '../styles/home.css';
+
+// Community video - self-hosted, NOT YouTube (Jon, 2026-08-14).
+// Encoded from the 732MB / 15.1 Mbps master down to 44MB / 954 kbps.
+// TODO (PRD #15): move these files to Cloudflare R2 and update the paths.
 
 const MN_URL = 'https://always-be-quitting.mn.co/plans/1948481?bundle_token=1ab9a0ca40305f9de6f30b88412658ad&utm_source=manual';
 ---
@@ -27,7 +32,16 @@ const MN_URL = 'https://always-be-quitting.mn.co/plans/1948481?bundle_token=1ab9
         Weekly Expert Coaching + Ongoing Community Support For Your Entire Quit Smoking or Vaping Journey
       </p>
       <div class="hero-split">
-        <div class="video reveal">[ Jon's community video - same one as current page ]</div>
+        <div class="reveal">
+          <VideoEmbed
+            src720="/video/community-720p.mp4"
+            src480="/video/community-480p.mp4"
+            poster="/video/community-poster.webp"
+            posterMobile="/video/community-poster-480.webp"
+            posterFallback="/video/community-poster.jpg"
+            title="Jon introduces the AlwaysBeQuitting community"
+          />
+        </div>
         <aside class="ticket reveal">
           <p class="ticket__kicker">Full ABQ Community Membership</p>
           <p class="ticket__price">$97<span>/month</span></p>

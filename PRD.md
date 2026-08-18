@@ -128,6 +128,46 @@ Independent subagents (not the builder) run each milestone's audits: design revi
 | 9 | Vault design tokens + photo assets transfer | Jon | M1 |
 | 10 | Cal.com event cleanup (`-copy` slug; verify $97 charge + intake form attached) | Jon | M3 |
 | 11 | **$97 landing page (abq-landing-v2.vercel.app) needs a review pass — SEPARATE CODEBASE, not this repo** | Jon | before launch |
+| 12 | **Resend: verify `alwaysbequitting.com` so the contact confirmation email can send** (blocked on DNS) | Jon | M5 launch |
+| 13 | **Google reCAPTCHA keys for the contact form** (can likely reuse the existing site key) | Jon | before launch |
+| 14 | **Stripe** — Program purchase link; the `/coaching` CTAs currently point nowhere | Jon | M3 |
+| 15 | **Move video files OUT of git and onto Cloudflare R2** | Jon + build | before launch |
+
+### Open decision #15 detail — video hosting on R2 (added 2026-08-14)
+
+**Current state:** encoded video sits in `public/video/` and is committed to git, so Vercel serves it. Works, but not where it should end up.
+
+| | Source (live on systeme.io today) | Encoded |
+|---|---|---|
+| Size | **732 MB** | **44 MB** (720p) / **15 MB** (480p) |
+| Bitrate | 15.1 Mbps | 954 kbps / ~310 kbps |
+| Length | 6:26.8 | unchanged |
+
+**Why move to R2:**
+
+1. **Git.** 59MB of binaries committed to the repo live in its history permanently. Every clone pulls them forever, and they can't be removed without rewriting every commit. This gets worse with each video added.
+2. **Bandwidth.** R2 has **zero egress fees**, so views cost nothing and don't consume the Vercel allowance. On Vercel Pro's 1TB, 44MB works out to ~23,000 views/month before overage.
+3. **Cost.** Storage is $0.015/GB/month; 59MB is a fraction of a cent, and there's a 10GB free tier.
+
+**Steps:** create an R2 bucket → upload the encoded files → enable public access or a custom domain → change the URL in `VideoEmbed` → delete the files from `public/video/` and gitignore the directory.
+
+**Masters never enter the repo.** `video-source/` is gitignored; the 699MB `.mov` stays local only.
+
+**Also fixed by the rebuild:** the live systeme.io page serves the 732MB master with `preload="auto"` and **no poster**, so every visitor starts downloading it before clicking anything, and sees a black box with a spinner meanwhile. The new player loads nothing until clicked.
+
+### Open decision #12 detail — Resend domain verification (added 2026-08-14)
+
+The `/contact` form sends **two** emails: the notification to Jon, and an auto-confirmation to the person who wrote in. The confirmation doubles as a soft marketing touch (short blurb on coaching, YouTube, community; **exactly one link** on purpose, since multiple links in an automated reply is a strong spam signal).
+
+**Current state: the confirmation cannot send.** It goes from `no-reply@alwaysbequitting.com` (Jon's decision — his personal address is never exposed and replies can't chase him), and Resend refuses to send from an unverified domain.
+
+**Until verification is done, `CONFIRMATION_ENABLED=false` must be set in Vercel**, otherwise every submission logs a failed send. Jon's own notification email is unaffected and keeps working.
+
+Steps: Resend → Domains → Add Domain → add the DNS records → remove `CONFIRMATION_ENABLED=false`.
+
+⚠️ **DNS currently lives with systeme.io and carries the live email SPF/DKIM records. Coordinate at M5 cutover — checklist item #1 in the M5 milestone — or systeme.io email deliverability breaks.**
+
+Knock-on: the `/contact` page tells people *"If you do not get confirmation of your submission, please check your spam/junk mailbox."* That line only makes sense once this is live. Either finish verification before launch or soften the line.
 
 ### Open decision #11 detail — the $97 landing page (added 2026-08-14)
 

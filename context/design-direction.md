@@ -103,6 +103,17 @@ The 2026-07-11 demotion pointed the design brief away from the one thing Jon res
 - `design-briefs/REJECTED-hero-direction-v3-cream.html` — a cream/sand direction test. Rejected on the cream rule. Kept only as a record.
 - Reference sites reviewed and NOT adopted: Monument, Alma, Parsley Health, Two Chairs, Ophelia, The School of Life. Useful only for one extracted principle — *none of them are card grids, and each commits to one dominant color.*
 
+### Video player — DECIDED (Jon, 2026-08-14)
+
+**Self-hosted MP4 with the browser's native controls. No player library, no brand styling.** Jon: "I don't care about the brand colors on the player, just use the easiest thing."
+
+- **Do NOT add Plyr, Vidstack, Video.js or any other player library.** Considered and rejected. Native controls cost zero JavaScript and zero maintenance.
+- **Do NOT use YouTube.** Rejected: their branding, their related-video suggestions, and an exit from the page sitting next to a buy button.
+- The one styled part is the poster and play-button overlay before click, which is ours (`src/components/VideoEmbed.astro`). After the click it's the browser's own player, and that's fine.
+- Controls look slightly different across browsers. That is accepted.
+
+Encoding is where the effort goes, not appearance: the 732MB / 15.1 Mbps master became 44MB / 954 kbps at 720p (94% smaller), plus a 15MB 480p file that phones get automatically. Nothing loads until the visitor clicks; the page ships only a 26KB WebP poster.
+
 ### Still open
 
 - **Base surface.** Cream is out and black is out. White vs. cool light tint vs. color-dominant is undecided.

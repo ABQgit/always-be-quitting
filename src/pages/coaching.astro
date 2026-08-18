@@ -7,6 +7,7 @@
 import Base from '../layouts/Base.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import VideoEmbed from '../components/VideoEmbed.astro';
 import '../styles/home.css';
 
 // $97 session sells via its own standalone landing page (decided 2026-07-12).
@@ -25,8 +26,17 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
       <h1 class="display-xl hl">
         Quit for the Last Time: <em>1:1 coaching with Jon</em>
       </h1>
-      <div class="video reveal" style="margin-top:2.2rem">
-        [ Video - pending Jon's pick. "Please watch this video and see why 1:1 coaching is right for you." ]
+      <!-- Self-hosted, click-to-load. Encoded from the 515MB / 15.2 Mbps master
+           down to 27MB / 805 kbps. TODO (PRD #15): move files to R2. -->
+      <div class="reveal" style="margin-top:2.2rem; max-width:720px; margin-inline:auto">
+        <VideoEmbed
+          src720="/video/coaching-720p.mp4"
+          src480="/video/coaching-480p.mp4"
+          poster="/video/coaching-poster.webp"
+          posterMobile="/video/coaching-poster-480.webp"
+          posterFallback="/video/coaching-poster.jpg"
+          title="Why 1:1 coaching is right for you"
+        />
       </div>
     </div>
   </header>
@@ -127,12 +137,16 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
           <a class="btn btn--cta" href="#book">GET STARTED NOW!</a>
         </div>
         <div class="door door--session reveal">
+          <!-- Rewritten 2026-08-14 from the $97 landing page copy. The old version
+               sold a DECISION ("the no-risk way to meet Jon and decide for
+               yourself"), which framed the session as a consolation prize for the
+               undecided. This sells the OUTCOME: you leave with a plan. -->
           <h3>The $97 Special 1:1 Meeting</h3>
-          <p>Ready to quit? Get the Program. Still have hesitations? Talk them through with Jon first.</p>
+          <p>A private 50-minute conversation with Jon, and you can ask me anything. What's kept you stuck. What to try next. Why last time didn't hold. Whether you're ready or nowhere near it.</p>
           <div class="price">$97 one-time</div>
-          <p>A private 50-minute meeting, one-on-one with Jon. Bring your doubts, your questions, whatever's holding you back - and talk about whatever you want. No pressure. No commitment.</p>
-          <p>It's the no-risk way to meet Jon and decide for yourself.</p>
-          <a class="btn btn--cta" href={SESSION_URL}>Book your $97 meeting</a>
+          <p>You'll leave with a written plan and a clearer read on what's keeping you stuck, what to do next, and how to stop repeating the same quit cycle. No upsells, no subscriptions, and heavily discounted from my normal hourly rate.</p>
+          <p><strong>One per person, so it's worth using well.</strong> Intake form and confirmation sent right away.</p>
+          <a class="btn btn--cta" href={SESSION_URL}>See what's included</a>
         </div>
       </div>
       <p class="pay-for-itself reveal">
@@ -268,9 +282,9 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
         <summary>Why can I only book the $97 meeting once?</summary>
         <p>
           Because it's a starting point, not a product you re-buy. It's also heavily discounted over my normal
-          hourly coaching charge. It's a special one-time deal.
+          hourly coaching charge. It's a special one-time deal, and you can
+          <a href={SESSION_URL}>book it here</a>.
         </p>
-        <p><a class="btn btn--cta" href={SESSION_URL}>Book your $97 meeting</a></p>
       </details>
 
       <details class="reveal">
@@ -288,12 +302,11 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
   <section class="band band--teal final" id="book">
     <div class="wrap">
       <h2 class="display-xl hl">Always be quitting, <em>until you've quit for the last time.</em></h2>
-      <p style="margin-top:1.4rem; color: color-mix(in srgb, var(--white) 82%, transparent)">
-        [ Cal.com booking embed lands here in the integrations milestone ]
-      </p>
+      <!-- EVERGREEN (Jon, 2026-08-14): no booking embed, no build placeholders,
+           no dated or campaign copy in this section. One CTA only.
+           TODO M3: point href at the Stripe Payment Link for the Program. -->
       <div class="final__actions reveal">
-        <a class="btn btn--cta" href="#book">Book the $97 Session</a>
-        <a class="btn btn--ghost" href="#book">Start the Program</a>
+        <a class="btn btn--cta" href="#book">I'm ready for 1:1 private coaching</a>
       </div>
     </div>
   </section>
@@ -344,6 +357,15 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
     left: 0;
     color: var(--gold);
     font-weight: 800;
+  }
+  /* Same device on a LIGHT band - the base .checks is white-on-teal and would
+     be invisible here. Used in the $97 card. */
+  .checks--ink li {
+    color: var(--soft);
+    font-size: 1rem;
+  }
+  .checks--ink li::before {
+    color: var(--teal);
   }
   .pay-for-itself {
     text-align: center;

@@ -16,3 +16,8 @@ npm-debug.log*
 
 # os
 .DS_Store
+
+# video masters - NEVER commit these. Large binaries live in git history
+# permanently and cannot be removed without rewriting every commit.
+# Drop source files in video-source/; only the encoded web file ships.
+video-source/
