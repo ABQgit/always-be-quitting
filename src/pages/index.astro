@@ -5,6 +5,7 @@
 import Base from '../layouts/Base.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import OptInForm from '../components/OptInForm.astro';
 import '../styles/home.css';
 
 // $97 session sells via the standalone landing page (decided 2026-07-12).
@@ -37,20 +38,7 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
        in the design phase (live site uses a sage field here). -->
   <section class="band band--paper optin-band">
     <div class="wrap">
-      <div class="optin reveal">
-        <h3>Get Your Free Always Be Quitting "Quick-Start Guide"</h3>
-        <p><em>Start breaking your smoking or vaping addiction in 20 minutes - even if you're not ready to quit yet.</em></p>
-        <!-- Second line restored from the live site (typo "this this" fixed).
-             It's the only copy that says what they actually receive: a video. -->
-        <p><em>I use this simple technique with my clients and it works. You will receive a video about how and when to use it.</em></p>
-        <!-- first_name added for email personalization. NOTE: /api/subscribe is an
-             M3 task and must pass this through to systeme.io when it's built. -->
-        <form action="/api/subscribe" method="post">
-          <input type="text" name="first_name" placeholder="First name" required />
-          <input type="email" name="email" placeholder="Your email" required />
-          <button class="btn btn--cta" type="submit">Send me the free guide</button>
-        </form>
-      </div>
+      <OptInForm returnTo="/" />
     </div>
   </section>
 

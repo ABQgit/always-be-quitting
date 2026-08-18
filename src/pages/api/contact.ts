@@ -8,6 +8,14 @@ export const prerender = false;
 
 import type { APIRoute } from 'astro';
 
+/** Astro exposes PUBLIC_ vars via import.meta.env; secrets can land in either
+ *  import.meta.env or process.env depending on runtime. Check both. */
+function env(name: string): string | undefined {
+  return (import.meta.env as Record<string, string | undefined>)[name]
+    ?? (typeof process !== 'undefined' ? process.env?.[name] : undefined);
+}
+
+
 export const POST: APIRoute = async ({ request, redirect }) => {
   const form = await request.formData();
 
@@ -29,7 +37,7 @@ export const POST: APIRoute = async ({ request, redirect }) => {
 
   // Google reCAPTCHA v2. Skipped entirely until RECAPTCHA_SECRET_KEY is set, so
   // the form keeps working before setup. Once set, a failed check blocks send.
-  const recaptchaSecret = import.meta.env.RECAPTCHA_SECRET_KEY;
+  const recaptchaSecret = env('RECAPTCHA_SECRET_KEY');
   if (recaptchaSecret) {
     const token = (form.get('g-recaptcha-response') as string) || '';
     if (!token) {
@@ -46,7 +54,7 @@ export const POST: APIRoute = async ({ request, redirect }) => {
     }
   }
 
-  const apiKey = import.meta.env.RESEND_API_KEY;
+  const apiKey = env('RESEND_API_KEY');
   if (!apiKey) {
     console.error('RESEND_API_KEY is not set');
     return redirect('/contact?error=config', 303);
@@ -59,8 +67,8 @@ export const POST: APIRoute = async ({ request, redirect }) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      from: import.meta.env.CONTACT_FROM || 'ABQ Website <onboarding@resend.dev>',
-      to: [import.meta.env.CONTACT_TO || 'jon@alwaysbequitting.com'],
+      from: env('CONTACT_FROM') || 'ABQ Website <onboarding@resend.dev>',
+      to: [env('CONTACT_TO') || 'jon@alwaysbequitting.com'],
       reply_to: email,
       subject: `[ABQ Contact] ${reason || 'General'} - ${name}`,
       text: `From: ${name} <${email}>\nReason for contact: ${reason || '(not specified)'}\n\n${message}`,
@@ -80,7 +88,7 @@ export const POST: APIRoute = async ({ request, redirect }) => {
   // DELIVERABILITY: until alwaysbequitting.com is verified in Resend, this
   // sends from onboarding@resend.dev and will often land in spam or bounce.
   // See SETUP.md. Set CONFIRMATION_ENABLED=false to switch it off.
-  const confirmationEnabled = import.meta.env.CONFIRMATION_ENABLED !== 'false';
+  const confirmationEnabled = env('CONFIRMATION_ENABLED') !== 'false';
   if (confirmationEnabled) {
     const firstName = name.split(' ')[0] || name;
     const confirmationText = `Hi ${firstName},
@@ -115,7 +123,7 @@ This is an automated confirmation sent from an unmonitored address, so please do
         // Sent FROM no-reply, and deliberately NO reply_to: Jon's personal
         // address is never exposed, and replies to the auto-confirmation don't
         // reach his inbox chasing an early answer (Jon, 2026-08-14).
-        from: import.meta.env.CONFIRMATION_FROM || 'Always Be Quitting <no-reply@alwaysbequitting.com>',
+        from: env('CONFIRMATION_FROM') || 'Always Be Quitting <no-reply@alwaysbequitting.com>',
         to: [email],
         subject: 'We got your message - Always Be Quitting',
         text: confirmationText,

@@ -56,6 +56,7 @@ Sale windows run on the real cessation calendar (New Year, World No Tobacco Day 
 | `/coaching` | 1:1 **Program** sales page (for ready buyers; reached via nav, not pushed at cold homepage traffic) | `/premium-coaching` (301) |
 | `/session` (later) | On-domain port of the $97 session sales page — identical look; direct-linkable from YouTube. Until then, abq-landing-v2.vercel.app stays live and is linked from the homepage (NOT 301'd into /coaching) | abq-landing-v2.vercel.app |
 | `/free-guide` | Opt-in destination for ads/social | `/abq_tips` (301) |
+| `/quick-start` | **Quick-Start Guide delivery page (added 2026-08-14).** Where the guide email sends subscribers. Video + copy; the old $48/QUICKSTART offer is CUT. | `/quick-start-video-landing` (301) — critical, guide emails already sent point at the old URL |
 | ~~`/about`~~ | **CUT 2026-07-12 (Jon): no About page.** The whole site already carries Jon's story, qualifications, and videos — a separate About page was redundant. Removed from nav. | — |
 | `/contact` | Contact | `/contact` |
 | `/podcast` | Simple hub (footer link only) | `/podcasts/always-be-quitting` (301) |
@@ -104,6 +105,35 @@ Each milestone ends with review/approval by Jon plus the listed agent test. **A 
 **M3 — Integrations.** Subscribe endpoint → systeme.io (verified with real tag/automation), Stripe checkout for Program, Cal.com booking on /coaching, Stripe webhook, analytics events (opt-in, book-session, program-purchase, community-clickthrough), contact form. *Test: funnel-QA agent walks every CTA on every page to its terminal outcome (list join or payment page) and verifies analytics fire; integration tests with Stripe/systeme.io test modes.*
 
 **M4 — Pre-launch hardening.** Legal rewrite pass (new offer terms), redirect map implemented, SEO basics (metas, OG, sitemap; noindex removed from pages that deserve indexing), performance pass, accessibility pass. *Tests: technical-QA agent — Lighthouse ≥95, zero broken links, all 301s resolve, a11y audit; independent full-site review agent does a cold "hire this guy?" assessment.*
+
+### systeme.io opt-in wiring (built + verified 2026-08-14)
+
+The homepage and `/free-guide` opt-ins POST to `/api/subscribe`, which creates the contact in systeme.io and applies the **ABQ Tips** tag (`1956363`). Verified working end to end: contact created, `first_name` captured, tag applied, `unsubscribed`/`bounced`/`needsConfirmation` all false.
+
+**Why a tag and not a form:** Jon's original automation triggers on *"Blog form subscribed"* and its actions are `Add tag ABQ Tips` → `Subscribe to campaign ABQ Tips Newsletter`. The tag is the rule's **output**, so applying it by API never reached the campaign. Fix (Jon, 2026-08-14): a second rule with trigger `Tag added → ABQ Tips`, action `Subscribe to campaign → ABQ Tips Newsletter`.
+
+### 🚨 MISSING PAGE — the Quick-Start Guide delivery page (found 2026-08-14)
+
+`alwaysbequitting.com/quick-start-video-landing` is where the Quick-Start Guide email sends every new subscriber. It is a **systeme.io page and is NOT in the site map above.** At DNS cutover it stops existing, and every guide email ever sent — including ones already in inboxes — points at a dead URL. This is the delivery end of the only free funnel and nobody wrote it down.
+
+What's on it:
+- The lead-magnet video: *"This Simple 5-Minute Technique Will Jumpstart Your Quitting Attempt"* — `Quick-Start_Guide_Video_AlwaysBeQuitting.mp4`, **658 MB, 5:46, 1080p, `preload="auto"`, no poster.** Third raw master found being served this way.
+- **An offer that contradicts the new pricing model:** *"$48/month — locked in for as long as you stay subscribed. That's the regular $147/month at a huge discount and it will never go up. Promo Code = QUICKSTART."* `community-page-spec.md` requires killing all three: codes, the $147 regular price, and price-lock language.
+- CTA links out to `always-be-quitting.mn.co`.
+
+**DECIDED (Jon, 2026-08-14): port the page and the video onto the new site, and CUT the special-price offer.**
+
+1. **New page `/quick-start`** — the guide-delivery page, rebuilt in Astro. Video + whatever copy Jon wants around it. Add to the site map above.
+2. **Video** — encode the 658MB master the same way as the others (720p + 480p, faststart, poster, click-to-load `VideoEmbed`). Master goes in gitignored `video-source/`. Expect roughly 40MB at 720p for 5:46.
+3. **REMOVE the special-price block entirely (Jon, 2026-08-14).** Everything from "I'd like to offer you a SPECIAL RATE…" through the "Get the Deal" button goes: the $48/month rate, the "locked in… will never go up" promise, the $147 regular price, and the QUICKSTART promo code. All four conflict with the 3-month model and with `community-page-spec.md`, which requires killing codes, the $147 anchor, and price-lock language. **Do not replace it with a different discount** — decide separately whether this page carries any offer at all.
+4. **Redirect** `alwaysbequitting.com/quick-start-video-landing` → `/quick-start` at cutover, so guide emails already sitting in inboxes keep working. Add to the redirect map.
+5. **Update the email** in the systeme.io campaign to point at the new URL for future sends.
+
+~~**Still open:** grandfathering the "$48/month locked in forever" subscribers.~~ **CLOSED (Jon, 2026-08-14): nobody has ever joined the community, so there is no one to grandfather.** The old offer can be removed outright with no legacy obligation.
+
+⚠️ **M5 CHECKLIST ITEM — disable the old "Blog form subscribed" automation rule at cutover.** Until then BOTH rules are live: a blog-form signup adds the tag (rule 1) which then fires rule 2, attempting the campaign subscription twice. Jon has accepted this interim risk. Once the systeme.io site retires, the tag rule is the only path and must not be deleted.
+
+Note: `GET /api/automation/rules` does **not** list the blog-form rule — its trigger type isn't in the API's enum (`tag_added`, `tag_removed`, `form_subscribed`). An empty response from that endpoint does not mean no automations exist. Check the dashboard.
 
 **M5 — Migration & launch.** Asset migration, DNS cutover (with **SPF/DKIM records preserved so systeme.io email keeps sending — checklist item #1**), Mighty Networks pricing updated, abq-landing-v2 redirected, post-launch monitoring (24–48h watch on forms, checkout, email deliverability). *Test: post-launch agent re-runs the M3 funnel walk + M4 technical audit against production.*
 

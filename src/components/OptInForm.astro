@@ -1,0 +1,66 @@
+---
+/**
+ * Quick-Start Guide opt-in. Posts to /api/subscribe -> systeme.io.
+ *
+ * Copy is Jon's canon (PRD rule 6) and defaults to the live-site wording.
+ * `returnTo` must be the path of the page this sits on, so the endpoint sends
+ * the visitor back to the right place with a success or error banner.
+ */
+interface Props {
+  returnTo: string;
+  heading?: string;
+  showBanners?: boolean;
+}
+
+const {
+  returnTo,
+  heading = 'Get Your Free Always Be Quitting "Quick-Start Guide"',
+  showBanners = true,
+} = Astro.props;
+---
+
+{showBanners && (
+  <>
+    <div id="sub-ok" class="banner banner--ok" hidden>
+      <strong>Check your email.</strong> Your Quick-Start Guide is on its way. If it isn't there in
+      a few minutes, look in spam or promotions - it can land anywhere.
+    </div>
+    <div id="sub-err" class="banner banner--err" hidden>
+      <strong>That didn't go through.</strong> Please try again in a moment.
+    </div>
+    <div id="sub-email" class="banner banner--err" hidden>
+      <strong>Check your email address.</strong> That one doesn't look quite right.
+    </div>
+  </>
+)}
+
+<div class="optin reveal">
+  <h3>{heading}</h3>
+  <p><em>Start breaking your smoking or vaping addiction in 20 minutes - even if you're not ready to quit yet.</em></p>
+  <p><em>I use this simple technique with my clients and it works. You will receive a video about how and when to use it.</em></p>
+  <form action="/api/subscribe" method="post">
+    <input type="hidden" name="return" value={returnTo} />
+    <input type="text" name="first_name" placeholder="First name" required maxlength="100" autocomplete="given-name" />
+    <input type="email" name="email" placeholder="Your email" required maxlength="200" autocomplete="email" />
+    <!-- honeypot: real people never fill this -->
+    <label class="optin__hp" aria-hidden="true">
+      Company<input type="text" name="company" tabindex="-1" autocomplete="off" />
+    </label>
+    <button class="btn btn--cta" type="submit">Send me the free guide</button>
+  </form>
+</div>
+
+<style>
+  .optin__hp {
+    position: absolute !important;
+    left: -9999px;
+  }
+</style>
+
+<script>
+  const p = new URLSearchParams(location.search);
+  if (p.get('subscribed')) document.getElementById('sub-ok')?.removeAttribute('hidden');
+  const e = p.get('suberror');
+  if (e === 'email') document.getElementById('sub-email')?.removeAttribute('hidden');
+  else if (e) document.getElementById('sub-err')?.removeAttribute('hidden');
+</script>

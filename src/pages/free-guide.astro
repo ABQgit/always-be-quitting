@@ -1,0 +1,43 @@
+---
+// /free-guide - the linkable opt-in destination for ads, social and YouTube.
+// Replaces the old orphaned /abq_tips page (supporting-pages-spec.md).
+//
+// This is the top of the ONLY free funnel: Quick-Start Guide is the lead magnet,
+// ABQ Tips is the list. One opt-in, one list.
+//
+// Deliberately minimal: cold traffic arrives here with one job to do. No nav
+// distractions beyond the header, no second offer, no competing CTA.
+// Copy is Jon's canon (PRD rule 6), carried from the homepage opt-in.
+import Base from '../layouts/Base.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import OptInForm from '../components/OptInForm.astro';
+import '../styles/home.css';
+---
+
+<Base
+  title='Free Quick-Start Guide | Always Be Quitting'
+  description="Start breaking your smoking or vaping addiction in 20 minutes - even if you're not ready to quit yet. Free guide from a CTTS and NCNTT certified specialist."
+>
+  <SiteHeader />
+
+  <main class="band band--mist" style="padding-block: clamp(3.5rem, 7vw, 5.5rem)">
+    <div class="wrap" style="max-width:760px">
+      <h1 class="display-lg hl">
+        Start breaking your addiction <em>in 20 minutes.</em>
+      </h1>
+      <p style="color:var(--soft); margin:1.4rem 0 2.4rem; font-size:1.15rem">
+        You don't have to be ready to quit. You don't need a date on the calendar. You just need
+        somewhere to start.
+      </p>
+
+      <OptInForm returnTo="/free-guide" />
+
+      <p class="kicker" style="margin-top:2rem">
+        CTTS &amp; NCNTT certified · 25 years helping people quit
+      </p>
+    </div>
+  </main>
+
+  <SiteFooter />
+</Base>
