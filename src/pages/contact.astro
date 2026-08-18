@@ -50,8 +50,13 @@ const RECAPTCHA_SITE_KEY = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY;
         <label>
           <span class="label-row">Reason For Contact <span class="req" aria-hidden="true">*</span></span>
           <select name="reason" required>
+            <!-- "Trouble With Checkout Or Payment" sits second on purpose
+                 (Jon, 2026-08-14): it's the only option where someone is
+                 actively trying to give money and failing, so it needs to be
+                 easy to find and easy to spot in the inbox. -->
             <option value="" disabled selected>Choose one</option>
             <option>General Comment</option>
+            <option>Trouble With Checkout Or Payment</option>
             <option>Question About Services</option>
             <option>Business Inquiry</option>
             <option>Media Inquiry</option>

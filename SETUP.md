@@ -70,7 +70,9 @@ Note: the on-page copy says *"If you do not get confirmation of your submission,
 
 ### Reason For Contact
 
-The form has a required **Reason For Contact** dropdown: General Comment, Question About Services, Business Inquiry, Media Inquiry, Speaking or Keynotes, Trainings, Other. The selection is put in the email subject line (`[ABQ Contact] Speaking or Keynotes - Jane Smith`), so you can filter and prioritise straight from your inbox.
+The form has a required **Reason For Contact** dropdown: General Comment, **Trouble With Checkout Or Payment**, Question About Services, Business Inquiry, Media Inquiry, Speaking or Keynotes, Trainings, Other. The selection is put in the email subject line (`[ABQ Contact] Speaking or Keynotes - Jane Smith`), so you can filter and prioritise straight from your inbox.
+
+**Watch for "Trouble With Checkout Or Payment."** It's second in the list deliberately — that's someone trying to pay you and failing, so it's the one to answer first. Worth an inbox rule that flags it.
 
 ---
 
