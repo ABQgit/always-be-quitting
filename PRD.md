@@ -106,7 +106,15 @@ Each milestone ends with review/approval by Jon plus the listed agent test. **A 
 
 **M4 — Pre-launch hardening.** Legal rewrite pass (new offer terms), redirect map implemented, SEO basics (metas, OG, sitemap; noindex removed from pages that deserve indexing), performance pass, accessibility pass. *Tests: technical-QA agent — Lighthouse ≥95, zero broken links, all 301s resolve, a11y audit; independent full-site review agent does a cold "hire this guy?" assessment.*
 
-### systeme.io opt-in wiring (built + verified 2026-08-14)
+### systeme.io opt-in wiring ✅ LIVE ON STAGING, VERIFIED END TO END (2026-08-14)
+
+**Confirmed working on `always-be-quitting.vercel.app`:** form submitted → contact created in systeme.io → ABQ Tips tag applied → automation fired → **Quick-Start Guide email received.** The whole funnel, not just the parts we can see from the code.
+
+⚠️ **Vercel env var gotcha, cost an hour:** pasting a multi-line block into a single Environment Variable field stores the whole block as that one value. `SYSTEME_API_KEY` ended up containing all three variables, names and `=` signs included, which made the `X-API-Key` header invalid and threw `TypeError: Headers.append: ... is an invalid header value`. **One value per field.** Vercel's bulk ".env paste" import is the only place multi-line text belongs.
+
+Diagnosing it needed Vercel → Logs → the `subscribe endpoint error:` line. The browser only showed a generic failure; the exception text is what identified it in seconds.
+
+
 
 The homepage and `/free-guide` opt-ins POST to `/api/subscribe`, which creates the contact in systeme.io and applies the **ABQ Tips** tag (`1956363`). Verified working end to end: contact created, `first_name` captured, tag applied, `unsubscribed`/`bounced`/`needsConfirmation` all false.
 

@@ -89,6 +89,12 @@ Verified end to end: contact created, first name captured, correct tag applied, 
 
 Without them the form returns an error rather than pretending it worked.
 
+⚠️ **One value per field.** Paste ONLY the value — no variable name, no `=`, no other lines. Pasting a multi-line block into a single field stores the whole block as that value and produces `TypeError: Headers.append: ... is an invalid header value`. (Vercel's bulk ".env paste" import is the exception; that one expects the full format.) Tick all three environments — Production, Preview, Development — or it works on some builds and not others.
+
+**When something fails:** Vercel → **Logs**, submit the form, look for `subscribe endpoint error:`. The browser shows only a generic message; the log line has the actual exception.
+
+✅ **Verified end to end on staging 2026-08-14:** contact created, tagged, automation fired, guide email received.
+
 **Your tag IDs:** ABQ Tips `1956363` · Quick-Start Guide `1961444` · General List `1961442` · Smoker `1961448` · Vaper `1961451` · Smoker+Vaper `1961449` · RTQ Quiz `1961446` · TTS `1961450` · Non User `1961443` · Friend `1961440`
 
 ⚠️ **The automation that matters is "Tag added → ABQ Tips → Subscribe to campaign."** Your original rule triggers on *"Blog form subscribed"* and *adds* the ABQ Tips tag as an action — so applying the tag via the API never reached the campaign. That's why the second rule exists. **At launch, disable the old blog-form rule**, or a single signup fires both.
