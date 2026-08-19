@@ -12,6 +12,21 @@ import '../styles/home.css';
 
 // $97 session sells via its own standalone landing page (decided 2026-07-12).
 const SESSION_URL = 'https://abq-landing-v2.vercel.app';
+
+// The $1,200 Program checkout (decided 2026-08-18, Jon).
+// Calendly Meeting Package: Calendly collects the $1,200 through its own Stripe
+// connection AND hands the buyer straight into booking their six sessions, so
+// there is NO separate Stripe Payment Link and no post-payment page to build.
+// Allowed off-domain under PRD site-rule 2 (checkout is the stated exception).
+//
+// >>> PASTE THE CALENDLY PACKAGE URL HERE once the package exists. <<<
+//
+// While it's empty both Program CTAs fall back to /contact, so someone ready to
+// spend $1,200 reaches Jon instead of hitting a dead link. They previously
+// pointed at "#book", which is the id of the final CTA section itself - i.e.
+// the button scrolled to its own location and nothing happened.
+const PROGRAM_URL = '';
+const PROGRAM_CTA = PROGRAM_URL || '/contact';
 ---
 
 <Base
@@ -134,7 +149,7 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
           <div class="price">$1,200</div>
           <p>Six 50-minute sessions with Jon, one-on-one - a roomy window over 12 weeks, because life happens. Direct email access to Jon between every session. A quit strategy built around your life, expert withdrawal and behavior-change coaching, and progress tracking the whole way.</p>
           <p>Want more time when you're done? Additional sessions are available to purchase whenever more support helps.</p>
-          <a class="btn btn--cta" href="#book">GET STARTED NOW!</a>
+          <a class="btn btn--cta" href={PROGRAM_CTA}>GET STARTED NOW!</a>
         </div>
         <div class="door door--session reveal">
           <!-- Rewritten 2026-08-14 from the $97 landing page copy. The old version
@@ -304,9 +319,9 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
       <h2 class="display-xl hl">Always be quitting, <em>until you've quit for the last time.</em></h2>
       <!-- EVERGREEN (Jon, 2026-08-14): no booking embed, no build placeholders,
            no dated or campaign copy in this section. One CTA only.
-           TODO M3: point href at the Stripe Payment Link for the Program. -->
+           Checkout target lives in PROGRAM_URL at the top of this file. -->
       <div class="final__actions reveal">
-        <a class="btn btn--cta" href="#book">I'm ready for 1:1 private coaching</a>
+        <a class="btn btn--cta" href={PROGRAM_CTA}>I'm ready for 1:1 private coaching</a>
       </div>
     </div>
   </section>

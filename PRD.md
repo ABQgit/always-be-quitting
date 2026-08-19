@@ -168,7 +168,7 @@ Independent subagents (not the builder) run each milestone's audits: design revi
 | 11 | **$97 landing page (abq-landing-v2.vercel.app) needs a review pass — SEPARATE CODEBASE, not this repo** | Jon | before launch |
 | 12 | **Resend: verify `alwaysbequitting.com` so the contact confirmation email can send** (blocked on DNS) | Jon | M5 launch |
 | 13 | **Google reCAPTCHA keys for the contact form** (can likely reuse the existing site key) | Jon | before launch |
-| 14 | **Stripe** — Program purchase link; the `/coaching` CTAs currently point nowhere. **Must support time-limited sale codes** (Jon, 2026-08-18) — see detail below | Jon | M3 |
+| 14 | **Program checkout** — create the Calendly Meeting Package and paste its URL into `PROGRAM_URL` in `src/pages/coaching.astro`. See "Program checkout — DECIDED" below | Jon | M3 |
 | 15 | **Move video files OUT of git and onto Cloudflare R2** | Jon + build | before launch |
 
 ### Pricing & discount policy — DECIDED (Jon, 2026-08-18)
@@ -180,7 +180,28 @@ Settled so it stops being re-litigated. Full reasoning in `offer-architecture.md
 3. **The community's `$250 one-pay (save $41)` STAYS** — a payment option, not a discount. Conditional only on Mighty Networks supporting it (open decision #7).
 4. **Real sales run during the year** on the cessation calendar. No perpetual strikethrough: a struck price must map to a sale with a real end date. Between sales the page shows list price only.
 
-**What this means for the Stripe build (#14):** the Payment Link for the $1,200 Program must be created with **"Allow promotion codes" enabled** from the start — it can't be retrofitted onto an existing link without recreating it. Each sale is then a Stripe **promotion code with a hard expiry date**, plus a redemption limit if the sale is capped. Sale pricing is never hardcoded into page copy; the code is the only mechanism.
+**How sales are run** depends on the checkout, which is now Calendly — see the next section. Sale pricing is never hardcoded into page copy.
+
+### Program checkout — DECIDED (Jon, 2026-08-18)
+
+**The $1,200 Program sells through a Calendly Meeting Package.** Calendly collects payment via its own Stripe connection *and* hands the buyer straight into booking their six sessions. One URL does checkout and scheduling.
+
+**Consequences — do not reintroduce these:**
+
+- **No separate Stripe Payment Link for the Program.** Calendly is the checkout.
+- **No post-payment landing page** (`/program-welcome` or similar). Calendly's own confirmation page and email carry the booking link.
+- **No Stripe webhook, no Cal.com API integration.** Considered and rejected as premature at zero clients.
+- `/coaching` CTAs read from a single `PROGRAM_URL` constant at the top of `src/pages/coaching.astro`. Both Program buttons use it. **While it is empty they fall back to `/contact`** so a ready buyer still reaches Jon.
+- Requires **Calendly Standard, $10/seat/mo billed yearly** ($120/yr; ~$12/mo month-to-month). Free tier is unusable — 1 event type, no Stripe. Meeting Packages are on all paid plans, so Teams is not needed.
+
+**Two things unverified at decision time** (Jon to confirm in the 14-day trial, cheaper than waiting on support):
+
+1. **Can a package expire?** The 12-week "must be used by" rule needs enforcement. Calendly's docs don't mention package expiry, and their single-use links notably cannot be given one. If packages can't expire, the window is enforced by Jon manually.
+2. **Do packages accept Stripe promotion codes?** If not, a sale window means publishing a second package at the sale price and taking it down afterwards.
+
+**Jon's stance (2026-08-18):** manual handling is fine at current volume — *"i may not get many clients and can just sell 1200 for 6 sessions and manually deal with them."* Revisit only when the admin actually hurts.
+
+**The fallback if Calendly disappoints:** Cal.com Private Links do enforce both caps — `maxUsageCount` and `expiresAt` on `POST /v2/event-types/{eventTypeId}/private-links` — paired with a Stripe Payment Link created with "Allow promotion codes" enabled (**that flag cannot be added to an existing link**; the link must be recreated). That path needs a manual link-mint per client, or a build.
 
 ### Open decision #15 detail — video hosting on R2 (added 2026-08-14)
 
