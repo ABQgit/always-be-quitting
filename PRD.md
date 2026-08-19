@@ -168,7 +168,7 @@ Independent subagents (not the builder) run each milestone's audits: design revi
 | 11 | **$97 landing page (abq-landing-v2.vercel.app) needs a review pass — SEPARATE CODEBASE, not this repo** | Jon | before launch |
 | 12 | **Resend: verify `alwaysbequitting.com` so the contact confirmation email can send** (blocked on DNS) | Jon | M5 launch |
 | 13 | **Google reCAPTCHA keys for the contact form** (can likely reuse the existing site key) | Jon | before launch |
-| 14 | **Program checkout** — create the Calendly Meeting Package and paste its URL into `PROGRAM_URL` in `src/pages/coaching.astro`. See "Program checkout — DECIDED" below | Jon | M3 |
+| 14 | **Program checkout** — create the $1,200 Stripe Payment Link (**promo codes enabled**) and paste its URL into `PROGRAM_URL` in `src/pages/coaching.astro`. See "Program checkout — DECIDED" below | Jon | M3 |
 | 15 | **Move video files OUT of git and onto Cloudflare R2** | Jon + build | before launch |
 
 ### Pricing & discount policy — DECIDED (Jon, 2026-08-18)
@@ -184,24 +184,25 @@ Settled so it stops being re-litigated. Full reasoning in `offer-architecture.md
 
 ### Program checkout — DECIDED (Jon, 2026-08-18)
 
-**The $1,200 Program sells through a Calendly Meeting Package.** Calendly collects payment via its own Stripe connection *and* hands the buyer straight into booking their six sessions. One URL does checkout and scheduling.
+**Stripe Payment Link for the money, Cal.com Private Link for the booking, Jon connects them by hand.** Calendly Meeting Packages were evaluated and **rejected** — Jon is staying on Cal.com. Do not re-propose Calendly.
 
-**Consequences — do not reintroduce these:**
+**The flow:**
 
-- **No separate Stripe Payment Link for the Program.** Calendly is the checkout.
-- **No post-payment landing page** (`/program-welcome` or similar). Calendly's own confirmation page and email carry the booking link.
-- **No Stripe webhook, no Cal.com API integration.** Considered and rejected as premature at zero clients.
-- `/coaching` CTAs read from a single `PROGRAM_URL` constant at the top of `src/pages/coaching.astro`. Both Program buttons use it. **While it is empty they fall back to `/contact`** so a ready buyer still reaches Jon.
-- Requires **Calendly Standard, $10/seat/mo billed yearly** ($120/yr; ~$12/mo month-to-month). Free tier is unusable — 1 event type, no Stripe. Meeting Packages are on all paid plans, so Teams is not needed.
+1. `/coaching` CTAs → **Stripe Payment Link, $1,200**, created with **"Allow promotion codes" enabled**.
+2. Stripe's post-payment confirmation shows a custom message: booking link arrives by email within one business day. (Stripe setting, not a page we build.)
+3. Jon gets the Stripe notification, opens the Program event type in Cal.com → Advanced → Add Private Link, sets **6 uses** and **expiry = purchase date + 12 weeks**, emails it.
+4. The link enforces the package by itself: session 7 has nowhere to go, week 13 returns 404.
 
-**Two things unverified at decision time** (Jon to confirm in the 14-day trial, cheaper than waiting on support):
+**Two flags that cannot be fixed later:**
 
-1. **Can a package expire?** The 12-week "must be used by" rule needs enforcement. Calendly's docs don't mention package expiry, and their single-use links notably cannot be given one. If packages can't expire, the window is enforced by Jon manually.
-2. **Do packages accept Stripe promotion codes?** If not, a sale window means publishing a second package at the sale price and taking it down afterwards.
+- **"Allow promotion codes" must be ticked when the Payment Link is created.** It cannot be added to an existing link — the link has to be recreated and every published URL swapped. Jon wants sale windows (see pricing policy above), so tick it now even though the first sale may be months away.
+- **The Program event type in Cal.com must have NO Stripe payment attached.** The $97 event has one. If the Program event is made by duplicating it, clients get charged $97 six more times on top of the $1,200. Make it fresh, or remove the payment app from the copy.
 
-**Jon's stance (2026-08-18):** manual handling is fine at current volume — *"i may not get many clients and can just sell 1200 for 6 sessions and manually deal with them."* Revisit only when the admin actually hurts.
+**Also verify:** whether Private Links with usage/expiry caps are available on Jon's Cal.com plan. The help doc phrases the gear-icon options as *"**Number of allowed uses**, or **Expiry date**"* — the "or" may mean the UI allows only one. The API accepts both together (`maxUsageCount` + `expiresAt` on `POST /v2/event-types/{eventTypeId}/private-links`), so if the UI forces a choice, prefer **6 uses** and track the 12 weeks by hand.
 
-**The fallback if Calendly disappoints:** Cal.com Private Links do enforce both caps — `maxUsageCount` and `expiresAt` on `POST /v2/event-types/{eventTypeId}/private-links` — paired with a Stripe Payment Link created with "Allow promotion codes" enabled (**that flag cannot be added to an existing link**; the link must be recreated). That path needs a manual link-mint per client, or a build.
+**Deliberately NOT built** (premature at zero clients, per Jon): Stripe webhook, Cal.com API integration, `/program-welcome` page, automatic link minting. Revisit when the manual step actually hurts.
+
+**Jon's stance:** *"i may not get many clients and can just sell 1200 for 6 sessions and manually deal with them."*
 
 ### Open decision #15 detail — video hosting on R2 (added 2026-08-14)
 
