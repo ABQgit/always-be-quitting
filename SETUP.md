@@ -149,7 +149,11 @@ Stripe won't save a product without at least one price attached, so fill the pri
 - **Require customers to accept your terms of service** — worth doing for a $1,200 purchase. It only appears as an option once you set your terms URL under **Settings → Business → Public details**; point it at `https://alwaysbequitting.com/terms`. Stripe then also links your privacy policy if that URL is set.
 
   ⚠️ **This setting is per-environment — set it TWICE, once in the sandbox and once in live.** Stripe's sandbox docs state that Public details are not copied from the live account (*"Stripe adds placeholder domains to enable payments in a sandbox"*) and that *"we don't synchronize settings and capabilities."* If the terms checkbox is **greyed out** in the payment link editor, this is almost always why: the URL was set in the other environment. Set it in the one you're currently working in, then hard-refresh the editor.
-- **Limit the number of payments** — leave off. That caps total sales of the Program, not sessions per client.
+- **Limit the number of payments** — **leave OFF, and verify it.** This caps total sales of the Program, not sessions per client. If it is set to 1, the link takes one payment and then permanently deactivates itself.
+
+  🚨 **This bit us in the sandbox (2026-08-18):** after a single test payment the link reported "no longer active." **On the live link this is a silent revenue-killer** — your first customer buys, the link dies, and every visitor afterwards sees a deactivated-link page with no alert to you. Confirm it is off before launch and again after the first real sale.
+
+  Two things deactivate a link: this limit, and **archiving the product** the link sells (archiving auto-deactivates every link using that product). To bring one back: Payment Links → the link → overflow menu (⋯) → activate; or unarchive the product from the **Archived** tab in the catalog.
 - **Collect tax automatically** — see the tax note below before enabling.
 
 **Sales tax (Virginia).** *Not tax advice — confirm with an accountant.* Virginia's rule is [23VAC10-210-4040](https://law.lis.virginia.gov/admincode/title23/agency10/chapter210/section4040/): *"Charges for services generally are exempt from the retail sales and use tax. However, services provided in connection with sales of tangible personal property are taxable."* The same section gives a directly analogous example: *"Charges for training programs which include charges for required workbooks and tapes are exempt from the tax as charges for services since the object is to obtain the training services. However, separately stated charges for workbooks and tapes are subject to the tax."*
@@ -205,6 +209,7 @@ Sandbox settings do **not** carry over. Everything below has to be redone in liv
 - [ ] **Tax** — confirm "Collect tax automatically" is OFF in live (see the tax note above), or that the product carries a services tax code.
 - [ ] **Create the live payment link** — sandbox links never take real money, so this is a fresh link with a new URL.
 - [ ] Tick **promotion codes**, **collect customer names**, and **terms of service** on the live link.
+- [ ] 🚨 **Confirm "Limit the number of payments" is OFF.** If it's set to 1, your first customer's purchase permanently deactivates the link and nobody else can buy — with no warning to you. This actually happened in the sandbox.
 - [ ] **Check the payment methods** enabled in live (Affirm / Klarna / Cash App were on in the sandbox).
 - [ ] **Set the After-the-payment confirmation message** again — it's a property of the link, so the live link starts with Stripe's default.
 - [ ] **Turn on customer receipts** — Settings → Business → Customer emails → "Successful payments." Off by default, and never fires in test mode, so live is the first place you can confirm it. Set the customer support email first (see Receipts above).
