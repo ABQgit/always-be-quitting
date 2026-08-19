@@ -146,7 +146,9 @@ Stripe won't save a product without at least one price attached, so fill the pri
 
 - **Add promotion codes** — turn on. Lets you run real sale windows later. *(This can also be switched on after the fact; it is not a one-shot decision.)*
 - **Collect customer names** — turn on. You need to know who paid in order to send their booking link.
-- **Require customers to accept your terms of service** — worth doing for a $1,200 purchase. It only appears as an option once you set your terms URL under **Settings → Public details**; point it at `https://alwaysbequitting.com/terms`. Stripe then also links your privacy policy if that URL is set.
+- **Require customers to accept your terms of service** — worth doing for a $1,200 purchase. It only appears as an option once you set your terms URL under **Settings → Business → Public details**; point it at `https://alwaysbequitting.com/terms`. Stripe then also links your privacy policy if that URL is set.
+
+  ⚠️ **This setting is per-environment — set it TWICE, once in the sandbox and once in live.** Stripe's sandbox docs state that Public details are not copied from the live account (*"Stripe adds placeholder domains to enable payments in a sandbox"*) and that *"we don't synchronize settings and capabilities."* If the terms checkbox is **greyed out** in the payment link editor, this is almost always why: the URL was set in the other environment. Set it in the one you're currently working in, then hard-refresh the editor.
 - **Limit the number of payments** — leave off. That caps total sales of the Program, not sessions per client.
 - **Collect tax automatically** — see the tax note below before enabling.
 
