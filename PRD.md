@@ -193,6 +193,8 @@ Settled so it stops being re-litigated. Full reasoning in `offer-architecture.md
 3. Jon gets the Stripe notification, opens the Program event type in Cal.com → Advanced → Add Private Link, sets **6 uses** and **expiry = purchase date + 12 weeks**, emails it.
 4. The link enforces the package by itself: session 7 has nowhere to go, week 13 returns 404.
 
+**Naming — DECIDED (Jon, 2026-08-18): the two names deliberately differ. Leave them.** The site sells **"Quit for the Last Time: The 1:1 Program"**; the Stripe product is **"1:1 Coaching with Jon - 6 Sessions."** This is not an inconsistency to fix — the site name carries the brand promise, the checkout name says plainly what is being bought. Do not "reconcile" them.
+
 **The one thing that actually bites:**
 
 - **The Program event type in Cal.com must have NO Stripe payment attached.** The $97 event has one. If the Program event is made by duplicating it, clients get charged $97 six more times on top of the $1,200. Make it fresh, or remove the payment app from the copy.

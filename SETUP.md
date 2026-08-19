@@ -145,6 +145,13 @@ Stripe won't save a product without at least one price attached, so fill the pri
 - **Collect customer names** — turn on. You need to know who paid in order to send their booking link.
 - **Require customers to accept your terms of service** — worth doing for a $1,200 purchase. It only appears as an option once you set your terms URL under **Settings → Public details**; point it at `https://alwaysbequitting.com/terms`. Stripe then also links your privacy policy if that URL is set.
 - **Limit the number of payments** — leave off. That caps total sales of the Program, not sessions per client.
+- **Collect tax automatically** — see the tax note below before enabling.
+
+**Sales tax (Virginia).** *Not tax advice — confirm with an accountant.* Virginia's rule is [23VAC10-210-4040](https://law.lis.virginia.gov/admincode/title23/agency10/chapter210/section4040/): *"Charges for services generally are exempt from the retail sales and use tax. However, services provided in connection with sales of tangible personal property are taxable."* The same section gives a directly analogous example: *"Charges for training programs which include charges for required workbooks and tapes are exempt from the tax as charges for services since the object is to obtain the training services. However, separately stated charges for workbooks and tapes are subject to the tax."*
+
+So six coaching sessions with no physical goods reads as an exempt service. **The risk is over-collecting, not under-collecting:** Stripe Tax calculates from the product's tax code, and new products often default to a tangible-goods code — which would add sales tax to an exempt service and charge clients money that shouldn't be collected. Either untick **Collect tax automatically**, or set the product's tax code to a services code in the catalog.
+
+Watch item: Virginia's 2026 session has bills (HB 900, HB 978) that would broaden the base to some currently-exempt personal services. Not law as of this writing.
 
 ### 5. After the payment
 
