@@ -168,7 +168,7 @@ Independent subagents (not the builder) run each milestone's audits: design revi
 | 11 | **$97 landing page (abq-landing-v2.vercel.app) needs a review pass — SEPARATE CODEBASE, not this repo** | Jon | before launch |
 | 12 | **Resend: verify `alwaysbequitting.com` so the contact confirmation email can send** (blocked on DNS) | Jon | M5 launch |
 | 13 | **Google reCAPTCHA keys for the contact form** (can likely reuse the existing site key) | Jon | before launch |
-| 14 | **Program checkout** — create the $1,200 Stripe Payment Link (**promo codes enabled**) and paste its URL into `PROGRAM_URL` in `src/pages/coaching.astro`. See "Program checkout — DECIDED" below | Jon | M3 |
+| 14 | **Program checkout** — create the $1,200 Stripe Payment Link and paste its URL into `PROGRAM_URL` in `src/pages/coaching.astro`. Step-by-step in `SETUP.md` | Jon | M3 |
 | 15 | **Move video files OUT of git and onto Cloudflare R2** | Jon + build | before launch |
 
 ### Pricing & discount policy — DECIDED (Jon, 2026-08-18)
@@ -193,10 +193,11 @@ Settled so it stops being re-litigated. Full reasoning in `offer-architecture.md
 3. Jon gets the Stripe notification, opens the Program event type in Cal.com → Advanced → Add Private Link, sets **6 uses** and **expiry = purchase date + 12 weeks**, emails it.
 4. The link enforces the package by itself: session 7 has nowhere to go, week 13 returns 404.
 
-**Two flags that cannot be fixed later:**
+**The one thing that actually bites:**
 
-- **"Allow promotion codes" must be ticked when the Payment Link is created.** It cannot be added to an existing link — the link has to be recreated and every published URL swapped. Jon wants sale windows (see pricing policy above), so tick it now even though the first sale may be months away.
 - **The Program event type in Cal.com must have NO Stripe payment attached.** The $97 event has one. If the Program event is made by duplicating it, clients get charged $97 six more times on top of the $1,200. Make it fresh, or remove the payment app from the copy.
+
+**CORRECTION (2026-08-18).** An earlier draft of this section claimed "Allow promotion codes" must be enabled at creation because it cannot be retrofitted. **That was wrong and was not checked before being written down.** `allow_promotion_codes` is an updatable parameter on `POST /v1/payment_links/{id}`, and Stripe's Dashboard docs consistently say "create **or edit** a payment link." It can be turned on at any time. Enable it at creation anyway so it's simply done — but nothing is lost if it's forgotten.
 
 **Also verify:** whether Private Links with usage/expiry caps are available on Jon's Cal.com plan. The help doc phrases the gear-icon options as *"**Number of allowed uses**, or **Expiry date**"* — the "or" may mean the UI allows only one. The API accepts both together (`maxUsageCount` + `expiresAt` on `POST /v2/event-types/{eventTypeId}/private-links`), so if the UI forces a choice, prefer **6 uses** and track the 12 weeks by hand.
 

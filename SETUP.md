@@ -103,6 +103,65 @@ Without them the form returns an error rather than pretending it worked.
 
 ---
 
+## Program checkout → Stripe Payment Link
+
+The $1,200 Program (**Quit for the Last Time: The 1:1 Program**) sells through a Stripe Payment Link. You then issue the client a Cal.com Private Link by hand. Decided 2026-08-18 — see PRD "Program checkout — DECIDED" for why Calendly Meeting Packages were rejected.
+
+### 1. Do it in test mode first
+
+Top-left of the Stripe Dashboard, flip to **Test mode**. Build the whole thing, pay yourself with card `4242 4242 4242 4242` (any future expiry, any CVC), confirm the flow, then repeat in live mode. Test-mode links do **not** work in live mode — you build it twice, on purpose.
+
+### 2. Create the link
+
+1. Go to **Payment Links → +New** ([dashboard.stripe.com/payment-links/create](https://dashboard.stripe.com/payment-links/create)).
+2. Choose **Products or subscriptions**, then **+ Add a new product**.
+3. Product details:
+   - **Name:** `Quit for the Last Time: The 1:1 Program`
+   - **Description:** six 50-minute 1:1 sessions with Jon, to be used within 12 weeks. This text shows at checkout — it's the last thing they read before paying, so state the 12-week window here.
+   - **Price:** `1200.00` USD, **One-off** (not recurring — recurring would bill them $1,200 again)
+4. Click **Add product**.
+
+### 3. Settings that matter
+
+- **Add promotion codes** — turn on. Lets you run real sale windows later. *(This can also be switched on after the fact; it is not a one-shot decision.)*
+- **Collect customer names** — turn on. You need to know who paid in order to send their booking link.
+- **Require customers to accept your terms of service** — worth doing for a $1,200 purchase. It only appears as an option once you set your terms URL under **Settings → Public details**; point it at `https://alwaysbequitting.com/terms`. Stripe then also links your privacy policy if that URL is set.
+- **Limit the number of payments** — leave off. That caps total sales of the Program, not sessions per client.
+
+### 4. After the payment
+
+Click **After the payment**. Under **Confirmation page**, replace the default with a custom message. Something like:
+
+> **You're in.** I'll email your personal booking link within one business day — it lets you schedule all six sessions whenever suits you. Check your spam folder if it hasn't arrived; if you sort your mail into categories, it could be anywhere. — Jon
+
+Do **not** use the redirect option. A redirect would need a page we haven't built, and the custom message needs no code.
+
+### 5. Copy the URL into the site
+
+Copy the link (`https://buy.stripe.com/...`) and paste it into `PROGRAM_URL` at the top of `src/pages/coaching.astro`. Both Program CTAs read from that one constant. **While it's empty they fall back to `/contact`**, so nobody hits a dead link in the meantime.
+
+### 6. Per client, after each sale
+
+1. Stripe emails you. (If you don't get emails for every payment, turn that on under **Settings → Personal details → Notifications**.)
+2. Cal.com → the **Program** event type → **Advanced** → **Add Private Link** → gear icon → set **6 uses** and **expiry = purchase date + 12 weeks** → save the link config, then save the event type.
+3. Email them the link.
+
+The link then enforces the package on its own: after six bookings it stops working, and after 12 weeks it 404s.
+
+⚠️ **The Program event type must have NO Stripe payment attached.** The $97 event does. If you create the Program event by duplicating it, clients get charged $97 six more times on top of the $1,200. Build it fresh, or delete the Stripe app from the duplicate.
+
+⚠️ **Check whether the private-link gear lets you set uses AND expiry together.** Cal.com's help page phrases it as *"Number of allowed uses, **or** Expiry date."* The API accepts both at once, so if the UI forces a choice, take the **6-use cap** and track the 12 weeks yourself — an unused session is a smaller problem than a seventh free one.
+
+### Costs
+
+Stripe takes **2.9% + 30¢** on US cards — about **$35.10** on $1,200, so you net roughly **$1,164.90**. No monthly fee.
+
+### Running a sale later
+
+Create a coupon at **Dashboard → Coupons → +New**, then turn it into a customer-facing **promotion code**. Give it a hard expiry date, and a redemption limit if the sale is capped. Never bake sale pricing into page copy — the code is the mechanism, so the page always shows $1,200. You can prefill a code in a link with `?prefilled_promo_code=CODENAME`.
+
+---
+
 ## Deploying (how changes go live)
 
 Changes reach the site by pushing to GitHub — Vercel auto-builds on push.
