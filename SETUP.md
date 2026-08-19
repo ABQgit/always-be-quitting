@@ -109,26 +109,36 @@ The $1,200 Program (**Quit for the Last Time: The 1:1 Program**) sells through a
 
 ### 1. Do it in test mode first
 
-Top-left of the Stripe Dashboard, flip to **Test mode**. Build the whole thing, pay yourself with card `4242 4242 4242 4242` (any future expiry, any CVC), confirm the flow, then repeat in live mode. Test-mode links do **not** work in live mode — you build it twice, on purpose.
+Top-left of the Stripe Dashboard, flip to **Test mode**. Build it there, pay yourself with card `4242 4242 4242 4242` (any future expiry, any CVC), confirm the flow works, then rebuild in live mode.
 
-### 2. Create the link
+The **product** doesn't have to be built twice — its details page has a **Copy to live mode** button in the top right, and the price copies with it. The **payment link** does have to be recreated in live mode; a test link never takes real money.
+
+### 2. Create the product first
+
+A payment link needs a product to sell, and Stripe's newer dashboard generally routes you through the catalog rather than letting you invent one inline. Do this first and the link step gets easy.
+
+1. Go to **More → Product catalog**, then click **+Add product**.
+2. **Name:** `Quit for the Last Time: The 1:1 Program`
+3. **Description:** six 50-minute 1:1 sessions with Jon, to be used within 12 weeks. This shows at checkout — it's the last thing they read before paying, so state the 12-week window here.
+4. **Pricing model:** Flat-rate → **One time**. (Not Recurring. Recurring would bill them $1,200 again.)
+5. **Price:** `1200.00` USD.
+6. Click **Add product**.
+
+Stripe won't save a product without at least one price attached, so fill the price in on this same screen.
+
+### 3. Create the payment link
 
 1. Go to **Payment Links → +New** ([dashboard.stripe.com/payment-links/create](https://dashboard.stripe.com/payment-links/create)).
-2. Choose **Products or subscriptions**, then **+ Add a new product**.
-3. Product details:
-   - **Name:** `Quit for the Last Time: The 1:1 Program`
-   - **Description:** six 50-minute 1:1 sessions with Jon, to be used within 12 weeks. This text shows at checkout — it's the last thing they read before paying, so state the 12-week window here.
-   - **Price:** `1200.00` USD, **One-off** (not recurring — recurring would bill them $1,200 again)
-4. Click **Add product**.
+2. Choose **Products or subscriptions**, then select the Program product you just made.
 
-### 3. Settings that matter
+### 4. Settings that matter
 
 - **Add promotion codes** — turn on. Lets you run real sale windows later. *(This can also be switched on after the fact; it is not a one-shot decision.)*
 - **Collect customer names** — turn on. You need to know who paid in order to send their booking link.
 - **Require customers to accept your terms of service** — worth doing for a $1,200 purchase. It only appears as an option once you set your terms URL under **Settings → Public details**; point it at `https://alwaysbequitting.com/terms`. Stripe then also links your privacy policy if that URL is set.
 - **Limit the number of payments** — leave off. That caps total sales of the Program, not sessions per client.
 
-### 4. After the payment
+### 5. After the payment
 
 Click **After the payment**. Under **Confirmation page**, replace the default with a custom message. Something like:
 
@@ -136,11 +146,11 @@ Click **After the payment**. Under **Confirmation page**, replace the default wi
 
 Do **not** use the redirect option. A redirect would need a page we haven't built, and the custom message needs no code.
 
-### 5. Copy the URL into the site
+### 6. Copy the URL into the site
 
 Copy the link (`https://buy.stripe.com/...`) and paste it into `PROGRAM_URL` at the top of `src/pages/coaching.astro`. Both Program CTAs read from that one constant. **While it's empty they fall back to `/contact`**, so nobody hits a dead link in the meantime.
 
-### 6. Per client, after each sale
+### 7. Per client, after each sale
 
 1. Stripe emails you. (If you don't get emails for every payment, turn that on under **Settings → Personal details → Notifications**.)
 2. Cal.com → the **Program** event type → **Advanced** → **Add Private Link** → gear icon → set **6 uses** and **expiry = purchase date + 12 weeks** → save the link config, then save the event type.
