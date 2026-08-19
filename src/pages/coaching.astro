@@ -19,14 +19,27 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
 // Cal.com. See PRD "Program checkout - DECIDED" for the full flow.
 // Allowed off-domain under PRD site-rule 2 (checkout is the stated exception).
 //
-// >>> PASTE THE STRIPE PAYMENT LINK URL HERE once it exists. <<<
-//
 // While it's empty both Program CTAs fall back to /contact, so someone ready to
 // spend $1,200 reaches Jon instead of hitting a dead link. They previously
 // pointed at "#book", which is the id of the final CTA section itself - i.e.
 // the button scrolled to its own location and nothing happened.
-const PROGRAM_URL = '';
+//
+// 🚨 CURRENTLY A SANDBOX TEST LINK ("test_" in the URL). It cannot take real
+// money - a real card entered here is declined, and Stripe test cards like
+// 4242 4242 4242 4242 succeed without charging anything. SWAP THIS FOR THE LIVE
+// PAYMENT LINK BEFORE LAUNCH (M5). See SETUP.md -> "Going live".
+const PROGRAM_URL = 'https://buy.stripe.com/test_14A6oAf6Rddje5w9mR2oE00';
 const PROGRAM_CTA = PROGRAM_URL || '/contact';
+
+// Build-time guard: shipping a test link to production would silently take the
+// site's only $1,200 CTA out of service. Astro frontmatter runs at build time,
+// so this lands in the build log where it is hard to miss.
+if (PROGRAM_URL.includes('/test_')) {
+  console.warn(
+    '\n⚠️  /coaching is using a STRIPE SANDBOX link (test_...). ' +
+      'It cannot accept real payments. Replace PROGRAM_URL before launch.\n'
+  );
+}
 ---
 
 <Base
