@@ -189,7 +189,11 @@ The link then enforces the package on its own: after six bookings it stops worki
 - **Customer receipts** — **Settings → Business → Customer emails → Payments → "Successful payments."** Stripe does **not** auto-send receipts for test payments at all (*"If you need to send a receipt for a test payment, send a manual receipt"*), so you can only really confirm this in live. Someone paying $1,200 and receiving no receipt is alarming — do not launch without this on.
 - **Jon's own notifications** — **Settings → Personal details → Notifications.** Stripe emails you after your *first* payment automatically; every payment after that needs this setting.
 
-⚠️ **Receipts carry required compliance fields:** legal business name, customer support address, **customer support email**, and privacy policy URL. The support email appears on every receipt and must be an address that actually reaches Jon — `no-reply@` is not suitable. Decide this deliberately; it is the one place a working contact address is unavoidable, given the no-published-email rule everywhere else on the site.
+⚠️ **Receipts carry required compliance fields:** legal business name, customer support address, **customer support email**, and privacy policy URL. The support email appears on every receipt and must be an address that actually reaches Jon — `no-reply@` is not suitable.
+
+**DECIDED (Jon, 2026-08-18): use Jon's real email on receipts.** His reasoning: *"if someone is paying me, they probably deserve to know my email address. This is unlike a contact form where any spammer would get my real email address."*
+
+**This does not conflict with the no-published-email rule** on `/contact` and elsewhere — that rule exists to stop address harvesting from public pages. A receipt goes only to someone who has completed a purchase. The two are scoped differently on purpose; do not "fix" either one to match the other.
 
 ### 🚨 Going live — the sandbox→live checklist
 

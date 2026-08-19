@@ -91,7 +91,12 @@ const RECAPTCHA_SITE_KEY = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY;
       </form>
 
       <!-- No email address is published anywhere on this page: harvesting/spam
-           (Jon, 2026-08-14). The form is the only contact route. -->
+           (Jon, 2026-08-14). The form is the only contact route.
+
+           Scope note (Jon, 2026-08-18): this rule is about PUBLIC pages, where
+           any spammer can scrape the address. It does NOT extend to Stripe
+           receipts, which carry Jon's real email on purpose - those go only to
+           someone who has actually paid. See SETUP.md -> Receipts. -->
     </div>
   </main>
 
