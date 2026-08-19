@@ -170,6 +170,7 @@ Independent subagents (not the builder) run each milestone's audits: design revi
 | 13 | **Google reCAPTCHA keys for the contact form** (can likely reuse the existing site key) | Jon | before launch |
 | 14 | **Program checkout** — create the $1,200 Stripe Payment Link and paste its URL into `PROGRAM_URL` in `src/pages/coaching.astro`. Step-by-step in `SETUP.md` | Jon | M3 |
 | 15 | **Move video files OUT of git and onto Cloudflare R2** | Jon + build | before launch |
+| 16 | **Stripe sandbox → live checklist** — sandbox settings do NOT carry over. Terms-of-service URL in live Public details was **deliberately deferred** (Jon, 2026-08-18) and must not be forgotten. Full checklist in `SETUP.md` → "Going live" | Jon | before launch |
 
 ### Pricing & discount policy — DECIDED (Jon, 2026-08-18)
 

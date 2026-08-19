@@ -182,6 +182,21 @@ The link then enforces the package on its own: after six bookings it stops worki
 
 ⚠️ **Check whether the private-link gear lets you set uses AND expiry together.** Cal.com's help page phrases it as *"Number of allowed uses, **or** Expiry date."* The API accepts both at once, so if the UI forces a choice, take the **6-use cap** and track the 12 weeks yourself — an unused session is a smaller problem than a seventh free one.
 
+### 🚨 Going live — the sandbox→live checklist
+
+Sandbox settings do **not** carry over. Everything below has to be redone in live mode, and skipping one is silent — the link just quietly behaves differently than the one you tested.
+
+- [ ] **Terms of service URL** — **Settings → Business → Public details**, in LIVE mode. *(Deferred in the sandbox on purpose, Jon 2026-08-18 — this is the one most likely to be forgotten.)* Confirm `https://alwaysbequitting.com/terms` actually resolves before using it; until M5 that domain is still served by systeme.io, not the rebuild.
+- [ ] **Privacy policy URL** in the same place, so Stripe links it at checkout.
+- [ ] **Product** — use **Copy to live mode** on the sandbox product's details page rather than retyping it. Price copies too.
+- [ ] **Tax** — confirm "Collect tax automatically" is OFF in live (see the tax note above), or that the product carries a services tax code.
+- [ ] **Create the live payment link** — sandbox links never take real money, so this is a fresh link with a new URL.
+- [ ] Tick **promotion codes**, **collect customer names**, and **terms of service** on the live link.
+- [ ] **Check the payment methods** enabled in live (Affirm / Klarna / Cash App were on in the sandbox).
+- [ ] **Set the After-the-payment confirmation message** again — it's a property of the link, so the live link starts with Stripe's default.
+- [ ] **Paste the live URL into `PROGRAM_URL`** in `src/pages/coaching.astro`, then commit and push.
+- [ ] **Buy it once yourself with a real card** and refund it. It's the only way to know the whole path works. The refund costs you nothing beyond Stripe's fee handling.
+
 ### Costs
 
 Stripe takes **2.9% + 30¢** on US cards — about **$35.10** on $1,200, so you net roughly **$1,164.90**. No monthly fee.
