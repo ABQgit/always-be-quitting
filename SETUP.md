@@ -119,7 +119,15 @@ A payment link needs a product to sell, and Stripe's newer dashboard generally r
 
 1. Go to **More → Product catalog**, then click **+Add product**.
 2. **Name:** `Quit for the Last Time: The 1:1 Program`
-3. **Description:** six 50-minute 1:1 sessions with Jon, to be used within 12 weeks. This shows at checkout — it's the last thing they read before paying, so state the 12-week window here.
+3. **Description** — this shows at checkout, so it does two jobs: confirm what they're buying, and state the 12-week window before they pay rather than after. Suggested:
+
+   > Six private 50-minute coaching sessions with Jon, one-on-one, to be used within 12 weeks of purchase. Direct email access to Jon between every session. A quit strategy built around your life, expert withdrawal and behavior-change coaching, and progress tracking the whole way. Your booking link arrives by email within one business day.
+
+   Shorter variant if the field feels cramped:
+
+   > Six private 50-minute 1:1 sessions with Jon, to be used within 12 weeks of purchase. Includes direct email access to Jon between sessions. Your booking link arrives by email within one business day.
+
+   Keep the 12-week line and the booking-link line whatever else changes: the first is a term of the sale, the second stops "did my payment work?" emails.
 4. **Pricing model:** Flat-rate → **One time**. (Not Recurring. Recurring would bill them $1,200 again.)
 5. **Price:** `1200.00` USD.
 6. Click **Add product**.
