@@ -182,6 +182,15 @@ The link then enforces the package on its own: after six bookings it stops worki
 
 ⚠️ **Check whether the private-link gear lets you set uses AND expiry together.** Cal.com's help page phrases it as *"Number of allowed uses, **or** Expiry date."* The API accepts both at once, so if the UI forces a choice, take the **6-use cap** and track the 12 weeks yourself — an unused session is a smaller problem than a seventh free one.
 
+### Receipts (customer) and notifications (Jon)
+
+**Neither is on by default.** Verified in the sandbox 2026-08-18: a completed test payment produced no email to the buyer.
+
+- **Customer receipts** — **Settings → Business → Customer emails → Payments → "Successful payments."** Stripe does **not** auto-send receipts for test payments at all (*"If you need to send a receipt for a test payment, send a manual receipt"*), so you can only really confirm this in live. Someone paying $1,200 and receiving no receipt is alarming — do not launch without this on.
+- **Jon's own notifications** — **Settings → Personal details → Notifications.** Stripe emails you after your *first* payment automatically; every payment after that needs this setting.
+
+⚠️ **Receipts carry required compliance fields:** legal business name, customer support address, **customer support email**, and privacy policy URL. The support email appears on every receipt and must be an address that actually reaches Jon — `no-reply@` is not suitable. Decide this deliberately; it is the one place a working contact address is unavoidable, given the no-published-email rule everywhere else on the site.
+
 ### 🚨 Going live — the sandbox→live checklist
 
 Sandbox settings do **not** carry over. Everything below has to be redone in live mode, and skipping one is silent — the link just quietly behaves differently than the one you tested.
@@ -194,6 +203,8 @@ Sandbox settings do **not** carry over. Everything below has to be redone in liv
 - [ ] Tick **promotion codes**, **collect customer names**, and **terms of service** on the live link.
 - [ ] **Check the payment methods** enabled in live (Affirm / Klarna / Cash App were on in the sandbox).
 - [ ] **Set the After-the-payment confirmation message** again — it's a property of the link, so the live link starts with Stripe's default.
+- [ ] **Turn on customer receipts** — Settings → Business → Customer emails → "Successful payments." Off by default, and never fires in test mode, so live is the first place you can confirm it. Set the customer support email first (see Receipts above).
+- [ ] **Turn on payment notifications for yourself** — Settings → Personal details → Notifications.
 - [ ] **Paste the live URL into `PROGRAM_URL`** in `src/pages/coaching.astro`, then commit and push.
 - [ ] **Test the live path with a $1 link, not the $1,200 one.** Create a throwaway live product at $1.00, make a payment link for it, and buy it with your own card. Costs about 33¢ and exercises the whole real pipeline: money movement, your notification email, the receipt, the confirmation message. Archive the throwaway product and link afterwards.
 
