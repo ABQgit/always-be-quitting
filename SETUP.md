@@ -141,6 +141,9 @@ Stripe won't save a product without at least one price attached, so fill the pri
 
 ### 4. Settings that matter
 
+**To change any of these on a link you already made:** **Payment Links** → click the link → **overflow menu (⋯)** → **Edit**. The URL does not change, so nothing needs re-pasting into the site. Everything below is editable after the fact — the only edit that alters your URL is **submit type**, which moves the hostname between `buy.` / `book.` / `donate.stripe.com`, so leave that one alone.
+
+
 - **Add promotion codes** — turn on. Lets you run real sale windows later. *(This can also be switched on after the fact; it is not a one-shot decision.)*
 - **Collect customer names** — turn on. You need to know who paid in order to send their booking link.
 - **Require customers to accept your terms of service** — worth doing for a $1,200 purchase. It only appears as an option once you set your terms URL under **Settings → Public details**; point it at `https://alwaysbequitting.com/terms`. Stripe then also links your privacy policy if that URL is set.
