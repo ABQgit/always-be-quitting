@@ -195,7 +195,9 @@ Sandbox settings do **not** carry over. Everything below has to be redone in liv
 - [ ] **Check the payment methods** enabled in live (Affirm / Klarna / Cash App were on in the sandbox).
 - [ ] **Set the After-the-payment confirmation message** again — it's a property of the link, so the live link starts with Stripe's default.
 - [ ] **Paste the live URL into `PROGRAM_URL`** in `src/pages/coaching.astro`, then commit and push.
-- [ ] **Buy it once yourself with a real card** and refund it. It's the only way to know the whole path works. The refund costs you nothing beyond Stripe's fee handling.
+- [ ] **Test the live path with a $1 link, not the $1,200 one.** Create a throwaway live product at $1.00, make a payment link for it, and buy it with your own card. Costs about 33¢ and exercises the whole real pipeline: money movement, your notification email, the receipt, the confirmation message. Archive the throwaway product and link afterwards.
+
+  ⚠️ **Do NOT test by buying the $1,200 link and refunding it.** [Stripe does not return the processing fee on a refund](https://docs.stripe.com/refunds) — the 2.9% + 30¢ is gone either way, so that test costs about **$35** and proves nothing the $1 version doesn't. (An earlier version of this checklist suggested exactly that. It was wrong.) For the same reason, don't bother refunding the $1 — refunding it costs you the fee regardless.
 
 ### Costs
 
