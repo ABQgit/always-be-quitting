@@ -193,6 +193,10 @@ The link then enforces the package on its own: after six bookings it stops worki
 - **Customer receipts** — **Settings → Business → Customer emails → Payments → "Successful payments."** Stripe does **not** auto-send receipts for test payments at all (*"If you need to send a receipt for a test payment, send a manual receipt"*), so you can only really confirm this in live. Someone paying $1,200 and receiving no receipt is alarming — do not launch without this on.
 - **Jon's own notifications** — **Settings → Personal details → Notifications.** Stripe emails you after your *first* payment automatically; every payment after that needs this setting.
 
+🚨 **This is the single most fragile point in the whole manual flow.** Nothing else tells Jon a sale happened, and nothing else triggers fulfillment. If that email is filtered, spam-foldered, or arrives while Jon is away, a client has paid $1,200 and is waiting for a booking link that will never arrive — with no recourse but the contact form. **Add a second channel that can't be filtered: install the Stripe dashboard mobile app and enable push notifications for payments.** Free, two minutes, and it fails differently than email does.
+
+**Note on test mode:** Stripe suppresses emails in sandbox by default — customer receipts *and* merchant notifications. A silent test payment is expected behaviour, not a misconfiguration. Neither can be verified until live. (Resend is not involved in any of this; it is wired only to the contact form.)
+
 ⚠️ **Receipts carry required compliance fields:** legal business name, customer support address, **customer support email**, and privacy policy URL. The support email appears on every receipt and must be an address that actually reaches Jon — `no-reply@` is not suitable.
 
 **DECIDED (Jon, 2026-08-18): use Jon's real email on receipts.** His reasoning: *"if someone is paying me, they probably deserve to know my email address. This is unlike a contact form where any spammer would get my real email address."*
@@ -213,7 +217,8 @@ Sandbox settings do **not** carry over. Everything below has to be redone in liv
 - [ ] **Check the payment methods** enabled in live (Affirm / Klarna / Cash App were on in the sandbox).
 - [ ] **Set the After-the-payment confirmation message** again — it's a property of the link, so the live link starts with Stripe's default.
 - [ ] **Turn on customer receipts** — Settings → Business → Customer emails → "Successful payments." Off by default, and never fires in test mode, so live is the first place you can confirm it. Set the customer support email first (see Receipts above).
-- [ ] **Turn on payment notifications for yourself** — Settings → Personal details → Notifications.
+- [ ] **Turn on payment notifications for yourself** — Settings → Personal details → Notifications. Stripe only auto-emails after the *first* payment.
+- [ ] **Install the Stripe mobile app and enable payment push notifications.** Second channel, can't be filtered. Missing a sale notification means a paying client never gets their booking link.
 - [ ] **Paste the live URL into `PROGRAM_URL`** in `src/pages/coaching.astro`, then commit and push.
 - [ ] **Test the live path with a $1 link, not the $1,200 one.** Create a throwaway live product at $1.00, make a payment link for it, and buy it with your own card. Costs about 33¢ and exercises the whole real pipeline: money movement, your notification email, the receipt, the confirmation message. Archive the throwaway product and link afterwards.
 
