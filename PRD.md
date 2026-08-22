@@ -161,7 +161,7 @@ Independent subagents (not the builder) run each milestone's audits: design revi
 | 4 | About page emphasis/exclusions | Jon | M2 copy |
 | 5 | Analytics choice (Plausible rec. vs GA4) | Jon | M3 |
 | 6 | Domain registrar/DNS access details | Jon | M5 |
-| 7 | Mighty Networks supports 3×$97→$47/mo? | Jon or build task | M3 |
+| 7 | ~~Mighty Networks supports 3×$97→$47/mo?~~ **RESOLVED 2026-08-21 — no. Community billing moves to Stripe, off-platform.** See "Community billing — DECIDED" below | — | — |
 | 8 | Video on /coaching — keep? which? | Jon | M2 |
 | 9 | Vault design tokens + photo assets transfer | Jon | M1 |
 | 10 | Cal.com event cleanup (`-copy` slug; verify $97 charge + intake form attached) | Jon | M3 |
@@ -171,6 +171,29 @@ Independent subagents (not the builder) run each milestone's audits: design revi
 | 14 | **Program checkout** — create the $1,200 Stripe Payment Link and paste its URL into `PROGRAM_URL` in `src/pages/coaching.astro`. Step-by-step in `SETUP.md` | Jon | M3 |
 | 15 | **Move video files OUT of git and onto Cloudflare R2** | Jon + build | before launch |
 | 16 | **Stripe sandbox → live checklist** — sandbox settings do NOT carry over. Terms-of-service URL in live Public details was **deliberately deferred** (Jon, 2026-08-18) and must not be forgotten. Full checklist in `SETUP.md` → "Going live" | Jon | before launch |
+
+### Community billing — DECIDED (Jon, 2026-08-21)
+
+**Community payments run through Stripe off-platform, NOT through Mighty Networks plans.** Jon grants and revokes MN access by hand: *"at this point i can grant subs access by hand. i dont have many yet."*
+
+**Why Mighty Networks couldn't do it.** Researched against their host docs 2026-08-21:
+
+- ✅ 3 × $97 as a hard commitment — their **Installments** feature (*"members commit to completing all payments and cannot cancel or reschedule"*)
+- ✅ $250 one-pay — One-Time Payment
+- ✅ Both side by side — their **Combine Offers** feature
+- ❌ **Automatic roll into $47/mo — not supported.** Installments are a split one-time purchase with no rollover, and *"moving is only supported for subscription plans but not for one-time or interval plans."* The $47 tail would be a manual re-sell to every member at month 3, not a renewal.
+
+Also rejected on care grounds: with MN installments, a failed payment retried for 7 days ends in access being removed automatically, and *"a defaulted installment plan cannot be resumed."* An expired card would strip someone's community access mid-quit with no way back. Unacceptable for a cessation community.
+
+**The setup:**
+
+- Stripe product: **$97/mo recurring subscription**, sold via a Payment Link, self-serve from `/community`. Auto-renews, so there is no re-sell at month 3.
+- At month 3 Jon steps the price down to **$47/mo** — edit the subscription, or apply a forever discount. Stripe's Dashboard supports **subscription schedules (phases) without code**, so this can also be set up per member in advance.
+- **The 3-month commitment becomes soft, deliberately.** Do NOT enable Stripe's customer portal; cancelling means emailing Jon. Rationale: the commitment exists because *"3-month structure matches 'transformation takes 3–6 months'"* — it protects people from bailing at their worst moment. A conversation serves that better than an automated lock, and avoids MN's card-failure cliff.
+
+🚨 **The recurring chore, and the one that leaks:** when a member cancels or their card fails, **Stripe knows and Mighty does not.** MN access must be revoked by hand or they keep it free indefinitely. Unlike the coaching handoff (one action per sale), this is ongoing and fails silently. Set a recurring reminder.
+
+**Consequence for `/community`:** the four spots depending on the old "3 × $97 or $250 one-pay → $47/mo" model need rewriting to a $97/mo subscription. The `[DIFF — Jon to approve]` marker still rendering on that page can come out.
 
 ### Pricing & discount policy — DECIDED (Jon, 2026-08-18)
 

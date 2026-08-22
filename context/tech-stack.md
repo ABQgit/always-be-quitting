@@ -27,6 +27,24 @@
 - New site's opt-in forms POST to a Vercel serverless function → **systeme.io API** (create contact + tag → triggers existing automations). API key server-side only.
 - Build-phase task: verify systeme.io API endpoints/limits for contact creation + tagging.
 
+## systeme.io MCP — Claude-assisted email funnels (ADDED TO BACKLOG 2026-08-22)
+
+**Scope decision (Jon, 2026-08-22): MCP is for EMAIL FUNNELS and standalone landing pages ONLY. It is NOT to be used to revise the ABQ website.** The rebuilt site is Astro/Tailwind/Vercel and stays hand-built; nothing in the systeme.io site builder gets touched via MCP.
+
+systeme.io ships an official remote MCP server (`https://mcp.systeme.io/mcp?mcpKey=YOURKEY`, added in Claude as a custom connector). What it can do today:
+
+- **Email (the point of this):** create/update newsletters; create/update/delete campaigns and campaign steps; list/retrieve both. Sending uses default sender settings; scheduling/activation still has to be done by hand in the UI.
+- **Contacts/CRM:** create, update, delete, list, filter contacts; create/assign/remove tags; read custom fields.
+- **Automation rules:** create rules — but only three triggers (tag added, tag removed, funnel form subscribed) — and list existing ones.
+- **Funnels:** create a funnel and an opt-in step; list/retrieve funnels. **Editing and deleting funnels is NOT supported**, and page-level design/copy editing is not exposed at all. So MCP can scaffold a landing/opt-in funnel; the actual page still gets built in the systeme.io editor.
+- Also: price plans, coupons, digital products, read-only SMS templates and booking events.
+
+Known limits: initial release, no OAuth; MCP keys max 90-day validity, two active keys at a time; newsletters can't be deleted via MCP.
+
+**Guardrail:** the MCP key is scoped to the whole live systeme.io account — the same account that currently hosts www.alwaysbequitting.com's pages and the live ABQ Tips list. Writes are real and immediate. Before enabling: set the connector to "Needs approval" (not "Always allow"), and do all first work against a throwaway test funnel/tag/campaign, never the live ABQ Tips sequence.
+
+**Open question this depends on:** open-questions.md #6 (Ed Lawrence weekly 4:1 nurture vs. Amanda's 5-email conversion sequence). Decide the sequence architecture first; MCP is a build accelerator, not a substitute for that decision.
+
 ## Open Tech Items
 
 1. **Analytics:** choice pending (candidates: Plausible/Fathom for simple privacy-friendly funnels + Stripe webhook for purchase events; GA4 if ad platforms demand it). Define funnel events: opt-in, book-session, program-purchase, community-click-through.
@@ -34,3 +52,4 @@
 3. **Domain cutover:** registrar/DNS details needed from Jon; www.alwaysbequitting.com moves from systeme.io to Vercel; systeme.io keeps sending email (SPF/DKIM records must survive the DNS change — CRITICAL checklist item).
 4. **Asset collection:** photos/testimonial headshots off systeme.io CDN before cutover.
 5. **abq-landing-v2.vercel.app** → becomes/redirects into the new site's 1:1 page.
+6. **systeme.io MCP connector setup (email funnels only — see section above).** Generate an MCP key in systeme.io, add it in Claude as a custom connector, set permission to "Needs approval", and pilot on a test funnel + test campaign before touching ABQ Tips. Explicitly out of scope: any use of MCP to revise the ABQ website.
