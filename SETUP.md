@@ -148,6 +148,15 @@ Stripe won't save a product without at least one price attached, so fill the pri
 - **Collect customer names** — turn on. You need to know who paid in order to send their booking link.
 - **Require customers to accept your terms of service** — worth doing for a $1,200 purchase. It only appears as an option once you set your terms URL under **Settings → Business → Public details**; point it at `https://alwaysbequitting.com/terms`. Stripe then also links your privacy policy if that URL is set.
 
+  🚨 **Use the URLs that actually work today, not the rebuild's paths.** Verified 2026-08-21: `alwaysbequitting.com/terms` **404s**. The live systeme.io pages are at:
+
+  | Setting | Use NOW | Change to at launch (M5) |
+  |---|---|---|
+  | Terms of service | `https://www.alwaysbequitting.com/terms-and-conditions` | `https://www.alwaysbequitting.com/terms` |
+  | Privacy policy | `https://www.alwaysbequitting.com/privacy-policy` | `https://www.alwaysbequitting.com/privacy` |
+
+  Getting this wrong points a $1,200 checkout's terms checkbox at a dead page, and the privacy URL appears on **every receipt** as a required compliance field. The rebuild must also 301 the old paths — see PRD site map.
+
   ⚠️ **This setting is per-environment — set it TWICE, once in the sandbox and once in live.** Stripe's sandbox docs state that Public details are not copied from the live account (*"Stripe adds placeholder domains to enable payments in a sandbox"*) and that *"we don't synchronize settings and capabilities."* If the terms checkbox is **greyed out** in the payment link editor, this is almost always why: the URL was set in the other environment. Set it in the one you're currently working in, then hard-refresh the editor.
 - **Limit the number of payments** — **leave OFF, and verify it.** This caps total sales of the Program, not sessions per client. If it is set to 1, the link takes one payment and then permanently deactivates itself.
 
@@ -243,6 +252,7 @@ Sandbox settings do **not** carry over. Everything below has to be redone in liv
 - [ ] **Install the Stripe mobile app and enable payment push notifications.** Second channel, can't be filtered. Missing a sale notification means a paying client never gets their booking link.
 - [ ] **Paste the live URLs into `PROGRAM_URL`** (`src/pages/coaching.astro`) and **`JOIN_URL`** (`src/pages/community.astro`), then commit and push. The build prints a warning while either still holds a `test_` link.
 - [ ] **Run the "check what our notes are exposing" block above.** Must be 0 comments on every page.
+- [ ] **Repoint the legal URLs** in Stripe → Settings → Business → Public details, from `/terms-and-conditions` and `/privacy-policy` to `/terms` and `/privacy` — and confirm the 301s are in place first, so the old URLs on already-sent receipts keep working.
 - [ ] **Test the live path with a $1 link, not the $1,200 one.** Create a throwaway live product at $1.00, make a payment link for it, and buy it with your own card. Costs about 33¢ and exercises the whole real pipeline: money movement, your notification email, the receipt, the confirmation message. Archive the throwaway product and link afterwards.
 
   ⚠️ **Do NOT test by buying the $1,200 link and refunding it.** [Stripe does not return the processing fee on a refund](https://docs.stripe.com/refunds) — the 2.9% + 30¢ is gone either way, so that test costs about **$35** and proves nothing the $1 version doesn't. (An earlier version of this checklist suggested exactly that. It was wrong.) For the same reason, don't bother refunding the $1 — refunding it costs you the fee regardless.

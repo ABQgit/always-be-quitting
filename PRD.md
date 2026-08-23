@@ -60,7 +60,7 @@ Sale windows run on the real cessation calendar (New Year, World No Tobacco Day 
 | ~~`/about`~~ | **CUT 2026-07-12 (Jon): no About page.** The whole site already carries Jon's story, qualifications, and videos — a separate About page was redundant. Removed from nav. | — |
 | `/contact` | Contact | `/contact` |
 | ~~`/podcast`~~ | **CUT 2026-08-21 (Jon). Never built; footer link removed.** *"im not pursuing podcasting for this business because people wont listen. those podcasts are basically long testimonials for my services."* Interviews go on YouTube instead. **Old `/podcasts/always-be-quitting` 301s to `/` at launch** — those episodes function as testimonials, so the homepage (which carries the proof section) is the right landing place. | `/podcasts/always-be-quitting` → `/` (301) |
-| `/privacy`, `/terms` | Legal (terms rewritten for new offer rules) | current legal pages |
+| `/privacy`, `/terms` | Legal (terms rewritten for new offer rules) | **`/privacy-policy` → `/privacy` (301)** and **`/terms-and-conditions` → `/terms` (301)** — verified live 2026-08-21. These 301s are **not optional**: the old URLs are what Stripe's Public details point at (they appear on every receipt as a compliance field) and what the current site's footer links to everywhere. `alwaysbequitting.com/terms` currently 404s. |
 
 `/hsdzywqq`, `/tqbeytfj` (old checkouts) retire → 301 to `/coaching`.
 **Nav:** Community · 1:1 Coaching · Free Guide · Contact. (About page cut 2026-07-12; Podcast cut 2026-08-21.) Legal in footer.
