@@ -1,8 +1,13 @@
 ---
 // /community - near-verbatim port of community-8-25 (Jon: "I like almost everything
 // about this page"). ONLY the offer/pricing model changes (community-page-spec.md):
-// 3-month commitment ($97/mo ×3 or $250 one-pay) then $47/mo auto-continue; codes and
-// $147-regular apparatus removed; subscription FAQ rewritten. [DIFF] marks changes.
+// Pricing model (Jon, 2026-08-21): ONE option - $249 up front covering 3 months
+// ($83/mo), then $37/mo from month 4, auto-continued via a Stripe subscription
+// schedule. The old "$97/mo ×3 or $250 one-pay (save $41)" pair is GONE, along
+// with the $147-regular and discount-code apparatus.
+// Rationale wording is deliberate: "quitting is a process that takes time" -
+// NEVER "that's how long transformation takes", which is a timeline promise and
+// violates PRD rule 3. Jon rejected that phrasing explicitly.
 // Design: varied treatments per critique - split rows w/ icons, numbered journey,
 // ticket pricing. No back-to-back card grids.
 import Base from '../layouts/Base.astro';
@@ -20,7 +25,7 @@ const MN_URL = 'https://always-be-quitting.mn.co/plans/1948481?bundle_token=1ab9
 
 <Base
   title="Join the AlwaysBeQuitting Community"
-  description="Weekly expert coaching and ongoing community support for your entire quit smoking or vaping journey. $97/month with a 3-month commitment, then $47/month."
+  description="Weekly expert coaching and ongoing community support for your entire quit smoking or vaping journey. $249 for your first 3 months, then $37/month."
 >
   <SiteHeader />
 
@@ -44,10 +49,9 @@ const MN_URL = 'https://always-be-quitting.mn.co/plans/1948481?bundle_token=1ab9
         </div>
         <aside class="ticket reveal">
           <p class="ticket__kicker">Full ABQ Community Membership</p>
-          <p class="ticket__price">$97<span>/month</span></p>
-          <p class="ticket__terms">3-month commitment - because that's how long transformation actually takes.</p>
-          <p class="ticket__then">Then just <strong>$47/month</strong> for as long as you want.</p>
-          <p class="ticket__alt">Or $250 up front for all 3 months <em>(save $41)</em></p>
+          <p class="ticket__price">$249<span>for your first 3 months</span></p>
+          <p class="ticket__terms">Three months is a commitment to yourself and to the process of quitting, which takes time.</p>
+          <p class="ticket__then">Then just <strong>$37/month</strong> for as long as you want.</p>
           <a class="btn btn--cta" href={MN_URL}>Join the Community</a>
         </aside>
       </div>
@@ -211,16 +215,18 @@ const MN_URL = 'https://always-be-quitting.mn.co/plans/1948481?bundle_token=1ab9
     <div class="wrap" style="max-width:820px">
       <div class="ticket ticket--big reveal">
         <p class="ticket__kicker">Full ABQ Community Membership</p>
-        <p class="ticket__price">$97<span>/month</span></p>
+        <p class="ticket__price">$249<span>for your first 3 months - $83 a month</span></p>
         <p class="ticket__terms">
-          <strong>3-month commitment.</strong> We ask for 3 months because that's how long transformation actually
-          takes - your first 30 days are a start, not a finish.
+          Three months is a commitment to yourself and to the process of quitting, which takes time.
         </p>
         <p class="ticket__then">
-          After your 3 months: <strong>$47/month, for as long as you want.</strong> The longer you stay, the
+          After your 3 months: <strong>$37/month, for as long as you want.</strong> The longer you stay, the
           cheaper it gets - the opposite of every program that's burned you.
         </p>
-        <p class="ticket__alt">Prefer one payment? <strong>$250 for all 3 months</strong> <em>(save $41)</em>.</p>
+        <p class="ticket__alt">
+          Your commitment to transformation is 3 months. After that, you can cancel at any time.
+          No refunds on the $249.
+        </p>
         <ul class="checks checks--ink">
           <li>24/7 access to community support</li>
           <li>Community Support Calls - usually one a week, schedule published at the start of each month</li>
@@ -336,24 +342,23 @@ const MN_URL = 'https://always-be-quitting.mn.co/plans/1948481?bundle_token=1ab9
           why membership starts with a 3-month commitment. Let's face it: things are going to come up. If you want
           the best shot at quitting for life, don't focus on quitting the community.
           <strong>FOCUS ON QUITTING smoking or vaping for life. That is the end game.</strong> After your first
-          3 months, staying is just $47/month - and how long you stay is entirely up to you.
+          3 months, staying is just $37/month - and how long you stay is entirely up to you.
         </p>
       </details>
       <details class="reveal">
         <summary>What's your subscription, cancellation, and refund policy?</summary>
         <p>
-          <strong>Your membership:</strong> ABQ Community membership begins with a 3-month commitment - either
-          3 monthly payments of $97, or one payment of $250. All 3 months are yours and all 3 payments stand; we
+          <strong>Your membership:</strong> ABQ Community membership begins with one payment of $249, covering
+          your first 3 months. All 3 months are yours and the payment stands; we
           don't offer refunds for any reason. This isn't because we don't stand behind what we do - it's because
           transformation requires commitment, and an "easy out" encourages giving up exactly when things get
-          challenging. <strong>After 3 months:</strong> your membership automatically continues at $47/month so
-          your support doesn't disappear the moment the commitment ends. You can cancel anytime from month 4
-          onward - just cancel at least 1 day before your renewal date. <strong>What we guarantee:</strong> the
+          challenging. <strong>After 3 months:</strong> your membership automatically continues at $37/month so
+          your support doesn't disappear the moment the commitment ends. You can cancel at any time from month 4
+          onward - just email us at least 1 day before your renewal date. <strong>What we guarantee:</strong> the
           delivery of weekly Community Support Calls, ongoing community access, and Jon's guidance.
           <strong>What we can't guarantee:</strong> that you'll quit. Your success depends on factors under your
           control - your mindset, decisions, commitment, and how you navigate the challenges. We provide guidance,
           accountability, and support, but we can't execute the process for you. We think you can do this!
-          <em>[DIFF - rewritten for the new pricing model; Jon to approve]</em>
         </p>
       </details>
       <details class="reveal">
