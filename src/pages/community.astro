@@ -1,14 +1,22 @@
 ---
 // /community - near-verbatim port of community-8-25 (Jon: "I like almost everything
 // about this page"). ONLY the offer/pricing model changes (community-page-spec.md):
-// Pricing model (Jon, 2026-08-21): ONE option - a single $249 payment for 3
-// months. NOT a subscription. It simply ends; members who want to stay opt in
-// to $37/mo afterwards and Jon sends that link by hand.
-//   - Do NOT show a per-month figure ($83). Jon: "I don't want it to look like
-//     they can sub by the month." The monthly framing is the thing being avoided.
+// Pricing model (Jon, 2026-08-21): ONE option - a single $291 payment covering
+// 3 months, i.e. $97/month paid up front. NOT a subscription. It simply ends;
+// members who want to stay opt in to $37/mo afterwards and Jon sends that link
+// by hand.
+//   - $291 = 3 x $97 ON PURPOSE. It preserves the homepage device ("Either way,
+//     you start for $97") where the community and the 1:1 session share an
+//     entry price. Do not change one without the other.
+//   - Always pair "$97/month" with "paid up front". Jon: "I don't want it to
+//     look like they can sub by the month."
 //   - Do NOT say the membership "automatically continues" - nothing renews.
 //     Stripe has no record of the 3-month term; a one-time payment has no
 //     duration. Jon tracks end dates himself.
+//   - NO strikethrough pricing, ever. $291 is the price. Specials are Stripe
+//     coupon codes applied at checkout, never a crossed-out number on the page.
+//     There is no cheaper community tier - the low-cost door is the $97 1:1
+//     session (Jon, 2026-08-21).
 // The old "$97/mo x3 or $250 one-pay (save $41)" pair is GONE, along with the
 // $147-regular and discount-code apparatus.
 // Rationale wording is deliberate: "quitting is a process that takes time" -
@@ -31,7 +39,7 @@ const MN_URL = 'https://always-be-quitting.mn.co/plans/1948481?bundle_token=1ab9
 
 <Base
   title="Join the AlwaysBeQuitting Community"
-  description="Weekly expert coaching and ongoing community support for your quit smoking or vaping journey. $249 for 3 months."
+  description="Weekly expert coaching and ongoing community support for your quit smoking or vaping journey. $291 for 3 months - $97/month, paid up front."
 >
   <SiteHeader />
 
@@ -55,7 +63,7 @@ const MN_URL = 'https://always-be-quitting.mn.co/plans/1948481?bundle_token=1ab9
         </div>
         <aside class="ticket reveal">
           <p class="ticket__kicker">Full ABQ Community Membership</p>
-          <p class="ticket__price">$249<span>for 3 months</span></p>
+          <p class="ticket__price">$291<span>3 months at $97/month, paid up front</span></p>
           <p class="ticket__terms">Three months is a commitment to yourself and to the process of quitting, which takes time.</p>
           <p class="ticket__then">After that, you can continue at <strong>$37/month</strong> if you wish.</p>
           <a class="btn btn--cta" href={MN_URL}>Join the Community</a>
@@ -221,7 +229,7 @@ const MN_URL = 'https://always-be-quitting.mn.co/plans/1948481?bundle_token=1ab9
     <div class="wrap" style="max-width:820px">
       <div class="ticket ticket--big reveal">
         <p class="ticket__kicker">Full ABQ Community Membership</p>
-        <p class="ticket__price">$249<span>for 3 months</span></p>
+        <p class="ticket__price">$291<span>3 months at $97/month, paid up front</span></p>
         <p class="ticket__terms">
           Three months is a commitment to yourself and to the process of quitting, which takes time.
         </p>
@@ -231,7 +239,7 @@ const MN_URL = 'https://always-be-quitting.mn.co/plans/1948481?bundle_token=1ab9
         </p>
         <p class="ticket__alt">
           Your commitment to transformation is 3 months. After that, it's up to you whether you continue.
-          No refunds on the $249.
+          No refunds on the $291.
         </p>
         <ul class="checks checks--ink">
           <li>24/7 access to community support</li>
@@ -354,8 +362,8 @@ const MN_URL = 'https://always-be-quitting.mn.co/plans/1948481?bundle_token=1ab9
       <details class="reveal">
         <summary>What's your subscription, cancellation, and refund policy?</summary>
         <p>
-          <strong>Your membership:</strong> ABQ Community membership is one payment of $249, covering
-          3 months. All 3 months are yours and the payment stands; we
+          <strong>Your membership:</strong> ABQ Community membership is one payment of $291 - $97/month for 3 months,
+          paid up front. All 3 months are yours and the payment stands; we
           don't offer refunds for any reason. This isn't because we don't stand behind what we do - it's because
           transformation requires commitment, and an "easy out" encourages giving up exactly when things get
           challenging. <strong>After 3 months:</strong> your membership ends unless you choose to continue. If you
