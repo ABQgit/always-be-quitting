@@ -21,7 +21,7 @@ const { title, description, noindex = false } = Astro.props;
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
-    <!-- v1 fonts (Google Fonts; self-host during pre-launch hardening) -->
+    {/* v1 fonts (Google Fonts; self-host during pre-launch hardening) */}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

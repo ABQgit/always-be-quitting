@@ -17,13 +17,13 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
   title="Quit Smoking or Vaping With Always Be Quitting"
   description="Coaching and community from a certified tobacco treatment specialist with 25 years of experience."
 >
-  <!-- 0 · announcement + nav -->
+  {/* 0 · announcement + nav */}
   <SiteHeader />
 
-  <!-- 1 · hero - HEADLINE + ONE LINE, NOTHING ELSE (Jon, 2026-08-14).
+  {/* 1 · hero - HEADLINE + ONE LINE, NOTHING ELSE (Jon, 2026-08-14).
        Matches the live site exactly: no sub-headline, no trust line, no opt-in.
        Design phase: full-bleed environmental photograph, both lines on a scrim.
-       "You've tried before" needs statement weight, not kicker size. -->
+       "You've tried before" needs statement weight, not kicker size. */}
   <header class="band band--mist hero">
     <div class="wrap">
       <h1 class="display-xl hl">
@@ -33,16 +33,16 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
     </div>
   </header>
 
-  <!-- 1b · Quick-Start Guide opt-in - its own section directly below the hero,
+  {/* 1b · Quick-Start Guide opt-in - its own section directly below the hero,
        per the live site. Moved out of the hero 2026-08-14. Band treatment TBD
-       in the design phase (live site uses a sage field here). -->
+       in the design phase (live site uses a sage field here). */}
   <section class="band band--paper optin-band">
     <div class="wrap">
       <OptInForm returnTo="/" />
     </div>
   </section>
 
-  <!-- 2 · recognition -->
+  {/* 2 · recognition */}
   <section class="band band--paper recognition">
     <div class="wrap">
       <div class="lead reveal">
@@ -69,7 +69,7 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
     </div>
   </section>
 
-  <!-- 3 · transformation -->
+  {/* 3 · transformation */}
   <section class="band band--teal transform">
     <div class="wrap reveal">
       <h2 class="display-xl" style="margin-top:1.2rem">
@@ -82,7 +82,7 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
     </div>
   </section>
 
-  <!-- 4 · what makes the difference -->
+  {/* 4 · what makes the difference */}
   <section class="band band--white recognition" style="margin-top:0">
     <div class="wrap" style="padding-block: clamp(4.5rem, 9vw, 7rem) 0">
       <h2 class="display-lg hl" style="margin-top:1rem">Here's What Makes <em>The Difference</em></h2>
@@ -107,7 +107,7 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
     </div>
   </section>
 
-  <!-- 5 · guide -->
+  {/* 5 · guide */}
   <section class="band band--white guide" style="padding-top:0">
     <div class="wrap">
       <div class="guide__row reveal">
@@ -129,11 +129,11 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
     </div>
   </section>
 
-  <!-- 6a · WHAT JON OFFERS - the two levels of service, named plainly, no prices.
+  {/* 6a · WHAT JON OFFERS - the two levels of service, named plainly, no prices.
        Added 2026-08-14 (Jon). The old single "Start for $97" section was doing two
        jobs at once - announcing the offerings AND the entry price - so neither
        service registered and the page read as one product with two buttons.
-       Offer-architecture rule 1: visitors self-select their level of service. -->
+       Offer-architecture rule 1: visitors self-select their level of service. */}
   <section class="band band--white offers">
     <div class="wrap">
       <h2 class="display-lg hl">Two ways to <em>work with me.</em></h2>
@@ -145,10 +145,10 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
         </div>
         <div class="offer reveal">
           <h3>1:1 Coaching</h3>
-          <!-- Names that ongoing 1:1 work exists WITHOUT naming or pricing the
+          {/* Names that ongoing 1:1 work exists WITHOUT naming or pricing the
                $1,200 Program - keeps the 2026-07-12 PRD decision intact.
                Assembled from Jon's language: "Jon in your corner" (offer-architecture),
-               "no one-size-fits-all programs" (trust line), relapse-as-path (FAQ voice). -->
+               "no one-size-fits-all programs" (trust line), relapse-as-path (FAQ voice). */}
           <p>Working with me directly, one to one, over the months a real transformation takes. Not a one-size-fits-all program - a plan built around your life, with me in your corner between sessions, for the slips as much as the wins.</p>
           <a class="btn btn--ghost" href="/coaching">See how 1:1 coaching works</a>
         </div>
@@ -156,23 +156,23 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
     </div>
   </section>
 
-  <!-- 6b · HOW YOU START - the $97 entry into either one. Price lives here only.
+  {/* 6b · HOW YOU START - the $97 entry into either one. Price lives here only.
        Both being $97 is deliberate and reads as generous once 6a has done the
-       distinguishing. -->
+       distinguishing. */}
   <section class="band band--paper band--dots doors">
     <div class="wrap">
       <div class="doors__mega reveal" aria-hidden="true">$97</div>
       <h2 class="display-lg hl">Either way, <em>you start for $97.</em></h2>
       <div class="grid grid--2">
-        <!-- Both cards say what the $97 ITSELF buys, not what the service is in
+        {/* Both cards say what the $97 ITSELF buys, not what the service is in
              general - that's 6a's job. Kept symmetrical so neither reads as the
-             lesser option. Revised 2026-08-14. -->
+             lesser option. Revised 2026-08-14. */}
         <div class="door door--community reveal">
           <h3>The ABQ Community</h3>
-          <!-- $97/month is real: 3 x $97 = the $291 charged up front on /community.
+          {/* $97/month is real: 3 x $97 = the $291 charged up front on /community.
                ALWAYS keep "paid up front" next to it (Jon, 2026-08-21) - without
                that it reads as a monthly subscription and the price appears to
-               triple when they reach /community. -->
+               triple when they reach /community. */}
           <div class="price">$97/month</div>
           <p class="door__terms">3 months, $291 paid up front.</p>
           <p>Your first month of live calls with Jon and 24/7 access to people quitting alongside you. You don't have to be ready to quit to start.</p>
@@ -190,7 +190,7 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
     </div>
   </section>
 
-  <!-- 7 · proof -->
+  {/* 7 · proof */}
   <section class="band band--white proof">
     <div class="wrap">
       <div class="grid grid--3" style="margin-top:2rem">
@@ -210,17 +210,17 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
     </div>
   </section>
 
-  <!-- FAQ section removed entirely (Jon, 2026-08-14). Objection-handling belongs
+  {/* FAQ section removed entirely (Jon, 2026-08-14). Objection-handling belongs
        on /community and /coaching, where the decision is actually made; the
-       homepage had enough text. Nothing from it was relocated. -->
+       homepage had enough text. Nothing from it was relocated. */}
 
 
-  <!-- 8b · STAKES - StoryBrand beat 7 (Failure), placed immediately before the
+  {/* 8b · STAKES - StoryBrand beat 7 (Failure), placed immediately before the
        final ask so the stakes land while the CTA is in view. Copy is Jon's,
        verbatim, approved 2026-08-14.
        NOTE: the "physically and mentally sick" sentence is a deliberate,
        Jon-approved exception to the voice.md DON'T "fear-of-death or
-       medical-scare messaging." Recorded in voice.md - do not "fix" it. -->
+       medical-scare messaging." Recorded in voice.md - do not "fix" it. */}
   <section class="band band--white stakes">
     <div class="wrap reveal">
       <p class="display-lg stakes__body">
@@ -231,7 +231,7 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
     </div>
   </section>
 
-  <!-- 9 · final cta -->
+  {/* 9 · final cta */}
   <section class="band band--navy final">
     <div class="wrap">
       <h2 class="display-xl hl">Always be quitting, <em>until you've quit for the last time.</em></h2>
@@ -242,6 +242,6 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
     </div>
   </section>
 
-  <!-- 10 · footer -->
+  {/* 10 · footer */}
   <SiteFooter />
 </Base>

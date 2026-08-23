@@ -42,7 +42,7 @@ const {
     <input type="hidden" name="return" value={returnTo} />
     <input type="text" name="first_name" placeholder="First name" required maxlength="100" autocomplete="given-name" />
     <input type="email" name="email" placeholder="Your email" required maxlength="200" autocomplete="email" />
-    <!-- honeypot: real people never fill this -->
+    {/* honeypot: real people never fill this */}
     <label class="optin__hp" aria-hidden="true">
       Company<input type="text" name="company" tabindex="-1" autocomplete="off" />
     </label>

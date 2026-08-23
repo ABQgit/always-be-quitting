@@ -48,14 +48,14 @@ if (PROGRAM_URL.includes('/test_')) {
 >
   <SiteHeader />
 
-  <!-- hero: headline + video slot + trust line. [DIFF] H1 uses program name instead of "That Actually Works" -->
+  {/* hero: headline + video slot + trust line. [DIFF] H1 uses program name instead of "That Actually Works" */}
   <header class="band band--mist hero" style="padding-bottom: clamp(3rem, 6vw, 4.5rem)">
     <div class="wrap">
       <h1 class="display-xl hl">
         Quit for the Last Time: <em>1:1 coaching with Jon</em>
       </h1>
-      <!-- Self-hosted, click-to-load. Encoded from the 515MB / 15.2 Mbps master
-           down to 27MB / 805 kbps. TODO (PRD #15): move files to R2. -->
+      {/* Self-hosted, click-to-load. Encoded from the 515MB / 15.2 Mbps master
+           down to 27MB / 805 kbps. TODO (PRD #15): move files to R2. */}
       <div class="reveal" style="margin-top:2.2rem; max-width:720px; margin-inline:auto">
         <VideoEmbed
           src720="/video/coaching-720p.mp4"
@@ -69,7 +69,7 @@ if (PROGRAM_URL.includes('/test_')) {
     </div>
   </header>
 
-  <!-- compressed pitch: the killer lines, excavated from the four paragraphs [DIFF: compression only, no new words except connectives] -->
+  {/* compressed pitch: the killer lines, excavated from the four paragraphs [DIFF: compression only, no new words except connectives] */}
   <section class="band band--white" style="padding-block: clamp(4rem, 8vw, 6rem)">
     <div class="wrap" style="max-width:820px">
       <h2 class="display-lg hl">This is not just <em>another quit attempt.</em></h2>
@@ -93,7 +93,7 @@ if (PROGRAM_URL.includes('/test_')) {
     </div>
   </section>
 
-  <!-- what to expect: 8 bullets verbatim -->
+  {/* what to expect: 8 bullets verbatim */}
   <section class="band band--paper" style="padding-block: clamp(4rem, 8vw, 6.5rem)">
     <div class="wrap">
       <h2 class="display-lg">What to Expect From 1:1 Coaching</h2>
@@ -110,7 +110,7 @@ if (PROGRAM_URL.includes('/test_')) {
     </div>
   </section>
 
-  <!-- mechanics grid [DIFF: platform copy updated to true stack; packages card removed] -->
+  {/* mechanics grid [DIFF: platform copy updated to true stack; packages card removed] */}
   <section class="band band--white" style="padding-block: clamp(4rem, 8vw, 6rem)">
     <div class="wrap">
       <h2 class="display-lg">How it works</h2>
@@ -125,7 +125,7 @@ if (PROGRAM_URL.includes('/test_')) {
     </div>
   </section>
 
-  <!-- pays for itself - verbatim, with the approved swap [DIFF: "slave to nicotine" -> "controlled by nicotine"; duplicate headline bug fixed] -->
+  {/* pays for itself - verbatim, with the approved swap [DIFF: "slave to nicotine" -> "controlled by nicotine"; duplicate headline bug fixed] */}
   <section class="band band--teal transform" style="text-align:left">
     <div class="wrap" style="max-width:880px">
       <h2 class="display-xl hl" style="text-align:center">Premium 1:1 Coaching <em>Pays for Itself</em></h2>
@@ -151,7 +151,7 @@ if (PROGRAM_URL.includes('/test_')) {
     </div>
   </section>
 
-  <!-- THE OFFER: Program (gold standard) leads; $97 meeting = the no-commitment option -->
+  {/* THE OFFER: Program (gold standard) leads; $97 meeting = the no-commitment option */}
   <section class="band band--paper doors">
     <div class="wrap">
       <h2 class="display-lg hl" style="text-align:center">The gold standard in quitting. <em>Quit for the last time.</em></h2>
@@ -165,10 +165,10 @@ if (PROGRAM_URL.includes('/test_')) {
           <a class="btn btn--cta" href={PROGRAM_CTA}>GET STARTED NOW!</a>
         </div>
         <div class="door door--session reveal">
-          <!-- Rewritten 2026-08-14 from the $97 landing page copy. The old version
+          {/* Rewritten 2026-08-14 from the $97 landing page copy. The old version
                sold a DECISION ("the no-risk way to meet Jon and decide for
                yourself"), which framed the session as a consolation prize for the
-               undecided. This sells the OUTCOME: you leave with a plan. -->
+               undecided. This sells the OUTCOME: you leave with a plan. */}
           <h3>The $97 Special 1:1 Meeting</h3>
           <p>A private 50-minute conversation with Jon, and you can ask me anything. What's kept you stuck. What to try next. Why last time didn't hold. Whether you're ready or nowhere near it.</p>
           <div class="price">$97 one-time</div>
@@ -184,9 +184,9 @@ if (PROGRAM_URL.includes('/test_')) {
     </div>
   </section>
 
-  <!-- Katherine long-form. Heading is LIVE SITE COPY, restored 2026-08-14 after
+  {/* Katherine long-form. Heading is LIVE SITE COPY, restored 2026-08-14 after
        being wrongly deleted as "invented filler" - it is Jon's, verbatim.
-       Testimonial body is deliberately shortened for this page (Jon, 2026-08-14). -->
+       Testimonial body is deliberately shortened for this page (Jon, 2026-08-14). */}
   <section class="band band--white proof">
     <div class="wrap" style="max-width:880px">
       <h2 class="display-lg">How Coaching Made the Difference: Katherine's Experience</h2>
@@ -219,7 +219,7 @@ if (PROGRAM_URL.includes('/test_')) {
     </div>
   </section>
 
-  <!-- failure stakes close - verbatim, formatting fixed, offer name updated -->
+  {/* failure stakes close - verbatim, formatting fixed, offer name updated */}
   <section class="band band--mist" style="padding-block: clamp(4rem, 8vw, 6rem); text-align:center">
     <div class="wrap" style="max-width:820px">
       <h2 class="display-lg reveal">
@@ -229,17 +229,17 @@ if (PROGRAM_URL.includes('/test_')) {
     </div>
   </section>
 
-  <!-- FAQ - drafted from Jon's language. APPROVED by Jon 2026-08-14 ("they are
-       approved"); the pending-approval marker that sat here was stale. -->
+  {/* FAQ - drafted from Jon's language. APPROVED by Jon 2026-08-14 ("they are
+       approved"); the pending-approval marker that sat here was stale. */}
   <section class="band band--white">
     <div class="wrap faq">
       <h2 class="display-lg">A few things people usually ask.</h2>
 
-      <!-- Objection-first ordering: doubt before logistics. At $1,200 people
+      {/* Objection-first ordering: doubt before logistics. At $1,200 people
            hesitate over whether it will work for THEM, not over scheduling.
            Assembled from Jon's own language (live coaching page, community FAQ,
            homepage FAQ, offer-architecture). NO EM DASHES.
-           APPROVED BY JON 2026-08-14 - this FAQ is canon copy now. -->
+           APPROVED BY JON 2026-08-14 - this FAQ is canon copy now. */}
 
       <details class="reveal">
         <summary>I've tried to quit before and it didn't stick. Why would this be different?</summary>
@@ -294,10 +294,10 @@ if (PROGRAM_URL.includes('/test_')) {
         </p>
       </details>
 
-      <!-- CREDIT REVERSED (Jon, 2026-08-14): the $97 meeting is NO LONGER credited
+      {/* CREDIT REVERSED (Jon, 2026-08-14): the $97 meeting is NO LONGER credited
            toward the Program. Software can't track it, and the meeting is real
            coaching time that gets compensated. Supersedes offer-architecture.md
-           and PRD §3. Do not reinstate credit language anywhere. -->
+           and PRD §3. Do not reinstate credit language anywhere. */}
       <details class="reveal">
         <summary>Does the $97 meeting count toward the Program?</summary>
         <p>
@@ -327,13 +327,13 @@ if (PROGRAM_URL.includes('/test_')) {
     </div>
   </section>
 
-  <!-- final CTA -->
+  {/* final CTA */}
   <section class="band band--teal final" id="book">
     <div class="wrap">
       <h2 class="display-xl hl">Always be quitting, <em>until you've quit for the last time.</em></h2>
-      <!-- EVERGREEN (Jon, 2026-08-14): no booking embed, no build placeholders,
+      {/* EVERGREEN (Jon, 2026-08-14): no booking embed, no build placeholders,
            no dated or campaign copy in this section. One CTA only.
-           Checkout target lives in PROGRAM_URL at the top of this file. -->
+           Checkout target lives in PROGRAM_URL at the top of this file. */}
       <div class="final__actions reveal">
         <a class="btn btn--cta" href={PROGRAM_CTA}>I'm ready for 1:1 private coaching</a>
       </div>

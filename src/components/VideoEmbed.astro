@@ -61,10 +61,10 @@ const {
       <picture>
         {posterMobile && <source media="(max-width: 700px)" srcset={posterMobile} type="image/webp" />}
         {poster && <source srcset={poster} type="image/webp" />}
-        <!-- EAGER, not lazy: this poster sits in a hero and is almost always the
+        {/* EAGER, not lazy: this poster sits in a hero and is almost always the
              Largest Contentful Paint element. Lazy-loading it delays the one
              image the page is judged on (and Chrome was deferring it even when
-             fully in view). fetchpriority=high moves it up the queue. -->
+             fully in view). fetchpriority=high moves it up the queue. */}
         <img
           class="video-embed__thumb"
           src={posterFallback ?? poster}
