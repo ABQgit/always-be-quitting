@@ -30,7 +30,7 @@
 
 8b. **Stakes (NEW, Jon 2026-08-14)** — StoryBrand beat 7 (Failure), placed immediately before the final CTA so the stakes land while the buttons are in view. Jon's wording, verbatim. Contains a **recorded exception** to the voice.md "no medical-scare messaging" rule — see the note in `voice.md`. Do not flag in copy audits.
 9. **Final CTA + tagline close** — "Always be quitting, until you've quit for the last time."
-10. **Footer** — disclaimers, legal, secondary links (podcast lives here, not in nav).
+10. **Footer** — disclaimers, legal, secondary links. (~~podcast lives here, not in nav~~ — **podcast CUT entirely 2026-08-21**; see supporting-pages-spec.md.)
 
 ## Nav (decided direction)
 

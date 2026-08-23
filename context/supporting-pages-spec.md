@@ -21,9 +21,15 @@
 
 Form + response expectation + deliverability note (allow-list line). Add pre-sales routing line: "Not sure whether the community or 1:1 fits? Ask — you'll get a straight answer, including 'neither, yet.'" Outcome still fits the rule (leads to purchase or list).
 
-## Podcast
+## ~~Podcast~~ — CUT ENTIRELY (Jon, 2026-08-21)
 
-Out of nav → footer. Simple hub page (cover, platform links) retained as credibility asset. Content-hub expansion is a someday item, not in scope.
+**There is no podcast page, and the footer link has been removed.** Jon: *"im just going to make live interviews on my youtube channel if necessary. im not pursuing podcasting for this business because people wont listen. those podcasts are basically long testimonials for my services."*
+
+The page was never built and was 404ing from the footer of every page on the site — the last broken link in the build.
+
+**Do not re-add it.** If interview content is ever wanted, it belongs on the YouTube channel, and the testimonial value it carries is better served by the proof sections already on `/` and `/coaching`.
+
+Original spec, superseded: *"Out of nav → footer. Simple hub page (cover, platform links) retained as credibility asset. Content-hub expansion is a someday item, not in scope."*
 
 ## Legal
 

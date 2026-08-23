@@ -59,11 +59,11 @@ Sale windows run on the real cessation calendar (New Year, World No Tobacco Day 
 | `/quick-start` | **Quick-Start Guide delivery page (added 2026-08-14).** Where the guide email sends subscribers. Video + copy; the old $48/QUICKSTART offer is CUT. | `/quick-start-video-landing` (301) — critical, guide emails already sent point at the old URL |
 | ~~`/about`~~ | **CUT 2026-07-12 (Jon): no About page.** The whole site already carries Jon's story, qualifications, and videos — a separate About page was redundant. Removed from nav. | — |
 | `/contact` | Contact | `/contact` |
-| `/podcast` | Simple hub (footer link only) | `/podcasts/always-be-quitting` (301) |
+| ~~`/podcast`~~ | **CUT 2026-08-21 (Jon). Never built; footer link removed.** *"im not pursuing podcasting for this business because people wont listen. those podcasts are basically long testimonials for my services."* Interviews go on YouTube instead. **Old `/podcasts/always-be-quitting` 301s to `/` at launch** — those episodes function as testimonials, so the homepage (which carries the proof section) is the right landing place. | `/podcasts/always-be-quitting` → `/` (301) |
 | `/privacy`, `/terms` | Legal (terms rewritten for new offer rules) | current legal pages |
 
 `/hsdzywqq`, `/tqbeytfj` (old checkouts) retire → 301 to `/coaching`.
-**Nav:** Community · 1:1 Coaching · Free Guide · Contact. (About page cut 2026-07-12.) Podcast and legal in footer.
+**Nav:** Community · 1:1 Coaching · Free Guide · Contact. (About page cut 2026-07-12; Podcast cut 2026-08-21.) Legal in footer.
 
 ## 5. Page Requirements
 
