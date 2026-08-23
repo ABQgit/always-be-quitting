@@ -203,6 +203,28 @@ The link then enforces the package on its own: after six bookings it stops worki
 
 **This does not conflict with the no-published-email rule** on `/contact` and elsewhere — that rule exists to stop address harvesting from public pages. A receipt goes only to someone who has completed a purchase. The two are scoped differently on purpose; do not "fix" either one to match the other.
 
+### 🚨 Pre-launch: check what our notes are exposing
+
+**Run this before launch, every time.** On 2026-08-21 we found 54 internal notes being served to browsers, crawlers and AI scrapers — including `<!-- honeypot: real people never fill this -->` beside the spam-trap field, Jon's verbatim quotes on all seven pages, and a note stating both the withheld $1,200 price and the strategy of withholding it.
+
+The rule: in `.astro` templates, **`<!-- -->` ships to the browser; `{/* */}` does not.** Astro comments are compile-time only. It is easy to forget, so verify rather than trust.
+
+```bash
+cd ~/Projects/always-be-quitting && npm run build
+# every number below must be 0
+for f in dist/client/**/index.html dist/client/index.html; do
+  echo "$(grep -c '<!--' "$f" 2>/dev/null || echo 0)  $f"
+done
+```
+
+Then read what a stranger would see, on the deployed site rather than the build:
+
+```bash
+curl -s https://alwaysbequitting.com | grep -o '<!--.*?-->'
+```
+
+Also worth checking: no `TODO`, no internal file paths, no PRD issue numbers, no pricing you intended to withhold, no admissions about earlier drafts.
+
 ### 🚨 Going live — the sandbox→live checklist
 
 Sandbox settings do **not** carry over. Everything below has to be redone in live mode, and skipping one is silent — the link just quietly behaves differently than the one you tested.
@@ -219,7 +241,8 @@ Sandbox settings do **not** carry over. Everything below has to be redone in liv
 - [ ] **Turn on customer receipts** — Settings → Business → Customer emails → "Successful payments." Off by default, and never fires in test mode, so live is the first place you can confirm it. Set the customer support email first (see Receipts above).
 - [ ] **Turn on payment notifications for yourself** — Settings → Personal details → Notifications. Stripe only auto-emails after the *first* payment.
 - [ ] **Install the Stripe mobile app and enable payment push notifications.** Second channel, can't be filtered. Missing a sale notification means a paying client never gets their booking link.
-- [ ] **Paste the live URL into `PROGRAM_URL`** in `src/pages/coaching.astro`, then commit and push.
+- [ ] **Paste the live URLs into `PROGRAM_URL`** (`src/pages/coaching.astro`) and **`JOIN_URL`** (`src/pages/community.astro`), then commit and push. The build prints a warning while either still holds a `test_` link.
+- [ ] **Run the "check what our notes are exposing" block above.** Must be 0 comments on every page.
 - [ ] **Test the live path with a $1 link, not the $1,200 one.** Create a throwaway live product at $1.00, make a payment link for it, and buy it with your own card. Costs about 33¢ and exercises the whole real pipeline: money movement, your notification email, the receipt, the confirmation message. Archive the throwaway product and link afterwards.
 
   ⚠️ **Do NOT test by buying the $1,200 link and refunding it.** [Stripe does not return the processing fee on a refund](https://docs.stripe.com/refunds) — the 2.9% + 30¢ is gone either way, so that test costs about **$35** and proves nothing the $1 version doesn't. (An earlier version of this checklist suggested exactly that. It was wrong.) For the same reason, don't bother refunding the $1 — refunding it costs you the fee regardless.
