@@ -32,7 +32,7 @@
 4. StoryBrand truth line + pricing box (new model)
 5. "Just Start" value close ("antidote to those companies") — keep
 6. Testimonials — keep trio for now; FLAG: all three are 1:1 clients. Replace progressively with community-member testimonials as they accumulate.
-7. FAQ — keep, with rewrites: subscription/cancel policy (commitment mechanics, month-4 auto-continue at $47, no refunds), "how long should I stay" (now answered by the structure itself), who-can-join, confidentiality, medical disclaimer all stay.
+7. FAQ — keep, with rewrites: subscription/cancel policy (**UPDATED 2026-08-21: one payment of $291, membership ENDS after 3 months, opt-in continuation at $37/month, no refunds** — the old "month-4 auto-continue at $47" is gone and there is no cancellation mechanic because there is no subscription), "how long should I stay" (now answered by the structure itself), who-can-join, confidentiality, medical disclaimer all stay. **The medical disclaimer FAQ is verbatim from the live site and contains a self-harm / mental-health-crisis clause the footer version lacks — never edit or "de-duplicate" it.**
 8. Final CTA
 
 ## OPEN ITEMS — found comparing staging vs live, 2026-08-14 (unresolved, revisit)
