@@ -34,7 +34,21 @@ import '../styles/home.css';
 // Encoded from the 732MB / 15.1 Mbps master down to 44MB / 954 kbps.
 // TODO (PRD #15): move these files to Cloudflare R2 and update the paths.
 
-const MN_URL = 'https://always-be-quitting.mn.co/plans/1948481?bundle_token=1ab9a0ca40305f9de6f30b88412658ad&utm_source=manual';
+// Checkout for the $291 / 3-month membership. Stripe collects the money; Jon
+// then invites them into Mighty Networks BY HAND. Mighty is no longer the
+// checkout - the old mn.co/plans/1948481 link sold the retired $97/mo plan.
+//
+// 🚨 CURRENTLY A SANDBOX TEST LINK ("test_" in the URL). It cannot take real
+// money. SWAP FOR THE LIVE PAYMENT LINK BEFORE LAUNCH - see SETUP.md
+// "Going live". The build warns if a test link is still wired up.
+const JOIN_URL = 'https://buy.stripe.com/test_aFafZaf6RehnbXo2Yt2oE02';
+
+if (JOIN_URL.includes('/test_')) {
+  console.warn(
+    '\n⚠️  /community is using a STRIPE SANDBOX link (test_...). ' +
+      'It cannot accept real payments. Replace JOIN_URL before launch.\n'
+  );
+}
 ---
 
 <Base
@@ -66,7 +80,7 @@ const MN_URL = 'https://always-be-quitting.mn.co/plans/1948481?bundle_token=1ab9
           <p class="ticket__price">$291<span>3 months at $97/month, paid up front</span></p>
           <p class="ticket__terms">Three months is a commitment to yourself and to the process of quitting, which takes time.</p>
           <p class="ticket__then">After that, you can continue at <strong>$37/month</strong> if you wish.</p>
-          <a class="btn btn--cta" href={MN_URL}>Join the Community</a>
+          <a class="btn btn--cta" href={JOIN_URL}>Join the Community</a>
         </aside>
       </div>
     </div>
@@ -250,7 +264,7 @@ const MN_URL = 'https://always-be-quitting.mn.co/plans/1948481?bundle_token=1ab9
           <li>Quit at your pace - no rigid timeline to follow</li>
           <li>Positive, committed community (no lurkers or trial members)</li>
         </ul>
-        <a class="btn btn--cta" href={MN_URL} style="align-self:center">Join the Community</a>
+        <a class="btn btn--cta" href={JOIN_URL} style="align-self:center">Join the Community</a>
       </div>
     </div>
   </section>
@@ -464,7 +478,7 @@ const MN_URL = 'https://always-be-quitting.mn.co/plans/1948481?bundle_token=1ab9
         <strong style="color:var(--white)">That's what transformation looks like. You can do this.</strong>
       </p>
       <div class="final__actions reveal">
-        <a class="btn btn--cta" href={MN_URL}>Join the Community</a>
+        <a class="btn btn--cta" href={JOIN_URL}>Join the Community</a>
       </div>
     </div>
   </section>

@@ -40,7 +40,7 @@ Rebuild alwaysbequitting.com from systeme.io's site builder onto a custom Astro 
 | Offer | Price | Notes |
 |---|---|---|
 | Quick-Start Guide → ABQ Tips | Free | THE lead magnet feeding THE list (systeme.io) |
-| ABQ Community | $97/mo × 3-month commitment, or $250 one-pay (save $41); auto-continues at $47/mo | Mighty Networks. No refunds; no codes; commitment framed as clinical feature |
+| ABQ Community | **$291 for 3 months** ($97/month, paid up front). One payment, not a subscription — it ends. Members who want to stay opt in to **$37/month** afterwards | **Stripe** Payment Link; Jon invites them into Mighty Networks by hand. No refunds; no strikethrough pricing — specials are Stripe coupon codes only |
 | $97 Intro Session | $97 one-time, **once per person ever** | Cal.com + Stripe (as today), embedded on /coaching. **NOT credited toward the Program (reversed 2026-08-14)** — it stands alone as paid coaching time |
 | **Quit for the Last Time: The 1:1 Program** | $1,200 list ($200/session std; sale floor $150/session) | 6 × 50-min over 12 weeks, email access to Jon between sessions. Stripe |
 | Alumni add-on sessions | ~$150/session | Below package rate on purpose. "More time and support," never "because you didn't quit" |
@@ -185,15 +185,20 @@ Independent subagents (not the builder) run each milestone's audits: design revi
 
 Also rejected on care grounds: with MN installments, a failed payment retried for 7 days ends in access being removed automatically, and *"a defaulted installment plan cannot be resumed."* An expired card would strip someone's community access mid-quit with no way back. Unacceptable for a cessation community.
 
-**The setup:**
+**The setup — FINAL (Jon, 2026-08-21). Supersedes the subscription drafts below it in this document's history.**
 
-- Stripe product: **$97/mo recurring subscription**, sold via a Payment Link, self-serve from `/community`. Auto-renews, so there is no re-sell at month 3.
-- At month 3 Jon steps the price down to **$47/mo** — edit the subscription, or apply a forever discount. Stripe's Dashboard supports **subscription schedules (phases) without code**, so this can also be set up per member in advance.
-- **The 3-month commitment becomes soft, deliberately.** Do NOT enable Stripe's customer portal; cancelling means emailing Jon. Rationale: the commitment exists because *"3-month structure matches 'transformation takes 3–6 months'"* — it protects people from bailing at their worst moment. A conversation serves that better than an automated lock, and avoids MN's card-failure cliff.
+- **One Stripe product: `ABQ Community — 3 Months`, $291 one-time.** NOT a subscription. Sold via a Payment Link, self-serve from `/community`.
+- **$291 = 3 × $97 deliberately.** It preserves the homepage device ("Either way, you start for $97") where community and the 1:1 session share an entry price. Changing one price requires changing the other.
+- **Always pair "$97/month" with "paid up front."** Jon: *"I don't want it to look like they can sub by the month."*
+- **It ends.** Nothing renews. Members who want to stay opt in to **$37/month**, which Jon sets up by hand against their saved card. Never charge without an explicit yes in writing.
+- **"Save payment details for future use" is ON** on the Payment Link — deliberately. It forces Stripe to create a real Customer (one-time payments otherwise create guest customers with no reusable card), which is what makes the month-4 continuation frictionless.
+- **No strikethrough pricing, ever.** $291 is the price. Specials are **Stripe coupon codes applied at checkout**. There is no discounted community tier — Jon: *"the discounted price is an individual meeting with me at 97. If they are not willing to spend money, they are not clients of mine."*
+- Rejected along the way, do not revive: a $97/mo subscription with a step-down (needs an API-only subscription schedule); a $249 one-time (breaks the $97 homepage symmetry); a one-time + 90-day-trial combo (Stripe renders it as "Try… / 90 days free / Pay and start trial", which reads as a free sample); a separate $37 trial link emailed later (a loophole — it grants 90 free days to anyone holding the URL).
 
-🚨 **The recurring chore, and the one that leaks:** when a member cancels or their card fails, **Stripe knows and Mighty does not.** MN access must be revoked by hand or they keep it free indefinitely. Unlike the coaching handoff (one action per sale), this is ongoing and fails silently. Set a recurring reminder.
+🚨 **Two things nothing is tracking.**
 
-**Consequence for `/community`:** the four spots depending on the old "3 × $97 or $250 one-pay → $47/mo" model need rewriting to a $97/mo subscription. The `[DIFF — Jon to approve]` marker still rendering on that page can come out.
+1. **Stripe holds no record of the 3-month term.** A one-time payment has no duration, no end date, no expiry. Mighty doesn't know either — the invite doesn't lapse. Every member's end date lives only in Jon's own records, so a reminder (week 10, to allow the continuation conversation before access lapses) and a written list are load-bearing, not optional.
+2. **MN access must be revoked by hand** when a term ends or a continuation lapses. Fails silently; they simply keep free access.
 
 ### Pricing & discount policy — DECIDED (Jon, 2026-08-18)
 
@@ -201,7 +206,7 @@ Settled so it stops being re-litigated. Full reasoning in `offer-architecture.md
 
 1. **Legacy codes are dead.** `ABC26`, `NOW97`, the `$147` "regular" community price and the `$48` subscriber price do not exist. They survive only in `current-site.md` and `conversion-analysis.md`, which are historical records of the OLD site and are correct as-is — do not clean those.
 2. **"Heavily discounted from my normal hourly rate" STAYS** on `/coaching` (the $97 card and the FAQ). It's true, Jon approved the wording, and it does real work explaining why the session is offered once per person. It is not a coupon.
-3. **The community's `$250 one-pay (save $41)` STAYS** — a payment option, not a discount. Conditional only on Mighty Networks supporting it (open decision #7).
+3. ~~**The community's `$250 one-pay (save $41)` STAYS**~~ **SUPERSEDED 2026-08-21.** Community is now a flat $291 for 3 months with no alternative option and no discount framing. See "Community billing — DECIDED".
 4. **Real sales run during the year** on the cessation calendar. No perpetual strikethrough: a struck price must map to a sale with a real end date. Between sales the page shows list price only.
 
 **How sales are run** depends on the checkout, which is now Calendly — see the next section. Sale pricing is never hardcoded into page copy.

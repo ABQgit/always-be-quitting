@@ -6,9 +6,14 @@
 
 ## Pricing (DECIDED)
 
-- **Lead framing: "$97/month with a 3-month commitment."** One-pay option: **$250 for all 3 months (save $41)**.
-- **After 3 months: auto-continues at $47/month** unless canceled. Disclosed clearly at purchase; sold as the reward ("the longer you stay, the cheaper it gets — the opposite of every program that's burned you").
-- **No refunds; commitment stands.** All 3 payments are owed / one-pay non-refundable. Consistent with existing no-refunds philosophy ("an easy out encourages giving up"). Stated plainly.
+**REVISED 2026-08-21 — this section supersedes the original model in full. Built and live on the page.**
+
+- **Lead framing: "$291 for 3 months — $97/month, paid up front."** ONE option. No monthly billing, no one-pay alternative, no "save $41." **Always pair "$97/month" with "paid up front"** — Jon: *"I don't want it to look like they can sub by the month."*
+- **$291 = 3 × $97 deliberately**, to preserve the homepage device ("Either way, you start for $97") where community and the 1:1 session share an entry price. Do not change one without the other.
+- **After 3 months: it ENDS.** Nothing auto-continues; there is nothing to cancel. Members who want to stay opt in to **$37/month**, set up by hand against their saved card, only after an explicit yes. The reward framing survives ("the longer you stay, the cheaper it gets — the opposite of every program that's burned you"); the automatic renewal does not.
+- **Commitment rationale wording is constrained.** Use *"Three months is a commitment to yourself and to the process of quitting, which takes time."* **Never** *"because that's how long transformation actually takes"* — Jon rejected it as an implied promise, and it violates PRD rule 3.
+- **No refunds; commitment stands.** The $291 is non-refundable. Consistent with existing no-refunds philosophy ("an easy out encourages giving up"). Stated plainly.
+- **No strikethrough pricing, ever.** Specials are Stripe coupon codes applied at checkout. There is no discounted community tier — the low-cost door is the $97 1:1 session.
 - **Kill entirely:** discount codes (ABC26/NOW97), $147 "regular price," launch-pricing-lock language.
 
 ## Framing Rules
@@ -43,7 +48,8 @@ Found by diffing `/community` staging against live `/community-8-25`. **None of 
 
 ## Tech Notes (for PRD build phase)
 
-- **BLOCKER (Jon, 2026-08-14): "I don't think Mighty Networks allows this kind of pricing."** The whole 3-month-commitment model may be unsellable on the current platform. This is not just a checkout detail — **four places on `/community` describe these terms**: the hero pricing ticket, the full pricing section, the "Join the Community" button target, and the two pricing FAQs. If MN can't express `3 × $97 → $47/mo` (or `$250/3mo → $47/mo`), all four need rewriting together, not patching one at a time.
+- ~~**BLOCKER**~~ **RESOLVED 2026-08-21: Jon was right — Mighty Networks could not express it.** Their Installments feature handles a 3 × $97 commitment and a one-pay, but cannot roll into $47/mo afterwards, and a defaulted installment removes access permanently (unacceptable mid-quit). Checkout moved to **Stripe** entirely; Jon invites members into MN by hand. All four spots have been rewritten. Original note below for context.
+- **Original blocker (Jon, 2026-08-14): "I don't think Mighty Networks allows this kind of pricing."** The whole 3-month-commitment model may be unsellable on the current platform. This is not just a checkout detail — **four places on `/community` describe these terms**: the hero pricing ticket, the full pricing section, the "Join the Community" button target, and the two pricing FAQs. If MN can't express `3 × $97 → $47/mo` (or `$250/3mo → $47/mo`), all four need rewriting together, not patching one at a time.
   - The two pricing FAQs ("How long should I stay", "subscription/cancellation/refund") are **deliberately left as-is pending this**, including the visible `[DIFF — Jon to approve]` marker. Do not tidy them; the marker is the reminder.
   - Current checkout link is a pre-existing MN plan (`/plans/1948481`) built for the OLD launch pricing — it does not implement the new model.
   - Options if unsupported: Stripe checkout on the new site → MN access provisioning; or approximate within MN's plan structure; or revisit the pricing model itself.
