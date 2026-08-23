@@ -17,9 +17,6 @@ import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import VideoEmbed from '../components/VideoEmbed.astro';
 import '../styles/home.css';
-
-// $97 session sells via the standalone landing page (decided 2026-07-12).
-const SESSION_URL = 'https://abq-landing-v2.vercel.app';
 ---
 
 {/* UNLISTED (Jon, 2026-08-14): reached only from the guide email. Not in nav,
@@ -60,42 +57,55 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
     </div>
   </main>
 
-  {/* CTA - added 2026-08-21. Replaces the killed "$48/month locked in forever /
-       regular $147 / Promo Code QUICKSTART" block that the live systeme.io page
-       carried here. Verified against the live page 2026-08-21: that offer WAS
-       the page's entire content after the video, so removing it left the page
-       converting to nothing - a breach of PRD site rule 1, on the highest-intent
-       page in the funnel (they arrive straight from the guide email).
+  {/* DELIVERY PAGE, NOT A SALES PAGE (Jon, 2026-08-21): "the quick-start purpose
+       is just as the link to serve to the email that they get... people will get
+       the sales job in the email that has this link. it is not a page per se."
 
-       Same job, honest pricing. Assembled from Jon's own language per PRD rule 6:
-       the StoryBrand CTA formula ("If you're struggling to quit smoking or vaping
-       on your own, [solution] is the right decision" - voice.md), "You don't have
-       to be ready to quit to start" (homepage), and "written plan" (/coaching).
-       NO discount, no code, no price-lock - see the header note. */}
-  <section class="band band--white offers">
-    <div class="wrap">
-      <h2 class="display-lg hl">When you want more than <em>a video.</em></h2>
-      <div class="grid grid--2">
-        <div class="offer reveal">
-          <h3>The ABQ Community</h3>
-          <p>
-            If you're struggling to quit smoking or vaping on your own, joining the ABQ Community is the
-            right decision. Weekly live calls with me and 24/7 access to people quitting alongside you.
-            You don't have to be ready to quit to start.
-          </p>
-          <a class="btn btn--cta" href="/community">See how the community works</a>
-        </div>
-        <div class="offer reveal">
-          <h3>A 1:1 Session with Jon</h3>
-          <p>
-            Would you rather talk it through one to one? A private 50-minute conversation, and you can ask
-            me anything. You'll leave with a written plan and a clear next step.
-          </p>
-          <a class="btn btn--ghost" href={SESSION_URL}>Book a $97 session</a>
-        </div>
-      </div>
+       So: no pitch here. The email that carries this link does the selling, and
+       repeating it would duplicate that job on a page someone opened to watch a
+       video. Three plain links only - homepage, community, 1:1 - per Jon.
+
+       A previous version of this section carried a full two-door sales pitch.
+       That was wrong for this page. Do not reinstate it.
+
+       Historical note: the live systeme.io page put a "$48/month locked in
+       forever / regular $147 / Promo Code QUICKSTART" block here. That offer is
+       dead - see the header comment. Never re-add a discount to this page. */}
+  <section class="band band--white" style="padding-block: clamp(2.5rem, 5vw, 3.5rem)">
+    <div class="wrap" style="max-width:900px; text-align:center">
+      <p style="color:var(--soft); margin:0 0 0.9rem; font-size:1rem">More about how I can help:</p>
+      <p class="qs-links">
+        <a href="/">Always Be Quitting</a>
+        <span aria-hidden="true">·</span>
+        <a href="/community">The ABQ Community</a>
+        <span aria-hidden="true">·</span>
+        <a href="/coaching">1:1 Coaching</a>
+      </p>
     </div>
   </section>
 
   <SiteFooter />
 </Base>
+
+<style>
+  .qs-links {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1rem;
+    justify-content: center;
+    align-items: baseline;
+    font-weight: 700;
+  }
+  .qs-links a {
+    color: var(--blue);
+    text-decoration: none;
+    border-bottom: 2px solid color-mix(in srgb, var(--blue) 35%, transparent);
+  }
+  .qs-links a:hover {
+    border-bottom-color: var(--blue);
+  }
+  .qs-links span {
+    color: var(--soft);
+  }
+</style>
