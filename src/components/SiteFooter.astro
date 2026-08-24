@@ -14,8 +14,15 @@
     <div class="footer__brand">
       <p class="footer__logo">ALWAYS BE QUITTING</p>
     </div>
+    {/* Links run HORIZONTALLY (Jon, 2026-08-23). As a vertical stack they set
+         the height of the whole block, which left roughly 60% of the footer
+         empty and reading as unfinished rather than spacious.
+
+         The "Work With Jon" gold heading was dropped at the same time: it made
+         sense labelling a stack, but above a single row it floats. Three links
+         reading "The ABQ Community, 1:1 Coaching, Free Quick-Start Guide" do
+         not need announcing. */}
     <nav class="footer__col" aria-label="Work with Jon">
-      <p class="footer__heading">Work With Jon</p>
       <a href="/community">The ABQ Community</a>
       <a href="/coaching">1:1 Coaching</a>
       <a href="/free-guide">Free Quick-Start Guide</a>
@@ -62,16 +69,15 @@
     font-size: 0.92rem;
     line-height: 1.65;
   }
+  /* One row: brand hard left, links hard right. Was a 2fr 1fr grid with a
+     vertical link stack, which made the block tall and mostly empty. */
   .footer__grid {
-    display: grid;
-    gap: 2.4rem;
-    padding-block: 3.2rem 2.4rem;
-  }
-  @media (min-width: 860px) {
-    .footer__grid {
-      grid-template-columns: 2fr 1fr;
-      gap: 4rem;
-    }
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.2rem 2.4rem;
+    padding-block: 1.8rem;
   }
   .footer__logo {
     font: 800 1rem/1 var(--font-body);
@@ -79,17 +85,11 @@
     color: var(--white);
     margin: 0;
   }
-  .footer__heading {
-    font: 800 0.72rem/1 var(--font-body);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin: 0 0 0.9rem;
-  }
   .footer__col {
     display: flex;
-    flex-direction: column;
-    gap: 0.45rem;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1.6rem;
   }
   .footer__col a {
     color: color-mix(in srgb, var(--white) 82%, var(--teal-deep));
@@ -105,17 +105,24 @@
     border-top: 1px solid color-mix(in srgb, var(--white) 16%, transparent);
     padding-block: 2rem;
   }
+  /* Centred (Jon, 2026-08-23). Left-aligned at 70ch it filled about half the
+     width and left the right side empty. Centred reads as formal notice rather
+     than body copy that ran out of page. Capped at 78ch and centred with auto
+     margins - genuinely full width would give ~180-character lines. */
   .footer__legal-heading {
     font: 800 0.72rem/1 var(--font-body);
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--gold);
     margin: 0 0 0.7rem;
+    text-align: center;
   }
   .footer__legal-body {
-    margin: 0;
-    max-width: 70ch;
+    margin-inline: auto;
+    margin-block: 0;
+    max-width: 78ch;
     font-size: 0.85rem;
+    text-align: center;
     color: color-mix(in srgb, var(--white) 68%, var(--teal-deep));
   }
   .footer__legal-body a {
