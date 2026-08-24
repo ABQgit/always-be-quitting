@@ -212,6 +212,48 @@ The link then enforces the package on its own: after six bookings it stops worki
 
 **This does not conflict with the no-published-email rule** on `/contact` and elsewhere — that rule exists to stop address harvesting from public pages. A receipt goes only to someone who has completed a purchase. The two are scoped differently on purpose; do not "fix" either one to match the other.
 
+---
+
+## Community checkout → Stripe Payment Link
+
+**$291 for 3 months** ($97/month, paid up front). A **one-time payment, not a subscription** — it ends, and members who want to stay opt in to $37/month, which Jon sets up by hand. Mighty Networks is no longer the checkout; Jon invites members in manually. See PRD "Community billing — DECIDED".
+
+**Product** — **More → Product catalog → +Add product**
+
+- **Name:** `ABQ Community — 3 Months`
+- **Pricing model:** Flat rate → **One time** · **$291.00** USD
+- **Include tax in price:** **No** (exclusive — $291 stays $291)
+- **Description** (shows at checkout):
+
+> Three months in the ABQ Community — weekly live coaching calls with Jon, call recordings, and 24/7 access to people quitting alongside you. One payment of $291, which is $97 a month paid up front. After your three months, you can continue at $37/month if you wish.
+
+**Payment Link** — select that product, add nothing else.
+
+- Promotion codes **ON** — this is the only way specials run; there is no discounted community tier
+- Collect customer names **ON** — you need to know who to invite
+- Terms of service **ON**
+- Collect tax automatically **OFF**
+- Limit the number of payments **OFF**
+- **Save payment details for future use — ON.** Deliberate: it forces Stripe to create a real Customer rather than a guest, which is what lets you start the $37 subscription later without them re-entering a card. Only ever charge it after an explicit yes in writing.
+
+**Confirmation message:**
+
+> **You're in — and I'm glad you're here.**
+>
+> I'll email your invitation to the ABQ Community within one business day. Check your spam or junk folder if it hasn't turned up; if you sort your mail into categories, it could be anywhere :)
+>
+> Happy Quitting, Jon
+
+⚠️ **Nothing tracks the 3-month term.** Stripe records a payment with no duration; a Mighty invite never lapses. Use `ABQ-member-tracker.xlsx` and set the week-10 reminder when you grant access.
+
+---
+
+### Where to edit a confirmation message
+
+**Payment Links → click the link → overflow menu (⋯) → Edit → After the payment → Confirmation page → replace the default message.** The URL doesn't change when you edit, so nothing needs re-pasting into the site.
+
+Note it's a property of the *link*, not the product — so a live link starts with Stripe's generic default and needs setting again.
+
 ### 🚨 Pre-launch: check what our notes are exposing
 
 **Run this before launch, every time.** On 2026-08-21 we found 54 internal notes being served to browsers, crawlers and AI scrapers — including `<!-- honeypot: real people never fill this -->` beside the spam-trap field, Jon's verbatim quotes on all seven pages, and a note stating both the withheld $1,200 price and the strategy of withholding it.
