@@ -107,24 +107,44 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
     </div>
   </section>
 
-  {/* 5 · guide */}
-  <section class="band band--white guide" style="padding-top:0">
+  {/* 5a · GUIDE - EMPATHY. StoryBrand splits the Guide into two distinct beats:
+       empathy ("I understand what this feels like") then authority ("and I am
+       competent to get you out of it"). Miller keeps them separate because a
+       guide who only empathises is a friend, and one who only shows credentials
+       is a salesman.
+
+       SPLIT RESTORED 2026-08-23 (Jon), matching the live site. The build had
+       melted both beats into one section and demoted the authority heading -
+       "Get help from someone who has been successfully guiding people through
+       quitting for decades" - to a 0.95rem grey caption under the empathy
+       paragraph, so the second beat never announced itself and the three stats
+       appeared with nothing framing them.
+       DO NOT recombine these two sections. */}
+  <section class="band band--mist guide">
     <div class="wrap">
       <div class="guide__row reveal">
-        <div class="guide__photo">[ Jon - real photo coming ]</div>
         <div>
           <h2 class="display-lg">I'm Jon, and I provide exactly that kind of support.</h2>
           <p style="margin-top:1.2rem; color:var(--soft)">
             I know how discouraging your struggle is. I've spent 25 years helping people who thought they could
             never quit smoking or vaping - quit for life. And <em>I can help you, too.</em>
           </p>
-          <p style="color:var(--soft); font-size:0.95rem">Get help from someone who has been successfully guiding people through quitting for decades.</p>
         </div>
+        <div class="guide__photo">[ Jon - real photo coming ]</div>
       </div>
+    </div>
+  </section>
+
+  {/* 5b · GUIDE - AUTHORITY. Its own section, its own display-size heading, on a
+       contrasting band - as on the live site. The heading is what introduces the
+       credentials; without it the stats are unframed. */}
+  <section class="band band--white authority">
+    <div class="wrap">
+      <h2 class="display-lg reveal">Get help from someone who has been successfully guiding people through quitting for decades</h2>
       <div class="stats">
-        <div class="stat reveal"><b>25 yrs</b><span>helping people quit smoking and vaping as a CTTS and NCNTT certified specialist</span></div>
-        <div class="stat reveal"><b>3 decades</b><span>teaching informative, effective, and engaging health workshops</span></div>
-        <div class="stat reveal"><b>35 yrs</b><span>creating programs that help people change their behavior</span></div>
+        <div class="stat reveal"><b>25 Years</b><span>helping people quit smoking and vaping as a CTTS and NCNTT certified specialist</span></div>
+        <div class="stat reveal"><b>3 Decades</b><span>teaching informative, effective, and engaging health workshops</span></div>
+        <div class="stat reveal"><b>35 Years</b><span>creating programs that help people change their behavior</span></div>
       </div>
     </div>
   </section>

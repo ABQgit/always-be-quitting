@@ -438,9 +438,10 @@
   gap: 2.4rem;
   align-items: center;
 }
+/* Text left, portrait right - matches the live site (Jon, 2026-08-23). */
 @media (min-width: 860px) {
   .guide__row {
-    grid-template-columns: 240px 1fr;
+    grid-template-columns: 1fr 240px;
   }
 }
 .guide__photo {
@@ -457,6 +458,14 @@
   font-size: 0.85rem;
   text-align: center;
 }
+/* Authority beat - its own section (StoryBrand Guide, part two). See index.astro 5b. */
+.authority {
+  padding-block: clamp(4rem, 8vw, 6rem);
+}
+.authority > .wrap > h2 {
+  max-width: 34ch;
+}
+
 .stats {
   display: grid;
   gap: 1.2rem;
