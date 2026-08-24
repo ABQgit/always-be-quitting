@@ -701,21 +701,13 @@
    .quote::before is absolutely positioned and stays out of the flex flow. */
 .quote {
   position: relative;
-  padding-top: 2.6rem;
   display: flex;
   flex-direction: column-reverse;
   justify-content: flex-end;
 }
-.quote::before {
-  content: '“';
-  position: absolute;
-  top: -0.35rem;
-  left: 1.1rem;
-  font-family: var(--font-display);
-  font-size: 4.6rem;
-  line-height: 1;
-  color: var(--gold);
-}
+/* The big gold “ mark was REMOVED 2026-08-23 (Jon). Once the photos moved to
+   the top of each card it sat orphaned above a face and competed with it.
+   Do not reinstate without asking. */
 .quote blockquote {
   margin: 0 0 1rem;
   font-family: var(--font-display);
