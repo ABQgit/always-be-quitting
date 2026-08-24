@@ -839,14 +839,16 @@
 }
 
 /* ---------- 10 · footer ---------- */
-.footer {
-  background: var(--teal-deep);
-  color: color-mix(in srgb, var(--white) 78%, var(--teal-deep));
-  padding-block: 2.4rem;
-  font-size: 0.88rem;
-  line-height: 1.7;
-  text-align: center;
-}
-.footer a {
-  color: color-mix(in srgb, var(--white) 88%, var(--teal-deep));
-}
+/* REMOVED 2026-08-23. This was the v1 footer: a single centred bar. The footer
+   was restructured on 2026-08-14 into three blocks with a grid, but this rule
+   survived in home.css and kept winning on the two properties the component
+   never declares - padding-block and text-align: center. That is why the
+   restructured footer rendered centred, with the brand, the link column and
+   the disclaimer all floating rather than aligning.
+
+   All of it now lives in SiteFooter.astro: background, colour, type, per-block
+   padding, and link colours (.footer__col a, .footer__legal-body a,
+   .footer__legal-links a all covered).
+
+   Do not reintroduce a bare .footer rule here - a scoped component style loses
+   to it for any property the component does not explicitly set. */
