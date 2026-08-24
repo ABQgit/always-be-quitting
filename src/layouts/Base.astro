@@ -10,6 +10,71 @@ interface Props {
 }
 
 const { title, description, noindex = false } = Astro.props;
+
+// Structured data (schema.org). Invisible to visitors - it tells search engines
+// and AI crawlers who Jon is and what he offers in a machine-readable form.
+// Added 2026-08-23 (Jon) INSTEAD of visible keyword text, which Google's spam
+// policies treat as text written for search engines rather than readers.
+//
+// Language is deliberately the words people actually type - "quit smoking",
+// "stop vaping" - never "cessation", which is professional vocabulary nobody
+// searches (Jon, 2026-08-23). No location: Jon does not compete locally.
+//
+// Only emitted on indexable pages; a noindex page has nothing to describe.
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': 'https://www.alwaysbequitting.com/#org',
+      name: 'Always Be Quitting',
+      legalName: 'Motivation and Mindset Studios, LLC',
+      url: 'https://www.alwaysbequitting.com',
+      description:
+        'Coaching and community for people who want to quit smoking or stop vaping for good, from a certified tobacco treatment specialist.',
+      founder: { '@id': 'https://www.alwaysbequitting.com/#jon' },
+      knowsAbout: [
+        'quit smoking',
+        'stop smoking',
+        'quit vaping',
+        'stop vaping',
+        'quitting nicotine',
+        'nicotine withdrawal',
+        'relapse prevention',
+        'tobacco treatment',
+      ],
+    },
+    {
+      '@type': 'Person',
+      '@id': 'https://www.alwaysbequitting.com/#jon',
+      name: 'Jon Fritsch',
+      jobTitle: 'Tobacco Treatment Specialist',
+      description:
+        'Helps people quit smoking and stop vaping for good. 25 years of clinical experience.',
+      url: 'https://www.alwaysbequitting.com',
+      worksFor: { '@id': 'https://www.alwaysbequitting.com/#org' },
+      hasCredential: [
+        {
+          '@type': 'EducationalOccupationalCredential',
+          credentialCategory: 'certification',
+          name: 'Certified Tobacco Treatment Specialist (CTTS)',
+        },
+        {
+          '@type': 'EducationalOccupationalCredential',
+          credentialCategory: 'certification',
+          name: 'National Certificate in Tobacco Treatment Practice (NCNTT)',
+        },
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': 'https://www.alwaysbequitting.com/#site',
+      url: 'https://www.alwaysbequitting.com',
+      name: 'Always Be Quitting',
+      publisher: { '@id': 'https://www.alwaysbequitting.com/#org' },
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -21,6 +86,13 @@ const { title, description, noindex = false } = Astro.props;
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    {!noindex && (
+      <script
+        type="application/ld+json"
+        is:inline
+        set:html={JSON.stringify(schema)}
+      />
+    )}
     {/* v1 fonts (Google Fonts; self-host during pre-launch hardening) */}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
