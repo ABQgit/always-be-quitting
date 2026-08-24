@@ -463,12 +463,13 @@
   height: 100%;
   object-fit: cover;
 }
-/* Authority beat - its own section (StoryBrand Guide, part two). See index.astro 5b. */
+/* Authority beat - its own section (StoryBrand Guide, part two). See index.astro 5b.
+   No heading by design (Jon, 2026-08-23), so the stats need no top margin. */
 .authority {
-  padding-block: clamp(4rem, 8vw, 6rem);
+  padding-block: clamp(3.5rem, 7vw, 5rem);
 }
-.authority > .wrap > h2 {
-  max-width: 34ch;
+.authority .stats {
+  margin-top: 0;
 }
 
 .stats {
