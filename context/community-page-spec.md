@@ -13,6 +13,12 @@
 - **Lead framing: "$291 for 3 months — $97/month, paid up front."** ONE option. No monthly billing, no one-pay alternative, no "save $41." **Always pair "$97/month" with "paid up front"** — Jon: *"I don't want it to look like they can sub by the month."*
 - **$291 = 3 × $97 deliberately**, to preserve the homepage device ("Either way, you start for $97") where community and the 1:1 session share an entry price. Do not change one without the other.
 - **After 3 months: it ENDS.** Nothing auto-continues; there is nothing to cancel. Members who want to stay opt in to **$37/month**, set up by hand against their saved card, only after an explicit yes. The reward framing survives ("the longer you stay, the cheaper it gets — the opposite of every program that's burned you"); the automatic renewal does not.
+- 📌 **PENDING COPY (Jon, 2026-08-23) — a second reason for the 3 months, not yet written.** The rationale on the page is currently about the individual: *"a commitment to yourself and to the process of quitting."* Jon wants the **group** argument added too: a three-month commitment means the room is full of people who are committed to transformation, rather than lurkers and trial members.
+
+  Note the page already carries *"Positive, committed community (no lurkers or trial members)"* as a benefit bullet. The missing piece is the **causal link** — that the commitment is what produces that room — not a restatement. Write it as a benefit to the member ("you'll be among people who mean it"), never as gatekeeping.
+
+  Candidate homes: the ticket terms line, and/or the "How long should I stay" FAQ. Jon to approve wording.
+
 - **Commitment rationale wording is constrained.** Use *"Three months is a commitment to yourself and to the process of quitting, which takes time."* **Never** *"because that's how long transformation actually takes"* — Jon rejected it as an implied promise, and it violates PRD rule 3.
 - **No refunds; commitment stands.** The $291 is non-refundable. Consistent with existing no-refunds philosophy ("an easy out encourages giving up"). Stated plainly.
 - **No strikethrough pricing, ever.** Specials are Stripe coupon codes applied at checkout. There is no discounted community tier — the low-cost door is the $97 1:1 session.
