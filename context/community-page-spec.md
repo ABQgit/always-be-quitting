@@ -6,6 +6,8 @@
 
 ## Pricing (DECIDED)
 
+**H1 (Jon, 2026-08-23): "Join the Quit Smoking and Vaping Community."** A deliberate divergence from the live site's "Join the AlwaysBeQuitting Community," which carried the brand name and none of the terms people search. Approved by Jon — do not "restore" the live-site version.
+
 **REVISED 2026-08-21 — this section supersedes the original model in full. Built and live on the page.**
 
 - **Lead framing: "$291 for 3 months — $97/month, paid up front."** ONE option. No monthly billing, no one-pay alternative, no "save $41." **Always pair "$97/month" with "paid up front"** — Jon: *"I don't want it to look like they can sub by the month."*
