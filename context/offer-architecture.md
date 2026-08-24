@@ -40,6 +40,8 @@
 - ~~**$97 intro credit: always applies**~~ **REVERSED (Jon, 2026-08-14): there is no credit.**
 - **Add-on sessions for package alumni at ~$150** — deliberately BELOW the package rate. Continuing gets rewarded, never penalized. (Copy rule: frame as "more time and support," never "because you didn't quit.")
 
+  **Why `/community` may promise this and `/coaching` may not (Jon, 2026-08-23):** *"community does not take an additional hour of my time."* The community is leveraged — one weekly call serves everyone, so a member staying longer costs Jon nothing extra and "the longer you stay, the cheaper it gets" is safe to promise. A 1:1 add-on session is another hour of his life every single time, so a discounted rate cannot be committed to in advance. **The two pages differ on purpose. Do not "harmonise" them.**
+
   🚨 **INTERNAL INTENTION ONLY — DO NOT STATE THIS PUBLICLY (Jon, 2026-08-23).** The `/coaching` FAQ previously promised add-on sessions "at a lower rate than the Program's per-session price" and that "continuing gets rewarded, never penalized." Jon: *"i don't want to commit to this."* That promise has been removed from the page. The pricing above remains the working plan, but it is not a commitment to customers and must not appear in copy until Jon says otherwise. Public copy says only that additional sessions are available.
 - **Program name (decided): "Quit for the Last Time: The 1:1 Program"** — uses the tagline verbatim. Short form for UI/nav where needed: "Quit for the Last Time" or "the 1:1 Program."
 - **Strategic north star:** community is the scale engine (better economics than 1:1); coaching is the depth/proof/cash engine. Long-term goal is a large community. Homepage hierarchy should reflect this.
