@@ -602,6 +602,31 @@
 .door--community .door__list {
   color: color-mix(in srgb, var(--white) 88%, transparent);
 }
+/* ---- 6a offer cards ----------------------------------------------------
+   These had NO css at all (added 2026-08-14, styles never written), so the h3
+   fell back to the browser default - about 1.17em - and read as the same weight
+   as the paragraph under it. Jon flagged the flat hierarchy 2026-08-23.
+   Sized to match .door h3 so 6a and 6b, which are parallel sections, agree. */
+.offer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+.offer h3 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  margin: 0;
+}
+.offer p {
+  margin: 0;
+  color: var(--soft);
+  line-height: 1.6;
+}
+.offer .btn {
+  margin-top: 0.35rem;
+}
+
 .door h3 {
   font-family: var(--font-display);
   font-size: 1.6rem;
