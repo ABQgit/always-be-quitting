@@ -283,7 +283,7 @@ Kept here until launch on purpose. Wiring a live link into staging would let any
 | Offer | Live URL | Status |
 |---|---|---|
 | **1:1 Program — $1,200** | `https://buy.stripe.com/14A6oAf6Rddje5w9mR2oE00` | Created 2026-08-21. Verified: live (no Sandbox badge), $1,200, correct description, promo codes on, no tax row. **Terms checkbox not yet confirmed** — Stripe Link intercepted the payment panel; check via "Pay without Link". |
-| **ABQ Community — $291** | *not yet created* | — |
+| **ABQ Community — $291** | `https://buy.stripe.com/6oU5kw2k51uBd1scz32oE01` | Created 2026-08-21. Verified: live (no Sandbox badge), $291, correct description, promo codes on, no tax row. **Terms checkbox and "save payment details" not yet confirmed** — Stripe Link intercepted the payment panel; check via "Pay without Link". |
 
 At launch these go into `PROGRAM_URL` (`src/pages/coaching.astro`) and `JOIN_URL` (`src/pages/community.astro`).
 
