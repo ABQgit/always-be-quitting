@@ -26,6 +26,12 @@ Running list of **look** problems, collected during the copy phase so the design
 
 - **Guide statement sizing.** `.guide__statement` is set a shade below `display-lg` because at full size the sentence wraps to five or six lines and stops reading as a statement. The specific size is a guess.
 
+- **Proof section layout can't carry full-length testimonials.** The three are now verbatim from the live site — roughly 110, 95 and 65 words — sitting in a three-column card grid. On desktop that's three walls of text; on mobile it's a long scroll between the offer and the final CTA.
+
+  **The copy is not the variable — the layout is.** Jon: length is deliberate, because a long paragraph with a face and a name reads as a real person whether or not it's read, while a tidy one-liner reads as marketing. Options for the design phase: one featured full testimonial with two shorter, a carousel, stacked full-width rows, or expandable quotes. Do not solve this by trimming the quotes.
+
+- **Kait's testimonial photo is framed wider than the other two.** Katherine's and Ashley's are studio headshots with the face filling the circle; Kait's is a still from video, so her face reads smaller at the same size. Could be cropped tighter, at the cost of some softening (806px source) and losing the necklace.
+
 - **Testimonial photo size and shape.** Currently 56px circles inline with the attribution. The live site shows them at 150px. Both the size and the circle are placeholders — the circle is currently *functional* (it clips Katherine's baked-in white corners), so changing the shape has a dependency, see below.
 
   ⚠️ **Katherine's source is constrained.** Her photo is pre-cropped to a circle with **solid white corners, no transparency** — the corners are gone from the file, not hidden. Squares or rounded rectangles would show a white box around a circle. Kait's is a plain photo and Ashley's is a transparent circle, so only Katherine blocks a shape change. **Needs a fresh export from her original photo if the shape changes.**
