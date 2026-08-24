@@ -30,7 +30,7 @@
 - $97 vs ~$249/session anchoring → ~~"credited if you continue"~~ **REVERSED 2026-08-14.** Framed as a standalone paid conversation, no credit.
 - Two-package confusion (unclear choice criterion, "4-week" running 5 weeks, "up to X sessions" anxiety) → one clear offer.
 - Perpetual strikethrough pricing ($1,297→$997 forever) → to be replaced by honest pricing (open item).
-- "No upsells. No subscriptions." absolute claim on landing page → becomes "one session, no automatic anything; if ongoing support fits, Jon will say so and you decide."
+- ~~"No upsells. No subscriptions." absolute claim on landing page → becomes "one session, no automatic anything; if ongoing support fits, Jon will say so and you decide."~~ **DECLINED (Jon, 2026-08-23): "it is fine with no upsells and no subscriptions."** The claim stays as written on `/coaching` and the landing page. It is accurate on its own terms — there is no automatic charge and no subscription attached to the $97 session. Discussing the Program in-session when it fits is a recommendation from a specialist, not an upsell. **Raised twice and declined; do not propose softening it again.**
 
 ## Package Decisions (2026-07-10, second pass)
 
