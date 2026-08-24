@@ -237,11 +237,17 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
        sentence had become FALSE for one of the two doors: someone read $97,
        clicked Join, and was asked for $291.
 
-       "$97 - a month in the community, or a session with me one to one" is true
-       on both sides: $97 IS the community's monthly rate (billed 3 up front) and
-       IS the session price. Each card states the actual charge directly beneath,
-       so the rate and the amount are never separated.
-       DO NOT restore any wording implying $97 is what you pay to begin.
+       The current heading works because "starts at $97 a month" describes a
+       RATE and a price level - not a first payment. $97 IS the community's
+       monthly rate (billed 3 up front) and IS the session price, so it is true
+       on both sides. Each card states the actual charge directly beneath, so the
+       rate and the amount are never separated.
+
+       🚨 DO NOT reintroduce "your first month", "start for $97", or "what it
+       costs to begin". All three are entry-price claims, and there is no $97
+       transaction for the community - the smallest purchase is $291. Two
+       rewrites have already drifted back into this; it reads naturally and is
+       false. Only rate wording survives.
 
        Card copy is intentionally thin - price, terms, button. Describing the
        services here is 6a's job, and the previous version had drifted into
@@ -250,7 +256,11 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
   <section class="band band--paper band--dots doors">
     <div class="wrap">
       <div class="doors__mega reveal" aria-hidden="true">$97</div>
-      <h2 class="display-lg hl">A month in the community, or <em>a session with me one to one.</em></h2>
+      {/* "a month" not "per month" (Jon, 2026-08-23): parallels "a session" in
+          the second half, and "per month" is invoice register - voice.md asks
+          for human, not clinical. The precise form ($97/month) lives on the card
+          below, which is where it belongs. */}
+      <h2 class="display-lg hl">Working with me starts at $97 a month in the community, or <em>$97 for a session, just the two of us.</em></h2>
       <div class="grid grid--2">
         <div class="door door--community reveal">
           <h3>The ABQ Community</h3>
