@@ -694,9 +694,17 @@
 .proof {
   padding-block: clamp(4.5rem, 9vw, 7rem);
 }
+/* column-reverse puts the figcaption (photo + name) ABOVE the quote while
+   keeping valid figure/blockquote/figcaption source order (Jon, 2026-08-23:
+   "I would like the images of the women at the TOP, so they are front and
+   centre"). DOM order is unchanged, so screen readers are unaffected.
+   .quote::before is absolutely positioned and stays out of the flex flow. */
 .quote {
   position: relative;
   padding-top: 2.6rem;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
 }
 .quote::before {
   content: '“';
@@ -719,16 +727,19 @@
   font-size: 0.92rem;
   color: var(--soft);
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.8rem;
+  text-align: center;
+  gap: 0.7rem;
+  margin-bottom: 1.3rem;
 }
 /* Circle is functional, not decorative - it clips Katherine's baked-in white
    corners so all three sources present identically. See index.astro proof
-   section. Display size is a placeholder; logged in design-punchlist.md. */
+   section. Size is a placeholder; logged in design-punchlist.md. */
 .quote__photo {
   flex: 0 0 auto;
-  width: 56px;
-  height: 56px;
+  width: 96px;
+  height: 96px;
   border-radius: 50%;
   object-fit: cover;
   display: block;
