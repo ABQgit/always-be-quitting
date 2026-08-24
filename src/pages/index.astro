@@ -130,7 +130,26 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
             never quit smoking or vaping - quit for life. And <em>I can help you, too.</em>
           </p>
         </div>
-        <div class="guide__photo">[ Jon - real photo coming ]</div>
+        {/* Jon's headshot, added 2026-08-23. Source was a 1.2MB PNG at
+            1080x1350; encoded to WebP at 560px (17KB) with a 2x for retina and
+            a JPG fallback. Despite the source filename it has NO alpha channel -
+            the background is baked-in white, which is fine here because the
+            photo sits in a white card on a tinted band, as on the live site.
+            Aspect is 4/5 (0.8) and .guide__photo matches it, so nothing crops. */}
+        <picture class="guide__photo">
+          <source
+            type="image/webp"
+            srcset="/img/jon-headshot.webp 1x, /img/jon-headshot@2x.webp 2x"
+          />
+          <img
+            src="/img/jon-headshot.jpg"
+            width="560"
+            height="700"
+            loading="lazy"
+            decoding="async"
+            alt="Jon Fritsch, CTTS and NCNTT certified tobacco treatment specialist"
+          />
+        </picture>
       </div>
     </div>
   </section>

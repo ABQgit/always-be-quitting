@@ -444,19 +444,24 @@
     grid-template-columns: 1fr 240px;
   }
 }
+/* Holds Jon's headshot. aspect-ratio matches the source (4/5) so the photo is
+   never cropped. background is white, not --line, because the image has no
+   alpha - a tinted backing would show as a halo behind his shoulders. */
 .guide__photo {
+  display: block;
   width: 220px;
-  aspect-ratio: 10/11;
+  aspect-ratio: 4/5;
   border-radius: 14px;
   border: 2px solid var(--ink);
   box-shadow: 12px 12px 0 var(--gold);
-  background: var(--line);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--soft);
-  font-size: 0.85rem;
-  text-align: center;
+  background: var(--white);
+  overflow: hidden;
+}
+.guide__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 /* Authority beat - its own section (StoryBrand Guide, part two). See index.astro 5b. */
 .authority {
