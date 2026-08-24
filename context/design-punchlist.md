@@ -36,6 +36,10 @@ Running list of **look** problems, collected during the copy phase so the design
 
   ⚠️ **Katherine's source is constrained.** Her photo is pre-cropped to a circle with **solid white corners, no transparency** — the corners are gone from the file, not hidden. Squares or rounded rectangles would show a white box around a circle. Kait's is a plain photo and Ashley's is a transparent circle, so only Katherine blocks a shape change. **Needs a fresh export from her original photo if the shape changes.**
 
+- **The band directly above the footer needs a different background (Jon, 2026-08-23).** The final CTA section is `band--navy` and the footer is `--teal-deep` — two dark surfaces meeting, so the page has no visual close and the footer doesn't read as a separate zone.
+
+  Related, and probably the same fix: the two bands before it are **both white** (proof, then stakes), so the run into the footer is white · white · navy · teal-deep. Three of those four seams have no contrast.
+
 ### Site-wide
 
 - **Portrait treatment.** `.guide__photo` is a bordered card with a hard gold offset shadow. Inherited from the v1 skin, never revisited.
