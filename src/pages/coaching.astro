@@ -176,7 +176,12 @@ if (PROGRAM_URL.includes('/test_')) {
           <h3>The $97 Special 1:1 Meeting</h3>
           <p>A private 50-minute conversation with Jon, and you can ask me anything. What's kept you stuck. What to try next. Why last time didn't hold. Whether you're ready or nowhere near it.</p>
           <div class="price">$97 one-time</div>
-          <p>You'll leave with a written plan and a clearer read on what's keeping you stuck, what to do next, and how to stop repeating the same quit cycle. No upsells, no subscriptions, and heavily discounted from my normal hourly rate.</p>
+          {/* "written plan" removed 2026-08-23 (Jon), matching the homepage card:
+              it implies a document and a complete quit strategy out of 50
+              minutes, which the session cannot reliably deliver. Replaced with
+              advice-tailored-to-you, the thing an app or a pamphlet structurally
+              cannot offer. Do NOT reintroduce "plan" here. */}
+          <p>You'll leave with advice tailored to you - not a one-size-fits-all program - and a clearer read on what's keeping you stuck, what to do next, and how to stop repeating the same quit cycle. No upsells, no subscriptions, and heavily discounted from my normal hourly rate.</p>
           <p><strong>One per person, so it's worth using well.</strong> Intake form and confirmation sent right away.</p>
           <a class="btn btn--cta" href={SESSION_URL}>See what's included</a>
         </div>
