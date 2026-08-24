@@ -51,8 +51,12 @@ if (PROGRAM_URL.includes('/test_')) {
   {/* hero: headline + video slot + trust line. [DIFF] H1 uses program name instead of "That Actually Works" */}
   <header class="band band--mist hero" style="padding-bottom: clamp(3rem, 6vw, 4.5rem)">
     <div class="wrap">
+      {/* H1 revised 2026-08-23 for search. Was "Quit for the Last Time: 1:1
+          coaching with Jon" - carried "quit" but not "smoking or vaping", so it
+          missed the terms people actually search ("quit smoking coaching").
+          Jon's program name is preserved intact. */}
       <h1 class="display-xl hl">
-        Quit for the Last Time: <em>1:1 coaching with Jon</em>
+        Quit Smoking or Vaping for the Last Time: <em>1:1 coaching with Jon</em>
       </h1>
       {/* Self-hosted, click-to-load. Encoded from the 515MB / 15.2 Mbps master
            down to 27MB / 805 kbps. TODO (PRD #15): move files to R2. */}
