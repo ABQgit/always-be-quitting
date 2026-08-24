@@ -272,9 +272,16 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
           <a class="btn btn--cta" href="/community">Join the Community</a>
         </div>
         <div class="door door--session reveal">
+          {/* This line exists to stop the card competing with 6a's 1:1 card
+              (Jon, 2026-08-23). 6a describes ongoing 1:1 work - the $1,200
+              Program, deliberately unnamed - while this sells a single session.
+              Two different products under near-identical names read as one
+              service described twice, so this card has to be openly the small
+              door. Keep it a taster; do not let it grow into a Program pitch. */}
           <h3>A 1:1 Session with Jon</h3>
           <div class="price">$97 one-time</div>
           <p class="door__terms">One per person.</p>
+          <p>The simplest way to work with me directly - one conversation, no commitment.</p>
           <a class="btn btn--cta" href={SESSION_URL}>Book your $97 session</a>
         </div>
       </div>
