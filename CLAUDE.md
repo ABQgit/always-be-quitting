@@ -33,6 +33,14 @@ Rules that follow:
 5. **Legal, medical, and disclaimer text is never touched on a judgment call.** Compare versions word by word, surface the differences to Jon, and let him decide. Terms and privacy pages were ported verbatim on purpose.
 6. **Don't report an action as done without confirming it succeeded** — check the command's exit state, especially for git operations, which fail silently on this repo when lock files are present.
 
+## Copy phase vs design phase (added 2026-08-23)
+
+Copy is being revised before any design work. During this phase:
+
+- **Fix only what prevents Jon evaluating the page** — genuine absences, like a section with no padding or a class used in markup with no CSS rule at all. Use values copied from sibling elements, never chosen.
+- **Log everything that is a choice** — size, colour, rhythm, prominence — in `context/design-punchlist.md`. Do not act on it.
+- **Why:** the v2 skin went generic because nobody decided the look, it accumulated. Making styling calls section by section during a copy pass is the same failure in slower motion. Jon: *"are we going down the rabbit hole of designing things."*
+
 ## Non-negotiable rules
 
 - Every page converts to email list join or purchase; no off-domain links except checkout

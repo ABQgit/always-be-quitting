@@ -602,6 +602,25 @@
 .door--community .door__list {
   color: color-mix(in srgb, var(--white) 88%, transparent);
 }
+/* ---- Sections that had NO vertical padding -----------------------------
+   .band supplies none, and every other section either has a padding rule here
+   or an inline padding-block. These three had neither, so they sat flush
+   against their neighbours with only child margins holding them apart.
+
+   Values copied from sibling sections, not chosen: this restores consistency
+   rather than making a design decision (Jon, 2026-08-23 - "let's not go down
+   the rabbit hole of designing things"). Rhythm and spacing are open questions
+   for the design phase; see context/design-punchlist.md. */
+.optin-band {
+  padding-block: clamp(3.5rem, 7vw, 5rem);
+}
+.offers {
+  padding-block: clamp(4.5rem, 9vw, 7rem);
+}
+.stakes {
+  padding-block: clamp(4rem, 8vw, 6.5rem);
+}
+
 /* ---- 6a offer cards ----------------------------------------------------
    These had NO css at all (added 2026-08-14, styles never written), so the h3
    fell back to the browser default - about 1.17em - and read as the same weight
