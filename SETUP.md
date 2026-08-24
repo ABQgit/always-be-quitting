@@ -276,6 +276,17 @@ curl -s https://alwaysbequitting.com | grep -o '<!--.*?-->'
 
 Also worth checking: no `TODO`, no internal file paths, no PRD issue numbers, no pricing you intended to withhold, no admissions about earlier drafts.
 
+### Live payment links (created, NOT yet wired into the site)
+
+Kept here until launch on purpose. Wiring a live link into staging would let anyone with the staging URL spend real money on an unfinished site, and the build warns while the code still holds `test_` links.
+
+| Offer | Live URL | Status |
+|---|---|---|
+| **1:1 Program — $1,200** | `https://buy.stripe.com/14A6oAf6Rddje5w9mR2oE00` | Created 2026-08-21. Verified: live (no Sandbox badge), $1,200, correct description, promo codes on, no tax row. **Terms checkbox not yet confirmed** — Stripe Link intercepted the payment panel; check via "Pay without Link". |
+| **ABQ Community — $291** | *not yet created* | — |
+
+At launch these go into `PROGRAM_URL` (`src/pages/coaching.astro`) and `JOIN_URL` (`src/pages/community.astro`).
+
 ### 🚨 Going live — the sandbox→live checklist
 
 Sandbox settings do **not** carry over. Everything below has to be redone in live mode, and skipping one is silent — the link just quietly behaves differently than the one you tested.
