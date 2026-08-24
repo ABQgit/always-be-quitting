@@ -288,9 +288,15 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
           <div class="price">$97 one-time</div>
           <p class="door__terms">One per person.</p>
           <ul class="door__list">
+            {/* "written plan" removed 2026-08-23 (Jon): it implies a document
+                and a complete quit strategy out of 50 minutes, which the session
+                cannot reliably deliver. Replaced with the thing that actually
+                differentiates a conversation from an app or a pamphlet - advice
+                tailored to the person. Uses Jon's existing "one-size-fits-all"
+                language. Do NOT reintroduce "plan" here. */}
             <li>A private 50-minute conversation</li>
             <li>Ask me anything - what's kept you stuck, what to try next</li>
-            <li>You'll leave with a written plan</li>
+            <li>Advice tailored to you, not a one-size-fits-all program</li>
             <li>The simplest way to work with me directly</li>
           </ul>
           <a class="btn btn--cta" href={SESSION_URL}>Book your $97 session</a>
