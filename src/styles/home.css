@@ -570,6 +570,38 @@
   border: 2px solid var(--ink);
   box-shadow: 12px 12px 0 var(--teal);
 }
+/* Reasons-to-act inside a $97 card. These are NOT a repeat of section 6a's
+   descriptions (Jon, 2026-08-23): "people jump around and they scan headlines -
+   you can't think they read everything." The card that takes the money has to
+   stand alone. Tailwind preflight strips list-style and padding, so both are
+   restored explicitly. */
+.door__list {
+  list-style: none;
+  margin: 0.2rem 0 0.4rem;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+.door__list li {
+  position: relative;
+  padding-left: 1.5rem;
+}
+.door__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.42em;
+  width: 0.62rem;
+  height: 0.62rem;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  opacity: 0.55;
+}
+.door--community .door__list {
+  color: color-mix(in srgb, var(--white) 88%, transparent);
+}
 .door h3 {
   font-family: var(--font-display);
   font-size: 1.6rem;
