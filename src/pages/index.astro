@@ -130,12 +130,27 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
   <section class="band band--mist guide">
     <div class="wrap">
       <div class="guide__row reveal">
+        {/* HIERARCHY SWAPPED 2026-08-23 (Jon) - "option B".
+
+            The empathy/authority sentence is Jon's canonical StoryBrand Guide
+            soundbite, recorded verbatim in voice.md beat 3: "I understand how
+            discouraging this struggle is. I've helped all types of people quit
+            successfully, and I can help you, too." It was set as grey --soft
+            body copy underneath a heading that is really just a label, so the
+            one sentence the framework says must land was the smallest thing in
+            the section.
+
+            "I'm Jon, and I provide exactly that kind of support" is NOT deleted
+            and must not be - "exactly that kind of support" is a deliberate
+            callback to the four items in "What Makes The Difference" directly
+            above (homepage-spec item 5). It becomes the kicker so the bridge
+            survives while the substance takes the display type. */}
         <div>
-          <h2 class="display-lg">I'm Jon, and I provide exactly that kind of support.</h2>
-          <p style="margin-top:1.2rem; color:var(--soft)">
+          <p class="guide__kicker">I'm Jon, and I provide exactly that kind of support.</p>
+          <h2 class="display-lg guide__statement">
             I know how discouraging your struggle is. I've spent 25 years helping people who thought they could
             never quit smoking or vaping - quit for life. And <em>I can help you, too.</em>
-          </p>
+          </h2>
         </div>
         {/* Jon's headshot, added 2026-08-23. Source was a 1.2MB PNG at
             1080x1350; encoded to WebP at 560px (17KB) with a 2x for retina and
@@ -173,7 +188,11 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
 
        DELIBERATE divergence from the live site, which does carry the heading.
        Do not restore it on the grounds that live has it. */}
-  <section class="band band--white authority">
+  {/* PROVISIONAL BAND COLOUR (Jon, 2026-08-23): band--paper so the stats read as
+      their own section. Previously white, which ran straight into the white
+      offers section below with no visual break. Colour is a placeholder for the
+      design phase - the point is the separation, not this specific tint. */}
+  <section class="band band--paper authority">
     <div class="wrap">
       <div class="stats">
         <div class="stat reveal"><b>25 Years</b><span>helping people quit smoking and vaping as a CTTS and NCNTT certified specialist</span></div>
@@ -210,33 +229,42 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
     </div>
   </section>
 
-  {/* 6b · HOW YOU START - the $97 entry into either one. Price lives here only.
-       Both being $97 is deliberate and reads as generous once 6a has done the
-       distinguishing. */}
+  {/* 6b · WHAT $97 BUYS. Price lives here only; 6a does the describing.
+
+       REFRAMED 2026-08-23 (Jon) from a RATE claim, not an ENTRY claim. The old
+       heading was "Either way, you start for $97" - written when the community
+       was genuinely $97/month billed monthly. It is now $291 up front, so that
+       sentence had become FALSE for one of the two doors: someone read $97,
+       clicked Join, and was asked for $291.
+
+       "$97 - a month in the community, or a session with me one to one" is true
+       on both sides: $97 IS the community's monthly rate (billed 3 up front) and
+       IS the session price. Each card states the actual charge directly beneath,
+       so the rate and the amount are never separated.
+       DO NOT restore any wording implying $97 is what you pay to begin.
+
+       Card copy is intentionally thin - price, terms, button. Describing the
+       services here is 6a's job, and the previous version had drifted into
+       repeating 6a almost verbatim ("24/7 access to people quitting alongside
+       you", "You don't have to be ready to quit to start"). Keep it out. */}
   <section class="band band--paper band--dots doors">
     <div class="wrap">
       <div class="doors__mega reveal" aria-hidden="true">$97</div>
-      <h2 class="display-lg hl">Either way, <em>you start for $97.</em></h2>
+      <h2 class="display-lg hl">A month in the community, or <em>a session with me one to one.</em></h2>
       <div class="grid grid--2">
-        {/* Both cards say what the $97 ITSELF buys, not what the service is in
-             general - that's 6a's job. Kept symmetrical so neither reads as the
-             lesser option. Revised 2026-08-14. */}
         <div class="door door--community reveal">
           <h3>The ABQ Community</h3>
-          {/* $97/month is real: 3 x $97 = the $291 charged up front on /community.
-               ALWAYS keep "paid up front" next to it (Jon, 2026-08-21) - without
-               that it reads as a monthly subscription and the price appears to
-               triple when they reach /community. */}
+          {/* ALWAYS keep "paid up front" next to the rate (Jon, 2026-08-21) -
+               without it this reads as a monthly subscription and the price
+               appears to triple when they reach /community. */}
           <div class="price">$97/month</div>
           <p class="door__terms">3 months, $291 paid up front.</p>
-          <p>Your first month of live calls with Jon and 24/7 access to people quitting alongside you. You don't have to be ready to quit to start.</p>
           <a class="btn btn--cta" href="/community">Join the Community</a>
         </div>
         <div class="door door--session reveal">
           <h3>A 1:1 Session with Jon</h3>
           <div class="price">$97 one-time</div>
           <p class="door__terms">One per person.</p>
-          <p>A private 50-minute conversation, and you can ask me anything. You'll leave with a written plan and a clear next step.</p>
           <a class="btn btn--cta" href={SESSION_URL}>Book your $97 session</a>
         </div>
       </div>

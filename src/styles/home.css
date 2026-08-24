@@ -444,6 +444,34 @@
     grid-template-columns: 1fr 240px;
   }
 }
+/* Guide beat, option B (Jon, 2026-08-23): the label is the kicker, the
+   empathy/authority sentence is the display statement. */
+.guide__kicker {
+  margin: 0 0 0.9rem;
+  font: 700 0.78rem/1.3 var(--font-body);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+.guide__statement {
+  margin: 0;
+  max-width: 26ch;
+  /* A shade smaller than a section heading - it is a long sentence, and at full
+     display-lg it would wrap to five or six lines and stop reading as a
+     statement. */
+  font-size: clamp(1.5rem, 2.6vw, 2.15rem);
+  line-height: 1.25;
+}
+.guide__statement em {
+  font-style: italic;
+  color: var(--teal);
+}
+@media (min-width: 860px) {
+  .guide__statement {
+    max-width: 30ch;
+  }
+}
+
 /* Holds Jon's headshot. aspect-ratio matches the source (4/5) so the photo is
    never cropped. background is white, not --line, because the image has no
    alpha - a tinted backing would show as a halo behind his shoulders. */
