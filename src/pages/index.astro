@@ -310,17 +310,50 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
   <section class="band band--white proof">
     <div class="wrap">
       <div class="grid grid--3" style="margin-top:2rem">
+        {/* Testimonial photos added 2026-08-23 (Jon), matching the live site,
+            which shows a headshot with every testimonial.
+
+            The CSS circle (.quote__photo, border-radius 50%) is doing real work
+            beyond looks - the three source images are inconsistent:
+              - Kait      : a plain 806x870 photo, cropped square here
+              - Ashley    : pre-circled PNG with GENUINE transparency
+              - Katherine : pre-circled with SOLID WHITE corners, no alpha
+            Clipping to a circle in CSS hides Katherine's white corners, so all
+            three present identically on any band colour.
+
+            ⚠️ Katherine remains constrained: her corners are gone from the
+            source, so if the design phase wants square or rounded-rect photos
+            she needs a fresh export from the original. Logged in
+            design-punchlist.md. */}
         <figure class="card quote reveal">
           <blockquote>Jon became my outlet, a safe person who helped me negotiate that struggle. The impact he has had on my life is transformative.</blockquote>
-          <figcaption><b>Katherine R.</b> · One Year Vape Free</figcaption>
+          <figcaption>
+            <picture>
+              <source type="image/webp" srcset="/img/katherine-headshot.webp" />
+              <img class="quote__photo" src="/img/katherine-headshot.jpg" width="300" height="300" loading="lazy" decoding="async" alt="Katherine R." />
+            </picture>
+            <span><b>Katherine R.</b> · One Year Vape Free</span>
+          </figcaption>
         </figure>
         <figure class="card quote reveal">
           <blockquote>He broke the all-or-nothing thinking for me. He came in with curiosity, just getting to understand where I was at, so that he could help me.</blockquote>
-          <figcaption><b>Kait</b> · 9 Years Sober, Now Smoke-Free</figcaption>
+          <figcaption>
+            <picture>
+              <source type="image/webp" srcset="/img/kait-headshot.webp" />
+              <img class="quote__photo" src="/img/kait-headshot.jpg" width="300" height="300" loading="lazy" decoding="async" alt="Kait" />
+            </picture>
+            <span><b>Kait</b> · 9 Years Sober, Now Smoke-Free</span>
+          </figcaption>
         </figure>
         <figure class="card quote reveal">
           <blockquote>I've invited Jon to teach about tobacco treatment to my university class for 9 straight semesters… informative, entertaining and inspiring.</blockquote>
-          <figcaption><b>Ashley Foster, MPH, RD, CHES</b> · University Professor</figcaption>
+          <figcaption>
+            <picture>
+              <source type="image/webp" srcset="/img/ashley-headshot.webp" />
+              <img class="quote__photo" src="/img/ashley-headshot.jpg" width="300" height="300" loading="lazy" decoding="async" alt="Ashley Foster, MPH, RD, CHES" />
+            </picture>
+            <span><b>Ashley Foster, MPH, RD, CHES</b> · University Professor</span>
+          </figcaption>
         </figure>
       </div>
     </div>

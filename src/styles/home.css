@@ -718,6 +718,20 @@
 .quote figcaption {
   font-size: 0.92rem;
   color: var(--soft);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+/* Circle is functional, not decorative - it clips Katherine's baked-in white
+   corners so all three sources present identically. See index.astro proof
+   section. Display size is a placeholder; logged in design-punchlist.md. */
+.quote__photo {
+  flex: 0 0 auto;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
 }
 .quote figcaption b {
   color: var(--ink);
