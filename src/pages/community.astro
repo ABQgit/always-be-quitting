@@ -107,16 +107,19 @@ if (JOIN_URL.includes('/test_')) {
   <section class="band band--white feature-band">
     <div class="wrap">
       <div class="row-split reveal">
-        <div class="row-split__icon">
-          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="4" y="10" width="28" height="24" rx="4"></rect>
-            <path d="M32 20l12-7v22l-12-7"></path>
-            <circle cx="18" cy="20" r="4"></circle>
-            <path d="M11 30c1.5-3 4-4.5 7-4.5s5.5 1.5 7 4.5"></path>
-          </svg>
-        </div>
+        {/* Photos replace icons on rows 1-3 (Jon, 2026-08-23): "I like the
+            pictures, I think it makes it more relatable." These are Jon's own
+            lead-magnet graphics, already on the live site.
+
+            Row 4 keeps its icon on purpose - there are only three images, and
+            Jon found on systeme.io that a fourth pushed unwanted space into the
+            next section. Do not hunt for a fourth image. */}
+        <picture class="row-split__img">
+          <source type="image/webp" srcset="/img/feature-calls.webp 1x, /img/feature-calls@2x.webp 2x" />
+          <img src="/img/feature-calls.png" width="800" height="600" loading="lazy" decoding="async" alt="A laptop showing four people on a live group coaching call" />
+        </picture>
         <div>
-          <h3>Weekly Community Support Calls</h3>
+          <h3 class="rule-heading">Weekly Community Support Calls</h3>
           <p>
             Join Jon for live group coaching - usually one call a week, sometimes more. Ask questions, get guidance
             on whatever you're dealing with that week, and hear from others on the same journey.
@@ -130,15 +133,12 @@ if (JOIN_URL.includes('/test_')) {
   <section class="band band--alt feature-band">
     <div class="wrap">
       <div class="row-split row-split--flip reveal">
-        <div class="row-split__icon">
-          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M8 8h24a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4H20l-8 7v-7H8a4 4 0 0 1-4-4V12a4 4 0 0 1 4-4z"></path>
-            <path d="M40 18h.5a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H38v6l-7-6h-7"></path>
-            <path d="M12 16h16M12 22h10"></path>
-          </svg>
-        </div>
+        <picture class="row-split__img">
+          <source type="image/webp" srcset="/img/feature-community.webp 1x, /img/feature-community@2x.webp 2x" />
+          <img src="/img/feature-community.png" width="800" height="600" loading="lazy" decoding="async" alt="A laptop showing someone celebrating at sunrise" />
+        </picture>
         <div>
-          <h3>24/7 Community Access</h3>
+          <h3 class="rule-heading">24/7 Community Access</h3>
           <p>
             Connect with others who understand what you're going through. Share wins, get support during struggles,
             and <strong>never feel alone in your quitting journey.</strong>
@@ -151,15 +151,12 @@ if (JOIN_URL.includes('/test_')) {
   <section class="band band--white feature-band">
     <div class="wrap">
       <div class="row-split reveal">
-        <div class="row-split__icon">
-          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M10 44V6"></path>
-            <path d="M10 8h26l-6 8 6 8H10"></path>
-            <path d="M6 44h8"></path>
-          </svg>
-        </div>
+        <picture class="row-split__img">
+          <source type="image/webp" srcset="/img/feature-accountability.webp 1x, /img/feature-accountability@2x.webp 2x" />
+          <img src="/img/feature-accountability.png" width="800" height="600" loading="lazy" decoding="async" alt="A laptop showing a completed challenge and progress toolbox" />
+        </picture>
         <div>
-          <h3>Real Accountability Throughout Your Journey</h3>
+          <h3 class="rule-heading">Real Accountability Throughout Your Journey</h3>
           <p>
             <strong>Stay motivated and accelerate your commitment to quit.</strong> Post your progress, share
             challenges, get encouragement when you need it most. Jon is active in the community providing guidance
@@ -181,7 +178,7 @@ if (JOIN_URL.includes('/test_')) {
           </svg>
         </div>
         <div>
-          <h3>Build Your Own Plan - Quit at Your Pace</h3>
+          <h3 class="rule-heading">Build Your Own Plan - Quit at Your Pace</h3>
           <p>You don't follow a one-size-fits-all program (they rarely work). And you don't figure it out alone.</p>
           <p>
             <strong>You create YOUR plan</strong> - when to start, what pace works for your life, whether you take
@@ -636,6 +633,40 @@ if (JOIN_URL.includes('/test_')) {
     .row-split--flip .row-split__icon {
       order: 2;
     }
+    /* Photo rows give the image a much wider column than the 200px icon needs. */
+    .row-split:has(.row-split__img) {
+      grid-template-columns: 400px 1fr;
+    }
+    .row-split--flip:has(.row-split__img) {
+      grid-template-columns: 1fr 400px;
+    }
+    .row-split--flip .row-split__img {
+      order: 2;
+    }
+  }
+
+  /* Photos replacing icons on rows 1-3 (Jon, 2026-08-23). 4:3, matching the
+     live site's 400x300 slot. No frame or shadow - the source PNGs are laptop
+     mockups on a transparent surround, so a border would box the whitespace. */
+  .row-split__img {
+    display: block;
+    margin-inline: auto;
+    max-width: 400px;
+    width: 100%;
+  }
+  .row-split__img img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  /* Rules above and below the feature headings (Jon, 2026-08-23), matching the
+     live site. They span the text column, not the full width. */
+  .rule-heading {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding-block: 1rem;
+    margin-block: 0 1.2rem;
   }
   .row-split__icon {
     width: 132px;
