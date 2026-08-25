@@ -312,9 +312,16 @@ if (JOIN_URL.includes('/test_')) {
           Placement before the CTA is deliberate: StoryBrand handles the
           objection immediately before the ask. */}
       <h2 class="display-lg">Just Start.</h2>
-      <p style="font-size:1.15rem; margin-top:1.4rem; color:var(--soft)">
-        The ABQ community is an insane value. Most people spend hundreds a month on smoking or vaping -
-        <strong style="color:var(--ink)">you'll save hundreds of thousands over your lifetime by quitting.</strong>
+      {/* Out of --soft grey and up a size (Jon, 2026-08-23). This paragraph
+          carries the PROOF that breaks the affordability objection - "most
+          people spend hundreds a month" is the figure that makes the reader do
+          the arithmetic on themselves. Grey is the page's skip-me signal, so
+          the sentence doing the work was the one being skipped.
+
+          Still smaller than the paragraph below it: setup then payoff. The gap
+          is just narrower now than 1.15rem-grey against 2.2rem-ink. */}
+      <p style="font-size:1.32rem; line-height:1.55; margin-top:1.4rem; color:var(--ink)">
+        The ABQ community is an insane value. Most people spend hundreds a month on smoking or vaping - <strong>you'll save hundreds of thousands over your lifetime by quitting.</strong>
       </p>
       <p class="display-lg hl reveal" style="margin-top:2rem; font-size:clamp(1.5rem, 3vw, 2.2rem)">
         You're already spending the money. You're just giving it to companies that make you sick. We don't compare
