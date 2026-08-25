@@ -40,6 +40,24 @@ Running list of **look** problems, collected during the copy phase so the design
 
   Related, and probably the same fix: the two bands before it are **both white** (proof, then stakes), so the run into the footer is white · white · navy · teal-deep. Three of those four seams have no contrast.
 
+### /community — whole-page banding (surveyed 2026-08-23)
+
+Sequence is: teal · white · white · alt · white · alt · mist · **teal** · white · paper · white · mist · **teal** → teal-deep footer.
+
+- **Thirteen bands alternating at one constant rhythm, so nothing signals hierarchy.** The hero, a single feature row and the pricing ticket all read as "one band." A reader cannot tell where one idea ends and the next begins.
+
+- **Width pinch in the middle.** Sections 1–7 run at the standard 1320 wrap, then transformation / pricing / "Just Start." drop to an inline `max-width:820px`, then it widens again for testimonials onward. The page squeezes and releases for no reason a visitor can perceive. **This one reads as a mistake rather than a choice.**
+
+- **Dark-on-dark at the end.** Final CTA is `band--teal` and the footer is `--teal-deep`, so the page has no visual close. Same seam as the homepage — likely one fix for both.
+
+- **Teal carries three unrelated jobs** — hero, transformation, final CTA — so it stops meaning anything.
+
+- **Bands 2 and 3 are both white**, so the "What You Get" heading runs straight into the first feature row with nothing grouping them.
+
+- **Band 2 is a heading and nothing else** — an entire section containing one line of text.
+
+- **Four feature rows in a row** alternating white/alt, three with photos and one without. Rhythmic but monotonous.
+
 ### Site-wide
 
 - **Portrait treatment.** `.guide__photo` is a bordered card with a hard gold offset shadow. Inherited from the v1 skin, never revisited.
