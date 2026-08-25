@@ -286,16 +286,20 @@ curl -s https://alwaysbequitting.com | grep -o '<!--.*?-->'
 
 Also worth checking: no `TODO`, no internal file paths, no PRD issue numbers, no pricing you intended to withhold, no admissions about earlier drafts.
 
-### Live payment links (created, NOT yet wired into the site)
+### Live payment links — ✅ WIRED INTO THE SITE 2026-08-25
 
-Kept here until launch on purpose. Wiring a live link into staging would let anyone with the staging URL spend real money on an unfinished site, and the build warns while the code still holds `test_` links.
+**Both `PROGRAM_URL` and `JOIN_URL` now hold these live URLs.** Staging and production both take real money: test cards are declined, and any completed checkout is a real charge carrying a real Stripe fee.
+
+⚠️ **The staging URL is now a live checkout.** `always-be-quitting.vercel.app` is reachable by anyone who has the link, and its buttons charge real cards. It is `noindex` and excluded from the sitemap, so it will not be crawled, but it is not private. If the site is going to sit unfinished for a while, consider reverting to the sandbox links until launch.
 
 | Offer | Live URL | Status |
 |---|---|---|
 | **1:1 Program — $1,200** | `https://buy.stripe.com/14A6oAf6Rddje5w9mR2oE00` | Created 2026-08-21. Verified: live (no Sandbox badge), $1,200, correct description, promo codes on, no tax row. **Terms checkbox not yet confirmed** — Stripe Link intercepted the payment panel; check via "Pay without Link". |
 | **ABQ Community — $291** | `https://buy.stripe.com/6oU5kw2k51uBd1scz32oE01` | Created 2026-08-21. **Fully verified** via "Pay without Link": $291, correct description, promo codes, no tax row, name collection on, consent checkbox linking **both** Terms of Service → `/terms-and-conditions` and Privacy Policy → `/privacy-policy` (the working URLs), and the "future payments" authorisation confirming payment details are saved. |
 
-At launch these go into `PROGRAM_URL` (`src/pages/coaching.astro`) and `JOIN_URL` (`src/pages/community.astro`).
+These are in `PROGRAM_URL` (`src/pages/coaching.astro`) and `JOIN_URL` (`src/pages/community.astro`) as of 2026-08-25. The build guard still fires if a `test_` link is ever wired back in.
+
+🚨 **Still outstanding on the $1,200 link:** the terms-of-service checkbox was never confirmed, because Stripe Link intercepted the payment panel during verification. Check it via **"Pay without Link"**. The community link was fully verified; this one was not — and it is now live on the site.
 
 ### 🚨 Going live — the sandbox→live checklist
 

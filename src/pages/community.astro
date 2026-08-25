@@ -41,10 +41,13 @@ import '../styles/home.css';
 // then invites them into Mighty Networks BY HAND. Mighty is no longer the
 // checkout - the old mn.co/plans/1948481 link sold the retired $97/mo plan.
 //
-// 🚨 CURRENTLY A SANDBOX TEST LINK ("test_" in the URL). It cannot take real
-// money. SWAP FOR THE LIVE PAYMENT LINK BEFORE LAUNCH - see SETUP.md
-// "Going live". The build warns if a test link is still wired up.
-const JOIN_URL = 'https://buy.stripe.com/test_aFafZaf6RehnbXo2Yt2oE02';
+// ✅ LIVE PAYMENT LINK (Jon, 2026-08-25). Created 2026-08-21 and FULLY verified
+// via "Pay without Link": $291, correct description, promo codes, no tax row,
+// name collection on, consent checkbox linking both Terms and Privacy at their
+// working URLs, and the future-payments authorisation that saves the card.
+// THIS TAKES REAL MONEY - test cards are declined and any completed checkout
+// is a real charge. The build warns if a test link is ever wired back up.
+const JOIN_URL = 'https://buy.stripe.com/6oU5kw2k51uBd1scz32oE01';
 
 if (JOIN_URL.includes('/test_')) {
   console.warn(

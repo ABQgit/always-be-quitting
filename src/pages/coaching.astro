@@ -24,11 +24,16 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
 // pointed at "#book", which is the id of the final CTA section itself - i.e.
 // the button scrolled to its own location and nothing happened.
 //
-// 🚨 CURRENTLY A SANDBOX TEST LINK ("test_" in the URL). It cannot take real
-// money - a real card entered here is declined, and Stripe test cards like
-// 4242 4242 4242 4242 succeed without charging anything. SWAP THIS FOR THE LIVE
-// PAYMENT LINK BEFORE LAUNCH (M5). See SETUP.md -> "Going live".
-const PROGRAM_URL = 'https://buy.stripe.com/test_14A6oAf6Rddje5w9mR2oE00';
+// ✅ LIVE PAYMENT LINK (Jon, 2026-08-25). Created 2026-08-21, verified live:
+// $1,200, correct description, promo codes on, no tax row. THIS TAKES REAL
+// MONEY - test cards like 4242 4242 4242 4242 are declined here, and any
+// checkout completed against it is a real charge with a real Stripe fee.
+//
+// ⚠️ Open item carried over from SETUP.md: the terms checkbox on THIS link was
+// never confirmed, because Stripe Link intercepted the payment panel during
+// verification. Check it via "Pay without Link". The community link was fully
+// verified; this one was not.
+const PROGRAM_URL = 'https://buy.stripe.com/14A6oAf6Rddje5w9mR2oE00';
 const PROGRAM_CTA = PROGRAM_URL || '/contact';
 
 // Build-time guard: shipping a test link to production would silently take the
