@@ -41,6 +41,21 @@ Copy is being revised before any design work. During this phase:
 - **Log everything that is a choice** — size, colour, rhythm, prominence — in `context/design-punchlist.md`. Do not act on it.
 - **Why:** the v2 skin went generic because nobody decided the look, it accumulated. Making styling calls section by section during a copy pass is the same failure in slower motion. Jon: *"are we going down the rabbit hole of designing things."*
 
+## Astro gotcha: inline tags swallow the preceding space
+
+`compressHTML` strips the newline + indentation between a word and an inline element, so this:
+
+```astro
+and you can
+<a href="...">book it here</a>
+```
+
+renders as **"and you canbook it here"**. Four instances shipped before this was noticed (2026-08-23). **Keep the word and the opening tag on the same source line** — applies to `<a>`, `<strong>`, `<em>`, `<b>`, `<span>`. To check the whole site:
+
+```bash
+grep -oE '[a-z]<(a|strong|em|b|span)\b[^>]*>[A-Za-z]' dist/client/**/index.html
+```
+
 ## Non-negotiable rules
 
 - Every page converts to email list join or purchase; no off-domain links except checkout

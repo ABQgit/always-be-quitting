@@ -359,8 +359,7 @@ if (JOIN_URL.includes('/test_')) {
           journey. This creates the judgment-free environment that helps people succeed.
         </p>
         <p>
-          Violating these requirements results in immediate removal with no refund, as outlined in our complete
-          <a href="/terms">Terms and Conditions</a>.
+          Violating these requirements results in immediate removal with no refund, as outlined in our complete <a href="/terms">Terms and Conditions</a>.
         </p>
         <p>
           <strong>Note:</strong> If you're interested in our training methods for professional purposes, we offer
@@ -410,8 +409,10 @@ if (JOIN_URL.includes('/test_')) {
           made the same decision you have, and that changes what the group is worth to you.
         </p>
         <p>
-          If you'd rather not commit to three months, that's a completely reasonable answer - and a
-          <a href="/coaching">one-time $97 session with me</a> is probably the better place to start.
+          {/* Keep "a" and the link on ONE line. Astro's compressHTML strips the
+              newline + indent between an inline element and the word before it,
+              so a line break here renders as "and aone-time". */}
+          If you'd rather not commit to three months, that's a completely reasonable answer - and <a href="/coaching">a one-time $97 session with me</a> is probably the better place to start.
         </p>
       </details>
       <details class="reveal">
