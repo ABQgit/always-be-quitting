@@ -193,8 +193,17 @@ if (JOIN_URL.includes('/test_')) {
   </section>
 
   {/* four stages: numbered journey */}
+  {/* Width override REMOVED 2026-08-23 (Jon). This wrap carried an inline
+      max-width:880px with no recorded reason, two-thirds of the site's standard
+      1320px. Four cards inside it came out tall and narrow - Jon: "the column
+      width is very narrow... they should be more square."
+
+      For reference, the live site runs this section at 1120px with two 540px
+      columns. At the standard wrap ours are ~590px, so slightly wider than
+      live. Full-bleed was considered and rejected: every other section on the
+      site is wrapped, and breaking that here would look accidental. */}
   <section class="band band--mist" style="padding-block: clamp(4rem, 8vw, 6.5rem)">
-    <div class="wrap" style="max-width:880px">
+    <div class="wrap">
       {/* Q and A are a matched pair at the SAME size, as on the live site
            (Jon, 2026-08-14). The Q was previously .kicker - tiny tracked-out
            label type - which buried the teaser under its own answer. */}
