@@ -43,7 +43,13 @@
   **Why `/community` may promise this and `/coaching` may not (Jon, 2026-08-23):** *"community does not take an additional hour of my time."* The community is leveraged — one weekly call serves everyone, so a member staying longer costs Jon nothing extra and "the longer you stay, the cheaper it gets" is safe to promise. A 1:1 add-on session is another hour of his life every single time, so a discounted rate cannot be committed to in advance. **The two pages differ on purpose. Do not "harmonise" them.**
 
   🚨 **INTERNAL INTENTION ONLY — DO NOT STATE THIS PUBLICLY (Jon, 2026-08-23).** The `/coaching` FAQ previously promised add-on sessions "at a lower rate than the Program's per-session price" and that "continuing gets rewarded, never penalized." Jon: *"i don't want to commit to this."* That promise has been removed from the page. The pricing above remains the working plan, but it is not a commitment to customers and must not appear in copy until Jon says otherwise. Public copy says only that additional sessions are available.
-- **Program name (decided): "Quit for the Last Time: The 1:1 Program"** — uses the tagline verbatim. Short form for UI/nav where needed: "Quit for the Last Time" or "the 1:1 Program."
+- ~~**Program name (decided): "Quit for the Last Time: The 1:1 Program"** — uses the tagline verbatim.~~ **RENAMED 2026-08-23 (Jon). The programme is "The 1:1 Program".**
+
+  **Why:** attaching "Quit for the Last Time" to a $1,200 product turns the tagline into a claim about what the money buys — an outcome promise, which PRD rule 3 forbids. Jon: *"I feel like it might be promising that if they pay $1200 this will be the last time they quit."*
+
+  **The tagline itself is unaffected and stays in use.** Jon's distinction: *"all the other uses of quit for the last time are not promissory. They are telling the person to quit for the last time. The problem with it is when it's used as the program name."* So it remains in `/coaching`'s H1 and page title, and in the closing tagline on both `/` and `/coaching`. **Only the product name changed.**
+
+  **What replaced it on the offer:** the heading now claims the method rather than the result — *"The gold standard in quitting is private, one-to-one, personalized coaching."* That is defensible, and it explains why the thing costs $1,200; the old heading asserted an outcome without justifying the price.
 - **Strategic north star:** community is the scale engine (better economics than 1:1); coaching is the depth/proof/cash engine. Long-term goal is a large community. Homepage hierarchy should reflect this.
 
 ## Open Items (next discussions)

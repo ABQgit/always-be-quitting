@@ -42,7 +42,7 @@ Rebuild alwaysbequitting.com from systeme.io's site builder onto a custom Astro 
 | Quick-Start Guide → ABQ Tips | Free | THE lead magnet feeding THE list (systeme.io) |
 | ABQ Community | **$291 for 3 months** ($97/month, paid up front). One payment, not a subscription — it ends. Members who want to stay opt in to **$37/month** afterwards | **Stripe** Payment Link; Jon invites them into Mighty Networks by hand. No refunds; no strikethrough pricing — specials are Stripe coupon codes only |
 | $97 Intro Session | $97 one-time, **once per person ever** | Cal.com + Stripe (as today), embedded on /coaching. **NOT credited toward the Program (reversed 2026-08-14)** — it stands alone as paid coaching time |
-| **Quit for the Last Time: The 1:1 Program** | $1,200 list ($200/session std; sale floor $150/session) | 6 × 50-min over 12 weeks, email access to Jon between sessions. Stripe |
+| **The 1:1 Program** | $1,200 list ($200/session std; sale floor $150/session) | 6 × 50-min over 12 weeks, email access to Jon between sessions. Stripe |
 | Alumni add-on sessions | ~$150/session | Below package rate on purpose. "More time and support," never "because you didn't quit" |
 
 Sale windows run on the real cessation calendar (New Year, World No Tobacco Day May 31, Great American Smokeout Nov). No perpetual strikethroughs.
@@ -222,7 +222,9 @@ Settled so it stops being re-litigated. Full reasoning in `offer-architecture.md
 3. Jon gets the Stripe notification, opens the Program event type in Cal.com → Advanced → Add Private Link, sets **6 uses** and **expiry = purchase date + 12 weeks**, emails it.
 4. The link enforces the package by itself: session 7 has nowhere to go, week 13 returns 404.
 
-**Naming — DECIDED (Jon, 2026-08-18): the two names deliberately differ. Leave them.** The site sells **"Quit for the Last Time: The 1:1 Program"**; the Stripe product is **"1:1 Coaching with Jon - 6 Sessions."** This is not an inconsistency to fix — the site name carries the brand promise, the checkout name says plainly what is being bought. Do not "reconcile" them.
+**Naming — the two names deliberately differ. Leave them.** The site sells **"The 1:1 Program"**; the Stripe product is **"1:1 Coaching with Jon - 6 Sessions."** Not an inconsistency to fix — the checkout name says plainly what is being bought. Do not "reconcile" them.
+
+**RENAMED 2026-08-23 (Jon).** The site name was "Quit for the Last Time: The 1:1 Program". Attaching the tagline to a $1,200 product made it a claim about what the money buys — an outcome promise, banned by site rule 3. Jon: *"I feel like it might be promising that if they pay $1200 this will be the last time they quit."* **The tagline itself is unaffected**; it stays as an imperative in `/coaching`'s H1 and title and in the closing tagline on both pages. Only the product name changed. See offer-architecture.md.
 
 **The one thing that actually bites:**
 
@@ -280,7 +282,7 @@ Knock-on: the `/contact` page tells people *"If you do not get confirmation of y
 2. **Check the FAQ for $97 credit language.** The accordions were not opened, so this is unverified. `current-site.md` records the old policy as "late cancel = credit toward a multi-session package." The credit was **reversed 2026-08-14** and must not be promised anywhere. Likely locations: "What if I need to reschedule?" and "Is this the same thing as the community or premium coaching?"
 3. **Scroll-reveal bug.** Testimonials render as invisible ghosts when scrolled past (observed 2026-08-14). Content that never appears is a conversion defect, not an effect.
 4. **Footer links** point at old systeme.io destinations ("Premium 1:1 Coaching", "Free Assessment") and need remapping at launch.
-5. **Offer naming** predates "Quit for the Last Time: The 1:1 Program".
+5. **Offer naming** predates the current "The 1:1 Program".
 
 Eventually ports on-domain to `/session` (see §4 site map).
 

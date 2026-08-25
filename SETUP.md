@@ -105,7 +105,7 @@ Without them the form returns an error rather than pretending it worked.
 
 ## Program checkout → Stripe Payment Link
 
-The $1,200 Program (**Quit for the Last Time: The 1:1 Program**) sells through a Stripe Payment Link. You then issue the client a Cal.com Private Link by hand. Decided 2026-08-18 — see PRD "Program checkout — DECIDED" for why Calendly Meeting Packages were rejected.
+The $1,200 Program (**The 1:1 Program** on the site) sells through a Stripe Payment Link. You then issue the client a Cal.com Private Link by hand. Decided 2026-08-18 — see PRD "Program checkout — DECIDED" for why Calendly Meeting Packages were rejected.
 
 ### 1. Do it in test mode first
 
@@ -118,7 +118,7 @@ The **product** doesn't have to be built twice — its details page has a **Copy
 A payment link needs a product to sell, and Stripe's newer dashboard generally routes you through the catalog rather than letting you invent one inline. Do this first and the link step gets easy.
 
 1. Go to **More → Product catalog**, then click **+Add product**.
-2. **Name:** `Quit for the Last Time: The 1:1 Program`
+2. **Name:** `1:1 Coaching with Jon - 6 Sessions` — deliberately not the site name; the checkout says plainly what is being bought. See PRD "Naming".
 3. **Description** — this shows at checkout, so it does two jobs: confirm what they're buying, and state the 12-week window before they pay rather than after. Suggested:
 
    > Six private 50-minute coaching sessions with Jon, one-on-one, to be used within 12 weeks of purchase. Direct email access to Jon between every session. A quit strategy built around your life, expert withdrawal and behavior-change coaching, and progress tracking the whole way. Your booking link arrives by email within one business day.
