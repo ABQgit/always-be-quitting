@@ -177,7 +177,11 @@ if (PROGRAM_URL.includes('/test_')) {
         <div class="door door--community reveal">
           <h3>The 1:1 Program</h3>
           <p>Six private, premium 1:1 coaching sessions with Jon. The most complete, most effective way to quit.</p>
-          <div class="price">$1,200</div>
+          {/* Qualifier after the figure, matching the $97 card (Jon,
+              2026-08-23). Set in a span at 0.42em rather than at full price
+              size - "$1,200 6 Session Package" all at 3rem would run to two
+              lines. The $97 card gets the same treatment so they stay a pair. */}
+          <div class="price">$1,200<span>6 Session Package</span></div>
           <p>Six 50-minute sessions with Jon, one-on-one - a roomy window over 12 weeks, because life happens. Direct email access to Jon between every session. A quit strategy built around your life, expert withdrawal and behavior-change coaching, and progress tracking the whole way.</p>
           <p>Want more time when you're done? Additional sessions are available to purchase whenever more support helps.</p>
           <a class="btn btn--cta" href={PROGRAM_CTA}>GET STARTED NOW!</a>
@@ -189,7 +193,7 @@ if (PROGRAM_URL.includes('/test_')) {
                undecided. This sells the OUTCOME: you leave with a plan. */}
           <h3>The $97 Special 1:1 Meeting</h3>
           <p>A private 50-minute conversation with Jon, and you can ask me anything. What's kept you stuck. What to try next. Why last time didn't hold. Whether you're ready or nowhere near it.</p>
-          <div class="price">$97 one-time</div>
+          <div class="price">$97<span>one-time</span></div>
           {/* "written plan" removed 2026-08-23 (Jon), matching the homepage card:
               it implies a document and a complete quit strategy out of 50
               minutes, which the session cannot reliably deliver. Replaced with
@@ -237,7 +241,16 @@ if (PROGRAM_URL.includes('/test_')) {
           a coach, I cannot recommend Jon enough. The impact he has had on my life is transformative - I have no
           doubt that he can do the same for you.
         </blockquote>
-        <figcaption><b>Katherine R.</b> · One Year Vape Free</figcaption>
+        {/* Photo added 2026-08-23 (Jon). Same asset and treatment as the
+            homepage and /community proof sections - .quote__photo comes from
+            home.css, and .quote's column-reverse puts it above the quote. */}
+        <figcaption>
+          <picture>
+            <source type="image/webp" srcset="/img/katherine-headshot.webp" />
+            <img class="quote__photo" src="/img/katherine-headshot.jpg" width="300" height="300" loading="lazy" decoding="async" alt="Katherine R." />
+          </picture>
+          <span><b>Katherine R.</b> · One Year Vape Free</span>
+        </figcaption>
       </figure>
     </div>
   </section>
