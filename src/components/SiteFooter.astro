@@ -1,40 +1,26 @@
 {/*
-  Site footer - restructured 2026-08-14 (Jon) to match the live site's layout:
-  1. brand + links
-  2. MEDICAL DISCLAIMER in its own clearly-labelled full-width section
-  3. bottom bar: copyright + Privacy Policy / Terms and Conditions / Contact
+  Site footer. RESTRUCTURED AGAIN 2026-08-23 (Jon) to two blocks:
 
-  Removed: the "Always be quitting… until you've quit for the last time" tagline,
-  which was crammed against the disclaimer and repeats the final CTA section.
-  Legal links now live in the bottom bar ONLY - they were previously duplicated
-  in the "More" column.
+    1. MEDICAL DISCLAIMER, now at the TOP
+    2. one combined row: brand + all six links + copyright
+
+  Previously three blocks - brand/links, then disclaimer, then a bottom bar with
+  the legal links. Splitting the links across two separated rows meant the
+  footer had two link groups doing the same job at opposite ends, with the
+  disclaimer wedged between them. Jon: "combine the two sections of links".
+
+  Podcast link REMOVED 2026-08-21 (Jon). Not pursuing podcasting: "people wont
+  listen. those podcasts are basically long testimonials for my services." Any
+  interviews go on the YouTube channel. /podcast was never built and was 404ing
+  from every page. Do not re-add it.
+
+  Also gone, and not to be restored: the "Always be quitting… until you've quit
+  for the last time" tagline (it repeated the final CTA section), and the "Work
+  With Jon" gold heading (it labelled a vertical stack that no longer exists).
 */}
 <footer class="footer">
-  <div class="wrap footer__grid">
-    <div class="footer__brand">
-      <p class="footer__logo">ALWAYS BE QUITTING</p>
-    </div>
-    {/* Links run HORIZONTALLY (Jon, 2026-08-23). As a vertical stack they set
-         the height of the whole block, which left roughly 60% of the footer
-         empty and reading as unfinished rather than spacious.
-
-         The "Work With Jon" gold heading was dropped at the same time: it made
-         sense labelling a stack, but above a single row it floats. Three links
-         reading "The ABQ Community, 1:1 Coaching, Free Quick-Start Guide" do
-         not need announcing. */}
-    <nav class="footer__col" aria-label="Work with Jon">
-      <a href="/community">The ABQ Community</a>
-      <a href="/coaching">1:1 Coaching</a>
-      <a href="/free-guide">Free Quick-Start Guide</a>
-      {/* Podcast link REMOVED 2026-08-21 (Jon). Not pursuing podcasting for
-           this business: "people wont listen. those podcasts are basically long
-           testimonials for my services." Any interviews go on the YouTube
-           channel instead. /podcast was never built and was 404ing from every
-           page on the site. Do not re-add it. */}
-    </nav>
-  </div>
-
-  {/* Medical disclaimer - its own section, clearly stated. */}
+  {/* Disclaimer first (Jon, 2026-08-23). Centred, capped at 78ch - genuinely
+      full width would give ~180-character lines. */}
   <section class="footer__legal" aria-label="Medical disclaimer">
     <div class="wrap">
       <p class="footer__legal-heading">Medical Disclaimer</p>
@@ -47,17 +33,26 @@
     </div>
   </section>
 
+  {/* One row: brand, then every link, then the copyright. The two nav groups
+      stay separate elements so screen readers still hear "Work with Jon" and
+      "Legal" as distinct groupings, but they sit on one line visually. */}
   <div class="footer__bottom">
-    <div class="wrap footer__bottom-row">
-      {/* Location removed 2026-08-23 (Jon): "i am not competing locally."
-           The Blacksburg reference in /terms is the arbitration venue and is
-           legally load-bearing - do not remove that one. */}
-      <p class="footer__copy">© 2026 Motivation and Mindset Studios, LLC</p>
-      <nav class="footer__legal-links" aria-label="Legal">
+    <div class="wrap footer__bar">
+      <p class="footer__logo">ALWAYS BE QUITTING</p>
+      <nav class="footer__links" aria-label="Work with Jon">
+        <a href="/community">The ABQ Community</a>
+        <a href="/coaching">1:1 Coaching</a>
+        <a href="/free-guide">Free Quick-Start Guide</a>
+      </nav>
+      <nav class="footer__links footer__links--legal" aria-label="Legal">
         <a href="/privacy">Privacy Policy</a>
         <a href="/terms">Terms and Conditions</a>
         <a href="/contact">Contact</a>
       </nav>
+      {/* Location removed 2026-08-23 (Jon): "i am not competing locally."
+           The Blacksburg reference in /terms is the arbitration venue and is
+           legally load-bearing - do not remove that one. */}
+      <p class="footer__copy">© 2026 Motivation and Mindset Studios, LLC</p>
     </div>
   </div>
 </footer>
@@ -69,46 +64,13 @@
     font-size: 0.92rem;
     line-height: 1.65;
   }
-  /* One row: brand hard left, links hard right. Was a 2fr 1fr grid with a
-     vertical link stack, which made the block tall and mostly empty. */
-  .footer__grid {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1.2rem 2.4rem;
-    padding-block: 1.8rem;
-  }
-  .footer__logo {
-    font: 800 1rem/1 var(--font-body);
-    letter-spacing: 0.08em;
-    color: var(--white);
-    margin: 0;
-  }
-  .footer__col {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.5rem 1.6rem;
-  }
-  .footer__col a {
-    color: color-mix(in srgb, var(--white) 82%, var(--teal-deep));
-    text-decoration: none;
-  }
-  .footer__col a:hover {
-    color: var(--white);
-    text-decoration: underline;
-  }
 
-  /* ---- medical disclaimer: its own section ---- */
+  /* ---- 1. medical disclaimer, now the TOP block ---- */
   .footer__legal {
-    border-top: 1px solid color-mix(in srgb, var(--white) 16%, transparent);
     padding-block: 2rem;
   }
-  /* Centred (Jon, 2026-08-23). Left-aligned at 70ch it filled about half the
-     width and left the right side empty. Centred reads as formal notice rather
-     than body copy that ran out of page. Capped at 78ch and centred with auto
-     margins - genuinely full width would give ~180-character lines. */
+  /* Centred and capped: left-aligned at 70ch it filled half the width and left
+     the right side empty; genuinely full width would give ~180-char lines. */
   .footer__legal-heading {
     font: 800 0.72rem/1 var(--font-body);
     letter-spacing: 0.2em;
@@ -129,38 +91,50 @@
     color: color-mix(in srgb, var(--white) 88%, var(--teal-deep));
   }
 
-  /* ---- bottom bar: copyright + legal links ---- */
+  /* ---- 2. one combined row: brand + all links + copyright ---- */
   .footer__bottom {
     border-top: 1px solid color-mix(in srgb, var(--white) 16%, transparent);
-    padding-block: 1.1rem;
-    font-size: 0.8rem;
-    color: color-mix(in srgb, var(--white) 55%, var(--teal-deep));
+    padding-block: 1.4rem;
   }
-  .footer__bottom-row {
+  .footer__bar {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.8rem 2rem;
     align-items: center;
     justify-content: space-between;
+    gap: 0.9rem 2rem;
   }
-  .footer__copy {
+  .footer__logo {
+    font: 800 1rem/1 var(--font-body);
+    letter-spacing: 0.08em;
+    color: var(--white);
     margin: 0;
   }
-  .footer__legal-links {
+  .footer__links {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.6rem;
+    align-items: center;
+    gap: 0.5rem 1.5rem;
   }
-  .footer__legal-links a {
-    color: color-mix(in srgb, var(--white) 72%, var(--teal-deep));
+  .footer__links a {
+    color: color-mix(in srgb, var(--white) 82%, var(--teal-deep));
     text-decoration: none;
+  }
+  .footer__links a:hover {
+    color: var(--white);
+    text-decoration: underline;
+  }
+  /* Legal links stay visually secondary to the "work with Jon" set, so the row
+     still reads as offers first, small print second. */
+  .footer__links--legal a {
+    color: color-mix(in srgb, var(--white) 62%, var(--teal-deep));
     letter-spacing: 0.06em;
     text-transform: uppercase;
     font-size: 0.72rem;
     font-weight: 700;
   }
-  .footer__legal-links a:hover {
-    color: var(--white);
-    text-decoration: underline;
+  .footer__copy {
+    margin: 0;
+    font-size: 0.8rem;
+    color: color-mix(in srgb, var(--white) 55%, var(--teal-deep));
   }
 </style>
