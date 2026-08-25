@@ -13,6 +13,13 @@
 - **Lead framing: "$291 for 3 months — $97/month, paid up front."** ONE option. No monthly billing, no one-pay alternative, no "save $41." **Always pair "$97/month" with "paid up front"** — Jon: *"I don't want it to look like they can sub by the month."*
 - **$291 = 3 × $97 deliberately**, to preserve the homepage device ("Either way, you start for $97") where community and the 1:1 session share an entry price. Do not change one without the other.
 - **After 3 months: it ENDS.** Nothing auto-continues; there is nothing to cancel. Members who want to stay opt in to **$37/month**, set up by hand against their saved card, only after an explicit yes. The reward framing survives ("the longer you stay, the cheaper it gets — the opposite of every program that's burned you"); the automatic renewal does not.
+- **Testimonials stay SHORTENED here — deliberate (Jon, 2026-08-23).** The homepage carries Katherine, Kait and Ashley at full live-site length; `/community` carries condensed versions of the same three. **This is not an inconsistency to fix.** Two reasons:
+
+  1. These are placeholders. As community-member testimonials arrive they replace the 1:1 ones — Jon: *"as i get community testimonials, I will replace them."*
+  2. The cuts are good ones. Katherine's retains both load-bearing lines (*"It took me nearly six years to build the courage"* and *"If you have reservations about investing in a coach, I cannot recommend Jon enough"*) while dropping the middle. They earn their place on merit, not just as filler.
+
+  Do not lengthen these to match the homepage.
+
 - 📌 **PENDING COPY (Jon, 2026-08-23) — a second reason for the 3 months, not yet written.** The rationale on the page is currently about the individual: *"a commitment to yourself and to the process of quitting."* Jon wants the **group** argument added too: a three-month commitment means the room is full of people who are committed to transformation, rather than lurkers and trial members.
 
   Note the page already carries *"Positive, committed community (no lurkers or trial members)"* as a benefit bullet. The missing piece is the **causal link** — that the commitment is what produces that room — not a restatement. Write it as a benefit to the member ("you'll be among people who mean it"), never as gatekeeping.
