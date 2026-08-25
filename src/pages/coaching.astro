@@ -368,6 +368,35 @@ if (PROGRAM_URL.includes('/test_')) {
         </p>
       </details>
 
+      {/* Added 2026-08-25 (Jon): "it wouldn't hurt to make a FAQ out of what
+           would happen. Besides that I don't think it needs to be featured
+           anywhere. Most people know when they pay for a service, the service
+           will tell them how to then access the service." So it lives here and
+           nowhere else - it replaces nothing and is not promoted on the page.
+
+           Placed directly before "after the six sessions" so the two run in
+           chronological order: purchase, then sessions, then what follows.
+
+           🚨 EVERY FACT HERE MIRRORS WHAT STRIPE ALREADY TELLS THE BUYER. Do not
+           reword one without the others. Sources in SETUP.md:
+             - confirmation message: "I'll email your personal booking link
+               within one business day ... schedule all six sessions"
+             - product description: "to be used within 12 weeks of purchase"
+           If the fulfilment promise ever changes, this FAQ, the Stripe
+           confirmation message and the product description all change together. */}
+      <details class="reveal">
+        <summary>What happens right after I pay?</summary>
+        <p>
+          You'll get a receipt from Stripe right away. Then I'll email your personal booking link within one
+          business day. That single link schedules all six sessions, so you can set the pace yourself, and your
+          12 weeks run from the day you purchase.
+        </p>
+        <p>
+          If it hasn't arrived, check your spam or junk folder, and any category your mail gets sorted into.
+          Still nothing? Reach me through the <a href="/contact">contact page</a> and I'll get it straight to you.
+        </p>
+      </details>
+
       <details class="reveal">
         <summary>What happens after the six sessions?</summary>
         <p>

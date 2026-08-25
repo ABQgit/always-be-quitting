@@ -177,6 +177,16 @@ Click **After the payment**. Under **Confirmation page**, replace the default wi
 
 > **You're in.** I'll email your personal booking link within one business day — it lets you schedule all six sessions whenever suits you. Check your spam folder if it hasn't arrived; if you sort your mail into categories, it could be anywhere. — Jon
 
+⚠️ **Three places state this promise and they must agree.** Added 2026-08-25, when the `/coaching` FAQ gained a "What happens right after I pay?" item:
+
+| Where | What it promises |
+|---|---|
+| This confirmation message | booking link within one business day, schedules all six |
+| The product description (§2 above) | same, plus "used within 12 weeks of purchase" |
+| `/coaching` FAQ → *What happens right after I pay?* | mirrors both, and adds where to look if it doesn't arrive |
+
+**Change one, change all three.** A buyer sees the checkout description before paying, the confirmation message the second they pay, and the FAQ before they ever decide to. If the fulfilment promise slips to two days, the FAQ is the one that gets missed, because it is the only one not in Stripe.
+
 Do **not** use the redirect option. A redirect would need a page we haven't built, and the custom message needs no code.
 
 ### 6. Copy the URL into the site
