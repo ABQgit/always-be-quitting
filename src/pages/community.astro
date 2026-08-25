@@ -773,7 +773,9 @@ if (JOIN_URL.includes('/test_')) {
     background: var(--white);
     border: 2px solid var(--ink);
     border-radius: 14px;
-    padding: 2rem 1.6rem 1.6rem 4.4rem;
+    /* Even padding now the badge is in the flow. The old 4.4rem left inset
+       existed only to clear the absolutely-positioned disc. */
+    padding: 1.8rem 1.6rem;
     transition:
       transform 0.16s ease,
       box-shadow 0.16s ease;
@@ -783,21 +785,26 @@ if (JOIN_URL.includes('/test_')) {
     transform: translate(-3px, -3px);
     box-shadow: 10px 10px 0 var(--teal);
   }
+  /* Multiple-choice letter (Jon, 2026-08-23). Was a 44px teal disc pinned to the
+     top-left, which read as a generic list marker. Now a large display letter
+     centred at the top of the card, so the section reads like an exam paper -
+     which is what the Q/A heading above it already sets up.
+
+     NOTE: the A/B/C/D device is NOT on the live site. It was added in the build
+     and Jon endorsed it, so there is no original to stay faithful to.
+
+     EVERY VALUE HERE IS A TOKEN, deliberately (Jon: "don't make it so difficult
+     to apply global changes"). Colour, family and weight all come from
+     tokens.css - only the size is local, and it is the one line to change. */
   .option__badge {
-    position: absolute;
-    left: 1.2rem;
-    top: 1.6rem;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: var(--teal);
-    color: var(--white);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
+    text-align: center;
     font-family: var(--font-display);
     font-weight: 700;
-    font-size: 1.3rem;
+    font-size: var(--option-badge-size, 3.2rem);
+    line-height: 1;
+    color: var(--option-badge-color, var(--teal));
+    margin-bottom: 0.6rem;
   }
   .option h3 {
     font-family: var(--font-display);

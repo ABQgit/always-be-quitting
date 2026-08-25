@@ -51,6 +51,14 @@
   --blue: #1e88e5;
   --pale: #80adb3;
   --gold: #ffd130;
+
+  /* ---- component knobs -------------------------------------------------
+     Local values a design pass is most likely to want to change globally,
+     surfaced here so they can be adjusted in one place rather than hunted
+     for inside a page's scoped <style> (Jon, 2026-08-23). */
+  /* /community four-stages multiple-choice letters (A/B/C/D) */
+  --option-badge-size: 3.2rem;
+  --option-badge-color: var(--teal);
   --cta: #f98938;
   --cta-shadow: #c05f14;
 
