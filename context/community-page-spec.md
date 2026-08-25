@@ -48,6 +48,12 @@
 
    **CALL SCHEDULE CHANGED (Jon, 2026-08-14) — site-wide.** The old "every Tuesday at 8 PM ET" is retired and must not be reintroduced anywhere. Current wording: *"Community Support Calls are scheduled at the beginning of the month. There is usually one per week, sometimes more."* and *"We try to choose different times of the day so that both US and international members have a chance to attend. We publish the schedule at the beginning of each month."* Note `context/business.md` line 82 and `context/current-site.md` line 52 still record the old Tuesday 8 PM schedule — `current-site.md` is a historical record of the OLD site and is correct as-is; `business.md` is stale and should be updated.
 3. Four-stage self-qualifier — KEEP (job here = "community fits your stage"; homepage's four cards route between doors — different jobs, both stay)
+
+   **COLLAPSED TO FOUR CHOICES (Jon, 2026-08-25).** Each option is now a `<details>`: the A/B/C/D badge and the headline are the `<summary>`, the empathy paragraph and the verdict sit inside. **All four closed by default** — one left open would read as the default answer. Copy is untouched and verbatim.
+
+   *Why it suits this section specifically:* the heading asks *"Which of these best describes where you are"*, so expanding an option **is** the reader answering. The badges (Jon: *"it makes it look like it is a choice"*) get stronger with the four headlines sitting together as a set. Section height on desktop roughly halved; the real gain is mobile, where it was four stacked cards of ~70 words each.
+
+   🚨 **The closer — *"Whichever you picked - the answer is the same"* — still works and must NOT be rewritten.** I argued it would break, on the grounds that it needs the reader to have seen all four verdicts. Jon: *"they will have read 4 titles (four choices)."* Correct — the picking happens at the **headline** level; the verdicts are the answers, not the choices.
 4. StoryBrand truth line + pricing box (new model)
 5. "Just Start" value close ("antidote to those companies") — keep
 6. Testimonials — keep trio for now; FLAG: all three are 1:1 clients. Replace progressively with community-member testimonials as they accumulate.

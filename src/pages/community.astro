@@ -216,31 +216,49 @@ if (JOIN_URL.includes('/test_')) {
       <h2 class="display-lg" style="text-align:center; margin-top:1.4rem">
         A: Which of these best describes where you are with your smoking or vaping?
       </h2>
+      {/* COLLAPSED TO FOUR CHOICES 2026-08-25 (Jon). Each option is a <details>
+           whose <summary> is the badge plus the headline; the empathy paragraph
+           and the verdict live inside. ALL FOUR CLOSED BY DEFAULT (Jon) - one
+           left open would read as the default answer.
+
+           WHY THIS IS NOT AN ORDINARY ACCORDION. The heading above asks "Which
+           of these best describes where you are" - so expanding an option IS
+           the reader answering the question. The interaction matches the mental
+           act, and the A/B/C/D badges (Jon: "it makes it look like it is a
+           choice") get stronger when the four headlines sit together as a set
+           rather than being buried inside four blocks of body copy.
+
+           THE CLOSER BELOW STILL WORKS AND WAS NOT REWRITTEN. I argued it would
+           break - that "whichever you picked, the answer is the same" needs the
+           reader to have seen all four verdicts. Jon: "they will have read 4
+           titles (four choices)." He is right: the picking happens at the
+           HEADLINE level, the verdicts are the answers, not the choices. Do not
+           "fix" that line.
+
+           Copy is untouched - every headline, paragraph and verdict is verbatim
+           from the previous markup. Content inside <details> stays in the DOM
+           and is indexed, so there is no SEO cost on an SEO-sensitive page. */}
       <div class="options">
-        <div class="option reveal">
-          <span class="option__badge">A</span>
-          <h3>You want to quit someday, you just keep putting it off.</h3>
+        <details class="option reveal">
+          <summary><span class="option__badge">A</span><h3>You want to quit someday, you just keep putting it off.</h3></summary>
           <p>You feel stuck (like 99.9% of the smokers and vapers on the planet). You're scared to even try to quit. But you have this nagging feeling inside.</p>
           <p class="option__verdict"><strong>That's okay.</strong> Join now. Use the community and weekly calls to build your confidence and readiness. There's no pressure to quit on day one. Just show up. You'll move forward.</p>
-        </div>
-        <div class="option reveal">
-          <span class="option__badge">B</span>
-          <h3>You're finally "ready to quit" and want to set a quit date</h3>
+        </details>
+        <details class="option reveal">
+          <summary><span class="option__badge">B</span><h3>You're finally "ready to quit" and want to set a quit date</h3></summary>
           <p>You've decided - this is it. You want support through the first days, weeks, and months. You may have no idea how to proceed, or you may be crafting a plan.</p>
           <p class="option__verdict"><strong>Perfect.</strong> You're in charge and we can help get some quitting time under your belt. The community gives you accountability and expert guidance exactly when you need it most.</p>
-        </div>
-        <div class="option reveal">
-          <span class="option__badge">C</span>
-          <h3>You've already quit but want to make sure it lasts this time</h3>
+        </details>
+        <details class="option reveal">
+          <summary><span class="option__badge">C</span><h3>You've already quit but want to make sure it lasts this time</h3></summary>
           <p>You stopped smoking or vaping, but you're worried about going back. You need accountability to stay quit.</p>
           <p class="option__verdict"><strong>You're in the right place.</strong> The transformation from temporary abstinence to permanent non-smoker / non-vaper is where most people need the most support. Real transformation takes months. We will be here for you.</p>
-        </div>
-        <div class="option reveal">
-          <span class="option__badge">D</span>
-          <h3>You relapsed and want to get back on track</h3>
+        </details>
+        <details class="option reveal">
+          <summary><span class="option__badge">D</span><h3>You relapsed and want to get back on track</h3></summary>
           <p>You had some smoke-free or vape-free time, but you went back to it. You are on the "quit-relapse" treadmill and you want to get off it.</p>
           <p class="option__verdict"><strong>Don't let shame keep you out.</strong> This is exactly why ongoing support matters. Come back, get motivation from being in the community, fix the things that tripped you up, and start moving forward again.</p>
-        </div>
+        </details>
       </div>
       <p style="text-align:center; margin-top:2rem; font-size:1.1rem"><strong>Whichever you picked - the answer is the same. This community was built for exactly where you are.</strong></p>
     </div>
@@ -800,6 +818,11 @@ if (JOIN_URL.includes('/test_')) {
     display: grid;
     gap: 1.4rem;
     margin-top: 2.6rem;
+    /* Cards size to their own content. Required once these became <details>
+       (2026-08-25): grid rows stretch by default, so opening A inflated B to
+       the same 476px and left it a large empty white box. Not a styling
+       preference - the default produced a visibly broken card. */
+    align-items: start;
   }
   @media (min-width: 860px) {
     .options {
@@ -822,6 +845,39 @@ if (JOIN_URL.includes('/test_')) {
   .option:hover {
     transform: translate(-3px, -3px);
     box-shadow: 10px 10px 0 var(--teal);
+  }
+
+  /* Disclosure affordance for the four choices (2026-08-25).
+
+     NOT a styling choice - a <summary> with no visible affordance is unusable,
+     which is the "genuine absence" the copy-phase rule allows fixing. EVERY
+     VALUE IS COPIED FROM .faq summary IN home.css, per the standing rule to
+     copy from siblings rather than choose: same '+' glyph, same display font,
+     same 1.6rem, same teal, same 0.18s rotate to an x on open. The only thing
+     that differs is placement - the FAQ sits it in a flex row, and these cards
+     centre a badge over a headline, so it is pinned top-right instead.
+     .option is already position:relative, so nothing new was introduced. */
+  .option summary {
+    cursor: pointer;
+    display: block;
+    list-style: none;
+  }
+  .option summary::-webkit-details-marker {
+    display: none;
+  }
+  .option summary::after {
+    content: '+';
+    position: absolute;
+    top: 1.1rem;
+    right: 1.3rem;
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    line-height: 1;
+    color: var(--teal);
+    transition: transform 0.18s ease;
+  }
+  .option[open] summary::after {
+    transform: rotate(45deg);
   }
   /* Multiple-choice letter (Jon, 2026-08-23). Was a 44px teal disc pinned to the
      top-left, which read as a generic list marker. Now a large display letter

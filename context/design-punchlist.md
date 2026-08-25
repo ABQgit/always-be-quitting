@@ -68,6 +68,12 @@ Sequence is: teal · white · white · alt · white · alt · mist · **teal** �
 
 - **Four feature rows in a row** alternating white/alt, three with photos and one without. Rhythmic but monotonous.
 
+- **The A/B/C/D choices are now collapsed (2026-08-25), which leaves two look items.**
+
+  **The `+` is tiny next to the badge.** The disclosure marker is 1.6rem sitting beside a 3.2rem letter, so it reads as an afterthought and is easy to miss. Its values were copied wholesale from `.faq summary` rather than chosen, which is why it doesn't relate to this card's scale. **Decision needed: how the affordance should look here** — the FAQ's `+` was sized for a flex row of body text, not for a card with display-size type in it.
+
+  **Closed cards are now slightly ragged.** With `align-items: start`, cards size to their own content, so a two-line headline (223px) sits beside a one-line headline (193px). Previously all four were a uniform 223px, but only because the row stretched — which is what produced the empty-box bug when one opened. The 30px step is the cost of the fix. A `min-height` on the summary would even them up; that's a chosen value, so it's a design call.
+
 ### /coaching (surveyed 2026-08-25, after the copy pass)
 
 - **The "What to Expect" cards are the reason Jon raised this page.** His words: *"It is just boring to look at… It is supposed to be scannable and it's just not really even worth looking at the way it's done."*
