@@ -1,13 +1,14 @@
 {/*
-  Site footer. RESTRUCTURED AGAIN 2026-08-23 (Jon) to two blocks:
+  Site footer. RESTRUCTURED 2026-08-23 (Jon) to:
 
-    1. MEDICAL DISCLAIMER, now at the TOP
-    2. one combined row: brand + all six links + copyright
+    1. MEDICAL DISCLAIMER at the TOP
+    2. brand + ONE uniform all-caps menu of all six links, Contact last
+    3. copyright on its own line beneath
 
   Previously three blocks - brand/links, then disclaimer, then a bottom bar with
-  the legal links. Splitting the links across two separated rows meant the
-  footer had two link groups doing the same job at opposite ends, with the
-  disclaimer wedged between them. Jon: "combine the two sections of links".
+  the legal links. That put two link groups doing the same job at opposite ends
+  with the disclaimer wedged between them. Jon: "combine the two sections of
+  links... make the whole menu caps... Contact last item in nav."
 
   Podcast link REMOVED 2026-08-21 (Jon). Not pursuing podcasting: "people wont
   listen. those podcasts are basically long testimonials for my services." Any
@@ -33,27 +34,30 @@
     </div>
   </section>
 
-  {/* One row: brand, then every link, then the copyright. The two nav groups
-      stay separate elements so screen readers still hear "Work with Jon" and
-      "Legal" as distinct groupings, but they sit on one line visually. */}
+  {/* ONE menu (Jon, 2026-08-23): all six links, uniformly styled, all caps,
+      Contact last. Previously two navs - offers and legal - styled differently
+      at opposite ends. They are now a single nav semantically as well as
+      visually, which is the honest markup: two aria-labelled groups made sense
+      when they looked like two groups.
+
+      Copyright sits on its own line below. Six uppercase links plus the brand
+      plus a copyright line will not fit on one row at any realistic width. */}
   <div class="footer__bottom">
     <div class="wrap footer__bar">
       <p class="footer__logo">ALWAYS BE QUITTING</p>
-      <nav class="footer__links" aria-label="Work with Jon">
+      <nav class="footer__menu" aria-label="Footer">
         <a href="/community">The ABQ Community</a>
         <a href="/coaching">1:1 Coaching</a>
         <a href="/free-guide">Free Quick-Start Guide</a>
-      </nav>
-      <nav class="footer__links footer__links--legal" aria-label="Legal">
         <a href="/privacy">Privacy Policy</a>
         <a href="/terms">Terms and Conditions</a>
         <a href="/contact">Contact</a>
       </nav>
-      {/* Location removed 2026-08-23 (Jon): "i am not competing locally."
-           The Blacksburg reference in /terms is the arbitration venue and is
-           legally load-bearing - do not remove that one. */}
-      <p class="footer__copy">© 2026 Motivation and Mindset Studios, LLC</p>
     </div>
+    {/* Location removed 2026-08-23 (Jon): "i am not competing locally."
+         The Blacksburg reference in /terms is the arbitration venue and is
+         legally load-bearing - do not remove that one. */}
+    <p class="wrap footer__copy">© 2026 Motivation and Mindset Studios, LLC</p>
   </div>
 </footer>
 
@@ -91,7 +95,7 @@
     color: color-mix(in srgb, var(--white) 88%, var(--teal-deep));
   }
 
-  /* ---- 2. one combined row: brand + all links + copyright ---- */
+  /* ---- 2. brand + one uniform menu, copyright beneath ---- */
   .footer__bottom {
     border-top: 1px solid color-mix(in srgb, var(--white) 16%, transparent);
     padding-block: 1.4rem;
@@ -103,37 +107,37 @@
     justify-content: space-between;
     gap: 0.9rem 2rem;
   }
+  /* Brand stays larger and white so it does not get lost among six uppercase
+     links that now share its casing. */
   .footer__logo {
     font: 800 1rem/1 var(--font-body);
     letter-spacing: 0.08em;
     color: var(--white);
     margin: 0;
   }
-  .footer__links {
+  /* One menu, uniform treatment. Offers and legal are no longer distinguished
+     by styling - Jon wanted a single menu, so they read as one set. */
+  .footer__menu {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 0.5rem 1.5rem;
+    gap: 0.6rem 1.4rem;
   }
-  .footer__links a {
-    color: color-mix(in srgb, var(--white) 82%, var(--teal-deep));
+  .footer__menu a {
+    color: color-mix(in srgb, var(--white) 72%, var(--teal-deep));
     text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 0.72rem;
+    font-weight: 700;
+    white-space: nowrap;
   }
-  .footer__links a:hover {
+  .footer__menu a:hover {
     color: var(--white);
     text-decoration: underline;
   }
-  /* Legal links stay visually secondary to the "work with Jon" set, so the row
-     still reads as offers first, small print second. */
-  .footer__links--legal a {
-    color: color-mix(in srgb, var(--white) 62%, var(--teal-deep));
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    font-size: 0.72rem;
-    font-weight: 700;
-  }
   .footer__copy {
-    margin: 0;
+    margin: 1.1rem auto 0;
     font-size: 0.8rem;
     color: color-mix(in srgb, var(--white) 55%, var(--teal-deep));
   }
