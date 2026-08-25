@@ -114,20 +114,29 @@ if (PROGRAM_URL.includes('/test_')) {
     </div>
   </section>
 
-  {/* mechanics grid [DIFF: platform copy updated to true stack; packages card removed] */}
-  <section class="band band--white" style="padding-block: clamp(4rem, 8vw, 6rem)">
-    <div class="wrap">
-      <h2 class="display-lg">How it works</h2>
-      <div class="grid grid--3" style="margin-top:2.2rem">
-        <div class="card card--pop reveal"><h3>1:1 Sessions</h3><p>Private 50-minute sessions with Jon, over video or phone</p></div>
-        <div class="card card--pop reveal"><h3>Easy Scheduling</h3><p>Pick from a variety of times with the online scheduler</p></div>
-        <div class="card card--pop reveal"><h3>Quit Date</h3><p>You generally set a quit date in the first 1–3 weeks. You can also begin having already started quitting</p></div>
-        <div class="card card--pop reveal"><h3>Simple Video Sessions</h3><p>One click to join - no accounts or downloads to wrestle with</p></div>
-        <div class="card card--pop reveal"><h3>Email Support</h3><p>Update Jon on your progress and get guidance between sessions</p></div>
-        <div class="card card--pop reveal"><h3>Progress Tracking</h3><p>Keep your plans and support documents in one convenient place we share</p></div>
-      </div>
-    </div>
-  </section>
+  {/* "How it works" mechanics grid REMOVED 2026-08-25 (Jon).
+
+       Six cards on scheduling, video links and file storage. Three of them (1:1
+       Sessions, Email Support, Progress Tracking) were already in the offer
+       card's prose; two (Easy Scheduling, Simple Video Sessions) were pure
+       friction-removal, which nobody weighs at $1,200. It also sat directly
+       after the eight "What to Expect" cards, so the reader met fourteen
+       near-identical tiles in a row and the page went flat there.
+
+       The Quit Date card was the only one carrying anything unique. BOTH of its
+       sentences were moved into FAQ 2 ("I'm not ready to quit yet"), which is
+       where a reader with quit-date anxiety actually goes. Nothing was dropped.
+
+       Band sequence was checked before cutting: mist white paper WHITE teal
+       paper white mist white teal becomes mist white paper teal paper white
+       mist white teal - no two adjacent bands match, so the cut creates no new
+       seam problem.
+
+       STILL OPEN, exposed by this cut: nothing on the page says what happens
+       after purchase. The real flow is Stripe takes payment, then Jon sends a
+       Cal.com private link by hand. The deleted "Easy Scheduling" card implied
+       instant self-serve booking. Wants one FAQ item, not six cards - raised
+       with Jon 2026-08-25, not yet decided. */}
 
   {/* pays for itself - verbatim, with the approved swap [DIFF: "slave to nicotine" -> "controlled by nicotine"; duplicate headline bug fixed] */}
   <section class="band band--teal transform" style="text-align:left">
@@ -222,7 +231,20 @@ if (PROGRAM_URL.includes('/test_')) {
 
   {/* Katherine long-form. Heading is LIVE SITE COPY, restored 2026-08-14 after
        being wrongly deleted as "invented filler" - it is Jon's, verbatim.
-       Testimonial body is deliberately shortened for this page (Jon, 2026-08-14). */}
+
+       ONE TESTIMONIAL, AT FULL LENGTH, AND IT IS HERS - DELIBERATE (Jon,
+       2026-08-25), in response to my suggestion that a $1,200 page carrying
+       less proof than the homepage was a weakness. It isn't. Jon: "I actually
+       pasted Katherine's entire testimonial, and only hers because she directly
+       speaks to my ability, our coaching relationship, and says if you want to
+       hire a coach hire this guy."
+
+       That is the exact case this page has to make, and she makes it in the
+       buyer's own words - see her closing lines: "If you have reservations
+       about investing in a coach, I cannot recommend Jon enough." A wall of
+       short quotes would not do that job, and adding more would dilute the one
+       that does. Do NOT propose adding testimonials here, trimming this one, or
+       matching the homepage's three-up treatment. */}
   <section class="band band--white proof">
     <div class="wrap wrap--read">
       <h2 class="display-lg">How Coaching Made the Difference: Katherine's Experience</h2>
@@ -307,11 +329,19 @@ if (PROGRAM_URL.includes('/test_')) {
       </details>
 
       <details class="reveal">
+        {/* Last two sentences moved here verbatim from the deleted "Quit Date"
+            mechanics card (Jon, 2026-08-25). They answer the question this FAQ
+            item raises - if I'm not ready, when do I actually have to stop? -
+            and the final clause is the only welcome on the site to someone who
+            has already started quitting before buying. Not a timeline promise:
+            it describes when a date is SET, hedged with "generally", never when
+            someone succeeds. Approved as mechanics in the page spec. */}
         <summary>I'm not ready to quit yet. Should I still do this?</summary>
         <p>
           Yes. Not being ready is a great reason to start, not a reason to wait. You don't need to have it all
           figured out or be "ready enough", that's what I'm here for. We can spend the early sessions building your
-          readiness instead of forcing a quit date you don't believe in.
+          readiness instead of forcing a quit date you don't believe in. You generally set a quit date in the first
+          1–3 weeks. You can also begin having already started quitting.
         </p>
       </details>
 
