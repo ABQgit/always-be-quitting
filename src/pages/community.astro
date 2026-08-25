@@ -254,7 +254,7 @@ if (JOIN_URL.includes('/test_')) {
 
   {/* pricing: ticket, full detail [DIFF: new model, codes removed] */}
   <section class="band band--white" style="padding-block: clamp(4rem, 8vw, 6.5rem)">
-    <div class="wrap" style="max-width:820px">
+    <div class="wrap wrap--read">
       <div class="ticket ticket--big reveal">
         <p class="ticket__kicker">Full ABQ Community Membership</p>
         <p class="ticket__price">$97<span>/month · 3 months, $291 paid up front</span></p>
@@ -294,7 +294,7 @@ if (JOIN_URL.includes('/test_')) {
 
   {/* just start / antidote close */}
   <section class="band band--paper" style="padding-block: clamp(4rem, 8vw, 6rem); text-align:center">
-    <div class="wrap" style="max-width:820px">
+    <div class="wrap wrap--read">
       {/* OBJECTION HANDLER, not a value-prop section (Jon, 2026-08-23). Its one
           job: "combat the belief held by smokers and vapers that they CAN'T
           afford programs like this. When they can."
@@ -327,9 +327,17 @@ if (JOIN_URL.includes('/test_')) {
       <p class="display-lg hl" style="margin-top:1.4rem; font-size:clamp(1.5rem, 3vw, 2.2rem); color:var(--ink)">
         The ABQ community is an insane value. Most people spend hundreds a month on smoking or vaping - <em>you'll save hundreds of thousands over your lifetime by quitting.</em>
       </p>
+      {/* Rewritten 2026-08-23 (Jon). CAPS on CHOICE are his emphasis, as in the
+          "FOCUS ON QUITTING" line in the FAQ - keep them as typed.
+
+          NOTE: this drops "we are the antidote to those companies", which
+          voice.md lists as a signature phrase and community-page-spec calls the
+          "antidote close". Flagged to Jon; the replacement moves from
+          positioning against competitors to putting the decision in the
+          reader's hands, which suits an objection handler better. */}
       <p class="reveal" style="margin-top:1.6rem; font-size:1.15rem; line-height:1.6; color:var(--ink)">
-        You're already spending the money. You're just giving it to companies that make you sick. We don't compare
-        ourselves to those companies; <strong>we are the antidote to those companies.</strong>
+        You're already spending the money. Every day you make a CHOICE to give money to companies that are making
+        you sick. Today can be the day that you make the CHOICE to change that.
       </p>
     </div>
   </section>

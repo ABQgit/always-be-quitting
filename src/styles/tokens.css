@@ -52,6 +52,30 @@
   --pale: #80adb3;
   --gold: #ffd130;
 
+  /* ---- container widths -------------------------------------------------
+     THREE widths, assigned by what the content is (Jon, 2026-08-23). Before
+     this there were six values - 720/760/820/880/900/1320 - hardcoded as inline
+     style attributes across six files. That is not five reasons, it is five
+     guesses made on five different days, and being inline meant a design pass
+     could only edit them one at a time rather than retune the system.
+
+     Layout that is not tokenised is the recorded root cause of why the v1 skin
+     could never be redesigned, only re-skinned. See design-direction.md.
+
+     NOTE: these only apply on desktop. On a phone the viewport is ~390px, so
+     every one of them is inert and .wrap's padding-inline governs instead. */
+
+  /* Single-column reading: prose, FAQ answers, testimonials, statements,
+     forms, the pricing ticket. Sized for a comfortable measure. */
+  --wrap-read: 800px;
+  /* Media-led: a hero with video, or a page built around one video. Merges two
+     values that were doing the same job - the heroes were on a hidden
+     `.hero .wrap { max-width: 1100px }` in home.css, /quick-start on an inline
+     900px. */
+  --wrap-media: 1000px;
+  /* Anything with columns: card grids, feature rows, offer cards. The default. */
+  --wrap-full: 1320px;
+
   /* ---- component knobs -------------------------------------------------
      Local values a design pass is most likely to want to change globally,
      surfaced here so they can be adjusted in one place rather than hunted
