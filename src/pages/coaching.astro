@@ -200,7 +200,16 @@ if (PROGRAM_URL.includes('/test_')) {
               advice-tailored-to-you, the thing an app or a pamphlet structurally
               cannot offer. Do NOT reintroduce "plan" here. */}
           <p>You'll leave with advice tailored to you - not a one-size-fits-all program - and a clearer read on what's keeping you stuck, what to do next, and how to stop repeating the same quit cycle. No upsells, no subscriptions, and heavily discounted from my normal hourly rate.</p>
-          <p><strong>One per person, so it's worth using well.</strong> Intake form and confirmation sent right away.</p>
+          {/* Trimmed 2026-08-23 (Jon). Dropped "so it's worth using well" and
+              "Intake form and confirmation sent right away" - the second is
+              table stakes, not a benefit worth card space.
+
+              "One per person" STAYS. It is a real constraint the buyer needs
+              before booking, not after (offer-architecture rule 6: one $97
+              session per person, ever), and the page carries a whole FAQ
+              explaining why. Someone who books expecting to re-book later would
+              be badly surprised. The homepage card says the same. */}
+          <p><strong>One per person.</strong></p>
           <a class="btn btn--cta" href={SESSION_URL}>See what's included</a>
         </div>
       </div>
