@@ -169,14 +169,11 @@ if (JOIN_URL.includes('/test_')) {
 
   <section class="band band--alt feature-band">
     <div class="wrap">
-      <div class="row-split row-split--flip reveal">
-        <div class="row-split__icon">
-          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="24" cy="24" r="20"></circle>
-            <path d="M31 17l-4.5 9.5L17 31l4.5-9.5z"></path>
-            <circle cx="24" cy="24" r="1.6" fill="currentColor"></circle>
-          </svg>
-        </div>
+      {/* Row 4 has NO icon and NO image (Jon, 2026-08-23). There are only three
+          photos - a fourth pushed unwanted space into the next section back on
+          systeme.io - and a lone 132px icon beside three 400px photos read as
+          inconsistent. Full-width text instead. Do not add an icon back. */}
+      <div class="row-split row-split--full reveal">
         <div>
           <h3 class="rule-heading">Build Your Own Plan - Quit at Your Pace</h3>
           <p>You don't follow a one-size-fits-all program (they rarely work). And you don't figure it out alone.</p>
@@ -642,6 +639,10 @@ if (JOIN_URL.includes('/test_')) {
     }
     .row-split--flip .row-split__img {
       order: 2;
+    }
+    /* Row 4 carries no icon or image - one column, full width. */
+    .row-split--full {
+      grid-template-columns: 1fr;
     }
   }
 
