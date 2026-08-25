@@ -8,8 +8,11 @@
 //   - $291 = 3 x $97 ON PURPOSE. It preserves the homepage device ("Either way,
 //     you start for $97") where the community and the 1:1 session share an
 //     entry price. Do not change one without the other.
-//   - Always pair "$97/month" with "paid up front". Jon: "I don't want it to
-//     look like they can sub by the month."
+//   - LEAD WITH $97/month, $291 as the supporting detail (Jon, 2026-08-23).
+//     Matches the homepage door. An earlier version led with $291; the smaller
+//     number is the one that gets someone to read the second line.
+//   - Always pair "$97/month" with "paid up front" - they must never be
+//     separated. Jon: "I don't want it to look like they can sub by the month."
 //   - Do NOT say the membership "automatically continues" - nothing renews.
 //     Stripe has no record of the 3-month term; a one-time payment has no
 //     duration. Jon tracks end dates himself.
@@ -57,7 +60,7 @@ if (JOIN_URL.includes('/test_')) {
       anyone actually searches. The H1 keeps Jon's live-site wording; this is
       metadata, not copy. */}
   title="Quit Smoking or Vaping Together | The ABQ Quitting Community"
-  description="Weekly expert coaching and ongoing community support for your quit smoking or vaping journey. $291 for 3 months - $97/month, paid up front."
+  description="Weekly expert coaching and ongoing community support for your quit smoking or vaping journey. $97/month - 3 months, $291 paid up front."
 >
   <SiteHeader />
 
@@ -85,7 +88,7 @@ if (JOIN_URL.includes('/test_')) {
         </div>
         <aside class="ticket reveal">
           <p class="ticket__kicker">Full ABQ Community Membership</p>
-          <p class="ticket__price">$291<span>3 months at $97/month, paid up front</span></p>
+          <p class="ticket__price">$97<span>/month · 3 months, $291 paid up front</span></p>
           <p class="ticket__terms">Three months is a commitment to yourself and to the process of quitting, which takes time.</p>
           <p class="ticket__then">After that, you can continue at <strong>$37/month</strong> if you wish.</p>
           <a class="btn btn--cta" href={JOIN_URL}>Join the Community</a>
@@ -251,7 +254,7 @@ if (JOIN_URL.includes('/test_')) {
     <div class="wrap" style="max-width:820px">
       <div class="ticket ticket--big reveal">
         <p class="ticket__kicker">Full ABQ Community Membership</p>
-        <p class="ticket__price">$291<span>3 months at $97/month, paid up front</span></p>
+        <p class="ticket__price">$97<span>/month · 3 months, $291 paid up front</span></p>
         <p class="ticket__terms">
           Three months is a commitment to yourself and to the process of quitting, which takes time.
         </p>
@@ -381,6 +384,34 @@ if (JOIN_URL.includes('/test_')) {
         <p>
           Plus, you have 24/7 access to the community where you can get support, ask questions, and connect with
           others any time.
+        </p>
+      </details>
+      {/* Added 2026-08-23 (Jon). Placed BEFORE "how long should I stay" because
+           it answers the objection the price raises - why can't I just try a
+           month - and that question comes first for someone reading the ticket.
+
+           Carries the second rationale Jon parked on 2026-08-21: the commitment
+           is also what keeps the room full of people who mean it. Written as a
+           member benefit, never as gatekeeping.
+
+           NO TIMELINE PROMISE. "Quitting is a process that takes time" is the
+           approved wording; "because that's how long transformation takes" is
+           banned - see PRD rule 3 and community-page-spec. */}
+      <details class="reveal">
+        <summary>Why do you require three months?</summary>
+        <p>
+          Two reasons. <strong>The first is you.</strong> Quitting is a process that takes time, and the hardest
+          stretch usually comes after the newness wears off - which is exactly when people walk away from support.
+          Paying up front means that decision is already made, and you're still here for the part that matters most.
+        </p>
+        <p>
+          <strong>The second is everyone else.</strong> A three-month commitment means the people in the room are
+          people who mean it. No lurkers, no one dipping a toe in for a week. You'll be alongside others who have
+          made the same decision you have, and that changes what the group is worth to you.
+        </p>
+        <p>
+          If you'd rather not commit to three months, that's a completely reasonable answer - and a
+          <a href="/coaching">one-time $97 session with me</a> is probably the better place to start.
         </p>
       </details>
       <details class="reveal">
