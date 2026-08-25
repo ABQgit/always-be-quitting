@@ -8,6 +8,16 @@ Running list of **look** problems, collected during the copy phase so the design
 
 ---
 
+## Where the copy phase got to (2026-08-25)
+
+Design starts from here. **Four surfaces had a full copy pass:** the homepage, the footer, `/community`, and `/coaching`. Those are settled enough to design against.
+
+**Three pages have had no copy pass at all** — `/contact`, `/terms`, `/privacy` — and `/free-guide` and `/quick-start` have had only incidental changes. Terms and privacy were ported verbatim on purpose and are not copy problems. But **`/contact` and `/free-guide` have never been reviewed the way the other four were**, so treat any design decision that depends on their content as provisional.
+
+**Not design, but do not let it get lost in the switch:** both checkout links in source are still Stripe **sandbox** links (`PROGRAM_URL` in `coaching.astro`, `JOIN_URL` in `community.astro`). They cannot take real money. The build prints a warning on every run while that's true. See `SETUP.md` → "Going live".
+
+---
+
 ## Open items
 
 ### Homepage
@@ -57,6 +67,26 @@ Sequence is: teal · white · white · alt · white · alt · mist · **teal** �
 - **Band 2 is a heading and nothing else** — an entire section containing one line of text.
 
 - **Four feature rows in a row** alternating white/alt, three with photos and one without. Rhythmic but monotonous.
+
+### /coaching (surveyed 2026-08-25, after the copy pass)
+
+- **The "What to Expect" cards are the reason Jon raised this page.** His words: *"It is just boring to look at… It is supposed to be scannable and it's just not really even worth looking at the way it's done."*
+
+  **The copy half is fixed and shipped** — all eight titles were rewritten to carry claims instead of category labels, because scanning means reading titles and the old ones ("Fluid quit plan", "Advanced mindset focus") returned a taxonomy with every reason to buy buried in the body.
+
+  **The visual half is untouched and still exactly as he described it.** Eight identical white rounded cards, two columns, and the `h3` sits at nearly the same size and weight as the `<p>` beneath it — so the titles now say something but still don't *look* like titles. **Decision needed: how much separation between card heading and card body.** This is the single most-cited complaint on the page.
+
+- **Icons on the cards — open question, and unresearched.** Jon: *"I'm not sure if it needs [icons] at the top, sort of like I have in other places on the live always be quitting site."* ⚠️ **`current-site.md` contains no record of icon usage anywhere** — the live page needs looking at before anyone advises on this.
+
+  **Constraint if they go in:** PRD bans template and stock-component looks. Eight icons pulled from a set (Lucide, Heroicons, etc.) is the fastest possible route to exactly that, and generic icons on abstract concepts tend to carry no meaning. Bespoke marks could work; a grab-bag would actively hurt.
+
+- **Checkmarks were considered and rejected for this grid.** They signal "list of things included", which is why they work in *Pays for Itself*. These cards are heading-plus-explanation, so a check in front of a heading that already has a paragraph under it reads as clutter. Recorded so it isn't re-proposed.
+
+- **Card lengths are uneven and it shows.** Cards 7 and 8 run roughly three times the height of card 1, so the bottom row is visibly deeper than the rest. Copy is not the variable — all eight bodies are Jon's verbatim live-site bullets. Layout or truncation is the lever.
+
+- **`.checks--ink` is dead code in this file.** Defined in `coaching.astro`'s `<style>` with a comment saying it's used in the $97 card; it isn't anymore. Only `/community` uses it. Trivial cleanup, noted so the next reader doesn't trust the comment.
+
+- **Eight cards is a lot, and nothing groups them.** No sub-grouping, no ordering logic a reader can perceive. Whether that matters is a layout call, not a copy one.
 
 ### Site-wide
 
