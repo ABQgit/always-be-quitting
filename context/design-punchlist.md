@@ -60,6 +60,17 @@ Sequence is: teal · white · white · alt · white · alt · mist · **teal** �
 
 ### Site-wide
 
+- **Display type and reading type want different containers (Jon, 2026-08-23).** *"When we have one large line in a section by itself, it looks better to be in a wider column container."* Correct, and worth stating as a rule because it will come up repeatedly: **measure is characters per line, not pixels.** At body size, `--wrap-read` (800px) gives a comfortable ~70 characters. At `display-lg` the same 800px gives ~25–30, which chops a sentence into fragments.
+
+  So the three widths are not a size ladder — they are a *measure* ladder, and which one a section gets depends on its type size, not on how important it feels. A section holding one display-size line has no reading measure to protect and should not sit in the reading container.
+
+  **Still a choice:** whether a lone statement belongs at `--wrap-full` (1320, what the homepage does and what `/coaching` now matches) or wants a fourth token between media and full. Deferred — 1320 is at least *consistent* now, which it wasn't.
+
+  Two sections are unresolved under this rule and were left alone:
+
+  - **`/community` "Just Start."** — at `--wrap-read`. It is a heading plus two paragraphs, not one line, so the rule doesn't cleanly apply; the large paragraph inside it may still be pinched.
+  - **`/community` pricing ticket** — also at `--wrap-read`, and it is a price card rather than prose. Part of the width-pinch item above.
+
 - **Portrait treatment.** `.guide__photo` is a bordered card with a hard gold offset shadow. Inherited from the v1 skin, never revisited.
 
 - **Fonts are loaded from Google.** `Base.astro` notes self-hosting as a pre-launch hardening task.
@@ -69,4 +80,5 @@ Sequence is: teal · white · white · alt · white · alt · mist · **teal** �
 ## Resolved
 
 - ~~6a offer cards had no CSS at all~~ — fixed 2026-08-23. `.offer` had zero rules, so its `h3` fell back to the browser default and read at the same weight as the body text under it. Sized to match `.door h3` since 6a and 6b are parallel sections.
+- ~~`/coaching` stakes line was narrower than the identical line on the homepage~~ — fixed 2026-08-23. The section carried an inline `max-width:820px` that the width collapse mapped to `--wrap-read` (800px), so the same three sentences ran at 800 on `/coaching` and 1320 on `/`. Moved to the default wrap to match. Not a styling call — a mis-assignment introduced by the collapse the same afternoon.
 - ~~Three sections had no vertical padding~~ — fixed 2026-08-23. `.optin-band`, `.offers`, `.stakes`. Values copied from sibling sections rather than chosen.

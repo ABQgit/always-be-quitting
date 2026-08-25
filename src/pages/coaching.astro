@@ -264,9 +264,19 @@ if (PROGRAM_URL.includes('/test_')) {
     </div>
   </section>
 
-  {/* failure stakes close - verbatim, formatting fixed, offer name updated */}
+  {/* failure stakes close - verbatim, formatting fixed, offer name updated
+
+       FULL WIDTH, not wrap--read (Jon, 2026-08-23): "when we have one large
+       line in a section by itself, it looks better to be in a wider column
+       container." Measure is about characters per line, not pixels - at
+       display-lg, 800px yields ~25-30 characters and chops the sentence into
+       fragments, where the same 800px at body size gives a comfortable 70.
+
+       The identical copy already runs at the default wrap on the homepage; this
+       section had an inline 820px that got mapped to the reading width in the
+       2026-08-23 collapse. Same words, two measures. */}
   <section class="band band--mist" style="padding-block: clamp(4rem, 8vw, 6rem); text-align:center">
-    <div class="wrap wrap--read">
+    <div class="wrap">
       <h2 class="display-lg reveal">
         You can continue to spend $1k, $2k, $3k, $4k every year on cigarettes and vapes. You can continue to make
         yourself physically and mentally sick. And next year at this time, you'll wish you had started today.

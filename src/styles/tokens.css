@@ -67,6 +67,11 @@
 
   /* Single-column reading: prose, FAQ answers, testimonials, statements,
      forms, the pricing ticket. Sized for a comfortable measure. */
+  /* Container widths. These are a MEASURE ladder, not a size ladder: pick by the
+     type size a section holds, not by how important it feels. Measure is
+     characters per line, so 800px gives ~70 characters at body size but only
+     ~25-30 at display-lg. A section holding one display-size line has no reading
+     measure to protect and belongs at --wrap-full. (Jon, 2026-08-23) */
   --wrap-read: 800px;
   /* Media-led: a hero with video, or a page built around one video. Merges two
      values that were doing the same job - the heroes were on a hidden
