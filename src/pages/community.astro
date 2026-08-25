@@ -89,7 +89,7 @@ if (JOIN_URL.includes('/test_')) {
         <aside class="ticket reveal">
           <p class="ticket__kicker">Full ABQ Community Membership</p>
           <p class="ticket__price">$97<span>/month · 3 months, $291 paid up front</span></p>
-          <p class="ticket__terms">Three months is a commitment to yourself and to the process of quitting, which takes time.</p>
+          <p class="ticket__terms">Three months is a commitment to yourself and to the process of quitting, which takes time. <a href="#why-three-months">Why three months?</a></p>
           <p class="ticket__then">After that, you can continue at <strong>$37/month</strong> if you wish.</p>
           <a class="btn btn--cta" href={JOIN_URL}>Join the Community</a>
         </aside>
@@ -261,13 +261,22 @@ if (JOIN_URL.includes('/test_')) {
         <p class="ticket__terms">
           Three months is a commitment to yourself and to the process of quitting, which takes time.
         </p>
+        {/* Rewritten 2026-08-23 (Jon). Was "The longer you stay, the cheaper it
+            gets - the opposite of every program that's burned you." That scored
+            a point against competitors instead of explaining the motive. The
+            price drops because Jon wants people to stay as long as they need,
+            and saying so plainly is warmer and more believable. */}
         <p class="ticket__then">
-          After your 3 months, you can continue at <strong>$37/month if you wish</strong> - for as long as you
-          want. The longer you stay, the cheaper it gets - the opposite of every program that's burned you.
+          After your 3 months, you can continue at <strong>$37/month if you wish</strong>. We reduce the price
+          because we want you to stay for as long as you need to - many people need the accountability, and
+          plenty of them simply love the community.
         </p>
+        {/* "No refunds on the $291" removed here (Jon): it reads harsh on a card
+            that is asking someone to join. The refund policy is stated plainly
+            in the subscription/cancellation FAQ, which is where someone worried
+            about it will look. Do not put it back on the ticket. */}
         <p class="ticket__alt">
-          Your commitment to transformation is 3 months. After that, it's up to you whether you continue.
-          No refunds on the $291.
+          Your commitment to transformation is 3 months. After that, it's up to you whether you continue. <a href="#why-three-months">Why three months?</a>
         </p>
         <ul class="checks checks--ink">
           <li>24/7 access to community support</li>
@@ -399,7 +408,7 @@ if (JOIN_URL.includes('/test_')) {
            NO TIMELINE PROMISE. "Quitting is a process that takes time" is the
            approved wording; "because that's how long transformation takes" is
            banned - see PRD rule 3 and community-page-spec. */}
-      <details class="reveal">
+      <details class="reveal" id="why-three-months">
         <summary>Why do you require three months?</summary>
         <p>
           Two reasons. <strong>The first is you.</strong> Quitting is a process that takes time, and the hardest
@@ -424,8 +433,7 @@ if (JOIN_URL.includes('/test_')) {
           <strong>The short answer:</strong> as long as you need. <strong>The realistic answer:</strong> real
           transformation typically takes 3–6 months, especially for longer-term smokers and vapers - that's exactly
           why membership starts with a 3-month commitment. Let's face it: things are going to come up. If you want
-          the best shot at quitting for life, don't focus on quitting the community.
-          <strong>FOCUS ON QUITTING smoking or vaping for life. That is the end game.</strong> After your first
+          the best shot at quitting for life, don't focus on quitting the community. <strong>FOCUS ON QUITTING smoking or vaping for life. That is the end game.</strong> After your first
           3 months, you can continue at just $37/month if you wish - and how long you stay is entirely up to you.
         </p>
       </details>
@@ -437,10 +445,8 @@ if (JOIN_URL.includes('/test_')) {
           don't offer refunds for any reason. This isn't because we don't stand behind what we do - it's because
           transformation requires commitment, and an "easy out" encourages giving up exactly when things get
           challenging. <strong>After 3 months:</strong> your membership ends unless you choose to continue. If you
-          want to stay, it's $37/month for as long as you like - just let me know and I'll send you the link.
-          <strong>What we guarantee:</strong> the
-          delivery of weekly Community Support Calls, ongoing community access, and Jon's guidance.
-          <strong>What we can't guarantee:</strong> that you'll quit. Your success depends on factors under your
+          want to stay, it's $37/month for as long as you like - just let me know and I'll send you the link. <strong>What we guarantee:</strong> the
+          delivery of weekly Community Support Calls, ongoing community access, and Jon's guidance. <strong>What we can't guarantee:</strong> that you'll quit. Your success depends on factors under your
           control - your mindset, decisions, commitment, and how you navigate the challenges. We provide guidance,
           accountability, and support, but we can't execute the process for you. We think you can do this!
         </p>
@@ -530,8 +536,7 @@ if (JOIN_URL.includes('/test_')) {
       <h2 class="display-xl hl">Finally become the non-smoker or non-vaper <em>you dreamed about.</em></h2>
       <p style="margin-top:1.4rem; font-size:1.15rem; color: color-mix(in srgb, var(--white) 85%, transparent)">
         Imagine waking up breathing freely. Not thinking about when you can smoke or vape next. Not hiding it or
-        making excuses. Not spending hundreds every month on something that's hurting you.
-        <strong style="color:var(--white)">That's what transformation looks like. You can do this.</strong>
+        making excuses. Not spending hundreds every month on something that's hurting you. <strong style="color:var(--white)">That's what transformation looks like. You can do this.</strong>
       </p>
       <div class="final__actions reveal">
         <a class="btn btn--cta" href={JOIN_URL}>Join the Community</a>
@@ -540,6 +545,19 @@ if (JOIN_URL.includes('/test_')) {
   </section>
 
   <SiteFooter />
+  {/* Both price cards link to #why-three-months. A <details> is closed by
+      default, so jumping to it would otherwise scroll to a collapsed answer.
+      This opens it on arrival, and on any later in-page click. */}
+  <script is:inline>
+    (function () {
+      function openTarget() {
+        var el = document.getElementById(location.hash.slice(1));
+        if (el && el.tagName === 'DETAILS') el.open = true;
+      }
+      openTarget();
+      window.addEventListener('hashchange', openTarget);
+    })();
+  </script>
 </Base>
 
 <style>
