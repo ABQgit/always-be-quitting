@@ -13,6 +13,10 @@
 - **Lead framing: "$291 for 3 months — $97/month, paid up front."** ONE option. No monthly billing, no one-pay alternative, no "save $41." **Always pair "$97/month" with "paid up front"** — Jon: *"I don't want it to look like they can sub by the month."*
 - **$291 = 3 × $97 deliberately**, to preserve the homepage device ("Either way, you start for $97") where community and the 1:1 session share an entry price. Do not change one without the other.
 - **After 3 months: it ENDS.** Nothing auto-continues; there is nothing to cancel. Members who want to stay opt in to **$37/month**, set up by hand against their saved card, only after an explicit yes. The reward framing survives ("the longer you stay, the cheaper it gets — the opposite of every program that's burned you"); the automatic renewal does not.
+- **"Just Start." is an OBJECTION HANDLER (Jon, 2026-08-23).** Its single job is to combat the belief that smokers and vapers can't afford a programme like this — when they can, because they are already spending the money. Read as a value-prop section it looks flawed; read as objection-handling it is doing exactly what StoryBrand asks, immediately before the ask.
+
+  Consequences: **"insane value" stays** (it is the claim, not hype), **"Just Start." stays as the heading** (it answers "so I'll wait until I can afford it"), and the **small-then-large paragraph weighting stays** (money math sets up "you're already spending the money"). Do not equalise, split, or soften. Considered and rejected 2026-08-23.
+
 - **Testimonials stay SHORTENED here — deliberate (Jon, 2026-08-23).** The homepage carries Katherine, Kait and Ashley at full live-site length; `/community` carries condensed versions of the same three. **This is not an inconsistency to fix.** Two reasons:
 
   1. These are placeholders. As community-member testimonials arrive they replace the 1:1 ones — Jon: *"as i get community testimonials, I will replace them."*
