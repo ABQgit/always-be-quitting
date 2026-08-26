@@ -166,6 +166,23 @@ Measured on the deployed site, not assumed:
 
 **What would create a banner requirement:** Google Analytics, a Facebook pixel, or switching on reCAPTCHA. All three set cookies. Another reason the answer to GA and the pixel is "not yet".
 
+### Bot protection — honeypot only, by decision (Jon, 2026-08-25)
+
+**Launching with the honeypot alone. No CAPTCHA.** The form isn't public yet, so there is no evidence of a spam problem; the honeypot already stops unsophisticated bots. Revisit if real spam appears.
+
+🚩 **If a CAPTCHA is ever needed, use Cloudflare Turnstile, NOT the reCAPTCHA wiring already in the code.** reCAPTCHA sets tracking cookies and in the EU generally requires explicit consent before it loads — adding it would cost the no-banner position documented above, and put a consent gate in front of the contact form. Turnstile sets no tracking cookies, doesn't follow visitors across sites, and is normally run under legitimate interest as a strictly-necessary security function. It needs a free Cloudflare account but **not** Cloudflare DNS — nameservers stay at GoDaddy.
+
+**The reCAPTCHA code stays in place, dormant and harmless:** `/api/contact` skips verification entirely unless `RECAPTCHA_SECRET_KEY` is set.
+
+⚠️ **Footgun if anyone revisits this.** The site key and secret must be set together or not at all:
+
+| State | Result |
+|---|---|
+| Neither set | ✅ verification skipped — current, correct |
+| Both set | ✅ works |
+| `PUBLIC_RECAPTCHA_SITE_KEY` only | widget renders, nothing verifies it — false security |
+| `RECAPTCHA_SECRET_KEY` only | 🚨 **every submission fails with `?error=captcha`** — no token is ever sent, so verification always fails. The contact form goes silently dead. |
+
 **Scope:** GDPR has no size threshold and applies to anyone offering services to people in the EU — the community has international members, so assume in scope. Virginia's VCDPA and California's CCPA have thresholds (100k consumers / $25M revenue) that are not close.
 
 ⚠️ Not legal advice. Health-adjacent services attract more scrutiny; worth a short review by someone qualified before launch.
