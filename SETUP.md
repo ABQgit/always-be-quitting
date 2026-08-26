@@ -168,6 +168,65 @@ A Facebook Pixel would arguably fall under the existing "social media pixels" la
 
 ---
 
+## 🚩 Verifying the domain in Resend — step by step (written 2026-08-25, not yet done)
+
+**Why before the cutover:** today `alwaysbequitting.com` serves systeme.io, which has a working contact page. The moment DNS moves, the Vercel form is the only way anyone reaches Jon. Unverified, it either sends from `onboarding@resend.dev` (rate-limited, usually spam-foldered) or fails outright with `?error=config` if `RESEND_API_KEY` is unset. Both are worse than what exists today.
+
+### Root domain or subdomain?
+
+Resend **recommends a subdomain** (`notifications.alwaysbequitting.com`) to isolate sending reputation. **Use the root domain anyway**, for this site:
+
+- Resend's volume here is tiny and transactional — contact-form notifications and an auto-confirmation. All bulk mail goes through systeme.io, so there is little reputation to isolate.
+- The visitor-facing From address is nicer: `no-reply@alwaysbequitting.com` beats `no-reply@notifications.alwaysbequitting.com`.
+- The code already defaults `CONFIRMATION_FROM` to `no-reply@alwaysbequitting.com`.
+
+If a subdomain is chosen instead, `CONTACT_FROM` **and** `CONFIRMATION_FROM` must both be changed to match, or every send fails.
+
+### 1. Add the domain in Resend
+
+[resend.com/domains](https://resend.com/domains) → **Add Domain** → `alwaysbequitting.com` → pick the region closest to most recipients (US). Leave the Return-Path custom field alone; it defaults to `send.alwaysbequitting.com`.
+
+### 2. Add the DNS records at GoDaddy
+
+Resend's **Records** tab will show a **DKIM `TXT`**, an **SPF `TXT`**, and an **`MX`**. Copy-paste each value exactly.
+
+🚩 **The GoDaddy trap: the Name field is relative, not absolute.** GoDaddy appends the domain automatically. If Resend says the host is `send.alwaysbequitting.com`, enter **`send`** — pasting the full hostname produces `send.alwaysbequitting.com.alwaysbequitting.com` and verification silently never completes.
+
+| Resend shows | Type | GoDaddy **Name** | Notes |
+|---|---|---|---|
+| `resend._domainkey.alwaysbequitting.com` | TXT | `resend._domainkey` | the DKIM public key, a long string |
+| `send.alwaysbequitting.com` | TXT | `send` | SPF for the Return-Path subdomain |
+| `send.alwaysbequitting.com` | MX | `send` | GoDaddy will also ask for **Priority** — use the number Resend shows, normally `10` |
+
+✅ **None of these touch the existing root SPF line.** Resend's SPF lives on the `send` subdomain because that is the Return-Path domain. The root `v=spf1 include:_spf.google.com include:systeme.io ~all` record stays exactly as it is. **Do not add Resend to it.**
+
+### 3. Verify
+
+Usually completes within 15 minutes; DNS can take up to 72 hours. Resend's [dns.email](https://dns.email/) tool checks whether the records are publicly visible. If it stalls past 72 hours, use **Restart verification** in the dashboard — do not add duplicate records.
+
+### 4. Set the Vercel environment variables
+
+⚠️ **Verifying the domain alone changes nothing.** The code falls back to `onboarding@resend.dev` until `CONTACT_FROM` is set. Vercel → project → **Settings → Environment Variables**:
+
+| Variable | Value | Notes |
+|---|---|---|
+| `RESEND_API_KEY` | from the Resend dashboard | check whether it is already set |
+| `CONTACT_FROM` | `ABQ Website <website@alwaysbequitting.com>` | must be on the verified domain |
+| `CONTACT_TO` | `jon@alwaysbequitting.com` | already the default; set it explicitly anyway |
+| `CONFIRMATION_ENABLED` | leave unset for now | see step 6 |
+
+Redeploy afterwards.
+
+### 5. Test the live form before cutting over
+
+Submit the real form on the staging URL and confirm the mail arrives in Jon's inbox — **and check the spam folder**, since that is the symptom of a half-finished setup rather than a broken one.
+
+### 6. Only then switch on the auto-confirmation
+
+🚨 **DMARC is `p=reject`.** The auto-confirmation sends from `no-reply@alwaysbequitting.com`, so until the domain is verified every send **hard bounces** — it is not spam-foldered, it is refused. That is precisely why `CONFIRMATION_ENABLED` defaults to false. Set it to `true` only after step 5 passes, then submit the form once more and confirm the confirmation email actually arrives.
+
+---
+
 ## Contact form → your inbox (Resend)
 
 The contact form (`/contact`) posts to `src/pages/api/contact.ts`, which emails each message to you via [Resend](https://resend.com). Reply-to is set to the visitor's address, so replying goes straight back to them. Spam honeypot + validation are already built in.
