@@ -61,6 +61,16 @@ Consequences:
 2. **Leave the existing SPF line completely alone.** Google and systeme.io keep working, untouched.
 3. Confirm a real send passes DMARC before setting `CONFIRMATION_ENABLED=true`.
 
+### 🚨 Prerequisite: Vercel must be on the Pro plan before launch
+
+**Not because of the custom domain.** Hobby supports 50 domains per project, so the domain is not the issue. The issue is that [Vercel's Hobby plan](https://vercel.com/docs/plans/hobby) *"restricts users to non-commercial, personal use only"*, and this site takes real Stripe payments for a $1,200 program and a $291 membership. That is commercial use.
+
+**Pro is $20 per developer seat / month.** Viewer seats are free.
+
+**The risk of ignoring it is not a bill, it is a pause.** Vercel can suspend a deployment for a fair-use violation, which would take down the marketing site, both live checkout buttons and the contact form at the same time — with no warning tied to the launch date.
+
+Do this **before** repointing DNS, so the domain never lands on a plan that is not allowed to serve it.
+
 ### The cutover to Vercel (M5)
 
 Only two records change. Everything else — MX, SPF, DMARC, and therefore all mail and all newsletters — stays exactly as it is.
