@@ -168,7 +168,21 @@ A Facebook Pixel would arguably fall under the existing "social media pixels" la
 
 ---
 
-## 🚩 Verifying the domain in Resend — step by step (written 2026-08-25, not yet done)
+## ✅ Resend — DONE 2026-08-25. Domain verified, both emails sending.
+
+Verified end to end by live submission: the notification arrives from `website@alwaysbequitting.com`, and the visitor auto-confirmation arrives from `no-reply@alwaysbequitting.com`. `CONFIRMATION_ENABLED` is on.
+
+**Final state:** DKIM at `resend._domainkey`, SPF TXT and MX on `send.`, root SPF untouched. Vercel holds `RESEND_API_KEY`, `CONTACT_FROM` and `CONFIRMATION_ENABLED`.
+
+### What actually went wrong on the way, in order — read this before touching any of it again
+
+1. **Verifying the domain changed nothing on its own.** The form kept sending from `onboarding@resend.dev` because `CONTACT_FROM` was still unset and the code falls back. **Verification and the env var are two separate steps** and it is the second one that switches the sender.
+2. **Setting `CONTACT_FROM` produced `?error=send`** — Resend rejecting a From address on a domain it had not yet marked Verified. The DNS was already correct; Resend simply had not run its check. This error is *progress*, not a fault: it proves the variable reached the function. Once the dashboard showed **Verified**, the same submission returned `?sent=1`.
+3. **`?sent=1` does not prove the confirmation sent.** A failed confirmation is deliberately swallowed (`if (!confirmRes.ok) console.error`) so the visitor never sees an error for mail Jon already received. **The redirect cannot diagnose the confirmation — [resend.com/emails](https://resend.com/emails) can:** one row per submission means the code never attempted it, two rows means it did.
+4. **`CONFIRMATION_ENABLED` is a strict string comparison against `'true'`.** `TRUE`, `True`, `1` and `yes` all read as off, silently.
+5. **Env var changes need a redeploy**, and the Production environment must be ticked — `always-be-quitting.vercel.app` is Production, not Preview.
+
+### Original setup steps, kept for reference
 
 ### ✅ Tested 2026-08-25 — the form already works unverified
 
