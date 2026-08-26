@@ -170,7 +170,21 @@ A Facebook Pixel would arguably fall under the existing "social media pixels" la
 
 ## 🚩 Verifying the domain in Resend — step by step (written 2026-08-25, not yet done)
 
-**Why before the cutover:** today `alwaysbequitting.com` serves systeme.io, which has a working contact page. The moment DNS moves, the Vercel form is the only way anyone reaches Jon. Unverified, it either sends from `onboarding@resend.dev` (rate-limited, usually spam-foldered) or fails outright with `?error=config` if `RESEND_API_KEY` is unset. Both are worse than what exists today.
+### ✅ Tested 2026-08-25 — the form already works unverified
+
+A real submission on staging returned `?sent=1` with the honeypot empty, and **the email arrived in Jon's inbox.** So:
+
+- `RESEND_API_KEY` **is** set in Vercel.
+- The endpoint, honeypot, reCAPTCHA bypass and on-page success message all work.
+- Mail sends from `onboarding@resend.dev` (Resend's shared domain), which delivers because `CONTACT_TO` is the same address as Jon's Resend account.
+
+**This means verification does NOT block the DNS cutover** — the earlier note here said it did, on the assumption the form was broken. It isn't.
+
+**What verification still buys, and why it is worth doing soon rather than never:**
+
+1. **Deliverability that does not depend on a shared domain.** `onboarding@resend.dev` is used by every unverified Resend account, so its reputation is not Jon's to control. A message that arrives today can be filtered tomorrow — and the failure is silent in both directions: the visitor sees "Message sent" and Jon simply never receives it.
+2. **The auto-confirmation cannot be switched on at all until then.** It sends from `no-reply@alwaysbequitting.com`, and under `p=reject` that hard bounces. Visitors currently get the on-page message and no email.
+3. **Sending from the business's own domain** rather than a generic transactional address.
 
 ### Root domain or subdomain?
 
