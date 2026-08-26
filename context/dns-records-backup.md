@@ -18,9 +18,26 @@ Symptoms: inbound mail bounces, newsletters fail authentication, the contact for
 
 ### Nameservers
 ```
-ns09.domaincontrol.com
-ns10.domaincontrol.com
+ns07.domaincontrol.com
+ns08.domaincontrol.com
 ```
+⚠️ **These were `ns09`/`ns10` before the 2026-08-26 incident.** GoDaddy assigned a different pair when the domain was pointed back at their nameservers. Both are GoDaddy; the pair number is not meaningful. Do not "correct" it back.
+
+### systeme.io — discovered 2026-08-26 from the GoDaddy zone, not visible to outside lookups
+| Type | Name | Value | Purpose |
+|---|---|---|---|
+| CNAME | `systemeio1._domainkey` | `key1.systeme.io` | **DKIM** — signs newsletters |
+| CNAME | `systemeio2._domainkey` | `key2.systeme.io` | **DKIM** — second key |
+| CNAME | `si16749013` | `inbound.systeme.io` | systeme.io inbound |
+
+✅ **This resolves an open question.** SETUP.md previously flagged systeme.io's DKIM as unconfirmed. It is configured, which is why newsletters survive `p=reject` — they authenticate via DKIM alignment.
+
+### AWS certificate validation (systeme.io's CloudFront cert)
+| Type | Name | Value |
+|---|---|---|
+| CNAME | `_7bb31decff8f5e438acf0ef3805a3ef7` | `_da5bb8e409b490e99533eecb8d0216b9.jkddzztszm.acm-validations.aws` |
+
+This is what keeps systeme.io's TLS certificate valid for the domain. It is the record to remove **after** the cutover, when systeme.io releases the domain from their distribution.
 
 ### Website (systeme.io — these are what the cutover REPLACES)
 | Type | Name | Value |

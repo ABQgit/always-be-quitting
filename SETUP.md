@@ -26,9 +26,7 @@ This caused real confusion on 2026-08-25 and the wording below is deliberately b
 ### Sender authentication status (checked 2026-08-25)
 
 - ✅ **Google Workspace DKIM is published** at `google._domainkey`. Mail Jon sends from his own inbox passes DMARC via DKIM alignment. This is why `p=reject` has not been causing problems.
-- ❓ **systeme.io DKIM is unconfirmed.** Their selector could not be determined by guessing, and a failed guess proves nothing. **Verify empirically:** open a newsletter systeme.io sent, view original, and look for `dkim=pass` / `dmarc=pass`. The DMARC record already sends aggregate reports to `jon@alwaysbequitting.com`, and those name every sender and its result.
-
-  Why it matters: under `p=reject`, a systeme.io DKIM failure means strict receivers **refuse** the newsletters outright. It would present as poor open rates, not as an error.
+- ✅ **systeme.io DKIM is configured** — confirmed 2026-08-26 from the GoDaddy zone. Two CNAMEs, `systemeio1._domainkey` → `key1.systeme.io` and `systemeio2._domainkey` → `key2.systeme.io`. Outside lookups could not find these because the selector names were unguessable. Newsletters therefore authenticate via DKIM alignment and survive `p=reject`. **Do not delete these when the site moves off systeme.io — they are email, not hosting.**
 - ❌ **Resend is not verified yet.** See the DMARC section below.
 
 ### What is there now
