@@ -71,7 +71,12 @@ export const POST: APIRoute = async ({ request, redirect }) => {
       to: [env('CONTACT_TO') || 'jon@alwaysbequitting.com'],
       reply_to: email,
       subject: `[ABQ Contact] ${reason || 'General'} - ${name}`,
-      text: `From: ${name} <${email}>\nReason for contact: ${reason || '(not specified)'}\n\n${message}`,
+      // Body labels are "Name:" and "Email:", NOT "From:" (changed 2026-08-25).
+      // The body used to open with "From: <name> <email>", which sits exactly
+      // where a mail header would and reads as the sender. It caused a real
+      // misread while testing Resend verification - the visitor's address was
+      // taken for the sending address. Do not reintroduce "From:" here.
+      text: `Name: ${name}\nEmail: ${email}\nReason for contact: ${reason || '(not specified)'}\n\n${message}`,
     }),
   });
 
