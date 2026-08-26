@@ -36,7 +36,18 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
   {/* 1b · Quick-Start Guide opt-in - its own section directly below the hero,
        per the live site. Moved out of the hero 2026-08-14. Band treatment TBD
        in the design phase (live site uses a sage field here). */}
-  <section class="band band--paper optin-band">
+  {/* 🚨 id="sub_ABQtips" IS LOAD-BEARING - DO NOT RENAME OR REMOVE IT.
+
+       Every description on Jon's YouTube channel (~50 videos) links to
+       https://www.alwaysbequitting.com/#sub_ABQtips, carried over from the
+       systeme.io site. Those descriptions are the channel's only route to the
+       list, and editing 50 of them is not a realistic fix.
+
+       A fragment is never sent to the server, so this CANNOT be handled by a
+       redirect the way the old page URLs were. The anchor has to physically
+       exist in the homepage markup or the link silently lands at the top of
+       the page instead of the form. Verified present in the build. */}
+  <section id="sub_ABQtips" class="band band--paper optin-band" style="scroll-margin-top: 90px">
     <div class="wrap">
       <OptInForm returnTo="/" />
     </div>
