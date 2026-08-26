@@ -150,6 +150,26 @@ Verification is proof of domain ownership, not of hosting, so it survives the mo
 
 🚨 **And weigh this even when ads do start.** A pixel here transmits to Meta that a specific person visited a smoking-and-vaping-cessation site. That is an inference about a health behaviour, and health-adjacent pixel data has been the subject of regulatory action and litigation against other operators. It is a heavier decision than a pixel on a shop, and it belongs with Jon and, if it goes ahead, someone qualified — not a default install.
 
+### Cookie banner / GDPR — not needed today (audited 2026-08-25)
+
+Measured on the deployed site, not assumed:
+
+| | Result |
+|---|---|
+| Cookies set | **none** |
+| `localStorage` / `sessionStorage` | **empty** |
+| Third-party requests | **one** — `fonts.googleapis.com` |
+
+**No consent banner is required.** The ePrivacy trigger is storing or accessing information on the visitor's device, and nothing here does. Vercel Analytics is genuinely cookieless — confirmed, not merely claimed. **Vercel does not offer a consent-banner product**; those are separate services (Cookiebot, Osano, CookieYes) if one is ever needed.
+
+🚩 **The one real exposure is Google Fonts, and a banner would not fix it.** Loading from `fonts.googleapis.com` transmits every visitor's IP to Google. IP is personal data under GDPR and a Munich court found this unlawful without consent in 2022. It is a data-transfer issue, not a cookie issue. **Self-hosting removes it entirely** — already on the punchlist for performance, now with a stronger reason.
+
+**What would create a banner requirement:** Google Analytics, a Facebook pixel, or switching on reCAPTCHA. All three set cookies. Another reason the answer to GA and the pixel is "not yet".
+
+**Scope:** GDPR has no size threshold and applies to anyone offering services to people in the EU — the community has international members, so assume in scope. Virginia's VCDPA and California's CCPA have thresholds (100k consumers / $25M revenue) that are not close.
+
+⚠️ Not legal advice. Health-adjacent services attract more scrutiny; worth a short review by someone qualified before launch.
+
 ### What the privacy policy already says (checked 2026-08-25 — NOT edited)
 
 The ported policy is **broader than what the site actually does**, so Vercel Analytics needs no change to it. Verbatim from `privacy.astro`:
