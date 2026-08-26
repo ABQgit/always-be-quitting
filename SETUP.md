@@ -8,7 +8,28 @@ Practical, non-code steps to make the site's live features work. Code is already
 
 ## DNS, domain and email (surveyed 2026-08-25)
 
-**The split Jon wants, and it is what is already built:** systeme.io keeps the list, the CRM and all newsletters. Vercel serves the website. The contact form runs on Vercel and emails Jon via Resend. Nothing about the DNS move disturbs the systeme.io side, because email and web hosting are separate records.
+**The split Jon wants, and it is what is already built:** systeme.io keeps the list, the CRM and all newsletters. Vercel serves the website. Signup forms live on the Vercel site and write into systeme.io over their API (`/api/subscribe`). The contact form runs on Vercel and emails Jon via Resend.
+
+### 🚨 Read this before worrying about the cutover: email and web hosting are separate
+
+This caused real confusion on 2026-08-25 and the wording below is deliberately blunt.
+
+| | Governed by | Changes at cutover? |
+|---|---|---|
+| **Newsletters, and emailing clients** | `MX`, `SPF`, `DKIM`, `DMARC` | **No. Nothing. Untouched.** |
+| **Web pages** | `A`, `CNAME` | Yes — these two records, and only these |
+
+**Newsletters do NOT need a subdomain and require no action at cutover.** systeme.io can send as `@alwaysbequitting.com` because the SPF record authorises them, and that authorisation has nothing to do with where the domain serves web pages. The site could move to Vercel this afternoon and the next newsletter would go out unchanged.
+
+**The subdomain warning further down applies only to web PAGES that systeme.io serves** — a funnel, an order form, a members area. Those are `A`/`CNAME` things and they break when the apex moves. If none exist, there is nothing to do.
+
+### Sender authentication status (checked 2026-08-25)
+
+- ✅ **Google Workspace DKIM is published** at `google._domainkey`. Mail Jon sends from his own inbox passes DMARC via DKIM alignment. This is why `p=reject` has not been causing problems.
+- ❓ **systeme.io DKIM is unconfirmed.** Their selector could not be determined by guessing, and a failed guess proves nothing. **Verify empirically:** open a newsletter systeme.io sent, view original, and look for `dkim=pass` / `dmarc=pass`. The DMARC record already sends aggregate reports to `jon@alwaysbequitting.com`, and those name every sender and its result.
+
+  Why it matters: under `p=reject`, a systeme.io DKIM failure means strict receivers **refuse** the newsletters outright. It would present as poor open rates, not as an error.
+- ❌ **Resend is not verified yet.** See the DMARC section below.
 
 ### What is there now
 
