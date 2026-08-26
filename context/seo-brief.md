@@ -46,7 +46,7 @@ What is realistically winnable is **long-tail intent**: the specific questions t
 
 ## Assets that exist but are not being used for search
 
-- **A YouTube channel, roughly 50 videos** on withdrawal, cravings, relapse and mindset. Referenced in the contact auto-confirmation. Not surfaced on the site — Jon: *"they aren't going to buy anything on youtube."* That reasoning was about outbound links, and does not settle whether the content itself could work on-site.
+- **A YouTube channel, roughly 50 videos** — **`https://www.youtube.com/@AlwaysBeQuitting`** (confirmed by Jon, 2026-08-26; recorded here because it is needed for the JSON-LD `sameAs` entity link and was not written down anywhere in the repo) — on withdrawal, cravings, relapse and mindset. Referenced in the contact auto-confirmation. Not surfaced on the site — Jon: *"they aren't going to buy anything on youtube."* That reasoning was about outbound links, and does not settle whether the content itself could work on-site.
 - **Two full podcast episodes** with hosted audio and detailed show notes — Katherine on quitting vaping slowly, Kait on smoking within addiction recovery. Both interview women whose testimonials appear on the site. **The rebuild has no podcast**, so both are being 301'd to `/coaching`. ⚠️ Article-to-sales-page redirects are often treated as soft 404s, so this content may lose its rankings entirely. If Search Console shows that happening, rebuilding a minimal `/podcast` is worth reconsidering.
 - **Katherine's and Kait's long-form testimonials**, already on the site.
 

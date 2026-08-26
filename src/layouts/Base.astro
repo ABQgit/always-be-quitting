@@ -32,6 +32,21 @@ const ogImageUrl = new URL(ogImage || '/img/og-default.png', Astro.site);
 // is emitted. See SETUP.md -> "Search Console".
 const googleVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
 
+// Bing Webmaster Tools verification (2026-08-26). Bing matters for a reason
+// that has nothing to do with Bing's own traffic: ChatGPT's search leans on
+// Bing's index, so being absent from Bing means being ineligible for citation
+// in the assistant a large share of people now ask first.
+//
+// PREFERRED ROUTE IS NOT THIS TAG. Bing can import the already-verified
+// property straight from Google Search Console, which needs no code at all.
+// This exists as the documented fallback, and it CANNOT verify until the
+// Vercel cutover: Bing checks the raw HTML at alwaysbequitting.com, which
+// still serves systeme.io today. See SETUP.md -> "Bing Webmaster Tools".
+//
+// Set PUBLIC_BING_SITE_VERIFICATION in Vercel to switch it on; unset,
+// nothing is emitted.
+const bingVerification = import.meta.env.PUBLIC_BING_SITE_VERIFICATION;
+
 // Structured data (schema.org). Invisible to visitors - it tells search engines
 // and AI crawlers who Jon is and what he offers in a machine-readable form.
 // Added 2026-08-23 (Jon) INSTEAD of visible keyword text, which Google's spam
@@ -110,6 +125,10 @@ const schema = {
 
     {googleVerification && (
       <meta name="google-site-verification" content={googleVerification} />
+    )}
+
+    {bingVerification && (
+      <meta name="msvalidate.01" content={bingVerification} />
     )}
 
     {/* Open Graph / Twitter. Emitted on indexable pages only - a noindex page
