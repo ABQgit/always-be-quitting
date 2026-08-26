@@ -108,7 +108,22 @@ Per-page art is supported: pass `ogImage="/img/og-community.png"` to `Base`. Not
 
 ⚠️ **`public/img/og-default.png` is a functional placeholder, not designed work.** Teal field, Jon's headshot in a circle, no type — because the site's real fonts (Source Serif 4, Public Sans) were not available to render into an image, and inventing typography would have broken the copy-phase rule. It works because every platform renders `og:title` and `og:description` as text beneath the image. Logged on the design punchlist.
 
-### ⏳ Google Search Console — needs Jon, and nothing useful happens before it
+### ✅ Google Search Console — domain verified 2026-08-25, sitemap still pending
+
+**DNS verification record is live** and confirmed in an uncached lookup:
+
+```
+google-site-verification=bjb0k6gBFZo4R4ypH6p118h2Fh-sp6rQCZrbMSB3Y4w
+v=spf1 include:_spf.google.com include:systeme.io ~all
+```
+
+Two separate TXT records at `@`, exactly one `v=spf1` — the SPF line was not disturbed, so Google and systeme.io mail authentication is intact.
+
+⏳ **Still to do: submit `sitemap-index.xml` AFTER the Vercel cutover.** It does not exist on the systeme.io site currently serving the domain.
+
+*Original instructions kept below for reference.*
+
+### Google Search Console — setup steps (completed, kept for reference)
 
 **This is the gap that blocks all SEO work.** Vercel Analytics shows what people do once they arrive; only Search Console shows **which queries put you in front of them, at what position, and what got clicked.** Without it, any SEO effort is guesswork.
 
