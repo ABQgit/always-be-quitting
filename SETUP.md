@@ -6,6 +6,57 @@ Practical, non-code steps to make the site's live features work. Code is already
 
 ---
 
+## DNS, domain and email (surveyed 2026-08-25)
+
+**The split Jon wants, and it is what is already built:** systeme.io keeps the list, the CRM and all newsletters. Vercel serves the website. The contact form runs on Vercel and emails Jon via Resend. Nothing about the DNS move disturbs the systeme.io side, because email and web hosting are separate records.
+
+### What is there now
+
+| Record | Value | Who that is |
+|---|---|---|
+| **NS** | `ns09.domaincontrol.com`, `ns10.domaincontrol.com` | **GoDaddy** — DNS is hosted there and Jon controls it |
+| **A** (apex) | `3.33.251.168`, `15.197.225.128` | AWS anycast |
+| **CNAME** (`www`) | `dgtb6mhv7ir6.cloudfront.net` | **AWS CloudFront** — systeme.io sits behind it |
+| **MX** | `aspmx.l.google.com` + 4 alts | Google Workspace |
+| **TXT** (SPF) | `v=spf1 include:_spf.google.com include:systeme.io ~all` | Google and systeme.io may send as the domain |
+| **TXT** (`_dmarc`) | `v=DMARC1; p=reject; pct=100; rua=mailto:jon@…` | 🚨 see below |
+
+**It is CloudFront, not Cloudflare.** Easy to mix up, and the distinction matters: systeme.io does not hold the nameservers, so Jon can repoint the site himself.
+
+**Why systeme.io had to be contacted to set the domain up originally:** pointing a custom domain at them is not only a DNS change. Their CloudFront distribution has to be told the hostname belongs to it and a TLS certificate issued on their side. Neither is doable from GoDaddy. It was never about who owns DNS.
+
+### 🚨 DMARC is `p=reject`. This is the constraint everything else bends around.
+
+Not `none`, not `quarantine` — **reject**. Any mail claiming to be from `@alwaysbequitting.com` that fails DMARC alignment is **refused by the receiving server**, not sent to spam. It vanishes, and the sender gets a bounce.
+
+Consequences:
+
+- **`no-reply@alwaysbequitting.com` cannot send through Resend until the domain is verified there.** This is exactly why `CONFIRMATION_ENABLED` defaults to false. Do not switch it on early — every submission would generate a hard bounce.
+- The main notification email is safe: it goes **to** Jon, `from` whatever `CONTACT_FROM` is set to, with `reply_to` set to the visitor. It never claims to be from the visitor's domain, which would fail their DMARC.
+
+**Correction to earlier advice in this project:** it was said that Resend has to be merged into the existing SPF record, and that a second `v=spf1` line would break Google and systeme.io. The second half is true — **a domain may only ever have one SPF record.** The first half is not. **DMARC passes on SPF alignment *or* DKIM alignment, so adding Resend's DKIM record is sufficient on its own.** The safest path is therefore:
+
+1. Verify `alwaysbequitting.com` in Resend and add **only the DKIM record** it gives you.
+2. **Leave the existing SPF line completely alone.** Google and systeme.io keep working, untouched.
+3. Confirm a real send passes DMARC before setting `CONFIRMATION_ENABLED=true`.
+
+### The cutover to Vercel (M5)
+
+Only two records change. Everything else — MX, SPF, DMARC, and therefore all mail and all newsletters — stays exactly as it is.
+
+1. In Vercel, add `alwaysbequitting.com` and `www.alwaysbequitting.com` to the project. **Use the exact A and CNAME values Vercel shows you** — they publish current values in the dashboard and they have changed over time, so never paste an IP from memory or from an old guide.
+2. Change those two records at GoDaddy. Vercel issues its own TLS certificate automatically; no ticket to anyone.
+3. Afterwards, ask systeme.io to **release the domain from their CloudFront distribution**, so a stale certificate or cached mapping cannot cause intermittent oddities.
+4. Put the 301s in place for the old paths (`/terms-and-conditions` → `/terms`, `/privacy-policy` → `/privacy`) **before** cutting over — those URLs appear on every Stripe receipt already sent.
+
+⚠️ **If anything is still hosted ON systeme.io** — a funnel, an order form, a members area — it dies the moment the apex moves. Give each one a subdomain (`go.alwaysbequitting.com`) pointed at systeme.io *before* the cutover, not after. Audit this first; the $97 landing page is already on Vercel, so it may be nothing.
+
+### Known gap, not yet decided
+
+**The contact form does not create a systeme.io contact.** `/api/subscribe` creates and tags contacts; `/api/contact` only emails Jon. So somebody who fills in the contact form is in his inbox but not in his CRM, and cannot be mailed later. If systeme.io is the CRM of record, that is probably wrong — but adding people who wrote in to a marketing list has consent implications, so it is Jon's call, not a bug to quietly fix.
+
+---
+
 ## Contact form → your inbox (Resend)
 
 The contact form (`/contact`) posts to `src/pages/api/contact.ts`, which emails each message to you via [Resend](https://resend.com). Reply-to is set to the visitor's address, so replying goes straight back to them. Spam honeypot + validation are already built in.
