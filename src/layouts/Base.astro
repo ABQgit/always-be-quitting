@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Analytics from '@vercel/analytics/astro';
 
 interface Props {
   title: string;
@@ -7,9 +8,29 @@ interface Props {
   /** Keep the page out of search results. For unlisted pages that are reached
    *  by a direct link only (e.g. /quick-start, the guide delivery page). */
   noindex?: boolean;
+  /** Social share image, root-relative (e.g. "/img/og-community.png").
+   *  Falls back to the site-wide card. 1200x630 is the expected size. */
+  ogImage?: string;
 }
 
-const { title, description, noindex = false } = Astro.props;
+const { title, description, noindex = false, ogImage } = Astro.props;
+
+// Social share cards (2026-08-25). Before this the site emitted NO og: or
+// twitter: tags at all, so every link shared to Facebook, LinkedIn, iMessage,
+// WhatsApp or Slack rendered as a bare URL - no title, no description, no
+// image. That is free traffic thrown away on the channel where Jon's audience
+// actually passes links to each other.
+//
+// Absolute URLs are required: relative paths are not resolved by scrapers.
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImageUrl = new URL(ogImage || '/img/og-default.png', Astro.site);
+
+// Google Search Console verification. DNS TXT at GoDaddy is the better route -
+// it verifies the whole domain including subdomains and survives a host change
+// - so this meta tag exists only as the fallback for when DNS is awkward.
+// Set PUBLIC_GOOGLE_SITE_VERIFICATION in Vercel to switch it on; unset, nothing
+// is emitted. See SETUP.md -> "Search Console".
+const googleVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
 
 // Structured data (schema.org). Invisible to visitors - it tells search engines
 // and AI crawlers who Jon is and what he offers in a machine-readable form.
@@ -85,7 +106,31 @@ const schema = {
     <title>{title}</title>
     <meta name="description" content={description} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
-    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <link rel="canonical" href={canonical} />
+
+    {googleVerification && (
+      <meta name="google-site-verification" content={googleVerification} />
+    )}
+
+    {/* Open Graph / Twitter. Emitted on indexable pages only - a noindex page
+        is reached by direct link and has nothing to advertise. */}
+    {!noindex && (
+      <>
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Always Be Quitting" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:image" content={ogImageUrl} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:locale" content="en_US" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={ogImageUrl} />
+      </>
+    )}
     {!noindex && (
       <script
         type="application/ld+json"
@@ -103,5 +148,16 @@ const schema = {
   </head>
   <body>
     <slot />
+    {/* Vercel Web Analytics (2026-08-25). The site had no analytics of any
+        kind, so there was no way to see what pages people actually reach.
+
+        DELIBERATELY THIS AND NOT GOOGLE ANALYTICS: it is cookieless and stores
+        no personal identifiers, so it does NOT require a consent banner, and
+        it adds nothing to the privacy policy's disclosure burden. GA4 sets
+        cookies and would drag both of those in behind it.
+
+        Requires Web Analytics to be switched ON in the Vercel dashboard
+        (Project -> Analytics). Until then the script 404s harmlessly. */}
+    <Analytics />
   </body>
 </html>

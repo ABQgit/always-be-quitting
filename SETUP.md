@@ -88,6 +88,64 @@ Only two records change. Everything else — MX, SPF, DMARC, and therefore all m
 
 ---
 
+## Analytics, Search Console and social cards (built 2026-08-25)
+
+Before this the site had **no analytics of any kind, no Search Console, and no Open Graph tags.** Three things went in; one still needs Jon.
+
+### ✅ Vercel Web Analytics — built, needs switching on
+
+`@vercel/analytics` renders from `Base.astro`, so it covers every page.
+
+**Chosen over Google Analytics deliberately.** It is cookieless and stores no personal identifiers, so it needs **no consent banner** and adds nothing to the privacy policy's disclosure burden. GA4 sets cookies and drags both of those in behind it.
+
+👉 **Jon:** turn it on at **Vercel → the project → Analytics → Enable.** Until then the script 404s harmlessly and collects nothing.
+
+### ✅ Open Graph / Twitter cards — built and shipping
+
+Every indexable page emits `og:title`, `og:description`, `og:url`, `og:image` (1200×630 absolute URL), `og:site_name`, `og:locale` and a `summary_large_image` Twitter card. `noindex` pages deliberately emit none — they are reached by direct link and have nothing to advertise.
+
+Per-page art is supported: pass `ogImage="/img/og-community.png"` to `Base`. Nothing does yet; everything falls back to the site card.
+
+⚠️ **`public/img/og-default.png` is a functional placeholder, not designed work.** Teal field, Jon's headshot in a circle, no type — because the site's real fonts (Source Serif 4, Public Sans) were not available to render into an image, and inventing typography would have broken the copy-phase rule. It works because every platform renders `og:title` and `og:description` as text beneath the image. Logged on the design punchlist.
+
+### ⏳ Google Search Console — needs Jon, and nothing useful happens before it
+
+**This is the gap that blocks all SEO work.** Vercel Analytics shows what people do once they arrive; only Search Console shows **which queries put you in front of them, at what position, and what got clicked.** Without it, any SEO effort is guesswork.
+
+**Preferred route — DNS TXT at GoDaddy.** Verifies the whole domain including subdomains, and survives a hosting change:
+
+1. [search.google.com/search-console](https://search.google.com/search-console) → Add property → **Domain** → `alwaysbequitting.com`
+2. Add the `TXT` record it gives you at GoDaddy. ⚠️ It is a **separate** TXT record — do **not** touch the existing SPF line.
+3. Verify, then submit `https://www.alwaysbequitting.com/sitemap-index.xml`.
+
+**Fallback — meta tag.** If DNS is awkward, set `PUBLIC_GOOGLE_SITE_VERIFICATION` in Vercel to the token and `Base.astro` emits the meta tag. Unset, nothing is emitted. This only verifies the URL prefix, not the domain.
+
+### Google Analytics and Facebook Pixel — recommendation: neither, for now
+
+**GA4:** Vercel Analytics plus Search Console already answers what Jon needs — where visitors come from, what they read, what they searched. GA4 adds depth he has no use for yet, and brings cookie consent with it. If an old GA tag exists on the systeme.io site it dies at cutover; nothing is lost.
+
+**Facebook Pixel: do not add it unless and until real ad spend starts.** With no ads running it is pure cost — consent obligations and privacy exposure for zero benefit.
+
+🚨 **And weigh this even when ads do start.** A pixel here transmits to Meta that a specific person visited a smoking-and-vaping-cessation site. That is an inference about a health behaviour, and health-adjacent pixel data has been the subject of regulatory action and litigation against other operators. It is a heavier decision than a pixel on a shop, and it belongs with Jon and, if it goes ahead, someone qualified — not a default install.
+
+### What the privacy policy already says (checked 2026-08-25 — NOT edited)
+
+The ported policy is **broader than what the site actually does**, so Vercel Analytics needs no change to it. Verbatim from `privacy.astro`:
+
+- *"we may use automatic data collection technologies **including Google Analytics** to collect certain information about your equipment, browsing actions, and patterns"*
+- *"**USE OF COOKIES AND PIXELS** … our Services utilize a standard technology called 'cookies' and server logs"*
+- *"We reserve the right to use technological equivalents of cookies, **including social media pixels**"*
+- *"**THIRD PARTY USE OF COOKIES** … These third parties may use cookies alone or in conjunction with web beacons or other tracking technologies"*
+
+Two consequences:
+
+1. **Vercel Analytics requires no policy change.** It is cookieless and less invasive than what is already disclosed.
+2. 🚩 **The policy names Google Analytics, and the rebuilt site does not use it.** That is a factual inaccuracy pointing the wrong way — claiming collection that does not happen. Worth correcting, **but legal text is never edited on a judgment call** (see `CLAUDE.md`). Surfaced for Jon to decide, ideally with whoever drafted it.
+
+A Facebook Pixel would arguably fall under the existing "social media pixels" language, but *arguably* is not a standard to launch on — confirm rather than assume.
+
+---
+
 ## Contact form → your inbox (Resend)
 
 The contact form (`/contact`) posts to `src/pages/api/contact.ts`, which emails each message to you via [Resend](https://resend.com). Reply-to is set to the visitor's address, so replying goes straight back to them. Spam honeypot + validation are already built in.

@@ -107,6 +107,10 @@ Sequence is: teal · white · white · alt · white · alt · mist · **teal** �
   - **`/community` "Just Start."** — at `--wrap-read`. It is a heading plus two paragraphs, not one line, so the rule doesn't cleanly apply; the large paragraph inside it may still be pinched.
   - **`/community` pricing ticket** — also at `--wrap-read`, and it is a price card rather than prose. Part of the width-pinch item above.
 
+- **The social share card is a placeholder (2026-08-25).** `public/img/og-default.png` — 1200×630, flat teal, Jon's headshot in a circle with a mist ring, **no typography at all**. It was generated rather than designed: the site's real fonts (Source Serif 4, Public Sans) weren't available to render into an image, and inventing substitute typography would have been a styling call during the copy phase.
+
+  It is genuinely serviceable — every platform renders `og:title` and `og:description` as text beneath the image, so the card doesn't have to carry words. But this is the image that represents the whole business every time anyone shares a link, so it deserves real attention. **Per-page cards are already supported**: pass `ogImage="/img/og-community.png"` to `Base`.
+
 - **Portrait treatment.** `.guide__photo` is a bordered card with a hard gold offset shadow. Inherited from the v1 skin, never revisited.
 
 - **Fonts are loaded from Google.** `Base.astro` notes self-hosting as a pre-launch hardening task.
