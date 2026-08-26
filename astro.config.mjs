@@ -43,7 +43,13 @@ export default defineConfig({
     '/community-8-25': { status: 301, destination: '/community' },
     '/opt-in': { status: 301, destination: '/free-guide' },
     '/4-critical-mistakes-01': { status: 301, destination: '/free-guide' },
-    '/quick-start-video-landing': { status: 301, destination: '/free-guide' },
+    // -> /quick-start, NOT /free-guide (corrected 2026-08-26). Jon: this is the
+    // link in the lead-magnet email, clicked by people who ALREADY opted in, and
+    // it serves the video they requested. Sending them to the opt-in form would
+    // ask them to sign up for something they already have. The original mapping
+    // to /free-guide was a guess made without knowing how the URL was used.
+    // The live email still carries this URL, so the redirect matters.
+    '/quick-start-video-landing': { status: 301, destination: '/quick-start' },
 
     // Podcast. The rebuild has no podcast section - it was removed on purpose -
     // but two real episodes exist on the old site with hosted audio and full
