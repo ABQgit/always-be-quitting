@@ -81,5 +81,28 @@ export default defineConfig({
   ],
   vite: {
     plugins: [tailwindcss()],
+    build: {
+      // 🚨 esbuild, NOT the default lightningcss. DO NOT REVERT WITHOUT READING.
+      //
+      // lightningcss folds `animation-timeline: view()` into the `animation`
+      // shorthand:
+      //     source:  animation: abq-rise 1ms linear both;
+      //              animation-timeline: view();
+      //     output:  animation: 1ms linear both abq-rise view();
+      //
+      // The `animation` shorthand does not accept a timeline value - it RESETS
+      // animation-timeline to auto. Browsers therefore reject the whole
+      // declaration, and the animation never runs.
+      //
+      // Effect in production, silently, since launch: the gold sweep underline
+      // on the homepage ("transformation is.") never drew, and every .reveal
+      // scroll animation on every page was dead. Localhost was fine because dev
+      // does not minify, which is exactly why it went unnoticed - and why Jon
+      // found it only when he first compared localhost to a deployment.
+      //
+      // If CSS minification is ever reconfigured, re-check the built output for
+      // `animation-timeline` surviving as its own declaration.
+      cssMinify: 'esbuild',
+    },
   },
 });

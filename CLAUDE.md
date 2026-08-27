@@ -56,6 +56,20 @@ renders as **"and you canbook it here"**. Four instances shipped before this was
 grep -oE '[a-z]<(a|strong|em|b|span)\b[^>]*>[A-Za-z]' dist/client/**/index.html
 ```
 
+## Dev and prod can differ — check the BUILT css (added 2026-08-26)
+
+Found when Jon compared localhost to a branch preview: the gold sweep underline on the homepage was missing in production, and so was every `.reveal` scroll animation on every page. Dev was fine. **It had been broken on the live site since launch and nothing errored.**
+
+Cause: lightningcss (Vite's default CSS minifier) folds `animation-timeline: view()` into the `animation` shorthand, producing `animation: 1ms linear both abq-rise view()`. The shorthand does not accept a timeline value — it *resets* `animation-timeline` — so browsers drop the whole declaration.
+
+Fixed by `build.cssMinify: 'esbuild'` in `astro.config.mjs`. **Do not revert that without reading the comment there.**
+
+The general rule: `npm run dev` does not minify, so anything the minifier mangles is invisible locally. For scroll-driven animations, `@supports`, `color-mix`, `:has()` and other newer CSS, verify against `dist/client/_astro/*.css`, not the source:
+
+```bash
+grep -o 'animation-timeline' dist/client/_astro/*.css   # must be > 0
+```
+
 ## Non-negotiable rules
 
 - Every page converts to email list join or purchase; no off-domain links except checkout
