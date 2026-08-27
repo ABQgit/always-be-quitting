@@ -299,7 +299,11 @@ if (JOIN_URL.includes('/test_')) {
         <p class="ticket__alt">
           Your commitment to transformation is 3 months. After that, it's up to you whether you continue. <a href="#why-three-months">Why three months?</a>
         </p>
-        <ul class="checks checks--ink">
+        {/* checks--ink removed 2026-08-26: it was only ever DEFINED in
+            coaching.astro's scoped style block, so Astro scoping meant it
+            could never apply here. Harmless - this page's own .checks already
+            renders dark text with teal ticks on a white band. */}
+        <ul class="checks">
           <li>24/7 access to community support</li>
           <li>Community Support Calls - usually one a week, schedule published at the start of each month</li>
           <li>Access to call recordings + ability to ask questions beforehand</li>
@@ -645,20 +649,6 @@ if (JOIN_URL.includes('/test_')) {
       grid-template-columns: 3fr 2fr;
     }
   }
-  .video {
-    aspect-ratio: 16/9;
-    border: 2px solid var(--ink);
-    border-radius: 14px;
-    background: repeating-linear-gradient(45deg, var(--alt), var(--alt) 10px, var(--white) 10px, var(--white) 20px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--soft);
-    font-size: 0.95rem;
-    padding: 1rem;
-    text-align: center;
-    box-shadow: 12px 12px 0 color-mix(in srgb, var(--white) 22%, transparent);
-  }
   .ticket {
     background: var(--white);
     color: var(--ink);
@@ -769,19 +759,6 @@ if (JOIN_URL.includes('/test_')) {
     border-bottom: 1px solid var(--line);
     padding-block: 1rem;
     margin-block: 0 1.2rem;
-  }
-  .row-split__icon {
-    width: 132px;
-    height: 132px;
-    margin-inline: auto;
-    border-radius: 50%;
-    background: var(--mist);
-    color: var(--teal);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid var(--ink);
-    box-shadow: 8px 8px 0 color-mix(in srgb, var(--teal) 25%, transparent);
   }
   .row-split__icon svg {
     width: 64px;

@@ -539,22 +539,6 @@ if (PROGRAM_URL.includes('/test_')) {
 </Base>
 
 <style>
-  .video {
-    max-width: 720px;
-    margin-inline: auto;
-    aspect-ratio: 16/9;
-    border: 2px solid var(--ink);
-    border-radius: 14px;
-    background: repeating-linear-gradient(45deg, var(--alt), var(--alt) 10px, var(--white) 10px, var(--white) 20px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--soft);
-    font-size: 0.95rem;
-    padding: 1rem;
-    text-align: center;
-    box-shadow: 12px 12px 0 color-mix(in srgb, var(--teal) 30%, transparent);
-  }
   .pitch p {
     font-size: 1.15rem;
     line-height: 1.65;
@@ -584,13 +568,6 @@ if (PROGRAM_URL.includes('/test_')) {
   }
   /* Same device on a LIGHT band - the base .checks is white-on-teal and would
      be invisible here. Used in the $97 card. */
-  .checks--ink li {
-    color: var(--soft);
-    font-size: 1rem;
-  }
-  .checks--ink li::before {
-    color: var(--teal);
-  }
   .pay-for-itself {
     text-align: center;
     max-width: 26ch;

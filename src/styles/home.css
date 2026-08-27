@@ -350,11 +350,6 @@
   position: relative;
   max-width: var(--wrap-media, 1000px);
 }
-.hero__sub {
-  font-size: clamp(1.15rem, 2vw, 1.4rem);
-  color: var(--soft);
-  margin: 1.4rem 0 2.4rem;
-}
 .optin {
   max-width: 640px;
   margin-inline: 0;
@@ -387,12 +382,6 @@
   border-radius: 10px;
   padding: 0.95rem 1rem;
   font: 500 1rem/1 var(--font-body);
-}
-.trust {
-  margin-top: 1.6rem;
-  font-size: 0.85rem;
-  letter-spacing: 0.04em;
-  color: var(--soft);
 }
 
 /* ---------- 2 · recognition ---------- */
