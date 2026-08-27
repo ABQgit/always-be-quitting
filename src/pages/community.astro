@@ -879,6 +879,19 @@ if (JOIN_URL.includes('/test_')) {
   }
   .option h3 {
     font-family: var(--font-display);
+    /* DELIBERATELY --text-lg (26px), NOT the --text-xl (32px) used by every
+       other card heading. Do not "make it consistent" without reading this.
+
+       The 32px change elsewhere solved one specific problem: a heading sitting
+       directly above body copy, too close in size to read as a heading. THAT
+       PROBLEM DOES NOT EXIST HERE. These h3s live inside a collapsed
+       <summary>; there is no adjacent body text to separate from, and the
+       3.2rem A/B/C/D badge already supplies the hierarchy.
+
+       The cost would also be real. These headlines run 42-60 characters. At
+       32px in the ~590px grid column the longest wraps to three lines, making
+       every card taller - which undoes the reason the section was collapsed
+       (Jon: "now the page scroll is more reasonable on a phone"). */
     font-size: var(--text-lg);
     margin: 0 0 0.6rem;
   }

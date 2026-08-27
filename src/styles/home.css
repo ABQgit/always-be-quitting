@@ -371,7 +371,11 @@
 .optin h3 {
   margin: 0 0 0.4rem;
   font-family: var(--font-display);
-  font-size: var(--text-lg);
+  /* --text-xl, same as .card h3 and for the same reason: this heading sits
+     directly above body copy, and at --text-lg it was only ~15% larger, which
+     does not register as a heading. Opt-in is a conversion block; the heading
+     is what makes someone stop. */
+  font-size: var(--text-xl);
 }
 .optin p {
   margin: 0 0 1rem;
