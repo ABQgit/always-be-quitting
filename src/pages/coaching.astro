@@ -540,7 +540,7 @@ if (PROGRAM_URL.includes('/test_')) {
 
 <style>
   .pitch p {
-    font-size: 1.15rem;
+    font-size: var(--text-base);
     line-height: 1.65;
     margin: 1.1rem 0;
   }
@@ -556,7 +556,7 @@ if (PROGRAM_URL.includes('/test_')) {
     padding-left: 1.9rem;
     position: relative;
     margin: 0.55rem 0;
-    font-size: 1.1rem;
+    font-size: var(--text-base);
     color: color-mix(in srgb, var(--white) 90%, transparent);
   }
   .checks li::before {
@@ -575,7 +575,7 @@ if (PROGRAM_URL.includes('/test_')) {
     font-family: var(--font-display);
     font-weight: 700;
     line-height: 1.22;
-    font-size: clamp(1.5rem, 3.6vw, 2.5rem);
+    font-size: var(--display-sm);
     text-wrap: balance;
   }
   .pay-for-itself strong {

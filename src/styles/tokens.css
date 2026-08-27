@@ -30,9 +30,8 @@
   --font-display: 'Source Serif 4', Georgia, serif;
   --font-body: 'Public Sans', system-ui, sans-serif;
 
-  /* ---- Base sizes: generous for a 30-65 audience ---- */
-  --text-base: 1.125rem;
-  /* --radius-card removed 2026-08-26: defined, never used. */
+  /* --text-base moved to :root with the rest of the type scale, 2026-08-26.
+     --radius-card removed: defined, never used. */
 }
 
 /* Plain :root copies with the design's short names, so the design
@@ -50,6 +49,37 @@
   --blue: #1e88e5;
   --pale: #80adb3;
   --gold: #ffd130;
+
+  /* ---- TYPE SCALE (built 2026-08-26) -------------------------------------
+     Nine steps. Everything on the site picks from this list; nothing invents
+     a font-size. Adjust the look of the site's typography HERE, once.
+
+     ⚠️ ROOT FONT SIZE IS 20px, NOT THE USUAL 16px. So 1rem = 20px and
+     --text-base renders at 22.5px. That is deliberate - "generous for a 30-65
+     audience" - and it means rem values here are larger in px than you would
+     expect from other projects. Do not "correct" it.
+
+     WHY THIS EXISTS. Before this there were 59 hardcoded font-size values
+     across 8 files, including FIFTEEN distinct sizes between 14.4px and 24px:
+     0.72 0.8 0.82 0.85 0.92 0.95 0.98 1.0 1.02 1.05 1.1 1.12 1.15 1.2 1.25rem.
+     Nobody can see the difference between 1.02rem and 1.05rem - half a pixel.
+     They were not chosen, they were nudged on different days. Measured on the
+     rendered pages, they collapsed into the four body clusters below with
+     nothing lost. Same failure, and same fix, as the six container widths. */
+  --text-xs: 0.75rem;    /* 15px  - kickers, legal, footer headings */
+  --text-sm: 0.9rem;     /* 18px  - meta, captions, announce bar */
+  --text-md: 1rem;       /* 20px  - card body, buttons, secondary text */
+  --text-base: 1.125rem; /* 22.5px - BODY COPY. 168 uses; the site's default */
+  --text-lg: 1.3rem;     /* 26px  - lead paragraphs */
+  --text-xl: 1.6rem;     /* 32px  - card headings (h3) */
+
+  /* Fluid display sizes. Coordinated on purpose: previously there were TEN
+     separate clamp() formulas with different minimums, maximums and growth
+     rates, so headings scaled at different speeds and their relative sizes
+     changed depending on viewport width. These share a rate. */
+  --display-sm: clamp(1.6rem, 3vw, 2.2rem);   /* ~44px desktop */
+  --display-md: clamp(2.1rem, 5vw, 3.7rem);   /* ~74px - .display-lg */
+  --display-xl: clamp(2.8rem, 7vw, 5.2rem);   /* ~104px - .display-xl */
 
   /* ---- container widths -------------------------------------------------
      THREE widths, assigned by what the content is (Jon, 2026-08-23). Before

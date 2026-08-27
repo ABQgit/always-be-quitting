@@ -73,7 +73,7 @@
   .footer {
     background: var(--teal-deep);
     color: color-mix(in srgb, var(--white) 80%, var(--teal-deep));
-    font-size: 0.92rem;
+    font-size: var(--text-sm);
     line-height: 1.65;
   }
 
@@ -84,7 +84,7 @@
   /* Centred and capped: left-aligned at 70ch it filled half the width and left
      the right side empty; genuinely full width would give ~180-char lines. */
   .footer__legal-heading {
-    font: 800 0.72rem/1 var(--font-body);
+    font: 800 var(--text-xs)/1 var(--font-body);
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--gold);
@@ -95,7 +95,7 @@
     margin-inline: auto;
     margin-block: 0;
     max-width: 78ch;
-    font-size: 0.85rem;
+    font-size: var(--text-sm);
     text-align: center;
     color: color-mix(in srgb, var(--white) 68%, var(--teal-deep));
   }
@@ -118,7 +118,7 @@
   /* Brand stays larger and white so it does not get lost among six uppercase
      links that now share its casing. */
   .footer__logo {
-    font: 800 1rem/1 var(--font-body);
+    font: 800 var(--text-md)/1 var(--font-body);
     letter-spacing: 0.08em;
     color: var(--white);
     margin: 0;
@@ -136,7 +136,7 @@
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    font-size: 0.72rem;
+    font-size: var(--text-xs);
     font-weight: 700;
     white-space: nowrap;
   }
@@ -146,7 +146,7 @@
   }
   .footer__copy {
     margin: 1.1rem auto 0;
-    font-size: 0.8rem;
+    font-size: var(--text-xs);
     color: color-mix(in srgb, var(--white) 55%, var(--teal-deep));
   }
 </style>

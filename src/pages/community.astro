@@ -75,7 +75,7 @@ if (JOIN_URL.includes('/test_')) {
           carried the brand name and none of the terms anyone searches. This is
           a DELIBERATE divergence from live-site copy, approved by Jon. */}
       <h1 class="display-xl" style="text-align:center; color:var(--white)">Join the Quit Smoking and Vaping Community</h1>
-      <p style="text-align:center; font-size:1.2rem; margin:1.2rem auto 2.6rem; max-width:46rem; color: color-mix(in srgb, var(--white) 85%, transparent)">
+      <p style="text-align:center; font-size: var(--text-lg); margin:1.2rem auto 2.6rem; max-width:46rem; color: color-mix(in srgb, var(--white) 85%, transparent)">
         Weekly Expert Coaching + Ongoing Community Support For Your Entire Quit Smoking or Vaping Journey
       </p>
       <div class="hero-split">
@@ -260,7 +260,7 @@ if (JOIN_URL.includes('/test_')) {
           <p class="option__verdict"><strong>Don't let shame keep you out.</strong> This is exactly why ongoing support matters. Come back, get motivation from being in the community, fix the things that tripped you up, and start moving forward again.</p>
         </details>
       </div>
-      <p style="text-align:center; margin-top:2rem; font-size:1.1rem"><strong>Whichever you picked - the answer is the same. This community was built for exactly where you are.</strong></p>
+      <p style="text-align:center; margin-top:2rem; font-size: var(--text-base)"><strong>Whichever you picked - the answer is the same. This community was built for exactly where you are.</strong></p>
     </div>
   </section>
 
@@ -349,7 +349,7 @@ if (JOIN_URL.includes('/test_')) {
 
           It was previously 1.15rem in --soft grey, which is the page's skip-me
           styling - the sentence carrying the proof was the one being skipped. */}
-      <p class="display-lg hl" style="margin-top:1.4rem; font-size:clamp(1.5rem, 3vw, 2.2rem); color:var(--ink)">
+      <p class="display-lg hl" style="margin-top:1.4rem; font-size: var(--display-sm); color:var(--ink)">
         The ABQ community is an insane value. Most people spend hundreds a month on smoking or vaping - <em>you'll save hundreds of thousands over your lifetime by quitting.</em>
       </p>
       {/* Rewritten 2026-08-23 (Jon). CAPS on CHOICE are his emphasis, as in the
@@ -360,7 +360,7 @@ if (JOIN_URL.includes('/test_')) {
           "antidote close". Flagged to Jon; the replacement moves from
           positioning against competitors to putting the decision in the
           reader's hands, which suits an objection handler better. */}
-      <p class="reveal" style="margin-top:1.6rem; font-size:1.15rem; line-height:1.6; color:var(--ink)">
+      <p class="reveal" style="margin-top:1.6rem; font-size: var(--text-base); line-height:1.6; color:var(--ink)">
         You're already spending the money. Every day you make a CHOICE to give money to companies that are making
         you sick. Today can be the day that you make the CHOICE to change that.
       </p>
@@ -612,7 +612,7 @@ if (JOIN_URL.includes('/test_')) {
   <section class="band band--teal final">
     <div class="wrap">
       <h2 class="display-xl hl">Finally become the non-smoker or non-vaper <em>you dreamed about.</em></h2>
-      <p style="margin-top:1.4rem; font-size:1.15rem; color: color-mix(in srgb, var(--white) 85%, transparent)">
+      <p style="margin-top:1.4rem; font-size: var(--text-base); color: color-mix(in srgb, var(--white) 85%, transparent)">
         Imagine waking up breathing freely. Not thinking about when you can smoke or vape next. Not hiding it or
         making excuses. Not spending hundreds every month on something that's hurting you. <strong style="color:var(--white)">That's what transformation looks like. You can do this.</strong>
       </p>
@@ -665,7 +665,7 @@ if (JOIN_URL.includes('/test_')) {
     gap: 0.8rem;
   }
   .ticket__kicker {
-    font: 700 0.75rem/1 var(--font-body);
+    font: 700 var(--text-xs)/1 var(--font-body);
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--teal);
@@ -674,7 +674,7 @@ if (JOIN_URL.includes('/test_')) {
   .ticket__price {
     font-family: var(--font-display);
     font-weight: 700;
-    font-size: clamp(2.8rem, 5vw, 3.6rem);
+    font-size: var(--display-md);
     line-height: 1;
     margin: 0;
   }
@@ -687,7 +687,7 @@ if (JOIN_URL.includes('/test_')) {
   .ticket__then,
   .ticket__alt {
     margin: 0;
-    font-size: 0.98rem;
+    font-size: var(--text-md);
     line-height: 1.5;
     color: var(--soft);
   }
@@ -766,7 +766,7 @@ if (JOIN_URL.includes('/test_')) {
   }
   .row-split h3 {
     font-family: var(--font-display);
-    font-size: 1.5rem;
+    font-size: var(--text-xl);
     margin: 0 0 0.7rem;
   }
   .row-split p {
@@ -848,7 +848,7 @@ if (JOIN_URL.includes('/test_')) {
     top: 1.1rem;
     right: 1.3rem;
     font-family: var(--font-display);
-    font-size: 1.6rem;
+    font-size: var(--text-xl);
     line-height: 1;
     color: var(--teal);
     transition: transform 0.18s ease;
@@ -879,14 +879,14 @@ if (JOIN_URL.includes('/test_')) {
   }
   .option h3 {
     font-family: var(--font-display);
-    font-size: 1.3rem;
+    font-size: var(--text-lg);
     margin: 0 0 0.6rem;
   }
   .option p {
     color: var(--soft);
     line-height: 1.55;
     margin: 0.45rem 0;
-    font-size: 0.98rem;
+    font-size: var(--text-md);
   }
   .option__verdict {
     border-top: 1.5px dashed var(--line);
@@ -906,7 +906,7 @@ if (JOIN_URL.includes('/test_')) {
     padding-left: 1.9rem;
     position: relative;
     margin: 0.5rem 0;
-    font-size: 1.02rem;
+    font-size: var(--text-md);
   }
   .checks li::before {
     content: '✓';

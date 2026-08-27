@@ -20,11 +20,11 @@ const RECAPTCHA_SITE_KEY = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY;
   <main class="band band--mist" style="padding-block: clamp(3.5rem, 7vw, 5.5rem)">
     <div class="wrap wrap--read">
       <h1 class="display-lg" style="margin-top:1rem">Contact <em>Always Be Quitting</em></h1>
-      <p style="color:var(--soft); margin:1.2rem 0 0.9rem; font-size:1.1rem">
+      <p style="color:var(--soft); margin:1.2rem 0 0.9rem; font-size: var(--text-base)">
         If you do not get confirmation of your submission, please check your spam/junk mailbox. If you sort your
         mail into subcategories, it could be anywhere :)
       </p>
-      <p style="color:var(--soft); margin:0 0 2rem; font-size:1.1rem">
+      <p style="color:var(--soft); margin:0 0 2rem; font-size: var(--text-base)">
         Please allow messages from alwaysbequitting.com in your email program so our response reaches you.
       </p>
 
@@ -122,7 +122,7 @@ const RECAPTCHA_SITE_KEY = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY;
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
-    font: 700 0.92rem/1 var(--font-body);
+    font: 700 var(--text-sm)/1 var(--font-body);
     color: var(--ink);
   }
   .contact-form input,
@@ -131,7 +131,7 @@ const RECAPTCHA_SITE_KEY = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY;
     border: 2px solid var(--ink);
     border-radius: 10px;
     padding: 0.85rem 1rem;
-    font: 500 1rem/1.5 var(--font-body);
+    font: 500 var(--text-md)/1.5 var(--font-body);
     background: var(--white);
     color: var(--ink);
   }
@@ -149,20 +149,20 @@ const RECAPTCHA_SITE_KEY = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY;
     border: 2px dashed color-mix(in srgb, var(--ink) 35%, transparent);
     border-radius: 10px;
     padding: 1rem 1.1rem;
-    font-size: 0.85rem;
+    font-size: var(--text-sm);
     line-height: 1.5;
     color: var(--soft);
     background: color-mix(in srgb, var(--alt) 60%, var(--white));
   }
   .captcha-placeholder code {
-    font-size: 0.82rem;
+    font-size: var(--text-xs);
     background: color-mix(in srgb, var(--ink) 8%, transparent);
     padding: 0.1rem 0.3rem;
     border-radius: 4px;
   }
   .required-note {
     margin: 0;
-    font-size: 0.85rem;
+    font-size: var(--text-sm);
     color: var(--soft);
   }
   /* Required-field asterisk */
@@ -175,7 +175,7 @@ const RECAPTCHA_SITE_KEY = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY;
   }
   /* Note that sits under a field label, above the input */
   .field-note {
-    font: 400 0.85rem/1.5 var(--font-body);
+    font: 400 var(--text-sm)/1.5 var(--font-body);
     color: var(--soft);
     margin-bottom: 0.15rem;
   }
@@ -197,7 +197,7 @@ const RECAPTCHA_SITE_KEY = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY;
     border-radius: 12px;
     padding: 1rem 1.2rem;
     margin-bottom: 1.4rem;
-    font-size: 0.98rem;
+    font-size: var(--text-md);
   }
   .banner--ok {
     background: color-mix(in srgb, var(--teal) 12%, var(--white));
