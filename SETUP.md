@@ -128,7 +128,7 @@ v=spf1 include:_spf.google.com include:systeme.io ~all
 
 Two separate TXT records at `@`, exactly one `v=spf1` — the SPF line was not disturbed, so Google and systeme.io mail authentication is intact.
 
-⏳ **Still to do: submit `sitemap-index.xml` AFTER the Vercel cutover.** It does not exist on the systeme.io site currently serving the domain.
+⏳ **Still to do: submit `sitemap-index.xml`.** No longer blocked — **the cutover is DONE (2026-08-26)** and `https://www.alwaysbequitting.com/sitemap-index.xml` is live. Search Console → Sitemaps → paste the full URL → Submit. Expect Status *Success*, 7 discovered pages.
 
 *Original instructions kept below for reference.*
 

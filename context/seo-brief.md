@@ -9,7 +9,7 @@ Starting point for the SEO thread. **Read `CLAUDE.md`, `PRD.md` and `context/voi
 | Thing | State |
 |---|---|
 | **Google Search Console** | ✅ Verified 2026-08-25 via DNS TXT, **Domain** property (covers www + apex + subdomains) |
-| **Sitemap** | Generated at `/sitemap-index.xml`, 7 URLs, `/quick-start` excluded. ⏳ **Not yet submitted** — waits for the Vercel cutover |
+| **Sitemap** | Live at `/sitemap-index.xml`, 7 URLs, `/quick-start` excluded. ⏳ **Not yet submitted to Search Console** — no longer blocked, the cutover is done |
 | **Vercel Web Analytics** | ✅ Live and confirmed firing. Cookieless |
 | **Open Graph / Twitter cards** | ✅ Every indexable page. `og-default.png` is a placeholder card |
 | **schema.org JSON-LD** | ✅ In `Base.astro` — Organization / Person / WebSite graph with `knowsAbout` |
@@ -65,4 +65,10 @@ What is realistically winnable is **long-tail intent**: the specific questions t
 
 ## Where things stand overall
 
-The rebuild is **not yet live on the real domain.** `alwaysbequitting.com` still serves systeme.io. The DNS cutover is ready and unblocked; the sitemap submission and a few other items wait on it. See `SETUP.md`.
+🚀 **THE REBUILD IS LIVE.** `www.alwaysbequitting.com` serves the Astro/Vercel site as of 2026-08-26 — verified by fetching `/coaching` and seeing the current copy, the live Stripe link and the new announcement bar. DNS cutover done, all 10 redirects active, both checkouts taking real money.
+
+⚠️ **Treat every change as production from here.** The site is public and transacting. Design work belongs on a branch with a Vercel preview, merged to `master` only when approved. Vercel Instant Rollback (Deployments → promote an earlier one) is the emergency stop.
+
+**Restore point:** git tag `pre-design-2026-08-26` marks the end of the copy phase.
+
+**Still outstanding:** submit `sitemap-index.xml` in Search Console; have systeme.io release the domain from their CloudFront distribution; self-host the Google Fonts; confirm the terms checkbox on the $1,200 Stripe link.

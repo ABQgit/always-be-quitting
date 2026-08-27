@@ -8,6 +8,12 @@ Running list of **look** problems, collected during the copy phase so the design
 
 ---
 
+## 🚀 THE SITE IS LIVE (2026-08-26)
+
+`www.alwaysbequitting.com` serves this build. It is public, indexed, and both checkout buttons take real money.
+
+**So design work is production work.** Put it on a branch, review the Vercel preview URL, merge to `master` only when approved. If something ships broken: Vercel → Deployments → promote an earlier one (Instant Rollback), then fix in git. Restore point: git tag `pre-design-2026-08-26`.
+
 ## Where the copy phase got to (2026-08-25)
 
 Design starts from here. **Four surfaces had a full copy pass:** the homepage, the footer, `/community`, and `/coaching`. Those are settled enough to design against.
