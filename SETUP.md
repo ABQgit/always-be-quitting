@@ -672,7 +672,7 @@ Also worth checking: no `TODO`, no internal file paths, no PRD issue numbers, no
 
 These are in `PROGRAM_URL` (`src/pages/coaching.astro`) and `JOIN_URL` (`src/pages/community.astro`) as of 2026-08-25. The build guard still fires if a `test_` link is ever wired back in.
 
-🚨 **Still outstanding on the $1,200 link:** the terms-of-service checkbox was never confirmed, because Stripe Link intercepted the payment panel during verification. Check it via **"Pay without Link"**. The community link was fully verified; this one was not — and it is now live on the site.
+✅ **$1,200 link fully verified 2026-08-26** — the terms-of-service checkbox is present. Both live payment links are now confirmed end to end.
 
 ### 🚨 Going live — the sandbox→live checklist
 
