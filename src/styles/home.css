@@ -27,6 +27,19 @@
   position: relative;
   overflow: clip;
 }
+
+/* Lead paragraph under a hero H1. Added 2026-08-26 to replace two identical
+   inline max-width:46rem declarations on /community and /quick-start - the
+   same start of the same problem that produced six container widths.
+
+   ⚠️ 46rem = 920px, which is NOT --wrap-read (800px). Value preserved exactly
+   as it was so this change is invisible, but the two should probably agree.
+   Deciding that is a design call, flagged rather than made. */
+.lede {
+  max-width: 46rem;
+  margin: 1.2rem auto 2.4rem;
+  text-align: center;
+}
 /* NO BLACK — hard rule: darkest surface allowed is teal-deep (see design-direction.md) */
 .band--mist {
   background: var(--mist);
@@ -327,7 +340,7 @@
 /* ---------- 1 · hero: dark, deep, centered ---------- */
 .hero {
   text-align: left;
-  padding-block: clamp(5rem, 11vw, 8.5rem) clamp(6rem, 12vw, 9rem);
+  padding-block: var(--section-lg) clamp(6rem, 12vw, 9rem);
 }
 .hero::before {
   content: '';
@@ -397,11 +410,11 @@
 
 /* ---------- 2 · recognition ---------- */
 .recognition {
-  padding-block: clamp(4.5rem, 9vw, 7rem);
+  padding-block: var(--section);
 }
 /* cards overlap the hero band above — depth */
 .recognition .grid {
-  margin-top: 2.4rem;
+  margin-top: var(--gap-md);
 }
 @media (min-width: 860px) {
   .recognition {
@@ -415,7 +428,7 @@
 
 /* ---------- 3 · transformation: full-bleed statement ---------- */
 .transform {
-  padding-block: clamp(4rem, 7vw, 6rem);
+  padding-block: var(--section);
   text-align: center;
 }
 .transform .display-xl {
@@ -447,7 +460,7 @@
 
 /* ---------- 5 · guide: stats not mush ---------- */
 .guide {
-  padding-block: clamp(4.5rem, 9vw, 7rem);
+  padding-block: var(--section);
 }
 .guide__row {
   display: grid;
@@ -510,7 +523,7 @@
 /* Authority beat - its own section (StoryBrand Guide, part two). See index.astro 5b.
    No heading by design (Jon, 2026-08-23), so the stats need no top margin. */
 .authority {
-  padding-block: clamp(3.5rem, 7vw, 5rem);
+  padding-block: var(--section-sm);
 }
 .authority .stats {
   margin-top: 0;
@@ -519,7 +532,7 @@
 .stats {
   display: grid;
   gap: 1.2rem;
-  margin-top: 2.2rem;
+  margin-top: var(--gap-md);
 }
 @media (min-width: 700px) {
   .stats {
@@ -543,12 +556,12 @@
   color: var(--soft);
   line-height: 1.45;
   display: block;
-  margin-top: 0.4rem;
+  margin-top: var(--gap-2xs);
 }
 
 /* ---------- 6 · two doors ---------- */
 .doors {
-  padding-block: clamp(5rem, 10vw, 8rem);
+  padding-block: var(--section-lg);
 }
 .doors__mega {
   font-family: var(--font-display);
@@ -567,7 +580,7 @@
   position: relative;
 }
 .doors .grid {
-  margin-top: 3rem;
+  margin-top: var(--gap-lg);
 }
 .door {
   border-radius: 16px;
@@ -628,13 +641,13 @@
    the rabbit hole of designing things"). Rhythm and spacing are open questions
    for the design phase; see context/design-punchlist.md. */
 .optin-band {
-  padding-block: clamp(3.5rem, 7vw, 5rem);
+  padding-block: var(--section-sm);
 }
 .offers {
-  padding-block: clamp(4.5rem, 9vw, 7rem);
+  padding-block: var(--section);
 }
 .stakes {
-  padding-block: clamp(4rem, 8vw, 6.5rem);
+  padding-block: var(--section);
 }
 
 /* ---- 6a offer cards ----------------------------------------------------
@@ -677,7 +690,7 @@
    lighter so the number still carries, matching the /community ticket. */
 .door .price span {
   display: block;
-  margin-top: 0.4rem;
+  margin-top: var(--gap-2xs);
   font-size: 0.3em;
   font-weight: 500;
   letter-spacing: 0.02em;
@@ -718,7 +731,7 @@
 
 /* ---------- 7 · proof ---------- */
 .proof {
-  padding-block: clamp(4.5rem, 9vw, 7rem);
+  padding-block: var(--section);
 }
 /* column-reverse puts the figcaption (photo + name) ABOVE the quote while
    keeping valid figure/blockquote/figcaption source order (Jon, 2026-08-23:
@@ -768,14 +781,14 @@
 
 /* ---------- 8 · faq ---------- */
 .faq {
-  padding-block: clamp(4rem, 8vw, 6.5rem);
+  padding-block: var(--section);
   max-width: 1000px;
 }
 .faq details {
   border: 2px solid var(--ink);
   border-radius: 12px;
   background: var(--white);
-  margin-top: 0.9rem;
+  margin-top: var(--gap-xs);
   overflow: clip;
 }
 .faq summary {
@@ -843,7 +856,7 @@
 /* ---------- 9 · final cta ---------- */
 .final {
   text-align: center;
-  padding-block: clamp(5.5rem, 11vw, 9rem);
+  padding-block: var(--section-lg);
 }
 .final::before {
   content: '';
@@ -857,7 +870,7 @@
   position: relative;
 }
 .final__actions {
-  margin-top: 2.6rem;
+  margin-top: var(--gap-lg);
   display: flex;
   gap: 1rem;
   justify-content: center;

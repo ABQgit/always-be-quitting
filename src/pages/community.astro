@@ -68,14 +68,14 @@ if (JOIN_URL.includes('/test_')) {
   <SiteHeader />
 
   {/* hero: video + pricing ticket */}
-  <header class="band band--teal" style="padding-block: clamp(3.5rem, 7vw, 5.5rem)">
+  <header class="band band--teal" style="padding-block: var(--section-sm)">
     <div class="wrap">
       {/* H1 changed 2026-08-23 at Jon's direction. Was "Join the
           AlwaysBeQuitting Community" - verbatim from the live site, but it
           carried the brand name and none of the terms anyone searches. This is
           a DELIBERATE divergence from live-site copy, approved by Jon. */}
       <h1 class="display-xl" style="text-align:center; color:var(--white)">Join the Quit Smoking and Vaping Community</h1>
-      <p style="text-align:center; font-size: var(--text-lg); margin:1.2rem auto 2.6rem; max-width:46rem; color: color-mix(in srgb, var(--white) 85%, transparent)">
+      <p class="lede" style="font-size: var(--text-lg); color: color-mix(in srgb, var(--white) 85%, transparent)">
         Weekly Expert Coaching + Ongoing Community Support For Your Entire Quit Smoking or Vaping Journey
       </p>
       <div class="hero-split">
@@ -101,7 +101,7 @@ if (JOIN_URL.includes('/test_')) {
   </header>
 
   {/* what you get: each feature is its own full-width alternating band */}
-  <section class="band band--white" style="padding-block: clamp(3.5rem, 6vw, 5rem) 0">
+  <section class="band band--white" style="padding-block: var(--section-sm) 0">
     <div class="wrap">
       <h2 class="display-lg" style="text-align:center">What You Get</h2>
     </div>
@@ -205,7 +205,7 @@ if (JOIN_URL.includes('/test_')) {
       columns. At the standard wrap ours are ~590px, so slightly wider than
       live. Full-bleed was considered and rejected: every other section on the
       site is wrapped, and breaking that here would look accidental. */}
-  <section class="band band--mist" style="padding-block: clamp(4rem, 8vw, 6.5rem)">
+  <section class="band band--mist" style="padding-block: var(--section)">
     <div class="wrap">
       {/* Q and A are a matched pair at the SAME size, as on the live site
            (Jon, 2026-08-14). The Q was previously .kicker - tiny tracked-out
@@ -213,7 +213,7 @@ if (JOIN_URL.includes('/test_')) {
       <p class="display-lg" style="text-align:center; font-style:italic; margin:0">
         Q: How do I know if the ABQ community is right for me?
       </p>
-      <h2 class="display-lg" style="text-align:center; margin-top:1.4rem">
+      <h2 class="display-lg" style="text-align:center; margin-top: var(--gap-sm)">
         A: Which of these best describes where you are with your smoking or vaping?
       </h2>
       {/* COLLAPSED TO FOUR CHOICES 2026-08-25 (Jon). Each option is a <details>
@@ -260,21 +260,21 @@ if (JOIN_URL.includes('/test_')) {
           <p class="option__verdict"><strong>Don't let shame keep you out.</strong> This is exactly why ongoing support matters. Come back, get motivation from being in the community, fix the things that tripped you up, and start moving forward again.</p>
         </details>
       </div>
-      <p style="text-align:center; margin-top:2rem; font-size: var(--text-base)"><strong>Whichever you picked - the answer is the same. This community was built for exactly where you are.</strong></p>
+      <p style="text-align:center; margin-top: var(--gap-md); font-size: var(--text-base)"><strong>Whichever you picked - the answer is the same. This community was built for exactly where you are.</strong></p>
     </div>
   </section>
 
   {/* simple truth band */}
   <section class="band band--teal transform">
     <div class="wrap reveal">
-      <h2 class="display-lg" style="margin-top:1rem">
+      <h2 class="display-lg" style="margin-top: var(--gap-sm)">
         If you're struggling to quit smoking or vaping on your own, joining the ABQ community is the right decision.
       </h2>
     </div>
   </section>
 
   {/* pricing: ticket, full detail [DIFF: new model, codes removed] */}
-  <section class="band band--white" style="padding-block: clamp(4rem, 8vw, 6.5rem)">
+  <section class="band band--white" style="padding-block: var(--section)">
     <div class="wrap wrap--read">
       <div class="ticket ticket--big reveal">
         <p class="ticket__kicker">Full ABQ Community Membership</p>
@@ -318,7 +318,7 @@ if (JOIN_URL.includes('/test_')) {
   </section>
 
   {/* just start / antidote close */}
-  <section class="band band--paper" style="padding-block: clamp(4rem, 8vw, 6rem); text-align:center">
+  <section class="band band--paper" style="padding-block: var(--section); text-align:center">
     <div class="wrap wrap--read">
       {/* OBJECTION HANDLER, not a value-prop section (Jon, 2026-08-23). Its one
           job: "combat the belief held by smokers and vapers that they CAN'T
@@ -349,7 +349,7 @@ if (JOIN_URL.includes('/test_')) {
 
           It was previously 1.15rem in --soft grey, which is the page's skip-me
           styling - the sentence carrying the proof was the one being skipped. */}
-      <p class="display-lg hl" style="margin-top:1.4rem; font-size: var(--display-sm); color:var(--ink)">
+      <p class="display-lg hl" style="margin-top: var(--gap-sm); font-size: var(--display-sm); color:var(--ink)">
         The ABQ community is an insane value. Most people spend hundreds a month on smoking or vaping - <em>you'll save hundreds of thousands over your lifetime by quitting.</em>
       </p>
       {/* Rewritten 2026-08-23 (Jon). CAPS on CHOICE are his emphasis, as in the
@@ -360,7 +360,7 @@ if (JOIN_URL.includes('/test_')) {
           "antidote close". Flagged to Jon; the replacement moves from
           positioning against competitors to putting the decision in the
           reader's hands, which suits an objection handler better. */}
-      <p class="reveal" style="margin-top:1.6rem; font-size: var(--text-base); line-height:1.6; color:var(--ink)">
+      <p class="reveal" style="margin-top: var(--gap-md); font-size: var(--text-base); line-height:1.6; color:var(--ink)">
         You're already spending the money. Every day you make a CHOICE to give money to companies that are making
         you sick. Today can be the day that you make the CHOICE to change that.
       </p>
@@ -383,7 +383,7 @@ if (JOIN_URL.includes('/test_')) {
        DO NOT lengthen these to match the homepage. */}
   <section class="band band--white proof">
     <div class="wrap">
-      <div class="grid grid--3" style="margin-top:2rem">
+      <div class="grid grid--3" style="margin-top: var(--gap-md)">
         <figure class="card quote reveal">
           <blockquote>It took me nearly six years to build the courage to find a specialist and I am unbelievably grateful it was Jon. If you have reservations about investing in a coach, I cannot recommend Jon enough. The impact he has had on my life is transformative.</blockquote>
           <figcaption>
@@ -612,7 +612,7 @@ if (JOIN_URL.includes('/test_')) {
   <section class="band band--teal final">
     <div class="wrap">
       <h2 class="display-xl hl">Finally become the non-smoker or non-vaper <em>you dreamed about.</em></h2>
-      <p style="margin-top:1.4rem; font-size: var(--text-base); color: color-mix(in srgb, var(--white) 85%, transparent)">
+      <p style="margin-top: var(--gap-sm); font-size: var(--text-base); color: color-mix(in srgb, var(--white) 85%, transparent)">
         Imagine waking up breathing freely. Not thinking about when you can smoke or vape next. Not hiding it or
         making excuses. Not spending hundreds every month on something that's hurting you. <strong style="color:var(--white)">That's what transformation looks like. You can do this.</strong>
       </p>
@@ -697,7 +697,7 @@ if (JOIN_URL.includes('/test_')) {
     color: var(--ink);
   }
   .ticket .btn {
-    margin-top: 0.9rem;
+    margin-top: var(--gap-xs);
     align-self: flex-start;
   }
 
@@ -705,7 +705,7 @@ if (JOIN_URL.includes('/test_')) {
     display: grid;
     gap: 1.8rem;
     align-items: center;
-    padding: clamp(2rem, 4vw, 3.2rem) 0;
+    padding: var(--section-xs) 0;
     border-bottom: 1px solid var(--line);
   }
   .row-split:last-child {
@@ -783,7 +783,7 @@ if (JOIN_URL.includes('/test_')) {
     color: var(--ink);
   }
   .feature-band {
-    padding-block: clamp(2.2rem, 4.5vw, 3.6rem);
+    padding-block: var(--section-xs);
   }
   .feature-band .row-split {
     border-bottom: none;
@@ -794,7 +794,7 @@ if (JOIN_URL.includes('/test_')) {
   .options {
     display: grid;
     gap: 1.4rem;
-    margin-top: 2.6rem;
+    margin-top: var(--gap-lg);
     /* Cards size to their own content. Required once these became <details>
        (2026-08-25): grid rows stretch by default, so opening A inflated B to
        the same 476px and left it a large empty white box. Not a styling
@@ -904,7 +904,7 @@ if (JOIN_URL.includes('/test_')) {
   .option__verdict {
     border-top: 1.5px dashed var(--line);
     padding-top: 0.7rem;
-    margin-top: 0.8rem !important;
+    margin-top: var(--gap-xs) !important;
   }
   .option p strong {
     color: var(--teal);

@@ -81,6 +81,36 @@
   --display-md: clamp(2.1rem, 5vw, 3.7rem);   /* ~74px - .display-lg */
   --display-xl: clamp(2.8rem, 7vw, 5.2rem);   /* ~104px - .display-xl */
 
+  /* ---- SPACING SCALE (built 2026-08-26) ----------------------------------
+     Four section rhythms and four gaps. Nothing invents a padding or margin.
+
+     ⚠️ THIS IS THE DIAL FOR HOW THE SITE BREATHES. Raising --section makes the
+     whole site feel more generous and more expensive; lowering it makes it
+     denser. One line, every page. That is the entire point of tokenising it.
+
+     Built NEUTRAL: every value is the centre of the cluster it replaces, so
+     introducing it changed nothing visible. Tune from here, deliberately.
+
+     WHY. There were 15 distinct clamp() formulas doing four jobs, plus 14
+     margin-top values from 0.4rem to 3rem. The tell: clamp(4rem, 8vw, 6.5rem)
+     appeared five times and clamp(4.5rem, 9vw, 7rem) five times - half a rem
+     apart, same job, different pages, different days. Same failure as the six
+     container widths and the fifteen font sizes. */
+  --section-lg: clamp(5rem, 10vw, 8.5rem);   /* hero, final CTA */
+  --section: clamp(4rem, 8vw, 6.5rem);       /* THE DEFAULT - 13 uses */
+  --section-sm: clamp(3.5rem, 7vw, 5.25rem); /* tight section */
+  --section-xs: clamp(2.5rem, 5vw, 3.5rem);  /* compact strip */
+
+  /* --gap-2xs added after the first conversion pass DOUBLED two 0.4rem margins
+     to 0.8rem. My clustering had lumped 0.4 / 0.8 / 0.9 together as "tiny",
+     but 0.4 to 0.9 is more than 2x - that is two steps, not one. Caught by
+     diffing the conversion rather than trusting the count. */
+  --gap-2xs: 0.4rem;
+  --gap-xs: 0.8rem;
+  --gap-sm: 1.2rem;
+  --gap-md: 2rem;
+  --gap-lg: 2.8rem;
+
   /* ---- container widths -------------------------------------------------
      THREE widths, assigned by what the content is (Jon, 2026-08-23). Before
      this there were six values - 720/760/820/880/900/1320 - hardcoded as inline
