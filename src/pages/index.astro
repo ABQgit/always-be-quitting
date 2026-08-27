@@ -47,14 +47,14 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
        redirect the way the old page URLs were. The anchor has to physically
        exist in the homepage markup or the link silently lands at the top of
        the page instead of the form. Verified present in the build. */}
-  <section id="sub_ABQtips" class="band band--paper optin-band" style="scroll-margin-top: 90px">
+  <section id="sub_ABQtips" class="band band--white optin-band" style="scroll-margin-top: 90px">
     <div class="wrap">
       <OptInForm returnTo="/" />
     </div>
   </section>
 
   {/* 2 · recognition */}
-  <section class="band band--paper recognition">
+  <section class="band band--mist recognition">
     <div class="wrap">
       <div class="lead reveal">
         <h2 class="display-lg hl">You try to quit. It doesn't last. Months later you try again - <em>and the cycle repeats.</em></h2>
@@ -199,11 +199,11 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
 
        DELIBERATE divergence from the live site, which does carry the heading.
        Do not restore it on the grounds that live has it. */}
-  {/* PROVISIONAL BAND COLOUR (Jon, 2026-08-23): band--paper so the stats read as
-      their own section. Previously white, which ran straight into the white
-      offers section below with no visual break. Colour is a placeholder for the
-      design phase - the point is the separation, not this specific tint. */}
-  <section class="band band--paper authority">
+  {/* Band colour RESOLVED 2026-08-26. This was band--paper as a placeholder, to
+      stop the stats running into the white offers section below. It is now
+      band--white as part of the site-wide white/mist alternation, and the
+      separation still holds because the section after it is mist. */}
+  <section class="band band--white authority">
     <div class="wrap">
       <div class="stats">
         <div class="stat reveal"><b>25 Years</b><span>helping people quit smoking and vaping as a CTTS and NCNTT certified specialist</span></div>
@@ -218,7 +218,7 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
        jobs at once - announcing the offerings AND the entry price - so neither
        service registered and the page read as one product with two buttons.
        Offer-architecture rule 1: visitors self-select their level of service. */}
-  <section class="band band--white offers">
+  <section class="band band--mist offers">
     <div class="wrap">
       <h2 class="display-lg hl">Two ways to <em>work with me.</em></h2>
       <div class="grid grid--2">
@@ -264,7 +264,7 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
        services here is 6a's job, and the previous version had drifted into
        repeating 6a almost verbatim ("24/7 access to people quitting alongside
        you", "You don't have to be ready to quit to start"). Keep it out. */}
-  <section class="band band--paper band--dots doors">
+  <section class="band band--white band--dots doors">
     <div class="wrap">
       <div class="doors__mega reveal" aria-hidden="true">$97</div>
       {/* "a month" not "per month" (Jon, 2026-08-23): parallels "a session" in
@@ -333,7 +333,7 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
        person - and that signal lands whether or not anyone reads the words.
        DO NOT TRIM THESE. If they are too long for the layout, the layout
        changes; see design-punchlist.md. */}
-  <section class="band band--white proof">
+  <section class="band band--mist proof">
     <div class="wrap">
       <div class="grid grid--3" style="margin-top: var(--gap-md)">
         {/* Testimonial photos added 2026-08-23 (Jon), matching the live site,

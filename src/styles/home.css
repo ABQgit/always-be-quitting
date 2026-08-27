@@ -45,10 +45,17 @@
   background: var(--mist);
   color: var(--ink);
 }
-.band--paper {
-  background: var(--alt);
-  color: var(--ink);
-}
+/* .band--paper DELETED 2026-08-26 - the site now has ONE light alternate.
+   Jon chose "cut a tint" after measurement showed why the pages read flat:
+     white  rgb(255,255,255)
+     paper  rgb(240,244,243)  -  only 6% off white. Invisible on a screen.
+     mist   rgb(220,235,238)  - 14% off white. Actually reads as a change.
+   So "alternating" white/paper was the code believing it alternated while the
+   page looked uniformly pale. Worse, .band--paper and /community's .band--alt
+   resolved to the SAME colour - two names, one tint.
+   Every page now alternates white / mist strictly, with teal and navy reserved
+   for the emotional beats. Same logic that fixed the six container widths and
+   the fifteen font sizes: fewer, with a reason. */
 .band--white {
   background: var(--white);
   color: var(--ink);
@@ -91,7 +98,6 @@
   background: var(--gold);
   border-radius: 2px;
 }
-.band--paper .kicker,
 .band--white .kicker,
 .band--mist .kicker {
   color: var(--blue);
@@ -340,7 +346,14 @@
 /* ---------- 1 · hero: dark, deep, centered ---------- */
 .hero {
   text-align: left;
-  padding-block: var(--section-lg) clamp(6rem, 12vw, 9rem);
+  /* Top padding reduced from --section-lg (8.5rem) to --section-sm (5.25rem)
+     on 2026-08-26. Jon: "too much space between the first section (hero) and
+     the top bar. it is wasting valuable above the fold space."
+     The hero already sits below a sticky nav AND an announce bar, so it does
+     not need a full section's worth of air above it as well - that space was
+     pushing the H1 down for no reason. Bottom padding unchanged; it still has
+     to separate the hero from what follows. */
+  padding-block: var(--section-sm) clamp(6rem, 12vw, 9rem);
 }
 .hero::before {
   content: '';

@@ -107,7 +107,7 @@ if (JOIN_URL.includes('/test_')) {
     </div>
   </section>
 
-  <section class="band band--white feature-band">
+  <section class="band band--mist feature-band">
     <div class="wrap">
       <div class="row-split reveal">
         {/* Photos replace icons on rows 1-3 (Jon, 2026-08-23): "I like the
@@ -133,7 +133,7 @@ if (JOIN_URL.includes('/test_')) {
     </div>
   </section>
 
-  <section class="band band--alt feature-band">
+  <section class="band band--white feature-band">
     <div class="wrap">
       <div class="row-split row-split--flip reveal">
         <picture class="row-split__img">
@@ -151,7 +151,7 @@ if (JOIN_URL.includes('/test_')) {
     </div>
   </section>
 
-  <section class="band band--white feature-band">
+  <section class="band band--mist feature-band">
     <div class="wrap">
       <div class="row-split reveal">
         <picture class="row-split__img">
@@ -170,7 +170,7 @@ if (JOIN_URL.includes('/test_')) {
     </div>
   </section>
 
-  <section class="band band--alt feature-band">
+  <section class="band band--white feature-band">
     <div class="wrap">
       {/* Row 4 has NO icon and NO image (Jon, 2026-08-23). There are only three
           photos - a fourth pushed unwanted space into the next section back on
@@ -318,7 +318,7 @@ if (JOIN_URL.includes('/test_')) {
   </section>
 
   {/* just start / antidote close */}
-  <section class="band band--paper" style="padding-block: var(--section); text-align:center">
+  <section class="band band--mist" style="padding-block: var(--section); text-align:center">
     <div class="wrap wrap--read">
       {/* OBJECTION HANDLER, not a value-prop section (Jon, 2026-08-23). Its one
           job: "combat the belief held by smokers and vapers that they CAN'T
@@ -778,10 +778,9 @@ if (JOIN_URL.includes('/test_')) {
     color: var(--ink);
   }
 
-  .band--alt {
-    background: var(--alt);
-    color: var(--ink);
-  }
+  /* .band--alt deleted 2026-08-26 with .band--paper - it resolved to the same
+     rgb(240,244,243), only 6% off white, so the "alternating" feature rows were
+     not visibly alternating. The page now uses white / mist strictly. */
   .feature-band {
     padding-block: var(--section-xs);
   }

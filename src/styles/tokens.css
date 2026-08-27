@@ -96,6 +96,11 @@
      appeared five times and clamp(4.5rem, 9vw, 7rem) five times - half a rem
      apart, same job, different pages, different days. Same failure as the six
      container widths and the fifteen font sizes. */
+  /* TRIED AND REJECTED 2026-08-26: raising all four by ~25%
+     (--section to clamp(5rem, 10vw, 8rem) and friends). Jon looked and went
+     back to these. The site does not want more air; the spacing was already
+     right and the problem was never rhythm. Do not re-propose "give it more
+     breathing room" as a general improvement - it has been tested. */
   --section-lg: clamp(5rem, 10vw, 8.5rem);   /* hero, final CTA */
   --section: clamp(4rem, 8vw, 6.5rem);       /* THE DEFAULT - 13 uses */
   --section-sm: clamp(3.5rem, 7vw, 5.25rem); /* tight section */
