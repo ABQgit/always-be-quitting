@@ -60,6 +60,37 @@
   background: var(--white);
   color: var(--ink);
 }
+
+/* Subtle warm alternate. RESTORED 2026-08-26 after two rejected attempts, and
+   the reasoning matters because it looks like we went in a circle.
+
+   - mist (#dcebee, 14% off white) was tried. Jon: "the mist lessens the
+     contrast on the text that is a similar color. it also looks a little baby
+     blue." Both true - --soft drops from 6.81:1 to 5.56:1, and mist is
+     genuinely blue-cast.
+   - all-white with rules only was tried. Jon: "it looks horrible and
+     unpolished for the large sections to be on white."
+
+   THE HAIRLINE IS WHAT MAKES THIS TINT VIABLE. paper failed the first time
+   because at 6% off white it was invisible, and the tint was doing all the
+   separating on its own. Now the RULE separates and the tint only has to add
+   warmth - so the subtlest option becomes the right one, and it happens to
+   have the best text contrast of the three (6.14:1) and no colour cast.
+   Do not "fix" this by making it darker. Darker was tried and rejected. */
+.band--paper {
+  background: var(--alt);
+  color: var(--ink);
+}
+
+/* Hairline between any two adjacent LIGHT bands. Jon: "i do like the thin lines
+   seperating the sections, though, even if we have colors."
+   Teal and navy break the chain by themselves and get no rule. */
+.band--white + .band--white,
+.band--white + .band--paper,
+.band--paper + .band--white,
+.band--paper + .band--paper {
+  border-top: 1px solid var(--line);
+}
 .band--teal {
   background: linear-gradient(160deg, var(--teal-deep), var(--teal) 120%);
   color: var(--white);

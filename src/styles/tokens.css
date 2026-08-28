@@ -38,7 +38,18 @@
    markup's var(--teal) etc. resolve. Keep in sync with @theme above. */
 :root {
   --white: #ffffff;
-  --alt: #f0f4f3;
+  /* Light alternate surface. Changed from #f0f4f3 to #e8ecee 2026-08-26 -
+     recovered from design-briefs/styled-homepage-v1.html, the archived v1
+     design export, where it was the second light surface. Jon: "what about
+     the colors we had before."
+     Why this one, after two rejects:
+       mist    #dcebee  blue-cast +18  -> "looks a little baby blue"
+       #f0f4f3 old      blue-cast  +3  -> only 6% off white, invisible
+       #e8ecee THIS     blue-cast  +6  -> 9% off white, --soft contrast 5.73
+     Visible as a change, barely cool rather than blue, and better text
+     contrast than mist. Paired with the hairline rule, which does the actual
+     separating - the tint only has to add warmth. */
+  --alt: #e8ecee;
   --mist: #dcebee;
   --ink: #0d1e24;
   --soft: #4a5e66;
