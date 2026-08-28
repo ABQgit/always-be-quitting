@@ -117,6 +117,23 @@
 .band--blue p {
   color: color-mix(in srgb, var(--white) 88%, transparent);
 }
+/* Buttons in the offers. Jon: "The buttons are not even the correct color."
+   .btn--ghost is `color: inherit; border: currentColor`, so on this band it
+   rendered as a plain white outline - the generic secondary treatment, not a
+   brand colour, and easy to miss against a panel that is itself outlined in
+   white. Gold is the site's accent on dark surfaces (see .band--teal .hl em)
+   and separates the action from the panel edge. */
+.band--blue .btn--ghost {
+  color: var(--gold);
+  border-color: var(--gold);
+}
+.band--blue .btn--ghost:hover {
+  background: var(--gold);
+  color: var(--ink);
+}
+.offer__num + h3 {
+  margin-top: 0;
+}
 .band--navy {
   background: linear-gradient(150deg, var(--navy) 0%, color-mix(in srgb, var(--navy) 72%, var(--blue)) 130%);
   color: var(--white);
@@ -827,11 +844,50 @@
    fell back to the browser default - about 1.17em - and read as the same weight
    as the paragraph under it. Jon flagged the flat hierarchy 2026-08-23.
    Sized to match .door h3 so 6a and 6b, which are parallel sections, agree. */
+/* THE TWO OFFERS. Rebuilt 2026-08-26. Jon: "It all runs together. The buttons
+   are not even the correct color, there's no separation between the two ways
+   visually."
+
+   Root cause: .offer had NO card treatment whatsoever - no background, no
+   border, no padding. Two flex columns sitting directly on the band, so
+   nothing marked where one offer ended and the other began. Being on a colour
+   band made it worse, because the eye had no edges to hold on to. */
 .offer {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 0.75rem;
+  align-items: center;
+  text-align: center;
+  gap: var(--gap-xs);
+  padding: var(--gap-lg) var(--gap-md);
+  border-radius: 16px;
+  /* A panel lifted out of the band rather than a white card - a white card
+     here would fight the blue and look pasted on. */
+  background: color-mix(in srgb, var(--white) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--white) 22%, transparent);
+}
+
+/* The big outlined numeral. Jon asked for this explicitly, citing the $97
+   treatment in the next section, so it reuses .doors__mega's device: display
+   serif, transparent fill, stroked outline. Gold rather than teal because the
+   band is blue - teal on blue is neither readable nor on-brand.
+   Smaller than .doors__mega on purpose: that one IS the section's headline,
+   this is a marker in front of one. */
+.offer__num {
+  margin: 0 0 var(--gap-2xs);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(3.5rem, 8vw, 5.5rem);
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--gold);
+}
+/* Firefox has no -webkit-text-stroke; fall back to solid gold rather than
+   rendering an invisible transparent numeral. */
+@supports not (-webkit-text-stroke: 2px var(--gold)) {
+  .offer__num {
+    color: var(--gold);
+  }
 }
 .offer h3 {
   font-family: var(--font-display);

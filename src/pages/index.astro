@@ -225,12 +225,19 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
     <div class="wrap">
       <h2 class="display-lg hl">Two ways to <em>work with me.</em></h2>
       <div class="grid grid--2">
+        {/* Numerals added 2026-08-26 (Jon): "It might be helpful to have a big
+            number before it in the center, much like the $97 image starts the
+            next section. So we could have one and two in front of those
+            sections." Reuses the outlined-numeral device from .doors__mega.
+            aria-hidden because they are decorative counters, not content. */}
         <div class="offer reveal">
+          <p class="offer__num" aria-hidden="true">1</p>
           <h3>The ABQ Community</h3>
           <p>Weekly live Q&amp;A calls with Jon and 24/7 access to a community of people quitting alongside you. Move forward at your own pace, with support and accountability the whole way. You don't even have to be ready to quit to start.</p>
           <a class="btn btn--ghost" href="/community">See how the community works</a>
         </div>
         <div class="offer reveal">
+          <p class="offer__num" aria-hidden="true">2</p>
           <h3>1:1 Coaching</h3>
           {/* Names that ongoing 1:1 work exists WITHOUT naming or pricing the
                $1,200 Program - keeps the 2026-07-12 PRD decision intact.
