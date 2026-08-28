@@ -546,6 +546,27 @@
 @media (min-width: 860px) {
   .guide__row {
     grid-template-columns: 1fr 240px;
+    /* Portrait matches the height of the text beside it (Jon, 2026-08-26):
+       "the image of me needs to be the height of the two paragraphs there."
+       It was a fixed 220x275 box vertically centred against a much taller
+       text block, so it read as a small inset picture rather than as half of
+       a two-column composition. stretch + height:100% below makes the two
+       columns share a baseline top and bottom.
+       Two-column only - on mobile the row stacks and the fixed 4/5 box below
+       is correct. */
+    align-items: stretch;
+  }
+  .guide__photo {
+    width: 100%;
+    height: 100%;
+    /* Released so height:100% governs; the fixed ratio would fight it. The
+       img's object-fit: cover handles the crop. */
+    aspect-ratio: auto;
+  }
+  /* Favour the upper part of the frame when cropping - it is a headshot, and
+     a centre crop on a tall box can take the top of the head off. */
+  .guide__photo img {
+    object-position: center 25%;
   }
 }
 /* Guide beat, option B (Jon, 2026-08-23): the label is the kicker, the
