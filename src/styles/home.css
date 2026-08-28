@@ -508,7 +508,11 @@
 }
 .optin {
   max-width: 640px;
-  margin-inline: 0;
+  /* Centred 2026-08-26. Jon: "the form submission needs to be centered."
+     margin-inline: 0 pinned a 640px block to the left edge of a 1320px wrap,
+     leaving half the band empty - it read as unfinished rather than as a
+     deliberate left-aligned composition. */
+  margin-inline: auto;
   background: var(--white);
   color: var(--ink);
   border: 2px solid var(--ink);
@@ -903,8 +907,13 @@
    gold is 12.4:1 rather than the low-contrast outline it replaces. */
 .offer__num {
   margin: 0 0 var(--gap-xs);
-  width: 4rem;
-  height: 4rem;
+  /* 3.2rem (64px), reduced from 4rem 2026-08-26. At 80px the disc was nearly
+     the same size as the 88px section heading above it, so a decorative
+     counter competed with the title of its own section - which is why "Two
+     ways to work with me" read as small despite being 88px. Decoration must
+     sit clearly below the heading it belongs to. */
+  width: 3.2rem;
+  height: 3.2rem;
   border-radius: 50%;
   display: grid;
   place-items: center;
@@ -912,7 +921,7 @@
   color: var(--ink);
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: var(--text-xl);
+  font-size: var(--text-lg);
   line-height: 1;
 }
 .offer h3 {
