@@ -550,12 +550,41 @@
 }
 /* Guide beat, option B (Jon, 2026-08-23): the label is the kicker, the
    empathy/authority sentence is the display statement. */
-.guide__kicker {
-  margin: 0 0 0.9rem;
-  font: 700 var(--text-xs)/1.3 var(--font-body);
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+/* THE STORYBRAND GUIDE INTRODUCTION - "I'm Jon, and I provide exactly that
+   kind of support." Restyled 2026-08-26. Jon: "we have the same problem when I
+   introduce myself, I'm Jon and I... that is a huge statement and it is
+   subordinate to almost everything."
+
+   It was 15px, uppercase, letter-spaced - a label - sitting above a 44px
+   statement. SECOND TIME THIS EXACT THING HAS HAPPENED: a real sentence was
+   given a class named "kicker" and then inherited label styling because of
+   what it was called. The other was .kicker--under on the hero. Watch for it.
+
+   SIZED TO MATCH .guide__statement, at Jon's explicit direction after a first
+   attempt at 26px was still too quiet. Jon: "Im the guide in this journey.
+   this is where I introduce myself... this is my website, me, my guide, my
+   training. It needs to be appropriately sized."
+
+   This SUPERSEDES the 2026-08-23 note below saying the introduction "becomes
+   the kicker so the bridge survives while the substance takes the display
+   type." Both lines are now --display-sm. The introduction is not a bridge
+   into the empathy beat; in StoryBrand it IS the Guide beat.
+
+   Differentiated by COLOUR AND MEASURE, not by size: teal against the
+   statement's ink, same 26ch measure so the two stack as one block rather
+   than two competing headlines. Same display serif deliberately - both are
+   Jon speaking, so they should share a voice. */
+.guide__intro {
+  margin: 0 0 var(--gap-md);
+  font-family: var(--font-display);
+  font-weight: 720;
+  font-size: var(--display-sm);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-transform: none;
   color: var(--teal);
+  max-width: 26ch;
+  text-wrap: balance;
 }
 .guide__statement {
   margin: 0;
