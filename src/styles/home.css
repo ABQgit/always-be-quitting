@@ -851,13 +851,20 @@
   font-family: var(--font-display);
   font-size: var(--text-xl);
   margin: 0;
-  /* Teal, matching .card h3 - Jon wanted card titles coloured as a site-wide
-     standard. Safe here because .door sets no background of its own and sits
-     on a light band.
-     ⚠️ .offer h3 is the DELIBERATE exception: .offer also has no background,
-     but its section is now .band--blue, so a teal heading on dark blue would
-     be both off-brand and low contrast. It stays white by inheritance. If the
-     offers band ever goes light again, colour it teal to match. */
+}
+/* 🚨 THE RULE FOR COLOURED HEADINGS - Jon, 2026-08-26:
+   "Where there is color background, changing every heading to a color is
+   wrong."
+
+   Coloured headings go on LIGHT surfaces ONLY. On any coloured or dark
+   surface the heading stays white by inheritance. I broke this immediately by
+   putting teal on .door h3 without checking that .door--community carries a
+   navy gradient - so its heading went teal on navy.
+
+   Check the SURFACE THE HEADING SITS ON, not the section. .card is always safe
+   because it sets its own white background. .door and .offer set none, so they
+   take whatever is behind them, which differs per variant and per band. */
+.door--session h3 {
   color: var(--teal);
 }
 .door .price {
