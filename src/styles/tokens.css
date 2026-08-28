@@ -58,6 +58,14 @@
   --teal-deep: #06525f;
   --navy: #1a5276;
   --blue: #1e88e5;
+  /* Surface-capable blue, added 2026-08-26. Jon wanted the "two ways to work
+     with me" section on a colourful background - "the blue (not teal)".
+     --blue itself CANNOT be a background: white text on #1e88e5 is 3.68:1 and
+     fails AA. This is the same hue darkened until it is usable (6.63:1),
+     following the --teal / --teal-deep pattern already in this palette.
+     Navy was the alternative but is already the final-CTA band; reusing it
+     would cost the closing section its singularity. */
+  --blue-deep: #175f9e;
   --pale: #80adb3;
   --gold: #ffd130;
 

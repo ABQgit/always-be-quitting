@@ -95,6 +95,28 @@
   background: linear-gradient(160deg, var(--teal-deep), var(--teal) 120%);
   color: var(--white);
 }
+/* Colour band for the offer sections - "two ways to work with me" (Jon,
+   2026-08-26): "that section needs a colorful background to separate it from
+   the other things." It is the decision point on the page and was sitting on
+   the same light alternate as everything around it.
+   Gradient matches the teal and navy bands so the three read as one family. */
+.band--blue {
+  background: linear-gradient(160deg, var(--blue-deep), color-mix(in srgb, var(--blue-deep) 78%, var(--blue)) 120%);
+  color: var(--white);
+}
+.band--blue .hl em {
+  color: var(--gold);
+}
+/* 🚨 REQUIRED, NOT COSMETIC. .offer p and .door p set color: var(--soft), a
+   dark grey written for light bands. On --blue-deep that measures 1.03:1 -
+   invisible, not merely low contrast. Any future band that flips a light
+   section to a dark one has to re-colour its body copy too; the band class
+   alone only sets the container's own color, which descendants override. */
+.band--blue .offer p,
+.band--blue .door p,
+.band--blue p {
+  color: color-mix(in srgb, var(--white) 88%, transparent);
+}
 .band--navy {
   background: linear-gradient(150deg, var(--navy) 0%, color-mix(in srgb, var(--navy) 72%, var(--blue)) 130%);
   color: var(--white);
