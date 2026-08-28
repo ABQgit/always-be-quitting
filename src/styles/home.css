@@ -122,6 +122,37 @@
   align-items: center;
   gap: 0.6rem;
 }
+/* THE STORYBRAND PROBLEM BEAT - "You've tried before. It didn't last."
+   Built 2026-08-26. Until now .kicker--under was used in the markup with NO
+   RULE ANYWHERE, so it silently fell back to .kicker: 15px, uppercase,
+   letter-spaced, pale grey, with a gold dash in front. Label styling on one of
+   the most important sentences on the site. The source comment had said so
+   since August: "'You've tried before' needs statement weight, not kicker
+   size." Jon: "that kicker line ... is one of my storybrand components."
+
+   It is NOT a kicker and must not inherit like one. A kicker is an eyebrow
+   label - which is exactly right for /free-guide's "CTTS & NCNTT certified"
+   credentials line, and that one keeps the small-uppercase treatment. This is
+   a sentence naming the reader's problem, and it has to read like a human
+   thought landing under the headline.
+
+   Body sans rather than display serif on purpose: the H1 above is already
+   104px serif, and repeating that voice makes this compete with it instead of
+   answering it. Kept at --soft rather than --ink so it sits under the headline
+   rather than beside it in weight. */
+.kicker--under {
+  font: 400 var(--text-lg) / 1.45 var(--font-body);
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--soft);
+  display: block;
+  margin-top: var(--gap-sm);
+  max-width: 34ch;
+}
+.kicker--under::before {
+  content: none;
+}
+
 .kicker::before {
   content: '';
   width: 26px;
