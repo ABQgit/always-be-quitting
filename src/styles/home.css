@@ -545,7 +545,11 @@
 /* Text left, portrait right - matches the live site (Jon, 2026-08-23). */
 @media (min-width: 860px) {
   .guide__row {
-    grid-template-columns: 1fr 240px;
+    /* 330px, widened from 240px 2026-08-26. Making the portrait match the text
+       height without widening the column left it a stretched strip - Jon: "it
+       also needs to be proportionally wider." At the ~416px text height this
+       gives roughly 4:5, the portrait's own ratio, so cover barely crops. */
+    grid-template-columns: 1fr 330px;
     /* Portrait matches the height of the text beside it (Jon, 2026-08-26):
        "the image of me needs to be the height of the two paragraphs there."
        It was a fixed 220x275 box vertically centred against a much taller
@@ -555,18 +559,6 @@
        Two-column only - on mobile the row stacks and the fixed 4/5 box below
        is correct. */
     align-items: stretch;
-  }
-  .guide__photo {
-    width: 100%;
-    height: 100%;
-    /* Released so height:100% governs; the fixed ratio would fight it. The
-       img's object-fit: cover handles the crop. */
-    aspect-ratio: auto;
-  }
-  /* Favour the upper part of the frame when cropping - it is a headshot, and
-     a centre crop on a tall box can take the top of the head off. */
-  .guide__photo img {
-    object-position: center 25%;
   }
 }
 /* Guide beat, option B (Jon, 2026-08-23): the label is the kicker, the
@@ -644,6 +636,25 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+/* 🚨 THIS BLOCK MUST STAY AFTER .guide__photo ABOVE. It was originally written
+   inside the earlier @media at the .guide__row rule, which silently did
+   nothing: .guide__photo's `width: 220px` is declared later in the file, and
+   at equal specificity source order wins. The build succeeded, the CSS shipped,
+   and the portrait stayed 220px wide. Moving it below is the whole fix. */
+@media (min-width: 860px) {
+  .guide__photo {
+    width: 100%;
+    height: 100%;
+    /* Released so height:100% governs - the fixed ratio would fight it. The
+       img's object-fit: cover handles the crop. */
+    aspect-ratio: auto;
+  }
+  /* Favour the upper frame when cropping: on a headshot a centre crop in a
+     tall box can take the top of the head off. */
+  .guide__photo img {
+    object-position: center 25%;
+  }
 }
 /* Authority beat - its own section (StoryBrand Guide, part two). See index.astro 5b.
    No heading by design (Jon, 2026-08-23), so the stats need no top margin. */
