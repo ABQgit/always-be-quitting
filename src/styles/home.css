@@ -517,6 +517,21 @@
   box-shadow: 12px 12px 0 color-mix(in srgb, var(--teal) 35%, transparent);
   text-align: left;
 }
+/* Centre the opt-in on phones. Jon: "the form submission needs to be centered
+   ... especially in mobile mode." Its heading, copy and form were all
+   left-aligned inside a block that is itself centred in the wrap, so on a
+   narrow screen it read as sitting off to one side. Desktop keeps left
+   alignment - the block is wide there and centred body copy is harder to
+   read. */
+@media (max-width: 859px) {
+  .optin,
+  .optin form {
+    text-align: center;
+  }
+  .optin form label {
+    text-align: left;
+  }
+}
 .optin h3 {
   margin: 0 0 0.4rem;
   font-family: var(--font-display);

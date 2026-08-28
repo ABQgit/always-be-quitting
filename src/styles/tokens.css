@@ -96,9 +96,19 @@
      separate clamp() formulas with different minimums, maximums and growth
      rates, so headings scaled at different speeds and their relative sizes
      changed depending on viewport width. These share a rate. */
-  --display-sm: clamp(1.6rem, 3vw, 2.2rem);   /* ~44px desktop */
-  --display-md: clamp(2.1rem, 5vw, 3.7rem);   /* ~74px - .display-lg */
-  --display-xl: clamp(2.8rem, 7vw, 5.2rem);   /* ~104px - .display-xl */
+  /* MINIMUMS LOWERED 2026-08-26. Jon: "some of the statements are crammed into
+     a tiny little reading area, when they should be bigger, because the font
+     is bigger... especially in mobile mode."
+
+     Measured at a 390px viewport: --display-xl bottomed out at 56px, giving
+     TWELVE characters per line in a 342px column. The container was never the
+     problem - the font could not physically fit it, so every headline broke
+     into a narrow ragged stack. The clamp maxima are unchanged; only the floor
+     moved, so desktop is identical and only phones are affected.
+     ~12ch -> ~17ch on the h1, ~16ch -> ~21ch on section headings. */
+  --display-sm: clamp(1.35rem, 3vw, 2.2rem);  /* 27px phone -> ~44px desktop */
+  --display-md: clamp(1.6rem, 5vw, 3.7rem);   /* 32px phone -> ~74px (.display-lg) */
+  --display-xl: clamp(2rem, 7vw, 5.2rem);     /* 40px phone -> ~104px (.display-xl) */
 
   /* ---- SPACING SCALE (built 2026-08-26) ----------------------------------
      Four section rhythms and four gaps. Nothing invents a padding or margin.
