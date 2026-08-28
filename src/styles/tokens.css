@@ -132,7 +132,15 @@
      Phone ladder:  52 / 42 / 34 / 28 / 22.5 body
      Desktop:      104 / 74 / 44 / 32 / 22.5 body */
   --display-sm: clamp(1.7rem, 3vw, 2.2rem);   /* 34px phone -> ~44px desktop */
-  --display-md: clamp(2.1rem, 5vw, 3.7rem);   /* 42px phone -> ~74px (.display-lg) */
+  /* Raised 3.7rem -> 4.4rem 2026-08-26. Jon: "here's what make the
+     difference... two ways to work with me... all these headings look too
+     small. if they have the correct heading tags something is wrong."
+     The tags were right - every one is an h2. The cause is that h2 renders at
+     TWO sizes: the transformation line and the final CTA carry .display-xl
+     (104px), everything else .display-lg. Next to a 104px sibling, 74px read
+     as undersized. The two big ones are the emotional beats and stay big; this
+     closes the gap to 88px so a section heading still commands its section. */
+  --display-md: clamp(2.1rem, 5.6vw, 4.4rem); /* 42px phone -> ~88px (.display-lg) */
   --display-xl: clamp(2.6rem, 7vw, 5.2rem);   /* 52px phone -> ~104px (.display-xl) */
 
   /* ---- SPACING SCALE (built 2026-08-26) ----------------------------------
