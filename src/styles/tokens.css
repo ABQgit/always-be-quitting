@@ -90,7 +90,14 @@
   --text-md: 1rem;       /* 20px  - card body, buttons, secondary text */
   --text-base: 1.125rem; /* 22.5px - BODY COPY. 168 uses; the site's default */
   --text-lg: 1.3rem;     /* 26px  - lead paragraphs */
-  --text-xl: 1.6rem;     /* 32px  - card headings (h3) */
+  /* FLUID as of 2026-08-26, and it has to stay fluid. Jon: "almost every
+     single heading on the page is the same size as the sub titles on the cards."
+     When the display floors were lowered for mobile, --text-xl stayed pinned at
+     32px - the same value --display-md then bottomed out at. Section headings
+     and card headings became identical on phones and the hierarchy vanished.
+     Anything ABOVE this in the ladder shrinks on small screens, so this must
+     shrink with it or it collides. */
+  --text-xl: clamp(1.3rem, 2.4vw, 1.6rem); /* 26px phone -> 32px desktop */
 
   /* Fluid display sizes. Coordinated on purpose: previously there were TEN
      separate clamp() formulas with different minimums, maximums and growth
@@ -106,9 +113,14 @@
      into a narrow ragged stack. The clamp maxima are unchanged; only the floor
      moved, so desktop is identical and only phones are affected.
      ~12ch -> ~17ch on the h1, ~16ch -> ~21ch on section headings. */
-  --display-sm: clamp(1.35rem, 3vw, 2.2rem);  /* 27px phone -> ~44px desktop */
-  --display-md: clamp(1.6rem, 5vw, 3.7rem);   /* 32px phone -> ~74px (.display-lg) */
-  --display-xl: clamp(2rem, 7vw, 5.2rem);     /* 40px phone -> ~104px (.display-xl) */
+  /* Floors re-spaced 2026-08-26 so the ladder keeps real steps on a phone.
+     The first attempt lowered these without moving --text-xl, so --display-md
+     (32px) collided exactly with card headings (32px).
+     Phone ladder, top to bottom: 44 / 36 / 30 / 26 / 22.5 body.
+     Desktop:                    104 / 74 / 44 / 32 / 22.5 body. */
+  --display-sm: clamp(1.5rem, 3vw, 2.2rem);   /* 30px phone -> ~44px desktop */
+  --display-md: clamp(1.8rem, 5vw, 3.7rem);   /* 36px phone -> ~74px (.display-lg) */
+  --display-xl: clamp(2.2rem, 7vw, 5.2rem);   /* 44px phone -> ~104px (.display-xl) */
 
   /* ---- SPACING SCALE (built 2026-08-26) ----------------------------------
      Four section rhythms and four gaps. Nothing invents a padding or margin.
