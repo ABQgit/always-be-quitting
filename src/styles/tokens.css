@@ -97,7 +97,7 @@
      and card headings became identical on phones and the hierarchy vanished.
      Anything ABOVE this in the ladder shrinks on small screens, so this must
      shrink with it or it collides. */
-  --text-xl: clamp(1.3rem, 2.4vw, 1.6rem); /* 26px phone -> 32px desktop */
+  --text-xl: clamp(1.4rem, 2.4vw, 1.6rem); /* 28px phone -> 32px desktop */
 
   /* Fluid display sizes. Coordinated on purpose: previously there were TEN
      separate clamp() formulas with different minimums, maximums and growth
@@ -118,9 +118,22 @@
      (32px) collided exactly with card headings (32px).
      Phone ladder, top to bottom: 44 / 36 / 30 / 26 / 22.5 body.
      Desktop:                    104 / 74 / 44 / 32 / 22.5 body. */
-  --display-sm: clamp(1.5rem, 3vw, 2.2rem);   /* 30px phone -> ~44px desktop */
-  --display-md: clamp(1.8rem, 5vw, 3.7rem);   /* 36px phone -> ~74px (.display-lg) */
-  --display-xl: clamp(2.2rem, 7vw, 5.2rem);   /* 44px phone -> ~104px (.display-xl) */
+  /* Phone floors RAISED again 2026-08-26. Jon: "in my opinion the h2 should be
+     bigger, which means the h1 should be too, right?" - yes, or the step
+     between them closes.
+
+     Two corrections rolled together. I originally read "statements are crammed
+     into a tiny little reading area, when they should be bigger, because the
+     font is bigger" as "shrink the font". Re-read, it asks for a WIDER
+     CONTAINER to suit big type - the opposite. The only genuine bug was
+     --text-xl not scaling, which made card headings collide with h2.
+     So the floors are back near their original values and the collision fix
+     stays.
+     Phone ladder:  52 / 42 / 34 / 28 / 22.5 body
+     Desktop:      104 / 74 / 44 / 32 / 22.5 body */
+  --display-sm: clamp(1.7rem, 3vw, 2.2rem);   /* 34px phone -> ~44px desktop */
+  --display-md: clamp(2.1rem, 5vw, 3.7rem);   /* 42px phone -> ~74px (.display-lg) */
+  --display-xl: clamp(2.6rem, 7vw, 5.2rem);   /* 52px phone -> ~104px (.display-xl) */
 
   /* ---- SPACING SCALE (built 2026-08-26) ----------------------------------
      Four section rhythms and four gaps. Nothing invents a padding or margin.
