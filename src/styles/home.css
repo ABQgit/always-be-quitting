@@ -276,6 +276,20 @@
      just not really even worth looking at." He read it as needing separation;
      the measurement said how little there was. Now 42% larger than body. */
   font-size: var(--text-xl);
+  /* Teal, added 2026-08-26. Jon on the recognition and "what makes the
+     difference" grids: "those cards are boring... the titles be a different
+     color... this should probably be standard across the website."
+
+     The flatness was that .card h3 and .display-lg were IDENTICAL except for
+     size - same display serif, same weight, same ink. A card heading read as a
+     small section heading rather than as its own kind of thing. Colour is what
+     separates them, and it costs nothing.
+
+     Safe on every band because .card sets its own white background, so the
+     heading always sits on white (5.58:1) regardless of the band behind it.
+     Font deliberately unchanged: display serif over sans body is the site's
+     pairing, and switching these to sans would make them read as UI labels. */
+  color: var(--teal);
 }
 .card p {
   margin: 0;
@@ -837,6 +851,14 @@
   font-family: var(--font-display);
   font-size: var(--text-xl);
   margin: 0;
+  /* Teal, matching .card h3 - Jon wanted card titles coloured as a site-wide
+     standard. Safe here because .door sets no background of its own and sits
+     on a light band.
+     ⚠️ .offer h3 is the DELIBERATE exception: .offer also has no background,
+     but its section is now .band--blue, so a teal heading on dark blue would
+     be both off-brand and low contrast. It stays white by inheritance. If the
+     offers band ever goes light again, colour it teal to match. */
+  color: var(--teal);
 }
 .door .price {
   font-family: var(--font-display);
