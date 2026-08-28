@@ -123,6 +123,14 @@
    brand colour, and easy to miss against a panel that is itself outlined in
    white. Gold is the site's accent on dark surfaces (see .band--teal .hl em)
    and separates the action from the panel edge. */
+/* 🚨 The numeral disc is a <p>, so `.band--blue p` above (0,1,1) beats
+   `.offer__num` (0,1,0) and painted the numbers white-on-gold at 1.9:1.
+   Restated here at matching specificity. Any element inside a colour band that
+   needs its OWN colour has to out-specify that blanket p rule - it is written
+   broadly on purpose, so exceptions must be explicit. */
+.band--blue .offer p.offer__num {
+  color: var(--ink);
+}
 .band--blue .btn--ghost {
   color: var(--gold);
   border-color: var(--gold);
@@ -866,28 +874,31 @@
   border: 1px solid color-mix(in srgb, var(--white) 22%, transparent);
 }
 
-/* The big outlined numeral. Jon asked for this explicitly, citing the $97
-   treatment in the next section, so it reuses .doors__mega's device: display
-   serif, transparent fill, stroked outline. Gold rather than teal because the
-   band is blue - teal on blue is neither readable nor on-brand.
-   Smaller than .doors__mega on purpose: that one IS the section's headline,
-   this is a marker in front of one. */
+/* Numbered badge. Jon, 2026-08-26: "the big number 1 and 2 look cheezy
+   outlines in yellow. maybe the numbers should be in colored circle."
+
+   First attempt copied .doors__mega's outlined-numeral treatment, which works
+   there because the $97 IS that section's headline - at 10rem an outline reads
+   as deliberate display type. At 5rem, in front of a heading rather than as
+   one, the same outline just reads as a cheap effect. Right device, wrong
+   scale, wrong job.
+
+   A solid filled disc is a counter, which is what these actually are. Gold
+   fill with ink numerals: the accent already used on this band, and dark-on-
+   gold is 12.4:1 rather than the low-contrast outline it replaces. */
 .offer__num {
-  margin: 0 0 var(--gap-2xs);
+  margin: 0 0 var(--gap-xs);
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--gold);
+  color: var(--ink);
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(3.5rem, 8vw, 5.5rem);
-  line-height: 0.85;
-  letter-spacing: -0.04em;
-  color: transparent;
-  -webkit-text-stroke: 2px var(--gold);
-}
-/* Firefox has no -webkit-text-stroke; fall back to solid gold rather than
-   rendering an invisible transparent numeral. */
-@supports not (-webkit-text-stroke: 2px var(--gold)) {
-  .offer__num {
-    color: var(--gold);
-  }
+  font-size: var(--text-xl);
+  line-height: 1;
 }
 .offer h3 {
   font-family: var(--font-display);
