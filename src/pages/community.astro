@@ -267,8 +267,13 @@ if (JOIN_URL.includes('/test_')) {
   {/* simple truth band */}
   <section class="band band--teal transform">
     <div class="wrap reveal">
-      <h2 class="display-lg" style="margin-top: var(--gap-sm)">
-        If you're struggling to quit smoking or vaping on your own, joining the ABQ community is the right decision.
+      {/* .hl + <em> = the site's emphasis device; on a teal band .hl em
+          resolves to gold (see .band--teal .hl em in home.css). Jon,
+          2026-08-26: "this needs some color in it... 'right decision'
+          might be a candidate. we are trying to highlight scanners here."
+          Emphasis markup only - no words changed. */}
+      <h2 class="display-lg hl" style="margin-top: var(--gap-sm)">
+        If you're struggling to quit smoking or vaping on your own, joining the ABQ community is <em>the right decision.</em>
       </h2>
     </div>
   </section>
