@@ -284,11 +284,17 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
       <h2 class="display-lg hl">Working with me starts at $97 a month in the community, or <em>$97 for a session, just the two of us.</em></h2>
       <div class="grid grid--2">
         <div class="door door--community reveal">
-          <h3>The ABQ Community</h3>
-          {/* ALWAYS keep "paid up front" next to the rate (Jon, 2026-08-21) -
-               without it this reads as a monthly subscription and the price
-               appears to triple when they reach /community. */}
-          <div class="price">$97<span class="unit">/month</span></div>
+          {/* .door__head added 2026-08-30 with the /coaching card work. These two
+               were ALREADY title-then-price, so nothing is reordered here - the
+               wrapper only tightens the gap between a heading and the price that
+               belongs to it, and keeps both pages' offer cards identical. */}
+          <div class="door__head">
+            <h3>The ABQ Community</h3>
+            {/* ALWAYS keep "paid up front" next to the rate (Jon, 2026-08-21) -
+                 without it this reads as a monthly subscription and the price
+                 appears to triple when they reach /community. */}
+            <div class="price">$97<span class="unit">/month</span></div>
+          </div>
           <p class="door__terms">3 months, $291 paid up front.</p>
           <ul class="door__list">
             <li>Weekly live calls with Jon, all recorded</li>
@@ -305,8 +311,10 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
               Two different products under near-identical names read as one
               service described twice, so this card has to be openly the small
               door. Keep it a taster; do not let it grow into a Program pitch. */}
-          <h3>A 1:1 Session with Jon</h3>
-          <div class="price">$97<span>one-time</span></div>
+          <div class="door__head">
+            <h3>A 1:1 Session with Jon</h3>
+            <div class="price">$97<span>one-time</span></div>
+          </div>
           <p class="door__terms">One per person.</p>
           <ul class="door__list">
             {/* "written plan" removed 2026-08-23 (Jon): it implies a document

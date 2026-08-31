@@ -1003,9 +1003,31 @@
   margin-top: 0.35rem;
 }
 
+/* Title + price as one unit at the top of the card (Jon, 2026-08-30). The card
+   itself is a flex column with a 0.9rem gap, which is the right rhythm between
+   blocks but too loose between a heading and the price that belongs to it. */
+.door__head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
 .door h3 {
   font-family: var(--font-display);
-  font-size: var(--text-xl);
+  /* --display-sm (34 -> 44px), raised from --text-xl (32px) on 2026-08-30.
+     Jon: "the titles are too small. They should be the feature."
+
+     The real problem was not the absolute size, it was the ranking INSIDE the
+     card. .door .price was --display-sm (44px) against a 32px heading, so the
+     largest thing on the card was the number and the title could not read as
+     the feature whatever it was set to. The two have swapped places rather
+     than the heading simply growing.
+
+     Only .door h3 moves. .card h3 - the recognition and "what makes the
+     difference" grids - stays at --text-xl, so nothing else on the site
+     changes size. These are the two offer cards; they are allowed to be the
+     loudest cards on the page. */
+  font-size: var(--display-sm);
+  line-height: 1.1;
   margin: 0;
 }
 /* 🚨 THE RULE FOR COLOURED HEADINGS - Jon, 2026-08-26:
@@ -1025,7 +1047,14 @@
 }
 .door .price {
   font-family: var(--font-display);
-  font-size: var(--display-sm);
+  /* --text-xl (32px), lowered from --display-sm (44px) on 2026-08-30 so the
+     heading outranks it - see the note on .door h3. Still 42% larger than
+     22.5px body, so the number stays emphatic; it just stops being the
+     loudest thing in the card.
+     Taken from the existing scale rather than picking ~36px by eye: there is
+     no step between --text-xl and --display-sm, and inventing one is how the
+     scale stops being a scale. */
+  font-size: var(--text-xl);
   font-weight: 700;
   line-height: 1;
 }

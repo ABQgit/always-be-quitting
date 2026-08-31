@@ -286,13 +286,22 @@ if (PROGRAM_URL.includes('/test_')) {
       <h2 class="display-lg hl" style="text-align:center">The gold standard in quitting is <em>private, one-to-one, personalized coaching.</em></h2>
       <div class="grid grid--2" style="margin-top: var(--gap-lg)">
         <div class="door door--community reveal">
-          <h3>The 1:1 Program</h3>
+          {/* P1 (Jon, 2026-08-30): TITLE AND PRICE ARE ONE BLOCK, at the top.
+               The price used to sit between the intro paragraph and the detail
+               paragraphs, which are one continuous description of the same
+               offer - Jon: "the price is breaking up the text (in a way that is
+               not necessary)." It also meant the largest element on the card was
+               floating in the middle of it.
+               A scanner now gets the offer and the cost in one glance, per the
+               position already recorded on .door__list: "people jump around and
+               they scan headlines."
+               Qualifier stays in a span under the figure - see .door .price span
+               in home.css for why it is NOT sized in em. */}
+          <div class="door__head">
+            <h3>The 1:1 Program</h3>
+            <div class="price">$1,200<span>6 Session Package</span></div>
+          </div>
           <p>Six private, premium 1:1 coaching sessions with Jon. The most complete, most effective way to quit.</p>
-          {/* Qualifier after the figure, matching the $97 card (Jon,
-              2026-08-23). Set in a span at 0.42em rather than at full price
-              size - "$1,200 6 Session Package" all at 3rem would run to two
-              lines. The $97 card gets the same treatment so they stay a pair. */}
-          <div class="price">$1,200<span>6 Session Package</span></div>
           <p>Six 50-minute sessions with Jon, one-on-one - a roomy window over 12 weeks, because life happens. Direct email access to Jon between every session. A quit strategy built around your life, expert withdrawal and behavior-change coaching, and progress tracking the whole way.</p>
           <p>Want more time when you're done? Additional sessions are available to purchase whenever more support helps.</p>
           <a class="btn btn--cta" href={PROGRAM_CTA}>GET STARTED NOW!</a>
@@ -302,9 +311,12 @@ if (PROGRAM_URL.includes('/test_')) {
                sold a DECISION ("the no-risk way to meet Jon and decide for
                yourself"), which framed the session as a consolation prize for the
                undecided. This sells the OUTCOME: you leave with a plan. */}
-          <h3>The $97 Special 1:1 Meeting</h3>
+          {/* Title + price as one block - see the note on the $1,200 card. */}
+          <div class="door__head">
+            <h3>The $97 Special 1:1 Meeting</h3>
+            <div class="price">$97<span>one-time</span></div>
+          </div>
           <p>A private 50-minute conversation with Jon, and you can ask me anything. What's kept you stuck. What to try next. Why last time didn't hold. Whether you're ready or nowhere near it.</p>
-          <div class="price">$97<span>one-time</span></div>
           {/* "written plan" removed 2026-08-23 (Jon), matching the homepage card:
               it implies a document and a complete quit strategy out of 50
               minutes, which the session cannot reliably deliver. Replaced with
