@@ -306,7 +306,7 @@ if (PROGRAM_URL.includes('/test_')) {
           <a class="btn btn--cta" href={SESSION_URL}>See what's included</a>
         </div>
       </div>
-      <p class="pay-for-itself reveal">
+      <p class="pay-for-itself statement reveal">
         Most people spend <strong>$2k, $3k, $4k</strong> on smoking and vaping <em>EVERY YEAR.</em>
         Spend that money on quitting instead. Every ABQ program pays for itself in money saved.
       </p>
@@ -383,9 +383,12 @@ if (PROGRAM_URL.includes('/test_')) {
        2026-08-23 collapse. Same words, two measures. */}
   <section class="band band--white" style="padding-block: var(--section); text-align:center">
     <div class="wrap">
-      <h2 class="display-lg reveal">
-        You can continue to spend $1k, $2k, $3k, $4k every year on cigarettes and vapes. You can continue to make
-        yourself physically and mentally sick. And next year at this time, you'll wish you had started today.
+      {/* Emphasis MARKUP only - words are verbatim and carry the voice.md
+          exception for "physically and mentally sick". Matches the homepage
+          version of this same statement, which was styled and this was not. */}
+      <h2 class="display-lg statement reveal">
+        You can continue to spend <strong>$1k, $2k, $3k, $4k</strong> every year on cigarettes and vapes. You can continue to make
+        yourself physically and mentally sick. And next year at this time, <em>you'll wish you had started today.</em>
       </h2>
     </div>
   </section>
