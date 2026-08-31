@@ -210,10 +210,10 @@ if (JOIN_URL.includes('/test_')) {
       {/* Q and A are a matched pair at the SAME size, as on the live site
            (Jon, 2026-08-14). The Q was previously .kicker - tiny tracked-out
            label type - which buried the teaser under its own answer. */}
-      <p class="display-lg" style="text-align:center; font-style:italic; margin:0">
+      <p class="qa qa--q">
         Q: How do I know if the ABQ community is right for me?
       </p>
-      <h2 class="display-lg" style="text-align:center; margin-top: var(--gap-sm)">
+      <h2 class="qa qa--a">
         A: Which of these best describes where you are with your smoking or vaping?
       </h2>
       {/* COLLAPSED TO FOUR CHOICES 2026-08-25 (Jon). Each option is a <details>
@@ -788,6 +788,52 @@ if (JOIN_URL.includes('/test_')) {
 
   /* Rules above and below the feature headings (Jon, 2026-08-23), matching the
      live site. They span the text column, not the full width. */
+  /* THE Q AND THE A. Jon, 2026-08-26: "i think these need to be visually
+     separated by color or with a small line between them or similar."
+
+     They were both .display-lg, same size, same ink, differing only by italic -
+     so they read as one long run-on rather than a question and its answer.
+
+     Separated three ways, none of them heavy:
+       COLOUR - the Q is teal (the reader's question), the A is ink (Jon
+                answering). Colour alone does most of the work.
+       SIZE   - the Q steps down to --display-sm so the ANSWER dominates. The
+                answer is what the four cards below actually respond to.
+       RULE   - a short centred line between them, reusing the hairline idea
+                from .rule-heading, which Jon already liked on this page. */
+  .qa {
+    text-align: center;
+    font-family: var(--font-display);
+    text-wrap: balance;
+    margin: 0;
+  }
+  .qa--q {
+    font-size: var(--display-sm);
+    font-style: italic;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--teal);
+  }
+  /* The separating line. ::after on the question so it sits between the two
+     and moves with them. */
+  .qa--q::after {
+    content: '';
+    display: block;
+    width: 72px;
+    height: 2px;
+    margin: var(--gap-sm) auto 0;
+    background: var(--gold);
+    border-radius: 2px;
+  }
+  .qa--a {
+    font-size: var(--display-md);
+    font-weight: 720;
+    line-height: 1.05;
+    letter-spacing: -0.028em;
+    color: var(--ink);
+    margin-top: var(--gap-sm);
+  }
+
   .rule-heading {
     border-top: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
