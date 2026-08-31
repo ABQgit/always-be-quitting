@@ -1027,7 +1027,15 @@
 .door .price span {
   display: block;
   margin-top: var(--gap-2xs);
-  font-size: 0.3em;
+  /* --text-sm, NOT an em. Jon, 2026-08-26: "the 6 session package text is
+     tiny." It was 0.3em of the price, and the price uses --display-sm, which
+     is fluid - so when the display scale changed the qualifier silently fell
+     to 13.2px, the smallest text on the site, sitting under a $1,200 price.
+
+     Never size a qualifier in em off a fluid parent: it inherits every future
+     change to the parent's scale with no bound. Same failure as --text-xl
+     staying fixed while the display floors moved. */
+  font-size: var(--text-sm);
   font-weight: 500;
   letter-spacing: 0.02em;
   opacity: 0.85;

@@ -679,7 +679,12 @@ if (JOIN_URL.includes('/test_')) {
     margin: 0;
   }
   .ticket__price span {
-    font-size: 0.4em;
+    /* --text-sm, not 0.4em - see the note on .door .price span in home.css.
+       An em qualifier off a fluid price inherits every scale change unbounded.
+       This one reads "/month · 3 months, $291 paid up front", which is the
+       most important qualifier on the page and must never shrink out of
+       legibility. */
+    font-size: var(--text-sm);
     font-weight: 500;
     color: var(--soft);
   }
