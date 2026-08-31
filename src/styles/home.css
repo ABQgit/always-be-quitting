@@ -232,6 +232,30 @@
   margin: 0;
 }
 
+/* HEADINGS AND STATEMENTS ARE CENTRED. Jon, 2026-08-26: "i generally prefer
+   headings centered. and if it is just a statment such as, always be quitting
+   until you quit for the last time, needs to be centered."
+
+   Applied on the display classes rather than per section, because that was the
+   actual problem: alignment had been set section by section, so h2 came out
+   five centred and five left with no rule behind it. Now there is a rule.
+
+   Body copy is NOT centred - only headings and standalone statements. Long
+   prose centred is harder to read, so .pitch, card interiors and form labels
+   keep their own alignment. */
+.display-xl,
+.display-lg {
+  text-align: center;
+}
+
+/* The guide block is the exception: it sits in a two-column row beside the
+   portrait, so a centred heading would float away from the photo it is paired
+   with. Both lines stay left. */
+.guide__statement,
+.guide__intro {
+  text-align: left;
+}
+
 /* gold highlighter on italic emphasis — brand signature */
 /* Emphasis device: COLORED ITALIC, not a highlighter slab.
    The gold-marker version was rejected (Jon, 2026-08-14) — it out-shouted
