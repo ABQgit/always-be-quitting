@@ -232,18 +232,31 @@ if (PROGRAM_URL.includes('/test_')) {
           gives it much thought. That steady, outgoing cash flow continues year-after-year with nothing positive
           to show for it.
         </p>
-        <p>
+        {/* PROMOTED TO A STATEMENT (Jon, 2026-08-30). Same words, verbatim - only
+             the styling changed. This is the emotional turn of the section: the
+             line that makes the reader actually do the arithmetic. It was set as
+             body copy and read straight past. */}
+        <p class="cost-question">
           How much did you spend on cigarettes or vapes last year? And the year before? And the year before that?
         </p>
-        <p><strong>When you are successful at quitting, you will:</strong></p>
-        <ul class="checks">
-          <li>SAVE tens of thousands, if not hundreds of thousands, of dollars in the future.</li>
-          <li>Improve your physical health dramatically.</li>
-          <li>Stop feeling controlled by nicotine.</li>
-          <li>Increase productivity and energy in your professional and personal life.</li>
-          <li>Increase your quality of life.</li>
-          <li>and dozens of others.</li>
-        </ul>
+        {/* THE PAYOFF, IN A PANEL (Jon, 2026-08-30): "it needs visual seperation."
+             The section is an argument with two sides - what you spend now, and
+             what you get back - but it was one undifferentiated column on flat
+             teal, so the payoff carried no more weight than the setup. Recessed
+             panel + two columns separates them and lets the whole list be taken
+             in at once instead of scrolled through.
+             Copy is verbatim and UNCHANGED - no items reordered, none removed. */}
+        <div class="payoff">
+          <p class="payoff__lead"><strong>When you are successful at quitting, you will:</strong></p>
+          <ul class="checks">
+            <li>SAVE tens of thousands, if not hundreds of thousands, of dollars in the future.</li>
+            <li>Improve your physical health dramatically.</li>
+            <li>Stop feeling controlled by nicotine.</li>
+            <li>Increase productivity and energy in your professional and personal life.</li>
+            <li>Increase your quality of life.</li>
+            <li>and dozens of others.</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -550,10 +563,83 @@ if (PROGRAM_URL.includes('/test_')) {
   .band--teal .pitch p {
     color: color-mix(in srgb, var(--white) 88%, transparent);
   }
+  /* 🚨 SELECTOR LENGTH IS DELIBERATE on the two rules below.
+     `.pitch p` (0,1,1) and `.band--teal .pitch p` (0,3,1) already set
+     font-size, margin and colour for every paragraph in this block. A bare
+     `.cost-question` (0,1,0) loses to both and silently does nothing - the
+     exact failure that has bitten this project repeatedly. Match the colour
+     rule's specificity and rely on source order, which is why these sit
+     AFTER it. Do not "simplify" these selectors. */
+  .band--teal .pitch p.cost-question {
+    margin: clamp(2.2rem, 5vw, 3.2rem) auto;
+    /* 26ch matches .pay-for-itself, the sibling statement device on this page.
+       30ch was tried and made no visible difference: text-wrap: balance picks
+       the same four lines at either measure, so the wider box was an exception
+       that bought nothing. */
+    max-width: 26ch;
+    text-align: center;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: var(--display-sm);
+    line-height: 1.24;
+    text-wrap: balance;
+    color: var(--white);
+  }
+
+  /* Recessed rather than raised: the band is a teal gradient, so a darker
+     inset separates the panel while keeping white text and gold ticks at
+     full strength. A lighter overlay would wash both out. */
+  .payoff {
+    margin-top: clamp(2rem, 4vw, 2.8rem);
+    padding: clamp(1.5rem, 4vw, 2.4rem);
+    border-radius: 14px;
+    background: color-mix(in srgb, var(--ink) 24%, transparent);
+    border: 1px solid color-mix(in srgb, var(--white) 16%, transparent);
+  }
+  .band--teal .pitch p.payoff__lead {
+    margin: 0 0 var(--gap-sm);
+    padding-bottom: var(--gap-xs);
+    border-bottom: 1px solid color-mix(in srgb, var(--white) 16%, transparent);
+    font-size: var(--text-lg);
+    color: var(--white);
+  }
   .checks {
     list-style: none;
     padding: 0;
     margin: 1rem 0 0;
+  }
+  .payoff .checks {
+    margin: 0;
+  }
+  /* Two columns so the whole payoff is taken in at once. Six items stacked ran
+     longer than a phone screen and longer than the setup that precedes it.
+
+     THE PANEL BREAKS OUT WIDER THAN THE READING COLUMN, and has to. Prose wants
+     a narrow measure; a scannable list does not. Two columns inside the 800px
+     .wrap--read gave 275px each - about 24 characters a line, four and five
+     lines per item (measured in the browser, 2026-08-30). -126px a side takes
+     the panel to ~940px, so each column lands near 38 characters and only the
+     two longest items wrap past one line.
+
+     Guarded at 1040px, not 720px: below the guard the breakout would run past
+     the viewport edge, and .band has `overflow: clip` so it would be cut off
+     rather than scroll. At 1040px there is 120px of free space either side of
+     the wrap and the panel needs 70px of it. */
+  @media (min-width: 1040px) {
+    .payoff {
+      margin-inline: -126px;
+    }
+    .payoff .checks {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem 2.4rem;
+      /* Grid stretches items to the row height by default, which throws off
+         any measurement of how many lines an item actually runs. */
+      align-items: start;
+    }
+    .payoff .checks li {
+      margin: 0;
+    }
   }
   .checks li {
     padding-left: 1.9rem;
