@@ -275,7 +275,14 @@
 .statement em {
   font-style: normal;
   color: var(--cta);
-  white-space: nowrap;
+  /* 🚨 NO white-space: nowrap. It was inherited from .pay-for-itself, where the
+     em is two words ("EVERY YEAR.") and nowrap is harmless. Applied generally
+     it forces ANY length of em onto one line: on /community the em is
+     "you'll save hundreds of thousands over your lifetime by quitting." and it
+     overflowed the container entirely, running off the side of the page
+     (Jon, 2026-08-26, with a screenshot).
+     If a specific short phrase ever needs protecting from a bad break, add
+     nowrap to that instance - never to the shared rule. */
 }
 /* On dark bands teal disappears and orange gets muddy - swap to the accents
    those bands already use. */
