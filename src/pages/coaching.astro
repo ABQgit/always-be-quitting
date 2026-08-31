@@ -254,8 +254,13 @@ if (PROGRAM_URL.includes('/test_')) {
             <li>Stop feeling controlled by nicotine.</li>
             <li>Increase productivity and energy in your professional and personal life.</li>
             <li>Increase your quality of life.</li>
-            <li>and dozens of others.</li>
           </ul>
+          {/* A3 (Jon, 2026-08-30): "and dozens of others." moved OUT of the list.
+               Wording is untouched - only its placement. As a list item it was a
+               sentence fragment carrying a gold tick at the same visual weight as
+               "SAVE tens of thousands", and it was the worst offender for the
+               ragged bottom edge. It reads as what it is - a trailing aside. */}
+          <p class="payoff__more">and dozens of others.</p>
         </div>
       </div>
     </div>
@@ -586,22 +591,36 @@ if (PROGRAM_URL.includes('/test_')) {
     color: var(--white);
   }
 
-  /* Recessed rather than raised: the band is a teal gradient, so a darker
-     inset separates the panel while keeping white text and gold ticks at
-     full strength. A lighter overlay would wash both out. */
+  /* B1 (Jon, 2026-08-30): WHITE CARD, not a tint. The first version was a 24%
+     ink overlay with a 1px border and no shadow - a slightly darker teal
+     rectangle on teal, which Jon called flat, correctly.
+     White also makes the argument visually: the setup is money disappearing
+     into the dark, the payoff is what you get back.
+     Border + hard offset shadow is the site's established card language
+     (.video-embed, .door). The shadow is ink-based, not teal - a teal shadow
+     is invisible on a teal band. */
   .payoff {
     margin-top: clamp(2rem, 4vw, 2.8rem);
-    padding: clamp(1.5rem, 4vw, 2.4rem);
+    padding: clamp(1.6rem, 4vw, 2.6rem);
     border-radius: 14px;
-    background: color-mix(in srgb, var(--ink) 24%, transparent);
-    border: 1px solid color-mix(in srgb, var(--white) 16%, transparent);
+    background: var(--white);
+    color: var(--ink);
+    border: 2px solid var(--ink);
+    box-shadow: 12px 12px 0 color-mix(in srgb, var(--ink) 50%, transparent);
   }
   .band--teal .pitch p.payoff__lead {
     margin: 0 0 var(--gap-sm);
     padding-bottom: var(--gap-xs);
-    border-bottom: 1px solid color-mix(in srgb, var(--white) 16%, transparent);
+    border-bottom: 1px solid var(--line);
     font-size: var(--text-lg);
-    color: var(--white);
+    color: var(--ink);
+  }
+  /* Trailing aside, not a sixth benefit - see the note in the markup. */
+  .band--teal .pitch p.payoff__more {
+    margin: var(--gap-sm) 0 0;
+    padding-left: 1.9rem;
+    font-size: var(--text-md);
+    color: var(--soft);
   }
   .checks {
     list-style: none;
@@ -611,35 +630,22 @@ if (PROGRAM_URL.includes('/test_')) {
   .payoff .checks {
     margin: 0;
   }
-  /* Two columns so the whole payoff is taken in at once. Six items stacked ran
-     longer than a phone screen and longer than the setup that precedes it.
-
-     THE PANEL BREAKS OUT WIDER THAN THE READING COLUMN, and has to. Prose wants
-     a narrow measure; a scannable list does not. Two columns inside the 800px
-     .wrap--read gave 275px each - about 24 characters a line, four and five
-     lines per item (measured in the browser, 2026-08-30). -126px a side takes
-     the panel to ~940px, so each column lands near 38 characters and only the
-     two longest items wrap past one line.
-
-     Guarded at 1040px, not 720px: below the guard the breakout would run past
-     the viewport edge, and .band has `overflow: clip` so it would be cut off
-     rather than scroll. At 1040px there is 120px of free space either side of
-     the wrap and the panel needs 70px of it. */
-  @media (min-width: 1040px) {
-    .payoff {
-      margin-inline: -126px;
-    }
-    .payoff .checks {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem 2.4rem;
-      /* Grid stretches items to the row height by default, which throws off
-         any measurement of how many lines an item actually runs. */
-      align-items: start;
-    }
-    .payoff .checks li {
-      margin: 0;
-    }
+  /* A1 (Jon, 2026-08-30): ONE COLUMN. The two-column version and the ~940px
+     breakout that made room for it are both gone.
+     Why they failed: the six items run 3, 2, 2, 3, 1 and 1 lines. Paired across
+     rows and top-aligned, every row left a hole under its shorter item and the
+     columns never bottomed out together. That is what ragged text always does
+     in a two-column grid - it was not a tuning problem.
+     Two columns was my suggestion, not a requirement. Do not reinstate it
+     unless the items are first made uniform in length, which is a copy
+     decision and Jon's to make. */
+  .payoff .checks li {
+    color: var(--ink);
+  }
+  /* Gold on white is 1.45:1 and unreadable. Teal on white is 5.6:1 (AA).
+     Do not put the gold tick back on a light surface. */
+  .payoff .checks li::before {
+    color: var(--teal);
   }
   .checks li {
     padding-left: 1.9rem;
