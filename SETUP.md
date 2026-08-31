@@ -259,7 +259,13 @@ Measured on the deployed site, not assumed:
 
 🚩 **If a CAPTCHA is ever needed, use Cloudflare Turnstile, NOT the reCAPTCHA wiring already in the code.** reCAPTCHA sets tracking cookies and in the EU generally requires explicit consent before it loads — adding it would cost the no-banner position documented above, and put a consent gate in front of the contact form. Turnstile sets no tracking cookies, doesn't follow visitors across sites, and is normally run under legitimate interest as a strictly-necessary security function. It needs a free Cloudflare account but **not** Cloudflare DNS — nameservers stay at GoDaddy.
 
-**The reCAPTCHA code stays in place, dormant and harmless:** `/api/contact` skips verification entirely unless `RECAPTCHA_SECRET_KEY` is set.
+**Reaffirmed 2026-08-30 (Jon): honeypot only, no CAPTCHA.** No spam has appeared. Nothing to do.
+
+**The reCAPTCHA code stays in place and is dormant:** `/api/contact` skips verification entirely unless `RECAPTCHA_SECRET_KEY` is set.
+
+⚠️ **It was NOT "harmless", as this file previously claimed.** The `else` branch of the widget conditional in `contact.astro` rendered a dashed-border box reading *"reCAPTCHA appears here once `PUBLIC_RECAPTCHA_SITE_KEY` is set… See SETUP.md"* — **to every visitor, on the live contact form.** It was meant as a build-time reminder, but it sat inside the rendered component, so it shipped. Found by Jon 2026-08-30 and removed; the branch now renders nothing when the key is unset.
+
+The lesson generalises: **developer instructions never go in a rendered branch.** Put them in this file, or in an Astro `{/* */}` comment, which is compile-time only and cannot leak. (Note the related trap already recorded in `CLAUDE.md`: HTML `<!-- -->` comments *do* ship to the browser.)
 
 ⚠️ **Footgun if anyone revisits this.** The site key and secret must be set together or not at all:
 
