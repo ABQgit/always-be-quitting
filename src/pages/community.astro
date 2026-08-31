@@ -685,6 +685,25 @@ if (JOIN_URL.includes('/test_')) {
        most important qualifier on the page and must never shrink out of
        legibility. */
     font-size: var(--text-sm);
+    /* 🚨 BLOCK, and reset the line-height. Jon, 2026-08-26, with a screenshot:
+       the qualifier ran inline after "$97", wrapped mid-phrase, and stranded
+       "up front" on its own line below a huge gap - so the card read
+       "$97/month · 3 months, $291 paid ......... up front".
+
+       Two causes, both needed fixing:
+       1. It was inline, so it flowed after the price and broke wherever the
+          column ran out. .door .price span has always been display:block;
+          this one never was.
+       2. It inherited .ticket__price's line-height, sized for an 88px
+          numeral, which is what produced the enormous gap on the wrapped line.
+
+       A price qualifier ALWAYS goes on its own line. "$291 paid up front" is
+       a contingency on the $97 and must never be split across a line break -
+       see the header note about never separating those two. */
+    display: block;
+    margin-top: var(--gap-2xs);
+    line-height: 1.4;
+    text-wrap: balance;
     font-weight: 500;
     color: var(--soft);
   }
