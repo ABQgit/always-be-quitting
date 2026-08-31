@@ -1040,6 +1040,24 @@
   letter-spacing: 0.02em;
   opacity: 0.85;
 }
+/* THE UNIT stays on the price's line. Jon, 2026-08-26: "the /month needs to be
+   on same line as price."
+
+   Two different things were both being called a price qualifier:
+     UNIT  - "/month", "/session". Part of the price expression itself. "$97"
+             and "/month" are one phrase and must never be split.
+     NOTE  - "6 Session Package", "one-time", "3 months, $291 paid up front".
+             A separate fact about the purchase; belongs on its own line.
+   The block rule above is right for a NOTE and wrong for a UNIT. */
+/* Specificity note: `.door .price span` above is (0,2,1), so a plain
+   `.price .unit` (0,2,0) LOSES to it and the unit stays block. Matched here
+   deliberately. */
+.door .price span.unit,
+.price span.unit {
+  display: inline;
+  margin: 0;
+  vertical-align: baseline;
+}
 .door--community .price {
   color: var(--gold);
 }

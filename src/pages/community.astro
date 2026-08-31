@@ -91,7 +91,7 @@ if (JOIN_URL.includes('/test_')) {
         </div>
         <aside class="ticket reveal">
           <p class="ticket__kicker">Full ABQ Community Membership</p>
-          <p class="ticket__price">$97<span>/month · 3 months, $291 paid up front</span></p>
+          <p class="ticket__price">$97<span class="unit">/month</span><span>3 months, $291 paid up front</span></p>
           <p class="ticket__terms">Three months is a commitment to yourself and to the process of quitting, which takes time. <a href="#why-three-months">Why three months?</a></p>
           <p class="ticket__then">After that, you can continue at <strong>$37/month</strong> if you wish.</p>
           <a class="btn btn--cta" href={JOIN_URL}>Join the Community</a>
@@ -278,7 +278,7 @@ if (JOIN_URL.includes('/test_')) {
     <div class="wrap wrap--read">
       <div class="ticket ticket--big reveal">
         <p class="ticket__kicker">Full ABQ Community Membership</p>
-        <p class="ticket__price">$97<span>/month · 3 months, $291 paid up front</span></p>
+        <p class="ticket__price">$97<span class="unit">/month</span><span>3 months, $291 paid up front</span></p>
         <p class="ticket__terms">
           Three months is a commitment to yourself and to the process of quitting, which takes time.
         </p>
@@ -704,6 +704,16 @@ if (JOIN_URL.includes('/test_')) {
     margin-top: var(--gap-2xs);
     line-height: 1.4;
     text-wrap: balance;
+  }
+  /* The UNIT rides the price's line - "$97/month" is one phrase. Declared HERE
+     rather than only in home.css because Astro scopes this block's selectors
+     with a [data-astro-cid] attribute, which outweighs the global rule; the
+     global .unit would silently lose and the unit would stay on its own line. */
+  .ticket__price span.unit {
+    display: inline;
+    margin: 0;
+    line-height: 1;
+    vertical-align: baseline;
     font-weight: 500;
     color: var(--soft);
   }
