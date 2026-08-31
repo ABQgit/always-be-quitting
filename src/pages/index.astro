@@ -323,7 +323,7 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
           <a class="btn btn--cta" href={SESSION_URL}>Book your $97 session</a>
         </div>
       </div>
-      <p class="doors__mitigate reveal">$97 is less than most people spend in a single month (or week) on smoking or vaping.</p>
+      <p class="doors__mitigate statement reveal"><strong>$97</strong> is less than most people spend in a single month (or week) on smoking or vaping.</p>
     </div>
   </section>
 
@@ -408,10 +408,13 @@ const SESSION_URL = 'https://abq-landing-v2.vercel.app';
        medical-scare messaging." Recorded in voice.md - do not "fix" it. */}
   <section class="band band--white stakes">
     <div class="wrap reveal">
-      <p class="display-lg stakes__body">
-        You can continue to spend $1k, $2k, $3k, $4k every year on cigarettes and vapes.
+      {/* Emphasis MARKUP only. The words are Jon's verbatim, approved
+          2026-08-14, and carry the recorded voice.md exception for
+          "physically and mentally sick". Never reword to suit styling. */}
+      <p class="display-lg stakes__body statement">
+        You can continue to spend <strong>$1k, $2k, $3k, $4k</strong> every year on cigarettes and vapes.
         You can continue to make yourself physically and mentally sick.
-        And next year at this time, you'll wish you had started today.
+        And next year at this time, <em>you'll wish you had started today.</em>
       </p>
     </div>
   </section>

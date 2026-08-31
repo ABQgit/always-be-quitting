@@ -256,6 +256,40 @@
   text-align: left;
 }
 
+/* STATEMENT EMPHASIS. Jon, 2026-08-26: some statements "need to be more
+   visually interesting", pointing at .pay-for-itself on /coaching as the one
+   that already works:
+     Most people spend <strong>$2k, $3k, $4k</strong> ... <em>EVERY YEAR.</em>
+
+   That device is two colours doing two jobs - teal on the figures, orange on
+   the punch line - and it was trapped in one page's scoped stylesheet. Lifted
+   here so any statement can use it, rather than being re-invented per section.
+
+   NOTE this is emphasis MARKUP only. The stakes copy is verbatim and carries a
+   recorded voice.md exception; wrapping words in <strong>/<em> changes no
+   words. Do not edit the text itself to suit the styling. */
+.statement strong {
+  color: var(--teal);
+  font-weight: inherit;
+}
+.statement em {
+  font-style: normal;
+  color: var(--cta);
+  white-space: nowrap;
+}
+/* On dark bands teal disappears and orange gets muddy - swap to the accents
+   those bands already use. */
+.band--teal .statement strong,
+.band--navy .statement strong,
+.band--blue .statement strong {
+  color: var(--gold);
+}
+.band--teal .statement em,
+.band--navy .statement em,
+.band--blue .statement em {
+  color: var(--white);
+}
+
 /* gold highlighter on italic emphasis — brand signature */
 /* Emphasis device: COLORED ITALIC, not a highlighter slab.
    The gold-marker version was rejected (Jon, 2026-08-14) — it out-shouted
