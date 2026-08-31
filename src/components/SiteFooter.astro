@@ -70,9 +70,23 @@
 </footer>
 
 <style>
+  /* FOOTER SURFACE. Changed from --teal-deep to --ink 2026-08-26. Jon: "the
+     medical disclaimer and last section with copyright and links, should be
+     changed from the main teal color... I guess we could try some sort of
+     charcoal?" --ink IS the palette's charcoal - a near-black blue - so this
+     adds no new colour.
+
+     It also fixes something flagged on the punchlist weeks ago: every page
+     ended with a dark band running into a similarly dark teal footer, so the
+     page never visually closed. Near-black is a clear step DOWN from teal or
+     navy and reads as a deliberate ending.
+
+     Declared once here; every mix below resolves against it, so re-skinning
+     the footer is a one-line change. White text is 17.1:1 against it. */
   .footer {
-    background: var(--teal-deep);
-    color: color-mix(in srgb, var(--white) 80%, var(--teal-deep));
+    --footer-bg: var(--ink);
+    background: var(--footer-bg);
+    color: color-mix(in srgb, var(--white) 80%, var(--footer-bg));
     font-size: var(--text-sm);
     line-height: 1.65;
   }
@@ -97,10 +111,10 @@
     max-width: 78ch;
     font-size: var(--text-sm);
     text-align: center;
-    color: color-mix(in srgb, var(--white) 68%, var(--teal-deep));
+    color: color-mix(in srgb, var(--white) 68%, var(--footer-bg));
   }
   .footer__legal-body a {
-    color: color-mix(in srgb, var(--white) 88%, var(--teal-deep));
+    color: color-mix(in srgb, var(--white) 88%, var(--footer-bg));
   }
 
   /* ---- 2. brand + one uniform menu, copyright beneath ---- */
@@ -132,7 +146,7 @@
     gap: 0.6rem 1.4rem;
   }
   .footer__menu a {
-    color: color-mix(in srgb, var(--white) 72%, var(--teal-deep));
+    color: color-mix(in srgb, var(--white) 72%, var(--footer-bg));
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 0.06em;
@@ -147,6 +161,6 @@
   .footer__copy {
     margin: 1.1rem auto 0;
     font-size: var(--text-xs);
-    color: color-mix(in srgb, var(--white) 55%, var(--teal-deep));
+    color: color-mix(in srgb, var(--white) 55%, var(--footer-bg));
   }
 </style>
