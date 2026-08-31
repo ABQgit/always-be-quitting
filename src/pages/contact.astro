@@ -76,13 +76,21 @@ const RECAPTCHA_SITE_KEY = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY;
         {/* honeypot: real users never fill this */}
         <label class="hp" aria-hidden="true">Company<input type="text" name="company" tabindex="-1" autocomplete="off" /></label>
 
-        {RECAPTCHA_SITE_KEY ? (
+        {/* 🚨 RENDERS NOTHING when the key is unset - which is the current and
+             RECORDED state: honeypot only, no CAPTCHA (SETUP.md, Jon 2026-08-25).
+
+             There was a dashed-border developer note in the else branch here,
+             reading "reCAPTCHA appears here once PUBLIC_RECAPTCHA_SITE_KEY is
+             set... See SETUP.md". It was written as a build-time reminder, but
+             it lived inside the rendered component, so it SHIPPED - real
+             visitors were reading setup instructions on the live contact form
+             (found by Jon, 2026-08-30).
+
+             Never put developer instructions in a rendered branch. A reminder
+             belongs in SETUP.md or an Astro {/* *\/} comment, which is
+             compile-time only and cannot leak. */}
+        {RECAPTCHA_SITE_KEY && (
           <div class="g-recaptcha" data-sitekey={RECAPTCHA_SITE_KEY}></div>
-        ) : (
-          <div class="captcha-placeholder">
-            reCAPTCHA appears here once <code>PUBLIC_RECAPTCHA_SITE_KEY</code> is set. Google issues the key;
-            it can't render without one. See SETUP.md.
-          </div>
         )}
 
         <p class="required-note"><span class="req" aria-hidden="true">*</span> Required field</p>
@@ -143,23 +151,8 @@ const RECAPTCHA_SITE_KEY = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY;
   .contact-form .btn {
     align-self: flex-start;
   }
-  /* Visible only before the reCAPTCHA keys are set. Disappears automatically
-     once PUBLIC_RECAPTCHA_SITE_KEY exists. */
-  .captcha-placeholder {
-    border: 2px dashed color-mix(in srgb, var(--ink) 35%, transparent);
-    border-radius: 10px;
-    padding: 1rem 1.1rem;
-    font-size: var(--text-sm);
-    line-height: 1.5;
-    color: var(--soft);
-    background: color-mix(in srgb, var(--alt) 60%, var(--white));
-  }
-  .captcha-placeholder code {
-    font-size: var(--text-xs);
-    background: color-mix(in srgb, var(--ink) 8%, transparent);
-    padding: 0.1rem 0.3rem;
-    border-radius: 4px;
-  }
+  /* .captcha-placeholder and .captcha-placeholder code removed 2026-08-30 with
+     the markup they styled - see the note on the reCAPTCHA branch above. */
   .required-note {
     margin: 0;
     font-size: var(--text-sm);
